@@ -15,6 +15,7 @@
  */
 package com.github.servb.pph.pheroes.common.common;
 
+import com.badlogic.gdx.graphics.Color;
 import static com.github.servb.pph.gxlib.gxlcommondef.Static.iRandTable;
 import com.github.servb.pph.util.helpertype.ConstArray;
 import com.github.servb.pph.util.helpertype.SimpleConstArray;
@@ -76,20 +77,20 @@ public final class Static {
                 9           // New wasteland
             });
 
-    public static final ConstArray<SURF_TYPE, Short> SURF_COLOR =
-            new ConstArray<SURF_TYPE, Short>(new Short[] {
-                RGB16(8, 28, 128),    // Water
-                RGB16(214, 182, 148), // Sand
-                RGB16(99, 48, 8),     // Dirt
-                RGB16(24, 97, 16),    // Grass
-                RGB16(0, 44, 0),      // Swamp
-                RGB16(48, 48, 48),    // Lava
-                RGB16(165, 85, 16),   // Wasteland
-                RGB16(181, 138, 24),  // Desert
-                RGB16(220, 220, 220), // Snow
-                RGB16(192, 160, 0),   // New Desert
-                RGB16(160, 160, 160), // Pavement
-                RGB16(192, 192, 160), // New wasteland
+    public static final ConstArray<SURF_TYPE, Integer> SURF_COLOR =
+            new ConstArray<SURF_TYPE, Integer>(new Integer[] {
+                Color.toIntBits(8, 28, 128, 255),    // Water
+                Color.toIntBits(214, 182, 148, 255), // Sand
+                Color.toIntBits(99, 48, 8, 255),     // Dirt
+                Color.toIntBits(24, 97, 16, 255),    // Grass
+                Color.toIntBits(0, 44, 0, 255),      // Swamp
+                Color.toIntBits(48, 48, 48, 255),    // Lava
+                Color.toIntBits(165, 85, 16, 255),   // Wasteland
+                Color.toIntBits(181, 138, 24, 255),  // Desert
+                Color.toIntBits(220, 220, 220, 255), // Snow
+                Color.toIntBits(192, 160, 0, 255),   // New Desert
+                Color.toIntBits(160, 160, 160, 255), // Pavement
+                Color.toIntBits(192, 192, 160, 255), // New wasteland
             });
 
     public static final int CalcCellSeqGame(final constPoint pnt, final int maxv) {
