@@ -17,6 +17,8 @@ package com.github.servb.pph.pheroes.common.common;
 
 import com.badlogic.gdx.graphics.Color;
 import static com.github.servb.pph.gxlib.gxlcommondef.Static.iRandTable;
+import com.github.servb.pph.gxlib.gxlmetrics.ConstPoint;
+import com.github.servb.pph.gxlib.gxlmetrics.IConstPoint;
 import com.github.servb.pph.util.helpertype.ConstArray;
 import com.github.servb.pph.util.helpertype.SimpleConstArray;
 
@@ -93,13 +95,13 @@ public final class Static {
                 Color.toIntBits(192, 192, 160, 255), // New wasteland
             });
 
-    public static final int CalcCellSeqGame(final constPoint pnt, final int maxv) {
-        int result = pnt.x;
-        result += ~(pnt.y << 16);
-        result ^= (pnt.x >> 5);
-        result += (pnt.y << 3);
-        result ^= (pnt.x >> 13);
-        result += ~(pnt.y << 9);
+    public static final int CalcCellSeqGame(final IConstPoint pnt, final int maxv) {
+        int result = pnt.getX();
+        result += ~(pnt.getY() << 16);
+        result ^= (pnt.getX() >> 5);
+        result += (pnt.getY() << 3);
+        result ^= (pnt.getX() >> 13);
+        result += ~(pnt.getY() << 9);
         result ^= (result >> 17);
 
         final int idx = (result ^ (result >> 8) ^ (result >> 16)) & 255;
@@ -352,39 +354,39 @@ public final class Static {
                 })
             });
 
-    public static final SimpleConstArray<constPoint> HERO_FLAG_ANCHOR =
-            new SimpleConstArray<constPoint>(new constPoint[] {
-                new constPoint(4, 7), new constPoint(4, 5), new constPoint(4, 4), new constPoint(4, 5),
-                new constPoint(4, 7),
-                new constPoint(4, 6), new constPoint(4, 4), new constPoint(4, 5), new constPoint(4, 6),
+    public static final SimpleConstArray<IConstPoint> HERO_FLAG_ANCHOR =
+            new SimpleConstArray<IConstPoint>(new IConstPoint[] {
+                new ConstPoint(4, 7), new ConstPoint(4, 5), new ConstPoint(4, 4), new ConstPoint(4, 5),
+                new ConstPoint(4, 7),
+                new ConstPoint(4, 6), new ConstPoint(4, 4), new ConstPoint(4, 5), new ConstPoint(4, 6),
 
-                new constPoint(8, 7), new constPoint(9, 7), new constPoint(8, 7), new constPoint(9, 8),
-                new constPoint(10, 8),
-                new constPoint(10, 7), new constPoint(9, 7), new constPoint(8, 7), new constPoint(7, 7),
+                new ConstPoint(8, 7), new ConstPoint(9, 7), new ConstPoint(8, 7), new ConstPoint(9, 8),
+                new ConstPoint(10, 8),
+                new ConstPoint(10, 7), new ConstPoint(9, 7), new ConstPoint(8, 7), new ConstPoint(7, 7),
 
-                new constPoint(11, 8), new constPoint(12, 8), new constPoint(11, 8), new constPoint(10, 8),
-                new constPoint(10, 9),
-                new constPoint(9, 9), new constPoint(10, 8), new constPoint(11, 8), new constPoint(10, 8),
+                new ConstPoint(11, 8), new ConstPoint(12, 8), new ConstPoint(11, 8), new ConstPoint(10, 8),
+                new ConstPoint(10, 9),
+                new ConstPoint(9, 9), new ConstPoint(10, 8), new ConstPoint(11, 8), new ConstPoint(10, 8),
 
-                new constPoint(13, 7), new constPoint(14, 7), new constPoint(13, 8), new constPoint(11, 9),
-                new constPoint(13, 9),
-                new constPoint(14, 10), new constPoint(14, 9), new constPoint(14, 8), new constPoint(12, 7),
+                new ConstPoint(13, 7), new ConstPoint(14, 7), new ConstPoint(13, 8), new ConstPoint(11, 9),
+                new ConstPoint(13, 9),
+                new ConstPoint(14, 10), new ConstPoint(14, 9), new ConstPoint(14, 8), new ConstPoint(12, 7),
 
-                new constPoint(32, 8), new constPoint(32, 9), new constPoint(32, 10), new constPoint(32, 8),
-                new constPoint(32, 9),
-                new constPoint(32, 10), new constPoint(32, 11), new constPoint(32, 8), new constPoint(32, 9),
+                new ConstPoint(32, 8), new ConstPoint(32, 9), new ConstPoint(32, 10), new ConstPoint(32, 8),
+                new ConstPoint(32, 9),
+                new ConstPoint(32, 10), new ConstPoint(32, 11), new ConstPoint(32, 8), new ConstPoint(32, 9),
 
-                new constPoint(20, 7), new constPoint(19, 7), new constPoint(20, 8), new constPoint(19, 9),
-                new constPoint(20, 9),
-                new constPoint(19, 10), new constPoint(19, 9), new constPoint(19, 8), new constPoint(22, 7),
+                new ConstPoint(20, 7), new ConstPoint(19, 7), new ConstPoint(20, 8), new ConstPoint(19, 9),
+                new ConstPoint(20, 9),
+                new ConstPoint(19, 10), new ConstPoint(19, 9), new ConstPoint(19, 8), new ConstPoint(22, 7),
 
-                new constPoint(22, 8), new constPoint(21, 8), new constPoint(22, 8), new constPoint(23, 8),
-                new constPoint(23, 9),
-                new constPoint(24, 9), new constPoint(23, 8), new constPoint(22, 8), new constPoint(23, 8),
+                new ConstPoint(22, 8), new ConstPoint(21, 8), new ConstPoint(22, 8), new ConstPoint(23, 8),
+                new ConstPoint(23, 9),
+                new ConstPoint(24, 9), new ConstPoint(23, 8), new ConstPoint(22, 8), new ConstPoint(23, 8),
 
-                new constPoint(25, 7), new constPoint(24, 7), new constPoint(25, 7), new constPoint(24, 8),
-                new constPoint(23, 8),
-                new constPoint(23, 7), new constPoint(24, 7), new constPoint(25, 7), new constPoint(26, 7)
+                new ConstPoint(25, 7), new ConstPoint(24, 7), new ConstPoint(25, 7), new ConstPoint(24, 8),
+                new ConstPoint(23, 8),
+                new ConstPoint(23, 7), new ConstPoint(24, 7), new ConstPoint(25, 7), new ConstPoint(26, 7)
             });
 
     /** Human and computer. */

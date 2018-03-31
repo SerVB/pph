@@ -18,6 +18,7 @@ package com.github.servb.pph.gxlib.gxlmetrics;
 import org.checkerframework.checker.signedness.qual.Unsigned;
 
 /**
+ * The Size class.
  *
  * @author SerVB
  */
