@@ -1,5 +1,6 @@
 buildscript {
-    
+    ext.kotlin_version = '1.2.40'
+
 
     repositories {
         mavenLocal()
@@ -8,11 +9,13 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
-        
+        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
 
     }
 }
+apply plugin: 'kotlin'
 
 allprojects {
     apply plugin: "eclipse"
@@ -33,6 +36,7 @@ allprojects {
         mavenCentral()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+        maven { url = "https://jitpack.io" } // should be the last entry
     }
 }
 
@@ -71,13 +75,28 @@ project(":core") {
 
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-        //testCompile "junit:junit:4.12"
-        compile "junit:junit:4.12"
-        compile files("C:\\Users\\servb\\AppData\\Local\\Android\\Sdk\\platforms\\android-27\\android.jar")
-        
+        compile "com.github.kotlin-graphics:kotlin-unsigned:v2.1"
+
+        testCompile "junit:junit:4.12"
     }
 }
 
 tasks.eclipse.doLast {
     delete ".project"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }

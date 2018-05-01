@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package test.java.com.github.servb.pph.gxlib.gxlfixpoint;
+package com.github.servb.pph.gxlib.gxlfixpoint;
 
 import com.github.servb.pph.gxlib.gxlfixpoint.fix32;
 import static org.junit.Assert.assertEquals;
