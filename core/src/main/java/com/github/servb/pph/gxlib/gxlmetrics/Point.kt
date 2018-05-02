@@ -24,7 +24,7 @@ interface IConstPoint {
     operator fun plus(offs: Int): IPoint = Point(x + offs, y + offs)
     operator fun minus(offs: Int): IPoint = Point(x - offs, y - offs)
 
-    fun GetSqDelta(pnt: IConstPoint): Int =  Math.max(Math.abs(pnt.x - x), Math.abs(pnt.y - y))
+    fun GetSqDelta(pnt: IConstPoint): Int = Math.max(Math.abs(pnt.x - x), Math.abs(pnt.y - y))
 
     fun GetDelta(pnt: IConstPoint): Int {
         val dx = pnt.x - x

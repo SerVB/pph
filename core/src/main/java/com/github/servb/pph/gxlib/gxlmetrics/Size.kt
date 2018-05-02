@@ -106,7 +106,7 @@ interface ISize : IConstSize {
     fun DeflateSize(offs: Uint) = DeflateSize(offs, offs)
 
     /** Sets width and height to zero.  */
-    fun Zero()  {
+    fun Zero() {
         h = Uint(0)
         w = Uint(0)
     }
