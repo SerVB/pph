@@ -40,7 +40,7 @@ interface IConstSize {
      *
      * @return The result of the check.
      */
-    fun IsZero(): Boolean = w == Uint(0) && h == Uint(0)
+    fun IsZero(): Boolean = w.v == 0 && h.v == 0
 }
 
 interface ISize : IConstSize {
@@ -137,10 +137,11 @@ class ConstSize : IConstSize {
         this.h = other.h
     }
 
+    //<editor-fold defaultstate="collapsed" desc="hashCode & equals">
     override fun hashCode(): Int {
         var hash = 7
-        hash = 53 * hash + this.w.toInt()
-        hash = 53 * hash + this.h.toInt()
+        hash = 53 * hash + this.w.v
+        hash = 53 * hash + this.h.v
         return hash
     }
 
@@ -159,10 +160,9 @@ class ConstSize : IConstSize {
             false
         } else this.h == other.h
     }
+    //</editor-fold>
 
-    override fun toString(): String {
-        return "ConstSize{" + w + ", " + h + '}'.toString()
-    }
+    override fun toString(): String = "ConstSize{$w, $h}"
 }
 
 class Size : ISize {
@@ -179,10 +179,11 @@ class Size : ISize {
         this.h = other.h
     }
 
+    //<editor-fold defaultstate="collapsed" desc="hashCode & equals">
     override fun hashCode(): Int {
         var hash = 3
-        hash = 53 * hash + this.w.toInt()
-        hash = 53 * hash + this.h.toInt()
+        hash = 53 * hash + this.w.v
+        hash = 53 * hash + this.h.v
         return hash
     }
 
@@ -201,4 +202,7 @@ class Size : ISize {
             false
         } else this.h == other.h
     }
+    //</editor-fold>
+
+    override fun toString(): String = "Size{$w, $h}"
 }

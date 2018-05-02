@@ -19,33 +19,12 @@ interface IConstPoint {
     val x: Int
     val y: Int
 
-    operator fun plus(pos: IConstPoint): IPoint {
-        return Point(x + pos.x, y + pos.y)
-    }
+    operator fun plus(pos: IConstPoint): IPoint = Point(x + pos.x, y + pos.y)
+    operator fun minus(pos: IConstPoint): IPoint = Point(x - pos.x, y - pos.y)
+    operator fun plus(offs: Int): IPoint = Point(x + offs, y + offs)
+    operator fun minus(offs: Int): IPoint = Point(x - offs, y - offs)
 
-    operator fun minus(pos: IConstPoint): IPoint {
-        return Point(x - pos.x, y - pos.y)
-    }
-
-    operator fun plus(siz: IConstSize): IPoint {
-        return Point(x + siz.w.toInt(), y + siz.h.toInt())
-    }
-
-    operator fun minus(siz: IConstSize): IPoint {
-        return Point(x - siz.w.toInt(), y - siz.h.toInt())
-    }
-
-    operator fun plus(offs: Int): IPoint {
-        return Point(x + offs, y + offs)
-    }
-
-    operator fun minus(offs: Int): IPoint {
-        return Point(x - offs, y - offs)
-    }
-
-    fun GetSqDelta(pnt: IConstPoint): Int {
-        return Math.max(Math.abs(pnt.x - x), Math.abs(pnt.y - y))
-    }
+    fun GetSqDelta(pnt: IConstPoint): Int =  Math.max(Math.abs(pnt.x - x), Math.abs(pnt.y - y))
 
     fun GetDelta(pnt: IConstPoint): Int {
         val dx = pnt.x - x
@@ -54,9 +33,7 @@ interface IConstPoint {
         return Math.sqrt((dx * dx + dy * dy).toDouble()).toInt()
     }
 
-    fun equals(pos: IConstPoint): Boolean {
-        return x == pos.x && y == pos.x
-    }
+    fun equals(pos: IConstPoint): Boolean = x == pos.x && y == pos.x
 }
 
 interface IPoint : IConstPoint {
@@ -74,13 +51,13 @@ interface IPoint : IConstPoint {
     }
 
     operator fun plusAssign(siz: IConstSize) {
-        x += siz.w.toInt()
-        y += siz.h.toInt()
+        x += siz.w.v
+        y += siz.h.v
     }
 
     operator fun minusAssign(siz: IConstSize) {
-        x -= siz.w.toInt()
-        y -= siz.h.toInt()
+        x -= siz.w.v
+        y -= siz.h.v
     }
 
     operator fun plusAssign(offs: Int) {
@@ -126,6 +103,7 @@ class ConstPoint : IConstPoint {
         this.y = other.y
     }
 
+    //<editor-fold defaultstate="collapsed" desc="hashCode & equals">
     override fun hashCode(): Int {
         var hash = 7
         hash = 47 * hash + this.x
@@ -148,10 +126,9 @@ class ConstPoint : IConstPoint {
             false
         } else this.y == other.y
     }
+    //</editor-fold>
 
-    override fun toString(): String {
-        return "ConstPoint{" + x + ", " + y + '}'.toString()
-    }
+    override fun toString(): String = "ConstPoint{$x, $y}"
 }
 
 class Point : IPoint {
@@ -197,4 +174,6 @@ class Point : IPoint {
         } else this.y == other.y
     }
     //</editor-fold>
+
+    override fun toString(): String = "Point{$x, $y}"
 }
