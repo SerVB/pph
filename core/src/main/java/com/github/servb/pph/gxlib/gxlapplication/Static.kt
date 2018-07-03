@@ -1,6 +1,7 @@
 package com.github.servb.pph.gxlib.gxlapplication
 
 import com.github.servb.pph.gxlib.gxlfixpoint.fix32
+import com.github.servb.pph.gxlib.gxlinc.*
 import com.github.servb.pph.gxlib.gxlmetrics.*
 import com.github.servb.pph.util.helpertype.*
 import com.github.servb.pph.util.staticFunction.Tracer
@@ -61,19 +62,19 @@ class iGXApp {
         } while (false)
 
         if (!m_bInited) {
-            m_SoundPlayer.Close();
-            m_Display.Destroy();
-            m_Input.Destroy();
-            m_Window.Destroy();
+            m_SoundPlayer.Close()
+            m_Display.Destroy()
+            m_Input.Destroy()
+            m_Window.Destroy()
         }
 
         if (OS_WINCE) {
-            m_coreDLL = LoadLibrary(L"COREDLL.DLL");
-            m_sysidletimer = (VOID_STAR) GetProcAddress (m_coreDLL, L"SystemIdleTimerReset");
-            m_aygDLL = LoadLibrary(L"AYGSHELL.DLL");
-            m_shfullscreen = 0;
+            m_coreDLL = LoadLibrary(L"COREDLL.DLL")
+            m_sysidletimer = (VOID_STAR) GetProcAddress (m_coreDLL, L"SystemIdleTimerReset")
+            m_aygDLL = LoadLibrary(L"AYGSHELL.DLL")
+            m_shfullscreen = 0
             if (m_aygDLL != 0) {
-                m_shfullscreen = (VOID_STAR) GetProcAddress (m_aygDLL, L"SHFullScreen");
+                m_shfullscreen = (VOID_STAR) GetProcAddress (m_aygDLL, L"SHFullScreen")
             }
         }
 
