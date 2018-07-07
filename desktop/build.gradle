@@ -1,7 +1,7 @@
 apply plugin: "kotlin"
 
 sourceCompatibility = 1.6
-sourceSets.main.koltin.srcDirs = [ "src/" ]
+sourceSets.main.kotlin.srcDirs = [ "src/" ]
 
 project.ext.mainClassName = "com.github.servb.pph.desktop.DesktopLauncher"
 project.ext.assetsDir = new File("../android/assets");

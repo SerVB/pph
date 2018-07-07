@@ -39,10 +39,6 @@ allprojects {
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
         maven { url "https://jitpack.io" } // should be the last entry
     }
-
-    dependencies {
-        compile "com.github.kotlin-graphics:kotlin-unsigned:v2.1"
-    }
 }
 
 project(":desktop") {
@@ -102,6 +98,8 @@ project(":core") {
 
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        compile "com.github.kotlin-graphics:kotlin-unsigned:v2.1"
     }
 }
 
