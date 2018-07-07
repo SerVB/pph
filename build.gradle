@@ -1,21 +1,22 @@
 buildscript {
-    ext.kotlin_version = '1.2.40'
-
+    ext.kotlin_version = '1.2.41'
 
     repositories {
         mavenLocal()
         mavenCentral()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         jcenter()
+        maven { url "https://maven.google.com" }
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath "de.richsource.gradle.plugins:gwt-gradle-plugin:0.6"
+        classpath "com.android.tools.build:gradle:2.2.0"
+        classpath "com.mobidevelop.robovm:robovm-gradle-plugin:2.3.3"
+        classpath "org.multi-os-engine:moe-gradle:1.4.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-
     }
 }
-apply plugin: 'kotlin'
 
 allprojects {
     apply plugin: "eclipse"
@@ -23,9 +24,9 @@ allprojects {
 
     version = '1.0'
     ext {
-        appName = "pph"
+        appName = "PPH"
         gdxVersion = '1.9.8'
-        roboVMVersion = '2.3.1'
+        roboVMVersion = '2.3.3'
         box2DLightsVersion = '1.4'
         ashleyVersion = '1.7.0'
         aiVersion = '1.8.0'
@@ -36,24 +37,27 @@ allprojects {
         mavenCentral()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
-        maven { url = "https://jitpack.io" } // should be the last entry
+        maven { url "https://jitpack.io" } // should be the last entry
+    }
+
+    dependencies {
+        compile "com.github.kotlin-graphics:kotlin-unsigned:v2.1"
     }
 }
 
 project(":desktop") {
-    apply plugin: "java"
-
+    apply plugin: "kotlin"
 
     dependencies {
         compile project(":core")
         compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-        
     }
 }
 
 project(":android") {
     apply plugin: "android"
+    apply plugin: "kotlin-android"
 
     configurations { natives }
 
@@ -65,38 +69,54 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
-        
+    }
+}
+
+project(":ios") {
+    apply plugin: "kotlin"
+    apply plugin: "robovm"
+
+    dependencies {
+        compile project(":core")
+        compile "com.mobidevelop.robovm:robovm-rt:$roboVMVersion"
+        compile "com.mobidevelop.robovm:robovm-cocoatouch:$roboVMVersion"
+        compile "com.badlogicgames.gdx:gdx-backend-robovm:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-ios"
+    }
+}
+
+project(":html") {
+    apply plugin: "gwt"
+    apply plugin: "war"
+
+    dependencies {
+        compile project(":core")
+        compile "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
+        compile "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
     }
 }
 
 project(":core") {
-    apply plugin: "java"
-
+    apply plugin: "kotlin"
 
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-        compile "com.github.kotlin-graphics:kotlin-unsigned:v2.1"
+    }
+}
 
-        testCompile "junit:junit:4.12"
+project(":ios-moe") {
+    apply plugin: "moe"
+
+    configurations { natives }
+
+    dependencies {
+        compile project(":core")
+        compile "com.badlogicgames.gdx:gdx-backend-moe:$gdxVersion"
+        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-ios"
     }
 }
 
 tasks.eclipse.doLast {
     delete ".project"
-}
-repositories {
-    mavenCentral()
-}
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-}
-compileKotlin {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-}
-compileTestKotlin {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
