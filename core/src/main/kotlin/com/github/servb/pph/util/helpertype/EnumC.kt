@@ -13,20 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.servb.pph.pheroes.common.common;
+package com.github.servb.pph.util.helpertype
 
 /**
+ * C-like Enumeration interface.
  *
  * @author SerVB
  */
-public class iArtifactList extends constArtifactList {
+interface EnumC {
 
-    public final void Add(final short id, final HERO_ART_CELL assign) {
-        getM_Items().add(new iItem(id, assign));
-    }
-
-    public final void set(final int idx, final iItem item) {
-        getM_Items().set(idx, item);
-    }
-
+    /**
+     * Returns the value of the element.
+     *
+     * @return The value of the element.
+     */
+    val value: Int
 }

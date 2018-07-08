@@ -13,20 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.servb.pph.pheroes.common.common;
 
-/**
- *
- * @author SerVB
- */
-public class iArtifactList extends constArtifactList {
+package com.github.servb.pph.pheroes.common.common
 
-    public final void Add(final short id, final HERO_ART_CELL assign) {
-        getM_Items().add(new iItem(id, assign));
-    }
+import com.github.servb.pph.util.helpertype.CountValueEnum
+import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
-    public final void set(final int idx, final iItem item) {
-        getM_Items().set(idx, item);
-    }
-
+/** Game languages.  TODO: provide tests, add all langs. */
+enum class GAME_LANG(override val v: Int) : UniqueValueEnum, CountValueEnum {
+    GLNG_ENGLISH(0),
+    GLNG_RUSSIAN(1),
+    /*GLNG_POLISH,
+    GLNG_SLOVAK,
+    GLNG_GERMAN,
+    GLNG_CZECH,
+    GLNG_ITALIAN,
+    GLNG_FRENCH,
+    GLNG_SPANISH,*/
+    GLNG_COUNT(2);
 }

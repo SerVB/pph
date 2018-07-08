@@ -16,7 +16,7 @@
 package com.github.servb.pph.gxlib.gxlcommontpl;
 
 import com.github.servb.pph.util.helpertype.Changeable;
-import com.github.servb.pph.util.staticFunction.Tracer;
+import com.github.servb.pph.util.staticfunction.Tracer;
 
 /**
  * {@code gxl.common.tpl.h}.
@@ -36,11 +36,11 @@ public final class Static {
      * @param b     The second value.
      */
     public static final <T> void iSwap(final Changeable<T> a, final Changeable<T> b) {
-        Tracer.check(a.value == null || b.value == null || a.value.getClass() == b.value.getClass());
+        Tracer.INSTANCE.check(a.getValue() == null || b.getValue() == null || a.getValue().getClass() == b.getValue().getClass());
 
-        final Changeable<T> tmp = new Changeable(a.value);
-        a.value = b.value;
-        b.value = tmp.value;
+        final Changeable<T> tmp = new Changeable(a.getValue());
+        a.setValue(b.getValue());
+        b.setValue(tmp.getValue());
     }
 
     //<editor-fold defaultstate="collapsed" desc="iCLAMP">
@@ -56,7 +56,7 @@ public final class Static {
      * @return      The clamped value.
      */
     public static final byte iCLAMP(final byte mn, final byte mx, final byte vl) {
-        Tracer.check(mn <= mx);
+        Tracer.INSTANCE.check(mn <= mx);
 
         if (vl >= mn && vl <= mx ) {
             return vl;
@@ -79,7 +79,7 @@ public final class Static {
      * @return      The clamped value.
      */
     public static final short iCLAMP(final short mn, final short mx, final short vl) {
-        Tracer.check(mn <= mx);
+        Tracer.INSTANCE.check(mn <= mx);
 
         if (vl >= mn && vl <= mx ) {
             return vl;
@@ -102,7 +102,7 @@ public final class Static {
      * @return      The clamped value.
      */
     public static final int iCLAMP(final int mn, final int mx, final int vl) {
-        Tracer.check(mn <= mx);
+        Tracer.INSTANCE.check(mn <= mx);
 
         if (vl >= mn && vl <= mx ) {
             return vl;
@@ -125,7 +125,7 @@ public final class Static {
      * @return      The clamped value.
      */
     public static final long iCLAMP(final long mn, final long mx, final long vl) {
-        Tracer.check(mn <= mx);
+        Tracer.INSTANCE.check(mn <= mx);
 
         if (vl >= mn && vl <= mx ) {
             return vl;
@@ -148,7 +148,7 @@ public final class Static {
      * @return      The clamped value.
      */
     public static final float iCLAMP(final float mn, final float mx, final float vl) {
-        Tracer.check(mn <= mx);
+        Tracer.INSTANCE.check(mn <= mx);
 
         if (vl >= mn && vl <= mx ) {
             return vl;
@@ -171,7 +171,7 @@ public final class Static {
      * @return      The clamped value.
      */
     public static final double iCLAMP(final double mn, final double mx, final double vl) {
-        Tracer.check(mn <= mx);
+        Tracer.INSTANCE.check(mn <= mx);
 
         if (vl >= mn && vl <= mx ) {
             return vl;
@@ -271,7 +271,7 @@ public final class Static {
      * @return      Wrapped value.
      */
     public static final short iWRAP(final short val, final short minv, final short wrap) {
-        Tracer.check(minv < wrap);
+        Tracer.INSTANCE.check(minv < wrap);
 
         if (val < minv) {
             return (short) (val + wrap - minv);

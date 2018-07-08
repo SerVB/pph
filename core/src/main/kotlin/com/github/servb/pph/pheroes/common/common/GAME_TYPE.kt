@@ -13,20 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.servb.pph.pheroes.common.common;
 
-/**
- *
- * @author SerVB
- */
-public class iArtifactList extends constArtifactList {
+package com.github.servb.pph.pheroes.common.common
 
-    public final void Add(final short id, final HERO_ART_CELL assign) {
-        getM_Items().add(new iItem(id, assign));
-    }
+import com.github.servb.pph.util.helpertype.CountValueEnum
+import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
-    public final void set(final int idx, final iItem item) {
-        getM_Items().set(idx, item);
-    }
-
+/** Game types. TODO: Provide documentation, provide tests. */
+enum class GAME_TYPE(override val v: Int) : UniqueValueEnum, CountValueEnum {
+    GMT_SPLAYER(0),
+    GMT_HOTSEAT(1),
+    GMT_NETWORK(2),
+    GMT_COUNT(3);
 }

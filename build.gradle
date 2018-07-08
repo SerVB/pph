@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.2.41'
+    ext.kotlin_version = '1.2.51'
 
     repositories {
         mavenLocal()
@@ -23,6 +23,7 @@ allprojects {
     apply plugin: "idea"
 
     version = '1.0'
+
     ext {
         appName = "PPH"
         gdxVersion = '1.9.8'

@@ -15,7 +15,8 @@
  */
 package com.github.servb.pph.pheroes.common.common;
 
-import com.github.servb.pph.util.staticFunction.Tracer;
+import com.github.servb.pph.util.staticfunction.Tracer;
+
 import java.util.Arrays;
 
 /**
@@ -33,40 +34,40 @@ public final class iFurtSkills extends constFurtSkills {
     }
 
     public final void Reset() {
-        Arrays.fill(values, 0);
+        Arrays.fill(getValues(), 0);
     }
 
     public final void SetValue(final FURTHER_SKILLS type, final int newValue) {
-        Tracer.check(type.getValue() >= FURTHER_SKILLS.FSK_INVALID.getValue() &&
+        Tracer.INSTANCE.check(type.getValue() >= FURTHER_SKILLS.FSK_INVALID.getValue() &&
                 type.getValue() < FURTHER_SKILLS.FSK_COUNT.getValue());
 
-        values[type.getValue()] = newValue;
+        getValues()[type.getValue()] = newValue;
     }
 
     public final iFurtSkills operatorPe(final constFurtSkills fs) {
         for (int xx = 0; xx < FURTHER_SKILLS.FSK_COUNT.getValue(); ++xx) {
-            values[xx] += fs.values[xx];
+            getValues()[xx] += fs.getValues()[xx];
         }
         return this;
     }
 
     public final iFurtSkills operatorMe(final constFurtSkills fs) {
         for (int xx = 0; xx < FURTHER_SKILLS.FSK_COUNT.getValue(); ++xx) {
-            values[xx] -= fs.values[xx];
+            getValues()[xx] -= fs.getValues()[xx];
         }
         return this;
     }
 
     public final iFurtSkills operatorPe(final constPrSkills ps) {
         for (int xx = 0; xx < PRSKILL_TYPE.PRSKILL_COUNT.getValue(); ++xx) {
-            values[xx + FURTHER_SKILLS.FSK_ATTACK.getValue()] += ps.val[xx];
+            getValues()[xx + FURTHER_SKILLS.FSK_ATTACK.getValue()] += ps.val[xx];
         }
         return this;
     }
 
     public final iFurtSkills operatorMe(final constPrSkills ps) {
         for (int xx = 0; xx < PRSKILL_TYPE.PRSKILL_COUNT.getValue(); ++xx) {
-            values[xx + FURTHER_SKILLS.FSK_ATTACK.getValue()] -= ps.val[xx];
+            getValues()[xx + FURTHER_SKILLS.FSK_ATTACK.getValue()] -= ps.val[xx];
         }
         return this;
     }

@@ -2,9 +2,11 @@ package com.github.servb.pph.gxlib.gxlapplication
 
 import com.github.servb.pph.gxlib.gxlfixpoint.fix32
 import com.github.servb.pph.gxlib.gxlinc.*
-import com.github.servb.pph.gxlib.gxlmetrics.*
+import com.github.servb.pph.gxlib.gxlmetrics.ISize
+import com.github.servb.pph.gxlib.gxlmetrics.Rect
+import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.util.helpertype.*
-import com.github.servb.pph.util.staticFunction.Tracer
+import com.github.servb.pph.util.staticfunction.Tracer
 
 interface IGame {
     fun Process(t: fix32): Int

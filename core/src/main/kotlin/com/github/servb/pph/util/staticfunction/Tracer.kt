@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.servb.pph.util.staticFunction;
+package com.github.servb.pph.util.staticfunction
 
 /**
  * Tracer of possible errors.
@@ -21,16 +21,16 @@ package com.github.servb.pph.util.staticFunction;
  *
  * @author SerVB
  */
-public final class Tracer {
+object Tracer {
 
     /**
      * Checks if it's an error. Traces if there is an error.
      *
      * @param noError True if no error, false otherwise.
      */
-    public static void check(final boolean noError) {
+    fun check(noError: Boolean) {
         if (noError == false) {
-            doThrow("An error detected!!!");
+            doThrow("An error detected!!!")
         }
     }
 
@@ -39,8 +39,8 @@ public final class Tracer {
      *
      * @param xx 0 if there is an error.
      */
-    public static void check(final int xx) {
-        check(xx != 0);
+    fun check(xx: Int) {
+        check(xx != 0)
     }
 
     /**
@@ -48,8 +48,8 @@ public final class Tracer {
      *
      * @param msg Error message.
      */
-    public static void check(final String msg) {
-        doThrow(msg);
+    fun check(msg: String) {
+        doThrow(msg)
     }
 
     /**
@@ -57,7 +57,7 @@ public final class Tracer {
      *
      * @param msg Error message.
      */
-    private static void doThrow(final String msg) {
-        throw new IllegalStateException("fatal > " + "tracer: " + msg);
+    private fun doThrow(msg: String) {
+        throw IllegalStateException("fatal > tracer: $msg")
     }
 }

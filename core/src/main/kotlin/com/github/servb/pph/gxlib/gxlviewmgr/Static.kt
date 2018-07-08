@@ -3,7 +3,7 @@ package com.github.servb.pph.gxlib.gxlviewmgr
 import com.github.servb.pph.gxlib.gxlapplication.iGXApp
 import com.github.servb.pph.gxlib.gxlmetrics.*
 import com.github.servb.pph.gxlib.gxlview.iView
-import com.github.servb.pph.util.staticFunction.Tracer
+import com.github.servb.pph.util.staticfunction.Tracer
 
 class iViewMgr {
     interface IDragGlyph {

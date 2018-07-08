@@ -2,9 +2,9 @@ package com.github.servb.pph.gxlib.gxlwindow
 
 import com.github.servb.pph.gxlib.gxlapplication.iGXApp
 import com.github.servb.pph.gxlib.gxlmetrics.IConstSize
-import com.github.servb.pph.gxlib.gxlmetrics.*
+import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.util.helpertype.*
-import com.github.servb.pph.util.staticFunction.Tracer
+import com.github.servb.pph.util.staticfunction.Tracer
 
 interface iDispMsgHnd {
     fun msg_Suspend()

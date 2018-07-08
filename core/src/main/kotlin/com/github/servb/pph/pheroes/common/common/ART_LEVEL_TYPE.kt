@@ -13,20 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.servb.pph.pheroes.common.common;
+package com.github.servb.pph.pheroes.common.common
 
-/**
- *
- * @author SerVB
- */
-public class iArtifactList extends constArtifactList {
+import com.github.servb.pph.util.helpertype.CountValueEnum
+import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
-    public final void Add(final short id, final HERO_ART_CELL assign) {
-        getM_Items().add(new iItem(id, assign));
-    }
-
-    public final void set(final int idx, final iItem item) {
-        getM_Items().set(idx, item);
-    }
-
+/** TODO: Provide documentation, provide tests. */
+enum class ART_LEVEL_TYPE(override val v: Int) : UniqueValueEnum, CountValueEnum {
+    ART_LEVEL_NONE(0),
+    ART_LEVEL_TREASURE(1),
+    ART_LEVEL_MINOR(2),
+    ART_LEVEL_MAJOR(3),
+    ART_LEVEL_RELICT(4),
+    ART_LEVEL_ULTIMATE(5),
+    ART_LEVEL_COUNT(6);
 }

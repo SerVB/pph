@@ -17,8 +17,9 @@ package test.java.com.github.servb.pph.gxlib.gxlcommontpl;
 
 import com.github.servb.pph.gxlib.gxlcommontpl.Static;
 import com.github.servb.pph.util.helpertype.Changeable;
-import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  *
@@ -38,24 +39,24 @@ public final class StaticTest {
             final Changeable<Integer> a = new Changeable<Integer>(1);
             final Changeable<Integer> b = new Changeable<Integer>(2);
             Static.iSwap(a, b);
-            assertEquals(2, (int) a.value);
-            assertEquals(1, (int) b.value);
+            assertEquals(2, (int) a.getValue());
+            assertEquals(1, (int) b.getValue());
         }
 
         {
             final Changeable<Integer> a = new Changeable<Integer>(20);
             final Changeable<Integer> b = new Changeable<Integer>(20);
             Static.iSwap(a, b);
-            assertEquals(20, (int) a.value);
-            assertEquals(20, (int) b.value);
+            assertEquals(20, (int) a.getValue());
+            assertEquals(20, (int) b.getValue());
         }
 
         {
             final Changeable<Integer> a = new Changeable<Integer>(20);
             final Changeable<Integer> b = new Changeable<Integer>(null);
             Static.iSwap(a, b);
-            assertEquals(null, a.value);
-            assertEquals(20, (int) b.value);
+            assertEquals(null, a.getValue());
+            assertEquals(20, (int) b.getValue());
         }
     }
 

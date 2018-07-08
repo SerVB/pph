@@ -2,7 +2,7 @@ package com.github.servb.pph.gxlib.gxlview
 
 import com.github.servb.pph.gxlib.gxlmetrics.*
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
-import com.github.servb.pph.util.staticFunction.Tracer
+import com.github.servb.pph.util.staticfunction.Tracer
 
 enum class VIEWCLSID {
     GENERIC_VIEWPORT,

@@ -13,19 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.servb.pph.util.helpertype;
 
-/**
- * C-like Enumeration interface.
- *
- * @author SerVB
- */
-public interface EnumC {
+package com.github.servb.pph.pheroes.common.common
 
-    /**
-     * Returns the value of the element.
-     *
-     * @return The value of the element.
-     */
-    public int getValue();
+import com.github.servb.pph.util.helpertype.CountValueEnum
+import com.github.servb.pph.util.helpertype.UniqueValueEnum
+
+/** TODO: Provide documentation, provide tests.  */
+enum class DIFFICULTY_LEVEL(override val v: Int) : UniqueValueEnum, CountValueEnum {
+    DFC_UNDEFINED(-1),
+    DFC_EASY(0),
+    DFC_NORMAL(1),
+    DFC_HARD(2),
+    DFC_EXPERT(3),
+    DFC_IMPOSSIBLE(4),
+    DFC_COUNT(5);
 }

@@ -13,23 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.servb.pph.util.helpertype;
+package com.github.servb.pph.pheroes.common.common
 
-/**
- * Emulates constant arrays from C++. Provides the access by any enumeration extending EnumC.
- *
- * @author SerVB
- * @param <E> Type of elements. Has to be immutable type.
- */
-public final class SimpleConstArray<E> extends ConstArray<EnumC, E> {
+import java.util.*
 
-    /**
-     * Constructs the object.
-     *
-     * @param storage Elements.
-     */
-    public SimpleConstArray(final E[] storage) {
-        super(storage);
+/** TODO: Remove the class. */
+class constArtifactList {
+    protected val m_Items = ArrayList<iItem>()
+
+    data class iItem(val id: Short, val assign: HERO_ART_CELL)
+
+    fun Count(): Int {
+        return m_Items.size
     }
 
+    fun At(idx: Int): iItem {
+        return m_Items[idx]
+    }
 }
