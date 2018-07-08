@@ -4,16 +4,18 @@ import io.kotlintest.properties.Gen
 import io.kotlintest.properties.assertAll
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
+import unsigned.minus
+import unsigned.plus
 
 class PointGenerator : Gen<Point> {
-    override fun constants() = emptyList<Point>()
+    override fun constants() = listOf(Point())
     override fun random() = generateSequence {
         Point(Gen.int().random().first(), Gen.int().random().first())
     }
 }
 
 class MutablePointGenerator : Gen<MutablePoint> {
-    override fun constants() = emptyList<MutablePoint>()
+    override fun constants() = listOf(MutablePoint())
     override fun random() = generateSequence {
         MutablePoint(Gen.int().random().first(), Gen.int().random().first())
     }
@@ -106,6 +108,22 @@ class MutablePointTest : StringSpec() {
                 val initial = p.copy()
                 p -= other
                 p shouldBe MutablePoint(initial.x - other.x, initial.y - other.y)
+            }
+        }
+
+        "+= WHHolder" {
+            assertAll(MutablePointGenerator(), SizeGenerator()) { p, other ->
+                val initial = p.copy()
+                p += other
+                p shouldBe MutablePoint(initial.x + other.w, initial.y + other.h)
+            }
+        }
+
+        "-= WHHolder" {
+            assertAll(MutablePointGenerator(), SizeGenerator()) { p, other ->
+                val initial = p.copy()
+                p -= other
+                p shouldBe MutablePoint(initial.x - other.w, initial.y - other.h)
             }
         }
 

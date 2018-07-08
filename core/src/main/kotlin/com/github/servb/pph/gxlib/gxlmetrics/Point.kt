@@ -1,5 +1,8 @@
 package com.github.servb.pph.gxlib.gxlmetrics
 
+import unsigned.minus
+import unsigned.plus
+
 interface XYHolder {
     val x: Int
     val y: Int
@@ -47,16 +50,14 @@ data class MutablePoint(override var x: Int, override var y: Int) : XYHolder {
         y -= other.y
     }
 
-    /** TODO: Provide tests. */
-    operator fun plusAssign(siz: IConstSize) {
-        x += siz.w.v
-        y += siz.h.v
+    operator fun plusAssign(siz: WHHolder) {
+        x += siz.w
+        y += siz.h
     }
 
-    /** TODO: Provide tests. */
-    operator fun minusAssign(siz: IConstSize) {
-        x -= siz.w.v
-        y -= siz.h.v
+    operator fun minusAssign(siz: WHHolder) {
+        x -= siz.w
+        y -= siz.h
     }
 
     operator fun plusAssign(offs: Int) {
