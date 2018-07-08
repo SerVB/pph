@@ -1,45 +1,59 @@
 package com.github.servb.pph.gxlib.gxlmetrics
 
-interface IConstPoint {
+interface XYHolder {
     val x: Int
     val y: Int
 
-    operator fun plus(pos: IConstPoint): IPoint = Point(x + pos.x, y + pos.y)
-    operator fun minus(pos: IConstPoint): IPoint = Point(x - pos.x, y - pos.y)
-    operator fun plus(offs: Int): IPoint = Point(x + offs, y + offs)
-    operator fun minus(offs: Int): IPoint = Point(x - offs, y - offs)
+    /** TODO: Provide tests, provide documentation. */
+    fun GetSqDelta(other: XYHolder) = Math.max(Math.abs(other.x - x), Math.abs(other.y - y))
 
-    fun GetSqDelta(pnt: IConstPoint): Int = Math.max(Math.abs(pnt.x - x), Math.abs(pnt.y - y))
-
-    fun GetDelta(pnt: IConstPoint): Int {
-        val dx = pnt.x - x
-        val dy = pnt.y - y
+    /** TODO: Provide tests, provide documentation. */
+    fun GetDelta(other: XYHolder): Int {
+        val dx = other.x - x
+        val dy = other.y - y
 
         return Math.sqrt((dx * dx + dy * dy).toDouble()).toInt()
     }
-
-    fun equals(pos: IConstPoint): Boolean = x == pos.x && y == pos.x
 }
 
-interface IPoint : IConstPoint {
-    override var x: Int
-    override var y: Int
+data class Point(override val x: Int, override val y: Int) : XYHolder {
+    constructor() : this(0, 0)
 
-    operator fun plusAssign(pos: IConstPoint) {
-        x += pos.x
-        y += pos.y
+    constructor(other: XYHolder) : this(other.x, other.y)
+
+    operator fun plus(other: XYHolder) = Point(x + other.x, y + other.y)
+    operator fun minus(other: XYHolder) = Point(x - other.x, y - other.y)
+    operator fun plus(offs: Int) = Point(x + offs, y + offs)
+    operator fun minus(offs: Int) = Point(x - offs, y - offs)
+}
+
+data class MutablePoint(override var x: Int, override var y: Int) : XYHolder {
+    constructor() : this(0, 0)
+
+    constructor(other: XYHolder) : this(other.x, other.y)
+
+    operator fun plus(other: XYHolder) = MutablePoint(x + other.x, y + other.y)
+    operator fun minus(other: XYHolder) = MutablePoint(x - other.x, y - other.y)
+    operator fun plus(offs: Int) = MutablePoint(x + offs, y + offs)
+    operator fun minus(offs: Int) = MutablePoint(x - offs, y - offs)
+
+    operator fun plusAssign(other: XYHolder) {
+        x += other.x
+        y += other.y
     }
 
-    operator fun minusAssign(pos: IConstPoint) {
-        x -= pos.x
-        y -= pos.y
+    operator fun minusAssign(other: XYHolder) {
+        x -= other.x
+        y -= other.y
     }
 
+    /** TODO: Provide tests. */
     operator fun plusAssign(siz: IConstSize) {
         x += siz.w.v
         y += siz.h.v
     }
 
+    /** TODO: Provide tests. */
     operator fun minusAssign(siz: IConstSize) {
         x -= siz.w.v
         y -= siz.h.v
@@ -67,98 +81,4 @@ interface IPoint : IConstPoint {
         x += offset_x
         y += offset_y
     }
-}
-
-class ConstPoint : IConstPoint {
-    override val x: Int
-    override val y: Int
-
-    constructor() {
-        this.x = 0
-        this.y = 0
-    }
-
-    constructor(x: Int, y: Int) {
-        this.x = x
-        this.y = y
-    }
-
-    constructor(other: IConstPoint) {
-        this.x = other.x
-        this.y = other.y
-    }
-
-    //<editor-fold defaultstate="collapsed" desc="hashCode & equals">
-    override fun hashCode(): Int {
-        var hash = 7
-        hash = 47 * hash + this.x
-        hash = 47 * hash + this.y
-        return hash
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) {
-            return true
-        }
-        if (other == null) {
-            return false
-        }
-        if (javaClass != other.javaClass) {
-            return false
-        }
-        val other = other as ConstPoint?
-        return if (this.x != other!!.x) {
-            false
-        } else this.y == other.y
-    }
-    //</editor-fold>
-
-    override fun toString(): String = "ConstPoint{$x, $y}"
-}
-
-class Point : IPoint {
-    override var x: Int
-    override var y: Int
-
-    constructor() {
-        this.x = 0
-        this.y = 0
-    }
-
-    constructor(x: Int, y: Int) {
-        this.x = x
-        this.y = y
-    }
-
-    constructor(other: IConstPoint) {
-        this.x = other.x
-        this.y = other.y
-    }
-
-    //<editor-fold defaultstate="collapsed" desc="hashCode & equals">
-    override fun hashCode(): Int {
-        var hash = 7
-        hash = 47 * hash + this.x
-        hash = 47 * hash + this.y
-        return hash
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) {
-            return true
-        }
-        if (other == null) {
-            return false
-        }
-        if (javaClass != other.javaClass) {
-            return false
-        }
-        val other = other as ConstPoint?
-        return if (this.x != other!!.x) {
-            false
-        } else this.y == other.y
-    }
-    //</editor-fold>
-
-    override fun toString(): String = "Point{$x, $y}"
 }

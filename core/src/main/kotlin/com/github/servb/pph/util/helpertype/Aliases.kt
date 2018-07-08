@@ -1,5 +1,7 @@
 package com.github.servb.pph.util.helpertype
 
+import unsigned.Uint
+
 typealias DWORD = Int
 typealias HDC = Int
 typealias HINSTANCE = Int
