@@ -1,5 +1,9 @@
 package com.github.servb.pph.gxlib.gxltimer
 
+import ui
+import unsigned.Uint
+import unsigned.ui
+
 fun GetTickCount() = Uint(System.currentTimeMillis().toInt())  // TODO: Check the code
 
 class iTimer {
@@ -15,11 +19,11 @@ class iTimer {
 
     fun GetStep(): Uint {
         val ntime = GetTickCount()
-        var sval = Uint()
+        val sval: Uint
         sval = when {
-            ntime == m_LastTime -> return 0
+            ntime == m_LastTime -> return 0.ui
             ntime > m_LastTime -> ntime - m_LastTime
-            else -> (0xFFFFFFFF - m_LastTime) + ntime
+            else -> (0xFFFFFFFF.ui - m_LastTime) + ntime
         }
         m_LastTime = ntime
         return sval
