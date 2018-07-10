@@ -1,45 +1,86 @@
 package com.github.servb.pph.gxlib.gxlmetrics
 
 import unsigned.Uint
+import unsigned.minus
+import unsigned.plus
+import unsigned.ui
 
-interface IConstRect : IConstPoint, IConstSize {
-    val x1: Int get() = x
-    val y1: Int get() = y
-    val x2: Int get() = x + w.v - 1
-    val y2: Int get() = y + h.v - 1
+interface XYWHHolder : XYHolder, WHHolder {
+    val x1 get() = x
+    val y1 get() = y
+    val x2 get() = x + w - 1
+    val y2 get() = y + h - 1
 
-    fun Center(): IPoint = Point(x + w.v / 2, y + h.v / 2)
-    fun TopRight(): IPoint = Point(x2, y)
-    fun TopLeft(): IPoint = Point(x, y)
-    fun BottomRight(): IPoint = Point(x2, y2)
-    fun BottomLeft(): IPoint = Point(x, y2)
+    fun Center() = Point(x + w / 2, y + h / 2)
+    fun TopRight() = Point(x2, y1)
+    fun TopLeft() = Point(x1, y1)
+    fun BottomRight() = Point(x2, y2)
+    fun BottomLeft() = Point(x1, y2)
 
-    fun Point(): IPoint = Point(x, y)
-    fun Size(): ISize = Size(w, h)
+    fun Point() = Point(x, y)
+    fun Size() = Size(w, h)
 
-    fun PtInRect(_x: Int, _y: Int): Boolean = (_x in x until (x + w.v)) && (_y in y until (y + h.v))
-    fun PtInRect(pnt: IConstPoint): Boolean = PtInRect(pnt.x, pnt.y)
+    fun PtInRect(_x: Int, _y: Int) = (_x in x1..x2) && (_y in y1..y2)
+    fun PtInRect(pnt: XYHolder) = PtInRect(pnt.x, pnt.y)
 
-    fun IsEmpty(): Boolean = w.v == 0 || h.v == 0
+    fun IsEmpty() = w.v == 0 || h.v == 0
+}
 
-    fun equals(rect: IConstRect): Boolean = x == rect.x && y == rect.y && w == rect.w && h == rect.h
+/** TODO: Make constructor. */
+fun MakeRect(p1: XYHolder, p2: XYHolder): Rect {
+    val minX = minOf(p1.x, p2.x)
+    val minY = minOf(p1.y, p2.y)
+    val maxX = maxOf(p1.x, p2.x)
+    val maxY = maxOf(p1.y, p2.y)
 
-    operator fun plus(rect: IConstRect): IRect {
-        val rc = Rect(this)
+    val x = minX
+    val y = minY
+    val w = maxX - minX + 1
+    val h = maxY - minY + 1
+
+    return Rect(x, y, w.ui, h.ui)
+}
+
+data class Rect(override val x: Int, override val y: Int, override val w: Uint, override val h: Uint) : XYWHHolder {
+    constructor() : this(0, 0, 0.ui, 0.ui)
+
+    constructor(point: XYHolder, size: WHHolder) : this(point.x, point.y, Uint(size.w), Uint(size.h))
+
+    constructor(other: XYWHHolder) : this(other.x, other.y, Uint(other.w), Uint(other.h))
+
+    constructor(size: WHHolder) : this(0, 0, Uint(size.w), Uint(size.h))
+
+    operator fun plus(rect: XYWHHolder): Rect {
+        val rc = MutableRect(this)
         rc += rect
-        return rc
+        return Rect(rc)
     }
 }
 
-interface IRect : IConstRect, IPoint, ISize {
+data class MutableRect(override var x: Int, override var y: Int, override var w: Uint, override var h: Uint)
+        : XYWHHolder {
+    constructor() : this(0, 0, 0.ui, 0.ui)
+
+    constructor(point: XYHolder, size: WHHolder) : this(point.x, point.y, Uint(size.w), Uint(size.h))
+
+    constructor(other: XYWHHolder) : this(other.x, other.y, Uint(other.w), Uint(other.h))
+
+    constructor(size: WHHolder) : this(0, 0, Uint(size.w), Uint(size.h))
+
+    operator fun plus(rect: XYWHHolder): MutableRect {
+        val rc = MutableRect(this)
+        rc += rect
+        return MutableRect(rc)
+    }
+
     fun Reset() {
         x = 0
         y = 0
-        w = Uint(0)
-        h = Uint(0)
+        w = 0.ui
+        h = 0.ui
     }
 
-    operator fun plusAssign(rect: IConstRect) {
+    operator fun plusAssign(rect: XYWHHolder) {
         if (IsEmpty()) {
             x = rect.x
             y = rect.y
@@ -55,13 +96,13 @@ interface IRect : IConstRect, IPoint, ISize {
 
         x = minX
         y = minY
-        w = Uint(maxX - minX + 1)
-        h = Uint(maxY - minY + 1)
+        w = (maxX - minX + 1).ui
+        h = (maxY - minY + 1).ui
     }
 
     fun InflateRect(left: Uint, top: Uint, right: Uint, bottom: Uint) {
-        x -= left.v
-        y -= top.v
+        x -= left
+        y -= top
         w += left + right
         h += top + bottom
     }
@@ -71,8 +112,8 @@ interface IRect : IConstRect, IPoint, ISize {
     fun InflateRect(offs: Uint) = InflateRect(offs, offs, offs, offs)
 
     fun DeflateRect(left: Uint, top: Uint, right: Uint, bottom: Uint) {
-        x += left.v
-        y += top.v
+        x += left
+        y += top
         w -= left + right
         h -= top + bottom
     }
@@ -80,166 +121,4 @@ interface IRect : IConstRect, IPoint, ISize {
     fun DeflateRect(x_offs: Uint, y_offs: Uint) = DeflateRect(x_offs, y_offs, x_offs, y_offs)
 
     fun DeflateRect(offs: Uint) = DeflateRect(offs, offs, offs, offs)
-}
-
-class ConstRect : IConstRect {
-    override val x: Int
-    override val y: Int
-    override val w: Uint
-    override val h: Uint
-
-    constructor() {
-        x = 0
-        y = 0
-        w = Uint(0)
-        h = Uint(0)
-    }
-
-    constructor(x: Int, y: Int, w: Uint, h: Uint) {
-        this.x = x
-        this.y = y
-        this.w = Uint(w)
-        this.h = Uint(h)
-    }
-
-    constructor(point: IConstPoint, size: IConstSize) {
-        x = point.x
-        y = point.y
-        w = Uint(size.w)
-        h = Uint(size.h)
-    }
-
-    constructor(p1: IConstPoint, p2: IConstPoint) {
-        val minX = minOf(p1.x, p2.x)
-        val minY = minOf(p1.y, p2.y)
-        val maxX = maxOf(p1.x, p2.x)
-        val maxY = maxOf(p1.y, p2.y)
-
-        x = minX
-        y = minY
-        w = Uint(maxX - minX + 1)
-        h = Uint(maxY - minY + 1)
-    }
-
-    constructor(other: IConstRect) {
-        x = other.x
-        y = other.y
-        w = other.w
-        h = other.h
-    }
-
-    constructor(size: IConstSize) {
-        x = 0
-        y = 0
-        w = Uint(size.w)
-        h = Uint(size.h)
-    }
-
-    //<editor-fold defaultstate="collapsed" desc="hashCode & equals">
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as ConstRect
-
-        if (x != other.x) return false
-        if (y != other.y) return false
-        if (w != other.w) return false
-        if (h != other.h) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = 5
-        result = 31 * result + x
-        result = 31 * result + y
-        result = 31 * result + w.v
-        result = 31 * result + h.v
-        return result
-    }
-    //</editor-fold>
-
-    override fun toString(): String = "ConstRect{$x, $y, $w, $h}"
-}
-
-class Rect : IRect {
-    override var x: Int
-    override var y: Int
-    override var w: Uint
-    override var h: Uint
-
-    constructor() {
-        x = 0
-        y = 0
-        w = Uint(0)
-        h = Uint(0)
-    }
-
-    constructor(x: Int, y: Int, w: Uint, h: Uint) {
-        this.x = x
-        this.y = y
-        this.w = Uint(w)
-        this.h = Uint(h)
-    }
-
-    constructor(point: IConstPoint, size: IConstSize) {
-        x = point.x
-        y = point.y
-        w = Uint(size.w)
-        h = Uint(size.h)
-    }
-
-    constructor(p1: IConstPoint, p2: IConstPoint) {
-        val minX = minOf(p1.x, p2.x)
-        val minY = minOf(p1.y, p2.y)
-        val maxX = maxOf(p1.x, p2.x)
-        val maxY = maxOf(p1.y, p2.y)
-
-        x = minX
-        y = minY
-        w = Uint(maxX - minX + 1)
-        h = Uint(maxY - minY + 1)
-    }
-
-    constructor(other: IConstRect) {
-        x = other.x
-        y = other.y
-        w = other.w
-        h = other.h
-    }
-
-    constructor(size: IConstSize) {
-        x = 0
-        y = 0
-        w = Uint(size.w)
-        h = Uint(size.h)
-    }
-
-    //<editor-fold defaultstate="collapsed" desc="hashCode & equals">
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as ConstRect
-
-        if (x != other.x) return false
-        if (y != other.y) return false
-        if (w != other.w) return false
-        if (h != other.h) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = 5
-        result = 31 * result + x
-        result = 31 * result + y
-        result = 31 * result + w.v
-        result = 31 * result + h.v
-        return result
-    }
-    //</editor-fold>
-
-    override fun toString(): String = "Rect{$x, $y, $w, $h}"
 }

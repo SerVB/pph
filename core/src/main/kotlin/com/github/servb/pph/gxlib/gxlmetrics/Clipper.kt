@@ -1,9 +1,13 @@
 package com.github.servb.pph.gxlib.gxlmetrics
 
 import com.github.servb.pph.gxlib.gxlcommontpl.Static.iCLAMP
+import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import unsigned.Uint
+import unsigned.minus
+import unsigned.plus
+import unsigned.ui
 
-enum class Alignment(val v: Int) {
+enum class Alignment(override val v: Int) : UniqueValueEnum {
     AlignCenter(0),
     AlignTop(0b0001),
     AlignRight(0b0010),
@@ -16,36 +20,36 @@ enum class Alignment(val v: Int) {
 }
 
 /** Returns rectangle with specified size aligned in specified dst rect. */
-fun AlignRect(ss: IConstSize, dr: IConstRect, al: Alignment): IRect {
-    val sw = ss.w.v;
-    val sh = ss.h.v;
-    val dw = dr.w.v;
-    val dh = dr.h.v;
+fun AlignRect(ss: WHHolder, dr: XYWHHolder, al: Alignment): Rect {
+    val sw = ss.w
+    val sh = ss.h
+    val dw = dr.w
+    val dh = dr.h
 
     // Vertical alignment
     val y = when {
         al.v and Alignment.AlignTop.v != 0 -> dr.y
         al.v and Alignment.AlignBottom.v != 0 -> dr.y + dh - sh
-        else -> dr.y + ((dh ushr 1) - (sh ushr 1))
+        else -> dr.y + ((dh shr 1) - (sh shr 1))
     }
 
     // Horizontal alignment
     val x = when {
         al.v and Alignment.AlignLeft.v != 0 -> dr.x
         al.v and Alignment.AlignRight.v != 0 -> dr.x + dw - sw
-        else -> dr.x + ((dw ushr 1) - (sw ushr 1))
+        else -> dr.x + ((dw shr 1) - (sw shr 1))
     }
 
-    return Rect(x = x, y = y, w = ss.w, h = ss.h)
+    return Rect(x, y, ss.w, ss.h)
 }
 
-val cInvalidPoint: IConstPoint = ConstPoint(0x7fff, 0x7fff)
-val cInvalidSize: IConstSize = ConstSize(0xffff, 0xffff)
-val cInvalidRect: IConstRect = ConstRect(0x7fff, 0x7fff, Uint(0xffff), Uint(0xffff))
+val cInvalidPoint = Point(0x7fff, 0x7fff)
+val cInvalidSize = Size(0xffff.ui, 0xffff.ui)
+val cInvalidRect = Rect(0x7fff, 0x7fff, 0xffff.ui, 0xffff.ui)
 
-inline fun pow2(v: Int) = v * v
+fun pow2(v: Int) = v * v
 
-fun IsLineIntersectCircle(cp: IConstPoint, cr: Int, p1: IConstPoint, p2: IConstPoint): Boolean {
+fun IsLineIntersectCircle(cp: XYHolder, cr: Int, p1: XYHolder, p2: XYHolder): Boolean {
     val x01 = p1.x - cp.x
     val y01 = p1.y - cp.y
     val x02 = p2.x - cp.x
@@ -77,14 +81,14 @@ fun IsLineIntersectCircle(cp: IConstPoint, cr: Int, p1: IConstPoint, p2: IConstP
     */
 }
 
-fun ClipPoint(pnt: IPoint, rect: IConstRect): Boolean {
+fun ClipPoint(pnt: MutablePoint, rect: XYWHHolder): Boolean {
     pnt.x = iCLAMP(rect.x, rect.x2, pnt.x)
     pnt.y = iCLAMP(rect.x, rect.y2, pnt.y)
     return true
 }
 
 /** x2 -- int[1] */
-fun ClipHLine(pnt1: IPoint, x2: Array<Int>, rect: IConstRect): Boolean {
+fun ClipHLine(pnt1: MutablePoint, x2: Array<Int>, rect: XYWHHolder): Boolean {
     if (pnt1.y < rect.y || pnt1.y > rect.y2) {
         return false
     }
@@ -94,7 +98,7 @@ fun ClipHLine(pnt1: IPoint, x2: Array<Int>, rect: IConstRect): Boolean {
 }
 
 /** y2 -- int[1] */
-fun ClipVLine(pnt1: IPoint, y2: Array<Int>, rect: IConstRect): Boolean {
+fun ClipVLine(pnt1: MutablePoint, y2: Array<Int>, rect: XYWHHolder): Boolean {
     if (pnt1.x < rect.x || pnt1.x > rect.x2) {
         return false
     }
@@ -103,22 +107,21 @@ fun ClipVLine(pnt1: IPoint, y2: Array<Int>, rect: IConstRect): Boolean {
     return pnt1.y != y2[0]
 }
 
-fun ClipLine(pnt1: IPoint, pnt2: IPoint, rect: IConstRect): Boolean {
-    var d = Point()
-    val clip = Rect(rect)
+fun ClipLine(pnt1: MutablePoint, pnt2: MutablePoint, rect: XYWHHolder): Boolean {
+    val d = MutablePoint()
 
     /* CLIPCODE( pnt1, c1 ) */
     var c1 = 0
-    if (pnt1.x < clip.x1) c1 = 8 or c1
-    if (pnt1.x > clip.x2) c1 = 4 or c1
-    if (pnt1.y < clip.y1) c1 = 2 or c1
-    if (pnt1.y > clip.y2) c1 = 1 or c1
+    if (pnt1.x < rect.x1) c1 = 8 or c1
+    if (pnt1.x > rect.x2) c1 = 4 or c1
+    if (pnt1.y < rect.y1) c1 = 2 or c1
+    if (pnt1.y > rect.y2) c1 = 1 or c1
     /* CLIPCODE( pnt2, c2 ) */
     var c2 = 0
-    if (pnt2.x < clip.x1) c2 = 8 or c2
-    if (pnt2.x > clip.x2) c2 = 4 or c2
-    if (pnt2.y < clip.y1) c2 = 2 or c2
-    if (pnt2.y > clip.y2) c2 = 1 or c2
+    if (pnt2.x < rect.x1) c2 = 8 or c2
+    if (pnt2.x > rect.x2) c2 = 4 or c2
+    if (pnt2.y < rect.y1) c2 = 2 or c2
+    if (pnt2.y > rect.y2) c2 = 1 or c2
 
     while (c1 or c2 != 0) {
         if (c1 and c2 == 0) {
@@ -127,51 +130,51 @@ fun ClipLine(pnt1: IPoint, pnt2: IPoint, rect: IConstRect): Boolean {
         d.x = pnt2.x - pnt1.x
         d.y = pnt2.y - pnt1.y
         if (c1 != 0) {
-            if (pnt1.x < clip.x1) {
-                pnt1.y += d.y * (clip.x1 - pnt1.x) / d.x
-                pnt1.x = clip.x1
-            } else if (pnt1.x > clip.x2) {
-                pnt1.y += d.y * (clip.x2 - pnt1.x) / d.x
-                pnt1.x = clip.x2
-            } else if (pnt1.y < clip.y1) {
-                pnt1.x += d.x * (clip.y1 - pnt1.y) / d.y
-                pnt1.y = clip.y1
-            } else if (pnt1.y > clip.y2) {
-                pnt1.x += d.x * (clip.y2 - pnt1.y) / d.y
-                pnt1.y = clip.y2
+            if (pnt1.x < rect.x1) {
+                pnt1.y += d.y * (rect.x1 - pnt1.x) / d.x
+                pnt1.x = rect.x1
+            } else if (pnt1.x > rect.x2) {
+                pnt1.y += d.y * (rect.x2 - pnt1.x) / d.x
+                pnt1.x = rect.x2
+            } else if (pnt1.y < rect.y1) {
+                pnt1.x += d.x * (rect.y1 - pnt1.y) / d.y
+                pnt1.y = rect.y1
+            } else if (pnt1.y > rect.y2) {
+                pnt1.x += d.x * (rect.y2 - pnt1.y) / d.y
+                pnt1.y = rect.y2
             }
             /* CLIPCODE( pnt1, c1 ) */
             c1 = 0
-            if (pnt1.x < clip.x1) c1 = 8 or c1
-            if (pnt1.x > clip.x2) c1 = 4 or c1
-            if (pnt1.y < clip.y1) c1 = 2 or c1
-            if (pnt1.y > clip.y2) c1 = 1 or c1
+            if (pnt1.x < rect.x1) c1 = 8 or c1
+            if (pnt1.x > rect.x2) c1 = 4 or c1
+            if (pnt1.y < rect.y1) c1 = 2 or c1
+            if (pnt1.y > rect.y2) c1 = 1 or c1
         } else {
-            if (pnt2.x < clip.x1) {
-                pnt2.y += d.y * (clip.x1 - pnt2.x) / d.x
-                pnt2.x = clip.x1
-            } else if (pnt2.x > clip.x2) {
-                pnt2.y += d.y * (clip.x2 - pnt2.x) / d.x
-                pnt2.x = clip.x2
-            } else if (pnt2.y < clip.y1) {
-                pnt2.x += d.x * (clip.y1 - pnt2.y) / d.y
-                pnt2.y = clip.y1
-            } else if (pnt2.y > clip.y2) {
-                pnt2.x += d.x * (clip.y2 - pnt2.y) / d.y
-                pnt2.y = clip.y2
+            if (pnt2.x < rect.x1) {
+                pnt2.y += d.y * (rect.x1 - pnt2.x) / d.x
+                pnt2.x = rect.x1
+            } else if (pnt2.x > rect.x2) {
+                pnt2.y += d.y * (rect.x2 - pnt2.x) / d.x
+                pnt2.x = rect.x2
+            } else if (pnt2.y < rect.y1) {
+                pnt2.x += d.x * (rect.y1 - pnt2.y) / d.y
+                pnt2.y = rect.y1
+            } else if (pnt2.y > rect.y2) {
+                pnt2.x += d.x * (rect.y2 - pnt2.y) / d.y
+                pnt2.y = rect.y2
             }
             /* CLIPCODE( pnt2, c2 ) */
             c2 = 0
-            if (pnt2.x < clip.x1) c2 = 8 or c2
-            if (pnt2.x > clip.x2) c2 = 4 or c2
-            if (pnt2.y < clip.y1) c2 = 2 or c2
-            if (pnt2.y > clip.y2) c2 = 1 or c2
+            if (pnt2.x < rect.x1) c2 = 8 or c2
+            if (pnt2.x > rect.x2) c2 = 4 or c2
+            if (pnt2.y < rect.y1) c2 = 2 or c2
+            if (pnt2.y > rect.y2) c2 = 1 or c2
         }
     }
     return true;
 }
 
-fun IntersectRect(dst_rect: IRect, src_rect1: IConstRect, src_rect2: IConstRect): Boolean {
+fun IntersectRect(dst_rect: MutableRect, src_rect1: XYWHHolder, src_rect2: XYWHHolder): Boolean {
     val x1 = maxOf(src_rect1.x, src_rect2.x)
     val y1 = maxOf(src_rect1.y, src_rect2.y)
     val x2 = minOf(src_rect1.x2, src_rect2.x2) + 1
@@ -188,7 +191,7 @@ fun IntersectRect(dst_rect: IRect, src_rect1: IConstRect, src_rect2: IConstRect)
     }
 }
 
-fun IsIntersectRect(src_rect1: IConstRect, src_rect2: IConstRect): Boolean {
+fun IsIntersectRect(src_rect1: XYWHHolder, src_rect2: XYWHHolder): Boolean {
     val x1 = maxOf(src_rect1.x, src_rect2.x)
     val y1 = maxOf(src_rect1.y, src_rect2.y)
     val x2 = minOf(src_rect1.x2, src_rect2.x2) + 1
@@ -196,7 +199,7 @@ fun IsIntersectRect(src_rect1: IConstRect, src_rect2: IConstRect): Boolean {
     return x2 - x1 > 0 && y2 - y1 > 0
 }
 
-fun ClipRect(rc: IRect, rect: IConstRect): Boolean {
+fun ClipRect(rc: MutableRect, rect: XYWHHolder): Boolean {
     if (rc.x < rect.x) {
         val v = rect.x - rc.x
         if (v > rc.w.v) return false
@@ -225,10 +228,10 @@ fun ClipRect(rc: IRect, rect: IConstRect): Boolean {
     return rc.w > 0 && rc.h > 0
 }
 
-fun iClipRectRect(dst_rc: IRect, dst_rect: IConstRect, src_rc: IRect, src_rect: IConstRect): Boolean {
+fun iClipRectRect(dst_rc: MutableRect, dst_rect: XYWHHolder, src_rc: MutableRect, src_rect: XYWHHolder): Boolean {
     //iSize cl = src_rc
-    var clw = src_rc.w.v
-    var clh = src_rc.h.v
+    var clw = Uint(src_rc.w)
+    var clh = Uint(src_rc.h)
 
     // check ridiculous cases
     if (!IsIntersectRect(dst_rc, dst_rect) || !IsIntersectRect(src_rc, src_rect)) return false
@@ -247,11 +250,11 @@ fun iClipRectRect(dst_rc: IRect, dst_rect: IConstRect, src_rc: IRect, src_rect: 
     }
     // clip src right
     if (src_rc.x + clw > src_rect.w.v) {
-        clw = src_rect.w.v - src_rc.x
+        clw = src_rect.w - src_rc.x
     }
     // clip src bottom
     if (src_rc.y + clh > src_rect.h.v) {
-        clh = src_rect.h.v - src_rc.y
+        clh = src_rect.h - src_rc.y
     }
     // clip dest left
     if (dst_rc.x < dst_rect.x) {
@@ -269,11 +272,11 @@ fun iClipRectRect(dst_rc: IRect, dst_rect: IConstRect, src_rc: IRect, src_rect: 
     }
     // clip dest right
     if (dst_rc.x + clw >= dst_rect.x2 + 1) {
-        clw = dst_rect.x2 - dst_rc.x + 1
+        clw = Uint(dst_rect.x2 - dst_rc.x + 1)
     }
     // clip dest bottom
     if (dst_rc.y + clh >= dst_rect.y2 + 1) {
-        clh = dst_rect.y2 - dst_rc.y + 1
+        clh = Uint(dst_rect.y2 - dst_rc.y + 1)
     }
     // bail out on zero size
     if (clw <= 0 || clh <= 0) {

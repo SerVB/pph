@@ -25,7 +25,7 @@ interface WHHolder {
 data class Size(override val w: Uint, override val h: Uint) : WHHolder {
     constructor() : this(0.ui, 0.ui)
 
-    constructor(other: WHHolder) : this(other.w, other.h)
+    constructor(other: WHHolder) : this(Uint(other.w), Uint(other.h))
 
     operator fun plus(other: WHHolder) = Size(w + other.w, h + other.h)
     operator fun minus(other: WHHolder) = Size(w - other.w, h - other.h)
@@ -36,7 +36,7 @@ data class Size(override val w: Uint, override val h: Uint) : WHHolder {
 data class MutableSize(override var w: Uint, override var h: Uint) : WHHolder {
     constructor() : this(0.ui, 0.ui)
 
-    constructor(other: WHHolder) : this(other.w, other.h)
+    constructor(other: WHHolder) : this(Uint(other.w), Uint(other.h))
 
     operator fun plus(other: WHHolder) = MutableSize(w + other.w, h + other.h)
     operator fun minus(other: WHHolder) = MutableSize(w - other.w, h - other.h)
