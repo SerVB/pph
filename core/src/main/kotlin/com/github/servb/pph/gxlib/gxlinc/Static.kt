@@ -1,9 +1,13 @@
 package com.github.servb.pph.gxlib.gxlinc
 
-const val GXLF_DOUBLESIZE = Uint(0x01)
-const val GXLF_LANDSCAPE = Uint(0x02)
-const val GXLF_DEV_LANDSCAPE = Uint(0x04)
-const val GXLF_DEV_VGARES = Uint(0x08)
-const val GXLF_LHANDER = Uint(0x10)
-const val GXLF_ENABLESOUND = Uint(0x20)
-const val GXLF_REALVGA = Uint(0x40)
+import com.github.servb.pph.util.helpertype.UniqueValueEnum
+
+enum class Inc(override val v: Int) : UniqueValueEnum {
+    GXLF_DOUBLESIZE(0x01),
+    GXLF_LANDSCAPE(0x02),
+    GXLF_DEV_LANDSCAPE(0x04),
+    GXLF_DEV_VGARES(0x08),
+    GXLF_LHANDER(0x10),
+    GXLF_ENABLESOUND(0x20),
+    GXLF_REALVGA(0x40);
+}
