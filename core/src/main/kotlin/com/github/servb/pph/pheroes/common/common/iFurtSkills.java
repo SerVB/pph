@@ -1,7 +1,5 @@
 package com.github.servb.pph.pheroes.common.common;
 
-import com.github.servb.pph.util.staticfunction.Tracer;
-
 import java.util.Arrays;
 
 /**
@@ -23,7 +21,7 @@ public final class iFurtSkills extends constFurtSkills {
     }
 
     public final void SetValue(final FURTHER_SKILLS type, final int newValue) {
-        Tracer.INSTANCE.check(type.getValue() >= FURTHER_SKILLS.FSK_INVALID.getValue() &&
+        check(type.getValue() >= FURTHER_SKILLS.FSK_INVALID.getValue() &&
                 type.getValue() < FURTHER_SKILLS.FSK_COUNT.getValue());
 
         getValues()[type.getValue()] = newValue;

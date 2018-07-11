@@ -1,9 +1,10 @@
 package com.github.servb.pph.gxlib.gxlviewmgr
 
 import com.github.servb.pph.gxlib.gxlapplication.iGXApp
-import com.github.servb.pph.gxlib.gxlmetrics.*
+import com.github.servb.pph.gxlib.gxlmetrics.Alignment
+import com.github.servb.pph.gxlib.gxlmetrics.Point
+import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.gxlib.gxlview.iView
-import com.github.servb.pph.util.staticfunction.Tracer
 
 class iViewMgr {
     interface IDragGlyph {
@@ -150,11 +151,11 @@ class iViewMgr {
 
     // Capture view
     fun SetViewCapture(pCapView: iView) {
-        Tracer.check(m_pCapView == null)
+        check(m_pCapView == null)
         m_pCapView = pCapView
     }
     fun ReleaseViewCapture(): iView {
-        Tracer.check(m_pCapView != null)
+        check(m_pCapView != null)
         val nView = m_pCapView!!  // TODO: difficult place
         m_pCapView = null
         return nView
@@ -175,12 +176,12 @@ class iViewMgr {
 
     // Popup windows
     fun TrackPopup(pPopupView: iPopupView, pos: IConstPoint, bound: IConstRect, al: Alignment) {
-        Tracer.check(m_pPopupView == null && pPopupView != null)
+        check(m_pPopupView == null && pPopupView != null)
         m_pPopupView = pPopupView
         m_pPopupView.TrackPopup(pos, bound, al)
     }
     fun HidePopup() {
-        Tracer.check(m_pPopupView)
+        check(m_pPopupView)
         m_pPopupView = null;
         if (m_pCurView != null) {
             m_pCurView.Invalidate()

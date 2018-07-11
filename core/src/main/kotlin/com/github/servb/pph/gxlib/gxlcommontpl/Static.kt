@@ -1,7 +1,5 @@
 package com.github.servb.pph.gxlib.gxlcommontpl
 
-import com.github.servb.pph.util.staticfunction.Tracer
-
 /**
  * "Clamps" [value] between [min] and [max].
  * If [min] `<=` [value] `<=` [max] then [value] is returned.
@@ -14,7 +12,7 @@ import com.github.servb.pph.util.staticfunction.Tracer
  * @return      The clamped value.
  */
 inline fun <reified T : Comparable<T>> iCLAMP(min: T, max: T, value: T): T {
-    Tracer.check(min <= max)
+    check(min <= max) { "The minimum should be not greater than the maximum" }
 
     if (value in min..max) {
         return value
@@ -115,7 +113,7 @@ fun iALIGN(value: Int, al: Int): Int {
  * @return      Wrapped value.
  */
 fun iWRAP(value: Short, minv: Short, wrap: Short): Short {
-    Tracer.check(minv < wrap)
+    require(minv < wrap) { "minv should be less theb wrap" }
 
     if (value < minv) {
         return (value + wrap - minv).toShort()

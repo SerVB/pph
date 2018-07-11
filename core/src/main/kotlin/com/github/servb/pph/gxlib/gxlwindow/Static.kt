@@ -1,12 +1,10 @@
 package com.github.servb.pph.gxlib.gxlwindow
 
 import com.github.servb.pph.gxlib.gxlapplication.iGXApp
-import com.github.servb.pph.gxlib.gxlmetrics.IConstSize
 import com.github.servb.pph.gxlib.gxlmetrics.Point
 import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.util.helpertype.*
-import com.github.servb.pph.util.staticfunction.Tracer
 import unsigned.Uint
 import unsigned.ui
 
@@ -35,8 +33,8 @@ class iWindow {
     }
 
     fun Init(hInst: HINSTANCE, wndName: LPCWSTR, siz: IConstSize, pApp: iGXApp): Boolean {
-        Tracer.check(m_hWnd == null)
-        Tracer.check(owner != 0)
+        check(m_hWnd == null)
+        check(owner != 0)
         m_pOwner = owner
         // SiGMan: this one is proper (for PPC) app single instance check
         // first check if such window already exists (application is running)
@@ -82,7 +80,7 @@ class iWindow {
         return true;
     }
     fun Destroy() {
-        Tracer.check(m_hWnd != null)
+        check(m_hWnd != null)
         DestroyWindow(m_hWnd)
         m_hWnd = null
     }

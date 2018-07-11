@@ -7,7 +7,6 @@ import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.gxlib.gxlmetrics.WHHolder
 import com.github.servb.pph.util.helpertype.*
-import com.github.servb.pph.util.staticfunction.Tracer
 import unsigned.Uint
 import unsigned.ui
 
@@ -23,7 +22,7 @@ class iGXApp {
 
     fun Init(hInst: HINSTANCE, appName: LPCWSTR, pGame: IGame, cdelay: Uint, flags: Uint): Boolean {
         var flags = flags
-        Tracer.check(!m_bInited)
+        check(!m_bInited)
         m_pGame = pGame
         m_CycleDelay = cdelay
         m_Flags = flags
@@ -86,7 +85,7 @@ class iGXApp {
         return m_bInited;
     }
     fun Destroy() {
-        Tracer.check(m_bInited)
+        check(m_bInited) { "Can't destroy not inited app" }
         FreeLibrary(m_coreDLL)
         FreeLibrary( m_aygDLL )
 
@@ -124,7 +123,7 @@ class iGXApp {
         }*/
 
         if (!m_bSuspended) {
-            m_pGame?.Process(fix32(step.i) / 1000L) ?: Tracer.check(false)
+            m_pGame?.Process(fix32(step.i) / 1000L) ?: check(false)
             m_viewMgr.Process(step)
             if (step + m_processTimer > m_CycleDelay) {
                 m_processTimer = 0
@@ -180,7 +179,7 @@ class iGXApp {
     fun Suspend() {
         if (!m_bSuspended) {
             if (OS_WINCE) {
-                m_pGame?.OnSuspend() ?: Tracer.check(false)
+                m_pGame?.OnSuspend() ?: check(false)
                 m_Display.msg_Suspend()
             }
             m_bSuspended = true
@@ -202,7 +201,7 @@ class iGXApp {
                     m_SoundPlayer.Init()
                 }
                 m_Display.msg_Resume()
-                m_pGame?.OnResume() ?: Tracer.check(false)
+                m_pGame?.OnResume() ?: check(false)
             }
             m_bSuspended = false;
         }

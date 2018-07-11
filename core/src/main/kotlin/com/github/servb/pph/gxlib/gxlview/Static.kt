@@ -1,8 +1,9 @@
 package com.github.servb.pph.gxlib.gxlview
 
-import com.github.servb.pph.gxlib.gxlmetrics.*
+import com.github.servb.pph.gxlib.gxlmetrics.Point
+import com.github.servb.pph.gxlib.gxlmetrics.Rect
+import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
-import com.github.servb.pph.util.staticfunction.Tracer
 
 enum class VIEWCLSID {
     GENERIC_VIEWPORT,
@@ -76,7 +77,7 @@ abstract class iView(pViewMgr: iViewMgr, rect: IConstRect, clsId: Uint, uid: Uin
     fun MouseDown(pos: IConstPoint): Boolean {
         if (!m_bEnabled) {
             // only topmost window can receive messages in disabled state
-            Tracer.check(m_pParent == null)
+            check(m_pParent == null)
             m_pMgr.SetViewCapture(this)
             m_bTracking = true
             return true
@@ -99,7 +100,7 @@ abstract class iView(pViewMgr: iViewMgr, rect: IConstRect, clsId: Uint, uid: Uin
                 OnMouseClick(pos)
             }
         } else {
-            Tracer.check(false)
+            check(false)
         }
 
         return true

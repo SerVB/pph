@@ -1,7 +1,5 @@
 package com.github.servb.pph.pheroes.common.common
 
-import com.github.servb.pph.util.staticfunction.Tracer
-
 /** TODO: Remove the class. */
 class constFurtSkills {
 
@@ -16,7 +14,7 @@ class constFurtSkills {
     }
 
     fun Value(type: FURTHER_SKILLS): Int {
-        Tracer.check(type.getValue() >= FURTHER_SKILLS.FSK_INVALID.getValue() && type.getValue() < FURTHER_SKILLS.FSK_COUNT.getValue())
+        check(type.getValue() >= FURTHER_SKILLS.FSK_INVALID.getValue() && type.getValue() < FURTHER_SKILLS.FSK_COUNT.getValue())
 
         return values[type.getValue()]
     }
