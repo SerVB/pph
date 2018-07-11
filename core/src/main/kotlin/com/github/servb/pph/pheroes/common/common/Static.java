@@ -6,8 +6,6 @@ import com.github.servb.pph.gxlib.gxlmetrics.IConstPoint;
 import com.github.servb.pph.util.helpertype.ConstArray;
 import com.github.servb.pph.util.helpertype.SimpleConstArray;
 
-import static com.github.servb.pph.gxlib.gxlcommondef.Static.iRandTable;
-
 /**
  * Common defines and constants.
  *
@@ -91,7 +89,7 @@ public final class Static {
         result ^= (result >> 17);
 
         final int idx = (result ^ (result >> 8) ^ (result >> 16)) & 255;
-        result = iRandTable.get(idx);
+        result = INSTANCE.getIRandTable().get(idx);
 
         return result % maxv;
     }

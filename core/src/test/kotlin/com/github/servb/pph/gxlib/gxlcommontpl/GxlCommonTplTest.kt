@@ -4,7 +4,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 import io.kotlintest.tables.*
 
-class GxlCommonTpl : StringSpec() {
+class GxlCommonTplTest : StringSpec() {
     init {
         "iCLAMP" {
             forAll(
