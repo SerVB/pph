@@ -1,12 +1,15 @@
 package com.github.servb.pph.gxlib.gxlapplication
 
 import com.github.servb.pph.gxlib.gxlfixpoint.fix32
-import com.github.servb.pph.gxlib.gxlinc.*
-import com.github.servb.pph.gxlib.gxlmetrics.ISize
+import com.github.servb.pph.gxlib.gxlinc.Inc
+import com.github.servb.pph.gxlib.gxlmetrics.MutableSize
 import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxlmetrics.Size
+import com.github.servb.pph.gxlib.gxlmetrics.WHHolder
 import com.github.servb.pph.util.helpertype.*
 import com.github.servb.pph.util.staticfunction.Tracer
+import unsigned.Uint
+import unsigned.ui
 
 interface IGame {
     fun Process(t: fix32): Int
@@ -24,29 +27,29 @@ class iGXApp {
         m_pGame = pGame
         m_CycleDelay = cdelay
         m_Flags = flags
-        val scrsiz: ISize
-        val osiz: ISize
+        val scrsiz: MutableSize
+        val osiz: WHHolder
         if (HPC_JORNADA) {
-            m_BaseMetrics = Size(320, 240)
-            flags = flags or GXLF_DEV_LANDSCAPE
+            m_BaseMetrics = Size(320.ui, 240.ui)
+            flags = flags or Inc.GXLF_DEV_LANDSCAPE.v
             scrsiz = m_BaseMetrics
             osiz = m_BaseMetrics
         } else if (OS_WINCE) {
             m_BaseMetrics = Size(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN))
             if (m_BaseMetrics.w > m_BaseMetrics.h) {
-                flags = flags or GXLF_DEV_LANDSCAPE
+                flags = flags or Inc.GXLF_DEV_LANDSCAPE.v
             }
             scrsiz = m_BaseMetrics
             osiz = m_BaseMetrics
         } else if (OS_WIN32) {
-            m_BaseMetrics = if (m_Flags and GXLF_REALVGA != 0) Size(480, 640) else Size(240, 320)
+            m_BaseMetrics = if (m_Flags and Inc.GXLF_REALVGA.v != 0.ui) Size(480.ui, 640.ui) else Size(240.ui, 320.ui)
             scrsiz = m_BaseMetrics
-            if (m_Flags and GXLF_LANDSCAPE != 0) {
+            if (m_Flags and Inc.GXLF_LANDSCAPE.v != 0.ui) {
                 scrsiz.w = m_BaseMetrics.h
                 scrsiz.h = m_BaseMetrics.w
             }
             osiz = scrsiz
-            if (m_Flags and GXLF_DOUBLESIZE != 0) {
+            if (m_Flags and Inc.GXLF_DOUBLESIZE.v != 0.ui) {
                 osiz.w *= 2
                 osiz.h *= 2
             }
@@ -58,7 +61,7 @@ class iGXApp {
             if (!m_Input.Init(osiz, flags)) break
             if (!m_Timer.Init()) break
             if (!m_Display.Init(m_Window, scrsiz, flags)) break
-            if ((m_Flags and GXLF_ENABLESOUND != 0) && !m_SoundPlayer.Init()) break
+            if ((m_Flags and Inc.GXLF_ENABLESOUND.v != 0.ui) && !m_SoundPlayer.Init()) break
             m_Window.SetOwner(this)
             m_bInited = true
         } while (false)
