@@ -1,9 +1,12 @@
 package com.github.servb.pph.gxlib.gxlview
 
+import com.github.servb.pph.gxlib.gxlmetrics.MutableRect
 import com.github.servb.pph.gxlib.gxlmetrics.Point
 import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
+import unsigned.Uint
+import unsigned.ui
 
 enum class VIEWCLSID {
     GENERIC_VIEWPORT,
@@ -21,10 +24,10 @@ enum class CTRL_EVT_ID {
     CEI_CLICK
 }
 
-abstract class iView(pViewMgr: iViewMgr, rect: IConstRect, clsId: Uint, uid: Uint, state: Uint) {
+abstract class iView(pViewMgr: iViewMgr, rect: Rect, clsId: VIEWCLSID, uid: Uint, state: Uint) {
     enum class ViewState(val v: Uint) {
-        Visible(0x1),
-        Enabled(0x2)
+        Visible(0x1.ui),
+        Enabled(0x2.ui)
     }
 
     fun AddChild(pChild: iView): Boolean {
@@ -175,20 +178,20 @@ abstract class iView(pViewMgr: iViewMgr, rect: IConstRect, clsId: Uint, uid: Uin
     fun GetClassId() = Uint(m_clsId)
     fun GetUID() = Uint(m_UID)
     fun NeedRedraw() = m_bNeedRedraw
-    fun Invalidate() {
+    open fun Invalidate() {
         m_bNeedRedraw = true
         if (m_pParent) {
             m_pParent.Invalidate()
         }
     }
 
-    private fun CreateView(pViewMgr: iViewMgr?, rect: IConstRect, clsId: Uint, uid: Uint, state: Uint): Boolean {
+    private fun CreateView(pViewMgr: iViewMgr?, rect: Rect, clsId: VIEWCLSID, uid: Uint, state: Uint): Boolean {
         if (pViewMgr == null) {
             return false
         }
         m_pMgr = pViewMgr
-        m_bVisible = state and ViewState.Visible.v != 0
-        m_bEnabled = state and ViewState.Enabled.v != 0
+        m_bVisible = state and ViewState.Visible.v != 0.ui
+        m_bEnabled = state and ViewState.Enabled.v != 0.ui
         m_Rect = Rect(rect)
         m_clsId = clsId
         m_UID = uid
@@ -197,17 +200,17 @@ abstract class iView(pViewMgr: iViewMgr, rect: IConstRect, clsId: Uint, uid: Uin
 
 
     protected var m_UID: Uint
-    protected var m_clsId: Uint
-    protected var m_Rect: IRect
+    protected var m_clsId: VIEWCLSID
+    protected var m_Rect: MutableRect
 
     protected var m_bEnabled: Boolean
     protected var m_bVisible: Boolean
     protected var m_bTracking: Boolean
     protected var m_bNeedRedraw: Boolean
 
-    protected var iViewMgr m_pMgr: iViewMgr
-    protected var iView m_pParent: iView?
-    protected var iViewList m_Childs: MutableList<iView>
+    protected var m_pMgr: iViewMgr
+    protected var m_pParent: iView?
+    protected var m_Childs: MutableList<iView>
 
     init {
         m_bNeedRedraw = true

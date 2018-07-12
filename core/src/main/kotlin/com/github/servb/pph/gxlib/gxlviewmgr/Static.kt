@@ -4,7 +4,9 @@ import com.github.servb.pph.gxlib.gxlapplication.iGXApp
 import com.github.servb.pph.gxlib.gxlmetrics.Alignment
 import com.github.servb.pph.gxlib.gxlmetrics.Point
 import com.github.servb.pph.gxlib.gxlmetrics.Size
+import com.github.servb.pph.gxlib.gxltopmostview.iTopmostView
 import com.github.servb.pph.gxlib.gxlview.iView
+import com.github.servb.pph.gxlib.iDialog
 
 class iViewMgr {
     interface IDragGlyph {
@@ -147,7 +149,7 @@ class iViewMgr {
     fun SetCurView(pCurView: iTopmostView) {
         m_pCurView = pCurView
     }
-    fun CurView() = m_pCurView as iView
+    fun CurView() = m_pCurView as iView?
 
     // Capture view
     fun SetViewCapture(pCapView: iView) {
