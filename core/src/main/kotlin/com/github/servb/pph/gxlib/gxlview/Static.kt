@@ -154,10 +154,10 @@ abstract class iView(pViewMgr: iViewMgr, rect: Rect, clsId: VIEWCLSID, uid: Uint
         return res
     }
 
-    fun GetScrRect(): IRect {
-        val res = Rect(m_Rect)
-        if (m_pParent) {
-            res += m_pParent.GetScrPos()
+    fun GetScrRect(): MutableRect {
+        val res = MutableRect(m_Rect)
+        m_pParent?.let {
+            res += it.GetScrPos()
         }
         return res
     }
