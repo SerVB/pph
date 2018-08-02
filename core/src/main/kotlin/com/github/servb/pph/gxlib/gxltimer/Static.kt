@@ -1,37 +1,27 @@
 package com.github.servb.pph.gxlib.gxltimer
 
-import ui
-import unsigned.Uint
-import unsigned.ui
-
-fun GetTickCount() = Uint(System.currentTimeMillis().toInt())  // TODO: Check the code
+fun GetTickCount() = System.currentTimeMillis().toInt()  // TODO: Check the code
 
 class iTimer {
+    private var m_LastTime = GetTickCount()
 
     fun Init(): Boolean {
-        return true;
+        return true
     }
 
-    fun GetCurTime(): Uint {
+    fun GetCurTime(): Int {
         m_LastTime = GetTickCount()
         return m_LastTime
     }
 
-    fun GetStep(): Uint {
+    fun GetStep(): Int {
         val ntime = GetTickCount()
-        val sval: Uint
-        sval = when {
-            ntime == m_LastTime -> return 0.ui
+        val sval = when {
+            ntime == m_LastTime -> return 0
             ntime > m_LastTime -> ntime - m_LastTime
-            else -> (0xFFFFFFFF.ui - m_LastTime) + ntime
+            else -> (0xFFFFFFFF - m_LastTime + ntime).toInt()
         }
         m_LastTime = ntime
         return sval
-    }
-
-    private var m_LastTime: Uint
-
-    init {
-        m_LastTime = GetTickCount()
     }
 }

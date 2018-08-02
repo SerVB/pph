@@ -3,7 +3,7 @@ package com.github.servb.pph.gxlib.gxlmath
 const val PI = 3.1415926535897932384626433832795f
 
 fun int_sqrt(n: Int): Int {
-    var n = n
+    @Suppress("NAME_SHADOWING") var n = n
     var root = 0
     var tval: Int
 

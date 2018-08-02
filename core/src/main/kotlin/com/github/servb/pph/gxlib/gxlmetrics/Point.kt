@@ -1,61 +1,54 @@
 package com.github.servb.pph.gxlib.gxlmetrics
 
-import unsigned.minus
-import unsigned.plus
-
-interface XYHolder {
+/** Immutable (constant) Point view. */
+interface Pointc {
     val x: Int
     val y: Int
 
     /** TODO: Provide tests, provide documentation. */
-    fun GetSqDelta(other: XYHolder) = Math.max(Math.abs(other.x - x), Math.abs(other.y - y))
+    fun GetSqDelta(other: Pointc) = maxOf(Math.abs(other.x - x), Math.abs(other.y - y))
 
     /** TODO: Provide tests, provide documentation. */
-    fun GetDelta(other: XYHolder): Int {
+    fun GetDelta(other: Pointc): Int {
         val dx = other.x - x
         val dy = other.y - y
 
         return Math.sqrt((dx * dx + dy * dy).toDouble()).toInt()
     }
+
+    operator fun plus(other: Pointc): Pointc = Point(x + other.x, y + other.y)
+    operator fun minus(other: Pointc): Pointc = Point(x - other.x, y - other.y)
+    operator fun plus(offs: Int): Pointc = Point(x + offs, y + offs)
+    operator fun minus(offs: Int): Pointc = Point(x - offs, y - offs)
+
+    fun toPointc(): Pointc = Point(this)
+    fun toPoint() = Point(this)
 }
 
-data class Point(override val x: Int, override val y: Int) : XYHolder {
+data class Point(override var x: Int, override var y: Int) : Pointc {
     constructor() : this(0, 0)
 
-    constructor(other: XYHolder) : this(other.x, other.y)
+    constructor(other: Pointc) : this(other.x, other.y)
 
-    operator fun plus(other: XYHolder) = Point(x + other.x, y + other.y)
-    operator fun minus(other: XYHolder) = Point(x - other.x, y - other.y)
-    operator fun plus(offs: Int) = Point(x + offs, y + offs)
-    operator fun minus(offs: Int) = Point(x - offs, y - offs)
-}
+    operator fun plus(other: Point) = Point(x + other.x, y + other.y)
+    operator fun minus(other: Point) = Point(x - other.x, y - other.y)
 
-data class MutablePoint(override var x: Int, override var y: Int) : XYHolder {
-    constructor() : this(0, 0)
-
-    constructor(other: XYHolder) : this(other.x, other.y)
-
-    operator fun plus(other: XYHolder) = MutablePoint(x + other.x, y + other.y)
-    operator fun minus(other: XYHolder) = MutablePoint(x - other.x, y - other.y)
-    operator fun plus(offs: Int) = MutablePoint(x + offs, y + offs)
-    operator fun minus(offs: Int) = MutablePoint(x - offs, y - offs)
-
-    operator fun plusAssign(other: XYHolder) {
+    operator fun plusAssign(other: Pointc) {
         x += other.x
         y += other.y
     }
 
-    operator fun minusAssign(other: XYHolder) {
+    operator fun minusAssign(other: Pointc) {
         x -= other.x
         y -= other.y
     }
 
-    operator fun plusAssign(siz: WHHolder) {
+    operator fun plusAssign(siz: Sizec) {
         x += siz.w
         y += siz.h
     }
 
-    operator fun minusAssign(siz: WHHolder) {
+    operator fun minusAssign(siz: Sizec) {
         x -= siz.w
         y -= siz.h
     }

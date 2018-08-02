@@ -1,11 +1,7 @@
 package com.github.servb.pph.gxlib.gxlmetrics
 
-import com.github.servb.pph.gxlib.gxlcommontpl.Static.iCLAMP
+import com.github.servb.pph.gxlib.gxlcommontpl.iCLAMP
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
-import unsigned.Uint
-import unsigned.minus
-import unsigned.plus
-import unsigned.ui
 
 enum class Alignment(override val v: Int) : UniqueValueEnum {
     AlignCenter(0),
@@ -20,7 +16,7 @@ enum class Alignment(override val v: Int) : UniqueValueEnum {
 }
 
 /** Returns rectangle with specified size aligned in specified dst rect. */
-fun AlignRect(ss: WHHolder, dr: XYWHHolder, al: Alignment): Rect {
+fun AlignRect(ss: Sizec, dr: Rectc, al: Alignment): Rect {
     val sw = ss.w
     val sh = ss.h
     val dw = dr.w
@@ -43,13 +39,13 @@ fun AlignRect(ss: WHHolder, dr: XYWHHolder, al: Alignment): Rect {
     return Rect(x, y, ss.w, ss.h)
 }
 
-val cInvalidPoint = Point(0x7fff, 0x7fff)
-val cInvalidSize = Size(0xffff.ui, 0xffff.ui)
-val cInvalidRect = Rect(0x7fff, 0x7fff, 0xffff.ui, 0xffff.ui)
+val cInvalidPoint: Pointc = Point(0x7fff, 0x7fff)
+val cInvalidSize: Sizec = Size(0xffff, 0xffff)
+val cInvalidRect: Rectc = Rect(0x7fff, 0x7fff, 0xffff, 0xffff)
 
 fun pow2(v: Int) = v * v
 
-fun IsLineIntersectCircle(cp: XYHolder, cr: Int, p1: XYHolder, p2: XYHolder): Boolean {
+fun IsLineIntersectCircle(cp: Pointc, cr: Int, p1: Pointc, p2: Pointc): Boolean {
     val x01 = p1.x - cp.x
     val y01 = p1.y - cp.y
     val x02 = p2.x - cp.x
@@ -81,14 +77,14 @@ fun IsLineIntersectCircle(cp: XYHolder, cr: Int, p1: XYHolder, p2: XYHolder): Bo
     */
 }
 
-fun ClipPoint(pnt: MutablePoint, rect: XYWHHolder): Boolean {
+fun ClipPoint(pnt: Point, rect: Rectc): Boolean {
     pnt.x = iCLAMP(rect.x, rect.x2, pnt.x)
     pnt.y = iCLAMP(rect.x, rect.y2, pnt.y)
     return true
 }
 
 /** x2 -- int[1] */
-fun ClipHLine(pnt1: MutablePoint, x2: Array<Int>, rect: XYWHHolder): Boolean {
+fun ClipHLine(pnt1: Point, x2: Array<Int>, rect: Rectc): Boolean {
     if (pnt1.y < rect.y || pnt1.y > rect.y2) {
         return false
     }
@@ -98,7 +94,7 @@ fun ClipHLine(pnt1: MutablePoint, x2: Array<Int>, rect: XYWHHolder): Boolean {
 }
 
 /** y2 -- int[1] */
-fun ClipVLine(pnt1: MutablePoint, y2: Array<Int>, rect: XYWHHolder): Boolean {
+fun ClipVLine(pnt1: Point, y2: Array<Int>, rect: Rectc): Boolean {
     if (pnt1.x < rect.x || pnt1.x > rect.x2) {
         return false
     }
@@ -107,8 +103,8 @@ fun ClipVLine(pnt1: MutablePoint, y2: Array<Int>, rect: XYWHHolder): Boolean {
     return pnt1.y != y2[0]
 }
 
-fun ClipLine(pnt1: MutablePoint, pnt2: MutablePoint, rect: XYWHHolder): Boolean {
-    val d = MutablePoint()
+fun ClipLine(pnt1: Point, pnt2: Point, rect: Rectc): Boolean {
+    val d = Point()
 
     /* CLIPCODE( pnt1, c1 ) */
     var c1 = 0
@@ -171,10 +167,10 @@ fun ClipLine(pnt1: MutablePoint, pnt2: MutablePoint, rect: XYWHHolder): Boolean 
             if (pnt2.y > rect.y2) c2 = 1 or c2
         }
     }
-    return true;
+    return true
 }
 
-fun IntersectRect(dst_rect: MutableRect, src_rect1: XYWHHolder, src_rect2: XYWHHolder): Boolean {
+fun IntersectRect(dst_rect: Rect, src_rect1: Rectc, src_rect2: Rectc): Boolean {
     val x1 = maxOf(src_rect1.x, src_rect2.x)
     val y1 = maxOf(src_rect1.y, src_rect2.y)
     val x2 = minOf(src_rect1.x2, src_rect2.x2) + 1
@@ -183,15 +179,15 @@ fun IntersectRect(dst_rect: MutableRect, src_rect1: XYWHHolder, src_rect2: XYWHH
     return if (x2 - x1 > 0 && y2 - y1 > 0) {
         dst_rect.x = x1
         dst_rect.y = y1
-        dst_rect.w = Uint(x2 - x1)
-        dst_rect.h = Uint(y2 - y1)
+        dst_rect.w = x2 - x1
+        dst_rect.h = y2 - y1
         true
     } else {
         false
     }
 }
 
-fun IsIntersectRect(src_rect1: XYWHHolder, src_rect2: XYWHHolder): Boolean {
+fun IsIntersectRect(src_rect1: Rectc, src_rect2: Rectc): Boolean {
     val x1 = maxOf(src_rect1.x, src_rect2.x)
     val y1 = maxOf(src_rect1.y, src_rect2.y)
     val x2 = minOf(src_rect1.x2, src_rect2.x2) + 1
@@ -199,39 +195,39 @@ fun IsIntersectRect(src_rect1: XYWHHolder, src_rect2: XYWHHolder): Boolean {
     return x2 - x1 > 0 && y2 - y1 > 0
 }
 
-fun ClipRect(rc: MutableRect, rect: XYWHHolder): Boolean {
+fun ClipRect(rc: Rect, rect: Rectc): Boolean {
     if (rc.x < rect.x) {
         val v = rect.x - rc.x
-        if (v > rc.w.v) return false
+        if (v > rc.w) return false
         rc.w -= v
         rc.x = rect.x
     }
 
     if (rc.y < rect.y) {
         val v = rect.y - rc.y
-        if (v > rc.h.v) return false
+        if (v > rc.h) return false
         rc.h -= v
         rc.y = rect.y
     }
 
     if (rect.x2 < rc.x2) {
         val v = rc.x2 - rect.x2
-        if (v > rc.w.v) return false
+        if (v > rc.w) return false
         rc.w -= v
     }
 
     if (rect.y2 < rc.y2) {
         val v = rc.y2 - rect.y2
-        if (v > rc.h.v) return false
+        if (v > rc.h) return false
         rc.h -= v
     }
     return rc.w > 0 && rc.h > 0
 }
 
-fun iClipRectRect(dst_rc: MutableRect, dst_rect: XYWHHolder, src_rc: MutableRect, src_rect: XYWHHolder): Boolean {
+fun iClipRectRect(dst_rc: Rect, dst_rect: Rectc, src_rc: Rect, src_rect: Rectc): Boolean {
     //iSize cl = src_rc
-    var clw = Uint(src_rc.w)
-    var clh = Uint(src_rc.h)
+    var clw = src_rc.w
+    var clh = src_rc.h
 
     // check ridiculous cases
     if (!IsIntersectRect(dst_rc, dst_rect) || !IsIntersectRect(src_rc, src_rect)) return false
@@ -249,11 +245,11 @@ fun iClipRectRect(dst_rc: MutableRect, dst_rect: XYWHHolder, src_rc: MutableRect
         src_rc.y = 0
     }
     // clip src right
-    if (src_rc.x + clw > src_rect.w.v) {
+    if (src_rc.x + clw > src_rect.w) {
         clw = src_rect.w - src_rc.x
     }
     // clip src bottom
-    if (src_rc.y + clh > src_rect.h.v) {
+    if (src_rc.y + clh > src_rect.h) {
         clh = src_rect.h - src_rc.y
     }
     // clip dest left
@@ -272,19 +268,19 @@ fun iClipRectRect(dst_rc: MutableRect, dst_rect: XYWHHolder, src_rc: MutableRect
     }
     // clip dest right
     if (dst_rc.x + clw >= dst_rect.x2 + 1) {
-        clw = Uint(dst_rect.x2 - dst_rc.x + 1)
+        clw = dst_rect.x2 - dst_rc.x + 1
     }
     // clip dest bottom
     if (dst_rc.y + clh >= dst_rect.y2 + 1) {
-        clh = Uint(dst_rect.y2 - dst_rc.y + 1)
+        clh = dst_rect.y2 - dst_rc.y + 1
     }
     // bail out on zero size
     if (clw <= 0 || clh <= 0) {
         return false
     }
 
-    dst_rc.w = Uint(clw); dst_rc.h = Uint(clh)
-    src_rc.w = Uint(clw); src_rc.h = Uint(clh)
+    dst_rc.w = clw; dst_rc.h = clh
+    src_rc.w = clw; src_rc.h = clh
 
     return true
 }

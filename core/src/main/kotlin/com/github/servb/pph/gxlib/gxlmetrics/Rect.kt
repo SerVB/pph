@@ -1,11 +1,10 @@
 package com.github.servb.pph.gxlib.gxlmetrics
 
-import unsigned.Uint
-import unsigned.minus
-import unsigned.plus
-import unsigned.ui
+/** Immutable (constant) rectangle view. */
+interface Rectc : Pointc, Sizec {
+    override fun plus(offs: Int): Rectc = Rect(x + offs, y + offs, w + offs, h + offs)
+    override fun minus(offs: Int): Rectc = Rect(x - offs, y - offs, w - offs, h - offs)
 
-interface XYWHHolder : XYHolder, WHHolder {
     val x1 get() = x
     val y1 get() = y
     val x2 get() = x + w - 1
@@ -21,66 +20,51 @@ interface XYWHHolder : XYHolder, WHHolder {
     fun Size() = Size(w, h)
 
     fun PtInRect(_x: Int, _y: Int) = (_x in x1..x2) && (_y in y1..y2)
-    fun PtInRect(pnt: XYHolder) = PtInRect(pnt.x, pnt.y)
+    fun PtInRect(pnt: Pointc) = PtInRect(pnt.x, pnt.y)
 
-    fun IsEmpty() = w.v == 0 || h.v == 0
-}
+    fun IsEmpty() = w == 0 || h == 0
 
-/** TODO: Make constructor. */
-fun MakeRect(p1: XYHolder, p2: XYHolder): Rect {
-    val minX = minOf(p1.x, p2.x)
-    val minY = minOf(p1.y, p2.y)
-    val maxX = maxOf(p1.x, p2.x)
-    val maxY = maxOf(p1.y, p2.y)
-
-    val x = minX
-    val y = minY
-    val w = maxX - minX + 1
-    val h = maxY - minY + 1
-
-    return Rect(x, y, w.ui, h.ui)
-}
-
-data class Rect(override val x: Int, override val y: Int, override val w: Uint, override val h: Uint) : XYWHHolder {
-    constructor() : this(0, 0, 0.ui, 0.ui)
-
-    constructor(point: XYHolder, size: WHHolder) : this(point.x, point.y, Uint(size.w), Uint(size.h))
-
-    constructor(other: XYWHHolder) : this(other.x, other.y, Uint(other.w), Uint(other.h))
-
-    constructor(size: WHHolder) : this(0, 0, Uint(size.w), Uint(size.h))
-
-    operator fun plus(rect: XYWHHolder): Rect {
-        val rc = MutableRect(this)
+    operator fun plus(rect: Rectc): Rectc {
+        val rc = Rect(this)
         rc += rect
         return Rect(rc)
     }
+
+    fun toRectc(): Rectc = Rect(this)
+    fun toRect(): Rect = Rect(this)
 }
 
-data class MutableRect(override var x: Int, override var y: Int, override var w: Uint, override var h: Uint)
-        : XYWHHolder {
-    constructor() : this(0, 0, 0.ui, 0.ui)
+data class Rect(override var x: Int, override var y: Int, override var w: Int, override var h: Int) : Rectc {
+    constructor() : this(0, 0, 0, 0)
 
-    constructor(point: XYHolder, size: WHHolder) : this(point.x, point.y, Uint(size.w), Uint(size.h))
+    constructor(point: Pointc, size: Sizec) : this(point.x, point.y, size.w, size.h)
 
-    constructor(other: XYWHHolder) : this(other.x, other.y, Uint(other.w), Uint(other.h))
+    constructor(other: Rectc) : this(other.x, other.y, other.w, other.h)
 
-    constructor(size: WHHolder) : this(0, 0, Uint(size.w), Uint(size.h))
+    constructor(size: Sizec) : this(0, 0, size.w, size.h)
 
-    operator fun plus(rect: XYWHHolder): MutableRect {
-        val rc = MutableRect(this)
-        rc += rect
-        return MutableRect(rc)
+    constructor(p1: Pointc, p2: Pointc) : this(42, 42, 42, 42) {
+        val minX = minOf(p1.x, p2.x)
+        val minY = minOf(p1.y, p2.y)
+
+        val maxX = maxOf(p1.x, p2.x)
+        val maxY = maxOf(p1.y, p2.y)
+
+        x = minX
+        y = minY
+
+        w = maxX - minX + 1
+        h = maxY - minY + 1
     }
 
     fun Reset() {
         x = 0
         y = 0
-        w = 0.ui
-        h = 0.ui
+        w = 0
+        h = 0
     }
 
-    operator fun plusAssign(rect: XYWHHolder) {
+    operator fun plusAssign(rect: Rectc) {
         if (IsEmpty()) {
             x = rect.x
             y = rect.y
@@ -96,29 +80,36 @@ data class MutableRect(override var x: Int, override var y: Int, override var w:
 
         x = minX
         y = minY
-        w = (maxX - minX + 1).ui
-        h = (maxY - minY + 1).ui
+
+        w = maxX - minX + 1
+        h = maxY - minY + 1
     }
 
-    fun InflateRect(left: Uint, top: Uint, right: Uint, bottom: Uint) {
+    fun InflateRect(left: Int, top: Int, right: Int, bottom: Int) {
         x -= left
         y -= top
         w += left + right
         h += top + bottom
     }
 
-    fun InflateRect(x_offs: Uint, y_offs: Uint) = InflateRect(x_offs, y_offs, x_offs, y_offs)
+    fun InflateRect(x_offs: Int, y_offs: Int) = InflateRect(x_offs, y_offs, x_offs, y_offs)
 
-    fun InflateRect(offs: Uint) = InflateRect(offs, offs, offs, offs)
+    fun InflateRect(offs: Int) = InflateRect(offs, offs, offs, offs)
 
-    fun DeflateRect(left: Uint, top: Uint, right: Uint, bottom: Uint) {
+    fun DeflateRect(left: Int, top: Int, right: Int, bottom: Int) {
         x += left
         y += top
         w -= left + right
         h -= top + bottom
     }
 
-    fun DeflateRect(x_offs: Uint, y_offs: Uint) = DeflateRect(x_offs, y_offs, x_offs, y_offs)
+    fun DeflateRect(x_offs: Int, y_offs: Int) = DeflateRect(x_offs, y_offs, x_offs, y_offs)
 
-    fun DeflateRect(offs: Uint) = DeflateRect(offs, offs, offs, offs)
+    fun DeflateRect(offs: Int) = DeflateRect(offs, offs, offs, offs)
+
+    operator fun plus(rect: Rect): Rect {
+        val rc = Rect(this)
+        rc += rect
+        return Rect(rc)
+    }
 }
