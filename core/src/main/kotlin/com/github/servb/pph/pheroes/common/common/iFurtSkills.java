@@ -41,16 +41,16 @@ public final class iFurtSkills extends constFurtSkills {
         return this;
     }
 
-    public final iFurtSkills operatorPe(final constPrSkills ps) {
+    public final iFurtSkills operatorPe(final PrimarySkillsC ps) {
         for (int xx = 0; xx < PRSKILL_TYPE.PRSKILL_COUNT.getValue(); ++xx) {
-            getValues()[xx + FURTHER_SKILLS.FSK_ATTACK.getValue()] += ps.val[xx];
+            getValues()[xx + FURTHER_SKILLS.FSK_ATTACK.getValue()] += ps.getValues()[xx];
         }
         return this;
     }
 
-    public final iFurtSkills operatorMe(final constPrSkills ps) {
+    public final iFurtSkills operatorMe(final PrimarySkillsC ps) {
         for (int xx = 0; xx < PRSKILL_TYPE.PRSKILL_COUNT.getValue(); ++xx) {
-            getValues()[xx + FURTHER_SKILLS.FSK_ATTACK.getValue()] -= ps.val[xx];
+            getValues()[xx + FURTHER_SKILLS.FSK_ATTACK.getValue()] -= ps.getValues()[xx];
         }
         return this;
     }
