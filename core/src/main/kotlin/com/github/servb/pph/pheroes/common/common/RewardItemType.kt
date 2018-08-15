@@ -1,13 +1,13 @@
 package com.github.servb.pph.pheroes.common.common
 
-import com.github.servb.pph.util.helpertype.CountValueEnum
+import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
 enum class RewardItemType(
         override val v: Int,
         private val fParam: String? = null,
         private val sParam: String? = null
-) : UniqueValueEnum, CountValueEnum {
+) : UniqueValueEnum, UndefinedCountValueEnum {
     INVALID(-1),
     MINERAL(0, "Type", "Quantity"),
     EXPERIENCE(1, "None", "Quantity"),

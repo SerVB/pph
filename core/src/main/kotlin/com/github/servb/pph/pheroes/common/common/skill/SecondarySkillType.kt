@@ -1,6 +1,6 @@
 package com.github.servb.pph.pheroes.common.common.skill
 
-import com.github.servb.pph.util.helpertype.CountValueEnum
+import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
 // TODO: Are private comments actual?
@@ -12,7 +12,7 @@ enum class SecondarySkillType(
         val expert: Int? = null,
         private val valueType: String? = null,
         private val type: Type? = null
-) : UniqueValueEnum, CountValueEnum {
+) : UniqueValueEnum, UndefinedCountValueEnum {
     NONE(-1),
     ESTATES(0, FurtherSkill.MIN_GOLD, 250, 500, 1000, "gold points", Type.DAY_START),
     LEADERSHIP(1, FurtherSkill.MORALE, 1, 2, 3, "morale", Type.ONLY_BATTLE),

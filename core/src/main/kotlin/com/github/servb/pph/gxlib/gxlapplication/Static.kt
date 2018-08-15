@@ -1,14 +1,9 @@
 package com.github.servb.pph.gxlib.gxlapplication
 
-import com.github.servb.pph.gxlib.gxlfixpoint.fix32
 import com.github.servb.pph.gxlib.gxlinc.Inc
-import com.github.servb.pph.gxlib.gxlmetrics.MutableSize
 import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxlmetrics.Size
-import com.github.servb.pph.gxlib.gxlmetrics.WHHolder
 import com.github.servb.pph.util.helpertype.*
-import unsigned.Uint
-import unsigned.ui
 
 interface IGame {
     fun Process(t: fix32): Int
@@ -20,7 +15,7 @@ interface IGame {
 
 class iGXApp {
 
-    fun Init(hInst: HINSTANCE, appName: LPCWSTR, pGame: IGame, cdelay: Uint, flags: Uint): Boolean {
+    fun Init(hInst: HINSTANCE, appName: LPCWSTR, pGame: IGame, cdelay: Int, flags: Int): Boolean {
         var flags = flags
         check(!m_bInited)
         m_pGame = pGame
@@ -29,7 +24,7 @@ class iGXApp {
         val scrsiz: MutableSize
         val osiz: WHHolder
         if (HPC_JORNADA) {
-            m_BaseMetrics = Size(320.ui, 240.ui)
+            m_BaseMetrics = Size(320, 240)
             flags = flags or Inc.GXLF_DEV_LANDSCAPE.v
             scrsiz = m_BaseMetrics
             osiz = m_BaseMetrics
@@ -41,14 +36,14 @@ class iGXApp {
             scrsiz = m_BaseMetrics
             osiz = m_BaseMetrics
         } else if (OS_WIN32) {
-            m_BaseMetrics = if (m_Flags and Inc.GXLF_REALVGA.v != 0.ui) Size(480.ui, 640.ui) else Size(240.ui, 320.ui)
+            m_BaseMetrics = if (m_Flags and Inc.GXLF_REALVGA.v != 0) Size(480, 640) else Size(240, 320)
             scrsiz = m_BaseMetrics
-            if (m_Flags and Inc.GXLF_LANDSCAPE.v != 0.ui) {
+            if (m_Flags and Inc.GXLF_LANDSCAPE.v != 0) {
                 scrsiz.w = m_BaseMetrics.h
                 scrsiz.h = m_BaseMetrics.w
             }
             osiz = scrsiz
-            if (m_Flags and Inc.GXLF_DOUBLESIZE.v != 0.ui) {
+            if (m_Flags and Inc.GXLF_DOUBLESIZE.v != 0) {
                 osiz.w *= 2
                 osiz.h *= 2
             }
@@ -60,7 +55,7 @@ class iGXApp {
             if (!m_Input.Init(osiz, flags)) break
             if (!m_Timer.Init()) break
             if (!m_Display.Init(m_Window, scrsiz, flags)) break
-            if ((m_Flags and Inc.GXLF_ENABLESOUND.v != 0.ui) && !m_SoundPlayer.Init()) break
+            if ((m_Flags and Inc.GXLF_ENABLESOUND.v != 0) && !m_SoundPlayer.Init()) break
             m_Window.SetOwner(this)
             m_bInited = true
         } while (false)
@@ -82,7 +77,7 @@ class iGXApp {
             }
         }
 
-        return m_bInited;
+        return m_bInited
     }
     fun Destroy() {
         check(m_bInited) { "Can't destroy not inited app" }
@@ -109,8 +104,8 @@ class iGXApp {
             m_viewMgr.ProcessMessage(m_Input.Get())
         }
 
-        val m_LastUpdate: Uint = m_Timer.GetCurTime()  // TODO: static?
-        val step: Uint = m_Timer.GetStep()
+        val m_LastUpdate: Int = m_Timer.GetCurTime()  // TODO: static?
+        val step: Int = m_Timer.GetStep()
 
         /*if (OS_WINCE) { // TODO: winapi?
             val pwrTimeout = 0  // TODO: static?
@@ -146,7 +141,7 @@ class iGXApp {
         return 0
     }
 
-    fun Exit(code: Uint) {
+    fun Exit(code: Int) {
         m_bExit = true
     }
 
@@ -203,7 +198,7 @@ class iGXApp {
                 m_Display.msg_Resume()
                 m_pGame?.OnResume() ?: check(false)
             }
-            m_bSuspended = false;
+            m_bSuspended = false
         }
     }
 
@@ -279,7 +274,7 @@ class iGXApp {
     }
 
     fun ToggleOrientation() {
-        SetOrientation(!IsLandscape, m_Flags and GXLF_LHANDER != 0);
+        SetOrientation(!IsLandscape, m_Flags and GXLF_LHANDER != 0)
     }
 
     val IsLandscape get() = m_Flags and GXLF_LANDSCAPE != 0
@@ -291,10 +286,10 @@ class iGXApp {
         return false
     }
 
-    protected var m_BaseMetrics: ISize
-    protected var m_Flags: Uint
-    protected var m_CycleDelay: Uint
-    protected var m_processTimer: Uint
+    protected var m_BaseMetrics: Size
+    protected var m_Flags: Int
+    protected var m_CycleDelay: Int
+    protected var m_processTimer: Int
     protected var m_bExit: Boolean
 
     protected var m_pGame: IGame?

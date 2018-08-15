@@ -1,6 +1,6 @@
 package com.github.servb.pph.pheroes.common.common
 
-import com.github.servb.pph.util.helpertype.CountValueEnum
+import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
 /** TODO: Provide documentation, provide tests.  */
@@ -8,7 +8,7 @@ enum class DifficultyLevel(
         override val v: Int,
         val human: MineralSetC? = null,
         val computer: MineralSetC? = null
-) : UniqueValueEnum, CountValueEnum {
+) : UniqueValueEnum, UndefinedCountValueEnum {
     UNDEFINED(-1),
 
     EASY(

@@ -1,10 +1,12 @@
 package com.github.servb.pph.gxlib
 
-import com.github.servb.pph.gxlib.gxlmetrics.*
+import com.github.servb.pph.gxlib.gxlmetrics.AlignRect
+import com.github.servb.pph.gxlib.gxlmetrics.Alignment
+import com.github.servb.pph.gxlib.gxlmetrics.Rect
+import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.gxlib.gxlview.VIEWCLSID
 import com.github.servb.pph.gxlib.gxlview.iView
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
-import unsigned.ui
 
 enum class DLG_RETCODE {
     DRC_UNDEFINED,
@@ -15,7 +17,7 @@ enum class DLG_RETCODE {
 }
 
 abstract class iDialog(pViewMgr: iViewMgr)
-    : iView(pViewMgr, Rect(), VIEWCLSID.MODAL_DIALOG, 0.ui, ViewState.Enabled.v) {
+    : iView(pViewMgr, Rect(), VIEWCLSID.MODAL_DIALOG, 0, ViewState.Enabled.v) {
     private var m_retCode = DLG_RETCODE.DRC_UNDEFINED
 
     fun DoModal(): DLG_RETCODE {
@@ -31,9 +33,9 @@ abstract class iDialog(pViewMgr: iViewMgr)
     }
 
     // Pure virtuals
-    abstract fun GetDlgMetrics(): MutableSize
+    abstract fun GetDlgMetrics(): Size
     abstract fun OnCreateDlg()
-    open fun OnPlace(rect: MutableRect) {}
+    open fun OnPlace(rect: Rect) {}
 
     // Virtuals
     open fun KeyDown(key: Int) = false
@@ -42,7 +44,7 @@ abstract class iDialog(pViewMgr: iViewMgr)
     protected fun IsValidDialog() = m_retCode == DLG_RETCODE.DRC_UNDEFINED
 
     protected fun Center() {
-        val rect = MutableRect(AlignRect(GetDlgMetrics(), Rect(m_pMgr.Metrics()), Alignment.AlignCenter))
+        val rect = Rect(AlignRect(GetDlgMetrics(), Rect(m_pMgr.Metrics()), Alignment.AlignCenter))
         OnPlace(rect)
         SetRect(rect)
     }

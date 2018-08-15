@@ -1,14 +1,14 @@
 package com.github.servb.pph.pheroes.common.common
 
 import com.badlogic.gdx.graphics.Color
-import com.github.servb.pph.util.helpertype.CountValueEnum
+import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
 enum class PlayerId(
         override val v: Int,
         val color: Int = -42,
         val textColor: Int = -42
-) : UniqueValueEnum, CountValueEnum {
+) : UniqueValueEnum, UndefinedCountValueEnum {
     NEUTRAL(-1),
 
     RED(

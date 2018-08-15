@@ -1,12 +1,12 @@
 package com.github.servb.pph.pheroes.common.common.artifact
 
-import com.github.servb.pph.util.helpertype.CountValueEnum
+import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
 enum class HeroArtifactCell(
         override val v: Int,
         val assign: ArtifactAssign? = null
-) : UniqueValueEnum, CountValueEnum {
+) : UniqueValueEnum, UndefinedCountValueEnum {
     UNDEFINED(-1),
     HEAD(0, ArtifactAssign.HEAD),
     NECK(1, ArtifactAssign.NECK),

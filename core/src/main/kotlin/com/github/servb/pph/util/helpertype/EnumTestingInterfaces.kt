@@ -5,10 +5,15 @@ interface UniqueValueEnum {
     val v: Int
 }
 
+/** Need to have an element containing "COUNT" and its value has to be a number of previous members. */
+interface CountValueEnum {
+    val v: Int
+}
+
 /**
  * Need to have an element containing "COUNT" and its value has to be a number of previous members except "UNDEFINED"
  * member (if there is).
  */
-interface CountValueEnum {
+interface UndefinedCountValueEnum {
     val v: Int
 }

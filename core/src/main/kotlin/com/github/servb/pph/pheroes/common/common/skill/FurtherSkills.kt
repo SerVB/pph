@@ -72,13 +72,13 @@ class FurtherSkills : FurtherSkillsC {
     }
 
     operator fun plusAssign(other: PrimarySkillsC) {
-        for (xx in 0 until PrimarySkillType.COUNT.value) {
+        for (xx in 0 until PrimarySkillType.COUNT.v) {
             values[xx + FurtherSkill.ATTACK.v] += other.values[xx]
         }
     }
 
     operator fun minusAssign(other: PrimarySkillsC) {
-        for (xx in 0 until PrimarySkillType.COUNT.value) {
+        for (xx in 0 until PrimarySkillType.COUNT.v) {
             values[xx + FurtherSkill.ATTACK.v] -= other.values[xx]
         }
     }

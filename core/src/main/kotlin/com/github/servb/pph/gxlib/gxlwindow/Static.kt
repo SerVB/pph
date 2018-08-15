@@ -5,8 +5,6 @@ import com.github.servb.pph.gxlib.gxlmetrics.Point
 import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.util.helpertype.*
-import unsigned.Uint
-import unsigned.ui
 
 interface iDispMsgHnd {
     fun msg_Suspend()
@@ -32,7 +30,7 @@ class iWindow {
         m_bTrack = false
     }
 
-    fun Init(hInst: HINSTANCE, wndName: LPCWSTR, siz: IConstSize, pApp: iGXApp): Boolean {
+    fun Init(hInst: HINSTANCE, wndName: LPCWSTR, siz: Sizec, pApp: iGXApp): Boolean {
         check(m_hWnd == null)
         check(owner != 0)
         m_pOwner = owner
@@ -59,11 +57,11 @@ class iWindow {
             if (!HPC_JORNADA) {
                 //::SHFullScreen( m_hWnd, SHFS_HIDETASKBAR | SHFS_HIDESIPBUTTON | SHFS_HIDESTARTICON );
                 owner.ShellFullscreen(m_hWnd,
-                        SHFS_HIDETASKBAR or SHFS_HIDESIPBUTTON or SHFS_HIDESTARTICON);
+                        SHFS_HIDETASKBAR or SHFS_HIDESIPBUTTON or SHFS_HIDESTARTICON)
             }
         }
         if (OS_WIN32) {
-            val wrc = Rect(100, 100, 100.ui + m_Size.w, 100.ui + m_Size.h)
+            val wrc = Rect(100, 100, 100 + m_Size.w, 100 + m_Size.h)
             val dwStyle = WS_OVERLAPPED or WS_CAPTION or WS_SYSMENU
             AdjustWindowRect(wrc, dwStyle, false)
             m_hWnd = CreateWindow(wndClassName, wndName, dwStyle,
@@ -77,7 +75,7 @@ class iWindow {
         if (OS_WIN32) {
             ShowWindow(m_hWnd, SW_SHOW)
         }
-        return true;
+        return true
     }
     fun Destroy() {
         check(m_hWnd != null)
@@ -85,7 +83,7 @@ class iWindow {
         m_hWnd = null
     }
 
-    fun OnMessage(hWnd: HWND, uMsg: Uint, wParam: WPARAM, lParam: LPARAM): LRESULT {
+    fun OnMessage(hWnd: HWND, uMsg: Int, wParam: WPARAM, lParam: LPARAM): LRESULT {
         val pt = Point()
         when (uMsg) {
             WM_KILLFOCUS -> {
@@ -120,7 +118,7 @@ class iWindow {
                     if (it) {
                         val ps = PAINTSTRUCT()
                         val hdc = BeginPaint(hWnd, ps)
-                        m_pOwner?.Display?.msg_OnPaint(hdc)
+                        m_pOwner?.Display.msg_OnPaint(hdc)
                         EndPaint(m_hWnd, ps)
                     }
                 }
@@ -194,10 +192,10 @@ class iWindow {
         m_pOwner = pApp
     }
 
-    fun SetSize(siz: IConstSize) {
+    fun SetSize(siz: Sizec) {
         m_Size = Size(siz)
         if (OS_WIN32) {
-            val wrc = Rect(100, 100, 100.ui + siz.w, 100.ui + siz.h)
+            val wrc = Rect(100, 100, 100 + siz.w, 100 + siz.h)
             AdjustWindowRect(wrc, GetWindowLong(m_hWnd, GWL_STYLE), false)
             SetWindowPos(m_hWnd, 0, 0, 0, wrc.right - wrc.left, wrc.bottom - wrc.top,
                     SWP_NOACTIVATE or SWP_NOOWNERZORDER or SWP_NOZORDER or SWP_NOMOVE)

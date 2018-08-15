@@ -1,7 +1,7 @@
 package com.github.servb.pph.pheroes.common.common.skill
 
 import com.github.servb.pph.pheroes.common.common.skill.FurtherSkill.FurtherSkillType.*
-import com.github.servb.pph.util.helpertype.CountValueEnum
+import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
 /**
@@ -11,7 +11,7 @@ enum class FurtherSkill(
         override val v: Int,
         private val type: FurtherSkillType? = null,
         private val description: String? = null
-) : UniqueValueEnum, CountValueEnum {
+) : UniqueValueEnum, UndefinedCountValueEnum {
     INVALID(-1),
 
     ATTACK(0, ALL, "Increases Attack skill by 'n'"),

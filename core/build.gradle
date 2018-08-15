@@ -6,6 +6,17 @@ sourceCompatibility = 1.6
 sourceSets.main.kotlin.srcDirs = [ "src/main/kotlin" ]
 sourceSets.test.kotlin.srcDirs = [ "src/test/kotlin" ]
 
+sourceSets.main.kotlin.excludes = [
+        "com/github/servb/pph/gxlib/gxlapplication/Static.kt",
+        "com/github/servb/pph/gxlib/gxlpopupview/Static.kt",
+        "com/github/servb/pph/gxlib/gxltopmostview/Static.kt",
+        "com/github/servb/pph/gxlib/gxlview/Static.kt",
+        "com/github/servb/pph/gxlib/gxlviewmgr/Static.kt",
+        "com/github/servb/pph/gxlib/gxlwindow/Static.kt",
+        "com/github/servb/pph/gxlib/gxl.stdctrl.kt",
+        "com/github/servb/pph/gxlib/gxl.dialog.kt"
+]
+
 eclipse.project {
     name = appName + "-core"
 }

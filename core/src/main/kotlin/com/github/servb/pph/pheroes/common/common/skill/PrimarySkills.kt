@@ -8,7 +8,7 @@ class PrimarySkills : PrimarySkillsC {
     override val values: MutableList<Int>
 
     constructor() {
-        values = MutableList(PrimarySkillType.COUNT.value) { 0 }
+        values = MutableList(PrimarySkillType.COUNT.v) { 0 }
     }
 
     constructor(attack: Int, defence: Int, power: Int, knowledge: Int) {

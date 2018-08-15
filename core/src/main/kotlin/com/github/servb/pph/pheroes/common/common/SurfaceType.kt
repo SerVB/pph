@@ -21,6 +21,6 @@ enum class SurfaceType(
     SNOW(8, 1 shl 8, 10, Color.toIntBits(220, 220, 220, 255)),
     NEW_DESERT(9, 1 shl 9, 12, Color.toIntBits(192, 160, 0, 255)),
     PAVEMENT(10, 1 shl 10, 4, Color.toIntBits(160, 160, 160, 255)),
-    NEW_WASTELAND(10, 1 shl 11, 9, Color.toIntBits(192, 192, 160, 255)),
-    COUNT(11);
+    NEW_WASTELAND(11, 1 shl 11, 9, Color.toIntBits(192, 192, 160, 255)),
+    COUNT(12);
 }

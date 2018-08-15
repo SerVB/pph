@@ -36,7 +36,7 @@ class iViewMgr {
                     m_pCapView.MouseDown(Point(msg.px, msg.py))
                 } else {
                     if (!m_pPopupView.GetRect().PtInRect(msg.px, msg.py)) {
-                        m_pPopupView.HidePopup();
+                        m_pPopupView.HidePopup()
                         if (m_pCurView) {
                             m_pCurView.Invalidate()
                         }
@@ -120,9 +120,10 @@ class iViewMgr {
             }
         }
 
-        return true;
+        return true
     }
-    fun Compose(rect: IRect) {
+
+    fun Compose(rect: Rect) {
         // Compose current topmost view
         if (m_pCurView != null && m_pCurView.NeedRedraw()) {
             m_pCurView.Compose(rect)
@@ -177,14 +178,14 @@ class iViewMgr {
     }
 
     // Popup windows
-    fun TrackPopup(pPopupView: iPopupView, pos: IConstPoint, bound: IConstRect, al: Alignment) {
+    fun TrackPopup(pPopupView: iPopupView, pos: Pointc, bound: Rectc, al: Alignment) {
         check(m_pPopupView == null && pPopupView != null)
         m_pPopupView = pPopupView
         m_pPopupView.TrackPopup(pos, bound, al)
     }
     fun HidePopup() {
         check(m_pPopupView)
-        m_pPopupView = null;
+        m_pPopupView = null
         if (m_pCurView != null) {
             m_pCurView.Invalidate()
         }
@@ -197,7 +198,7 @@ class iViewMgr {
     fun DragGlyph() = m_pDragGlyph
 
     // Timer processing
-    fun Process(interval: Uint) {
+    fun Process(interval: Int) {
         if (!m_timers.isEmpty()) {
             m_timerCounter += interval
             while (!m_timers.isEmpty() && m_timers[m_timers.size - 1].timer <= m_timerCounter) {
@@ -206,7 +207,8 @@ class iViewMgr {
             }
         }
     }
-    fun SetTimer(period: Uint, tid: Uint, pHandler: iView) {
+
+    fun SetTimer(period: Int, tid: Int, pHandler: iView) {
         if (m_timers.isEmpty()) {
             // reset timer counter
             m_timerCounter = 0
@@ -248,8 +250,8 @@ class iViewMgr {
 
     private var m_dlgStack: MutableList<iDialog>
 
-    data class iTimerHandler(var timer: Uint, var tid: Uint, var pHandler: iView)
+    data class iTimerHandler(var timer: Int, var tid: Int, var pHandler: iView)
 
     private var m_timers: MutableList<iTimerHandler>
-    private var m_timerCounter: Uint
+    private var m_timerCounter: Int
 }

@@ -9,7 +9,7 @@ abstract class iPopupView(pViewMgr: iViewMgr) : iView(
         pViewMgr, Rect(0,0,0,0), VIEWCLSID.GENERIC_VIEWPORT, 0, ViewState.Enabled) {
 
     // operations
-    fun TrackPopup(pos: IConstPoint, bound: IConstRect, al: Alignment) {
+    fun TrackPopup(pos: Pointc, bound: Rectc, al: Alignment) {
         val nsiz = PopupViewSize()
         val msiz = PopupViewMinSize()
         nsiz.w = Math.max(nsiz.w, msiz.w)
@@ -53,8 +53,9 @@ abstract class iPopupView(pViewMgr: iViewMgr) : iView(
     }
 
     // virtuals
-    abstract fun PopupViewSize(): ISize
-    abstract fun PopupViewMinSize(): ISize
-    fun OnTrackPopup(clRect: IConstRect) {}
+    abstract fun PopupViewSize(): Size
+
+    abstract fun PopupViewMinSize(): Size
+    fun OnTrackPopup(clRect: Rectc) {}
     fun OnHidePopup() {}
 }

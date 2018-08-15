@@ -41,6 +41,8 @@ data class Rect(override var x: Int, override var y: Int, override var w: Int, o
 
     constructor(other: Rectc) : this(other.x, other.y, other.w, other.h)
 
+    constructor(point: Pointc) : this(point.x, point.y, 0, 0)
+
     constructor(size: Sizec) : this(0, 0, size.w, size.h)
 
     constructor(p1: Pointc, p2: Pointc) : this(42, 42, 42, 42) {
