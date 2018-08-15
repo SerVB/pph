@@ -1,6 +1,7 @@
 package com.github.servb.pph.pheroes.common.common
 
 import com.github.servb.pph.pheroes.common.common.skill.FurtherSkill
+import com.github.servb.pph.pheroes.common.creature.CreatureType
 import com.github.servb.pph.util.helpertype.CountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
@@ -10,7 +11,9 @@ enum class HeroType(
         val ultimateArtifactStandardModifications: Set<Pair<FurtherSkill, Int>>? = null,
         val ultimateArtifactSpecialFlag: SpecialHeroFlag? = null,
         val primarySkill: List<Int>? = null,
-        val secondarySkill: List<Int>? = null
+        val secondarySkill: List<Int>? = null,
+        val initialArmy0: Triple<CreatureType, Int, Int>? = null,
+        val initialArmy1: Triple<CreatureType, Int, Int>? = null
 ) : UniqueValueEnum, CountValueEnum {
     KNIGHT(
             0,
@@ -32,7 +35,9 @@ enum class HeroType(
                     1, 0, 0, 1, 2, 0, 4, // Wisdom, Necromancy, Mysticism, Intelligence, Resistance, Sorcery, Learning
                     3, 4, 3, // Scouting, Logistics, Pathfinding,
                     3, 3, 2, 4 // Archery, Ballistics, Offence, Armorer
-            )
+            ),
+            Triple(CreatureType.PEASANT, 25, 50),
+            Triple(CreatureType.ARCHER, 0, 7)
     ),
 
     BARBARIAN(
@@ -54,7 +59,9 @@ enum class HeroType(
                     1, 0, 0, 1, 1, 0, 2, // Wisdom, Necromancy, Mysticism, Intelligence, Resistance, Sorcery, Learning
                     3, 3, 5, // Scouting, Logistics, Pathfinding,
                     4, 3, 5, 3 // Archery, Ballistics, Offence, Armorer
-            )
+            ),
+            Triple(CreatureType.GOBLIN, 15, 30),
+            Triple(CreatureType.ORC, 0, 8)
     ),
 
     WIZARD(
@@ -75,7 +82,9 @@ enum class HeroType(
                     6, 0, 4, 2, 2, 3, 5, // Wisdom, Necromancy, Mysticism, Intelligence, Resistance, Sorcery, Learning
                     3, 2, 2, // Scouting, Logistics, Pathfinding,
                     0, 0, 0, 0 // Archery, Ballistics, Offence, Armorer
-            )
+            ),
+            Triple(CreatureType.YOUNG_MAGE, 10, 20),
+            Triple(CreatureType.WHITE_WOLF, 0, 6)
     ),
 
     WARLOCK(
@@ -96,7 +105,9 @@ enum class HeroType(
                     4, 1, 4, 3, 2, 5, 4, // Wisdom, Necromancy, Mysticism, Intelligence, Resistance, Sorcery, Learning
                     4, 2, 3, // Scouting, Logistics, Pathfinding,
                     0, 0, 0, 0 // Archery, Ballistics, Offence, Armorer
-            )
+            ),
+            Triple(CreatureType.CENTAUR, 11, 22),
+            Triple(CreatureType.GARGOYLE, 0, 8)
     ),
 
     SORCERESS(
@@ -117,7 +128,9 @@ enum class HeroType(
                     6, 0, 4, 2, 2, 3, 5, // Wisdom, Necromancy, Mysticism, Intelligence, Resistance, Sorcery, Learning
                     3, 2, 2, // Scouting, Logistics, Pathfinding,
                     1, 1, 0, 0 // Archery, Ballistics, Offence, Armorer
-            )
+            ),
+            Triple(CreatureType.SPRITE, 14, 28),
+            Triple(CreatureType.DWARF, 0, 8)
     ),
 
     NECROMANCER(
@@ -139,7 +152,9 @@ enum class HeroType(
                     4, 5, 4, 3, 2, 5, 4, // Wisdom, Necromancy, Mysticism, Intelligence, Resistance, Sorcery, Learning
                     4, 2, 3, // Scouting, Logistics, Pathfinding,
                     1, 1, 0, 0 // Archery, Ballistics, Offence, Armorer
-            )
+            ),
+            Triple(CreatureType.SKELETON, 20, 40),
+            Triple(CreatureType.ZOMBIE, 0, 9)
     ),
 
     COUNT(6);

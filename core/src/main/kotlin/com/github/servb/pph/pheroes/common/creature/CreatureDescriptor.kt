@@ -3,7 +3,7 @@ package com.github.servb.pph.pheroes.common.creature
 import com.github.servb.pph.pheroes.common.common.MineralSetC
 import com.github.servb.pph.pheroes.common.common.NationType
 
-data class CREAT_DESCRIPTOR(
+data class CreatureDescriptor(
         val level: Int,  // unit level (1-6)
         val nation: NationType,  // unit alignment
 
