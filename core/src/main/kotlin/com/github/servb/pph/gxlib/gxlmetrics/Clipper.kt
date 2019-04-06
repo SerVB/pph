@@ -16,6 +16,7 @@ enum class Alignment(override val v: Int) : UniqueValueEnum {
 }
 
 /** Returns rectangle with specified size aligned in specified dst rect. */
+@ExperimentalUnsignedTypes
 fun AlignRect(ss: Sizec, dr: Rectc, al: Alignment): Rect {
     val sw = ss.w
     val sh = ss.h
@@ -25,26 +26,30 @@ fun AlignRect(ss: Sizec, dr: Rectc, al: Alignment): Rect {
     // Vertical alignment
     val y = when {
         al.v and Alignment.AlignTop.v != 0 -> dr.y
-        al.v and Alignment.AlignBottom.v != 0 -> dr.y + dh - sh
-        else -> dr.y + ((dh shr 1) - (sh shr 1))
+        al.v and Alignment.AlignBottom.v != 0 -> dr.y + (dh - sh).toInt()
+        else -> dr.y + ((dh shr 1) - (sh shr 1)).toInt()
     }
 
     // Horizontal alignment
     val x = when {
         al.v and Alignment.AlignLeft.v != 0 -> dr.x
-        al.v and Alignment.AlignRight.v != 0 -> dr.x + dw - sw
-        else -> dr.x + ((dw shr 1) - (sw shr 1))
+        al.v and Alignment.AlignRight.v != 0 -> dr.x + (dw - sw).toInt()
+        else -> dr.x + ((dw shr 1) - (sw shr 1)).toInt()
     }
 
     return Rect(x, y, ss.w, ss.h)
 }
 
+@ExperimentalUnsignedTypes
 val cInvalidPoint: Pointc = Point(0x7fff, 0x7fff)
-val cInvalidSize: Sizec = Size(0xffff, 0xffff)
-val cInvalidRect: Rectc = Rect(0x7fff, 0x7fff, 0xffff, 0xffff)
+@ExperimentalUnsignedTypes
+val cInvalidSize: Sizec = Size(0xffffu, 0xffffu)
+@ExperimentalUnsignedTypes
+val cInvalidRect: Rectc = Rect(0x7fff, 0x7fff, 0xffffu, 0xffffu)
 
 fun pow2(v: Int) = v * v
 
+@ExperimentalUnsignedTypes
 fun IsLineIntersectCircle(cp: Pointc, cr: Int, p1: Pointc, p2: Pointc): Boolean {
     val x01 = p1.x - cp.x
     val y01 = p1.y - cp.y
@@ -77,6 +82,7 @@ fun IsLineIntersectCircle(cp: Pointc, cr: Int, p1: Pointc, p2: Pointc): Boolean 
     */
 }
 
+@ExperimentalUnsignedTypes
 fun ClipPoint(pnt: Point, rect: Rectc): Boolean {
     pnt.x = iCLAMP(rect.x, rect.x2, pnt.x)
     pnt.y = iCLAMP(rect.x, rect.y2, pnt.y)
@@ -84,6 +90,7 @@ fun ClipPoint(pnt: Point, rect: Rectc): Boolean {
 }
 
 /** x2 -- int[1] */
+@ExperimentalUnsignedTypes
 fun ClipHLine(pnt1: Point, x2: Array<Int>, rect: Rectc): Boolean {
     if (pnt1.y < rect.y || pnt1.y > rect.y2) {
         return false
@@ -94,6 +101,7 @@ fun ClipHLine(pnt1: Point, x2: Array<Int>, rect: Rectc): Boolean {
 }
 
 /** y2 -- int[1] */
+@ExperimentalUnsignedTypes
 fun ClipVLine(pnt1: Point, y2: Array<Int>, rect: Rectc): Boolean {
     if (pnt1.x < rect.x || pnt1.x > rect.x2) {
         return false
@@ -103,29 +111,30 @@ fun ClipVLine(pnt1: Point, y2: Array<Int>, rect: Rectc): Boolean {
     return pnt1.y != y2[0]
 }
 
+@ExperimentalUnsignedTypes
 fun ClipLine(pnt1: Point, pnt2: Point, rect: Rectc): Boolean {
     val d = Point()
 
     /* CLIPCODE( pnt1, c1 ) */
-    var c1 = 0
-    if (pnt1.x < rect.x1) c1 = 8 or c1
-    if (pnt1.x > rect.x2) c1 = 4 or c1
-    if (pnt1.y < rect.y1) c1 = 2 or c1
-    if (pnt1.y > rect.y2) c1 = 1 or c1
+    var c1 = 0u
+    if (pnt1.x < rect.x1) c1 = 8u or c1
+    if (pnt1.x > rect.x2) c1 = 4u or c1
+    if (pnt1.y < rect.y1) c1 = 2u or c1
+    if (pnt1.y > rect.y2) c1 = 1u or c1
     /* CLIPCODE( pnt2, c2 ) */
-    var c2 = 0
-    if (pnt2.x < rect.x1) c2 = 8 or c2
-    if (pnt2.x > rect.x2) c2 = 4 or c2
-    if (pnt2.y < rect.y1) c2 = 2 or c2
-    if (pnt2.y > rect.y2) c2 = 1 or c2
+    var c2 = 0u
+    if (pnt2.x < rect.x1) c2 = 8u or c2
+    if (pnt2.x > rect.x2) c2 = 4u or c2
+    if (pnt2.y < rect.y1) c2 = 2u or c2
+    if (pnt2.y > rect.y2) c2 = 1u or c2
 
-    while (c1 or c2 != 0) {
-        if (c1 and c2 == 0) {
+    while (c1 or c2 != 0u) {
+        if (c1 and c2 == 0u) {
             return false
         }
         d.x = pnt2.x - pnt1.x
         d.y = pnt2.y - pnt1.y
-        if (c1 != 0) {
+        if (c1 != 0u) {
             if (pnt1.x < rect.x1) {
                 pnt1.y += d.y * (rect.x1 - pnt1.x) / d.x
                 pnt1.x = rect.x1
@@ -140,11 +149,11 @@ fun ClipLine(pnt1: Point, pnt2: Point, rect: Rectc): Boolean {
                 pnt1.y = rect.y2
             }
             /* CLIPCODE( pnt1, c1 ) */
-            c1 = 0
-            if (pnt1.x < rect.x1) c1 = 8 or c1
-            if (pnt1.x > rect.x2) c1 = 4 or c1
-            if (pnt1.y < rect.y1) c1 = 2 or c1
-            if (pnt1.y > rect.y2) c1 = 1 or c1
+            c1 = 0u
+            if (pnt1.x < rect.x1) c1 = 8u or c1
+            if (pnt1.x > rect.x2) c1 = 4u or c1
+            if (pnt1.y < rect.y1) c1 = 2u or c1
+            if (pnt1.y > rect.y2) c1 = 1u or c1
         } else {
             if (pnt2.x < rect.x1) {
                 pnt2.y += d.y * (rect.x1 - pnt2.x) / d.x
@@ -160,16 +169,17 @@ fun ClipLine(pnt1: Point, pnt2: Point, rect: Rectc): Boolean {
                 pnt2.y = rect.y2
             }
             /* CLIPCODE( pnt2, c2 ) */
-            c2 = 0
-            if (pnt2.x < rect.x1) c2 = 8 or c2
-            if (pnt2.x > rect.x2) c2 = 4 or c2
-            if (pnt2.y < rect.y1) c2 = 2 or c2
-            if (pnt2.y > rect.y2) c2 = 1 or c2
+            c2 = 0u
+            if (pnt2.x < rect.x1) c2 = 8u or c2
+            if (pnt2.x > rect.x2) c2 = 4u or c2
+            if (pnt2.y < rect.y1) c2 = 2u or c2
+            if (pnt2.y > rect.y2) c2 = 1u or c2
         }
     }
     return true
 }
 
+@ExperimentalUnsignedTypes
 fun IntersectRect(dst_rect: Rect, src_rect1: Rectc, src_rect2: Rectc): Boolean {
     val x1 = maxOf(src_rect1.x, src_rect2.x)
     val y1 = maxOf(src_rect1.y, src_rect2.y)
@@ -179,14 +189,15 @@ fun IntersectRect(dst_rect: Rect, src_rect1: Rectc, src_rect2: Rectc): Boolean {
     return if (x2 - x1 > 0 && y2 - y1 > 0) {
         dst_rect.x = x1
         dst_rect.y = y1
-        dst_rect.w = x2 - x1
-        dst_rect.h = y2 - y1
+        dst_rect.w = (x2 - x1).toUInt()
+        dst_rect.h = (y2 - y1).toUInt()
         true
     } else {
         false
     }
 }
 
+@ExperimentalUnsignedTypes
 fun IsIntersectRect(src_rect1: Rectc, src_rect2: Rectc): Boolean {
     val x1 = maxOf(src_rect1.x, src_rect2.x)
     val y1 = maxOf(src_rect1.y, src_rect2.y)
@@ -195,35 +206,37 @@ fun IsIntersectRect(src_rect1: Rectc, src_rect2: Rectc): Boolean {
     return x2 - x1 > 0 && y2 - y1 > 0
 }
 
+@ExperimentalUnsignedTypes
 fun ClipRect(rc: Rect, rect: Rectc): Boolean {
     if (rc.x < rect.x) {
-        val v = rect.x - rc.x
+        val v = (rect.x - rc.x).toUInt()
         if (v > rc.w) return false
         rc.w -= v
         rc.x = rect.x
     }
 
     if (rc.y < rect.y) {
-        val v = rect.y - rc.y
+        val v = (rect.y - rc.y).toUInt()
         if (v > rc.h) return false
         rc.h -= v
         rc.y = rect.y
     }
 
     if (rect.x2 < rc.x2) {
-        val v = rc.x2 - rect.x2
+        val v = (rc.x2 - rect.x2).toUInt()
         if (v > rc.w) return false
         rc.w -= v
     }
 
     if (rect.y2 < rc.y2) {
-        val v = rc.y2 - rect.y2
+        val v = (rc.y2 - rect.y2).toUInt()
         if (v > rc.h) return false
         rc.h -= v
     }
-    return rc.w > 0 && rc.h > 0
+    return rc.w > 0u && rc.h > 0u
 }
 
+@ExperimentalUnsignedTypes
 fun iClipRectRect(dst_rc: Rect, dst_rect: Rectc, src_rc: Rect, src_rect: Rectc): Boolean {
     //iSize cl = src_rc
     var clw = src_rc.w
@@ -234,48 +247,48 @@ fun iClipRectRect(dst_rc: Rect, dst_rect: Rectc, src_rc: Rect, src_rect: Rectc):
 
     // clip src left
     if (src_rc.x < 0) {
-        clw += src_rc.x
+        clw += src_rc.x.toUInt()
         dst_rc.x -= src_rc.x
         src_rc.x = 0
     }
     // clip src top
     if (src_rc.y < 0) {
-        clh += src_rc.y
+        clh += src_rc.y.toUInt()
         dst_rc.y -= src_rc.y
         src_rc.y = 0
     }
     // clip src right
-    if (src_rc.x + clw > src_rect.w) {
-        clw = src_rect.w - src_rc.x
+    if (src_rc.x.toUInt() + clw > src_rect.w) {
+        clw = src_rect.w - src_rc.x.toUInt()
     }
     // clip src bottom
-    if (src_rc.y + clh > src_rect.h) {
-        clh = src_rect.h - src_rc.y
+    if (src_rc.y.toUInt() + clh > src_rect.h) {
+        clh = src_rect.h - src_rc.y.toUInt()
     }
     // clip dest left
     if (dst_rc.x < dst_rect.x) {
         dst_rc.x -= dst_rect.x
-        clw += dst_rc.x
+        clw += dst_rc.x.toUInt()
         src_rc.x -= dst_rc.x
         dst_rc.x = dst_rect.x
     }
     // clip dest top
     if (dst_rc.y < dst_rect.y) {
         dst_rc.y -= dst_rect.y
-        clh += dst_rc.y
+        clh += dst_rc.y.toUInt()
         src_rc.y -= dst_rc.y
         dst_rc.y = dst_rect.y
     }
     // clip dest right
-    if (dst_rc.x + clw >= dst_rect.x2 + 1) {
-        clw = dst_rect.x2 - dst_rc.x + 1
+    if (dst_rc.x + clw.toInt() >= dst_rect.x2 + 1) {
+        clw = (dst_rect.x2 - dst_rc.x + 1).toUInt()
     }
     // clip dest bottom
-    if (dst_rc.y + clh >= dst_rect.y2 + 1) {
-        clh = dst_rect.y2 - dst_rc.y + 1
+    if (dst_rc.y + clh.toInt() >= dst_rect.y2 + 1) {
+        clh = (dst_rect.y2 - dst_rc.y + 1).toUInt()
     }
     // bail out on zero size
-    if (clw <= 0 || clh <= 0) {
+    if (clw <= 0u || clh <= 0u) {
         return false
     }
 

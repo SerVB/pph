@@ -5,6 +5,7 @@ import io.kotlintest.properties.assertAll
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
+@ExperimentalUnsignedTypes
 class PointcGenerator : Gen<Pointc> {
     override fun constants() = listOf(Point().toPointc())
     override fun random() = generateSequence {
@@ -12,6 +13,7 @@ class PointcGenerator : Gen<Pointc> {
     }
 }
 
+@ExperimentalUnsignedTypes
 class PointGenerator : Gen<Point> {
     override fun constants() = listOf(Point())
     override fun random() = generateSequence {
@@ -19,6 +21,7 @@ class PointGenerator : Gen<Point> {
     }
 }
 
+@ExperimentalUnsignedTypes
 class PointcTest : StringSpec() {
     init {
         "+ Pointc" {
@@ -47,6 +50,7 @@ class PointcTest : StringSpec() {
     }
 }
 
+@ExperimentalUnsignedTypes
 class PointTest : StringSpec() {
     init {
         "default constructor should give (0, 0) point" {
@@ -103,7 +107,7 @@ class PointTest : StringSpec() {
             assertAll(PointGenerator(), SizecGenerator()) { p, other ->
                 val initial = p.copy()
                 p += other
-                p shouldBe Point(initial.x + other.w, initial.y + other.h)
+                p shouldBe Point(initial.x + other.w.toInt(), initial.y + other.h.toInt())
             }
         }
 
@@ -111,7 +115,7 @@ class PointTest : StringSpec() {
             assertAll(PointGenerator(), SizecGenerator()) { p, other ->
                 val initial = p.copy()
                 p -= other
-                p shouldBe Point(initial.x - other.w, initial.y - other.h)
+                p shouldBe Point(initial.x - other.w.toInt(), initial.y - other.h.toInt())
             }
         }
 

@@ -5,8 +5,6 @@ import com.github.servb.pph.pheroes.common.common.NationType
 import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
-// TODO: REMOVE COMMENTS ON THE RIGHT
-
 enum class CreatureType(
         override val v: Int,
         val descriptor: CreatureDescriptor? = null

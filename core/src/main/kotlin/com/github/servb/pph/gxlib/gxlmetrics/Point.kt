@@ -1,6 +1,7 @@
 package com.github.servb.pph.gxlib.gxlmetrics
 
 /** Immutable (constant) Point view. */
+@ExperimentalUnsignedTypes
 interface Pointc {
     val x: Int
     val y: Int
@@ -16,15 +17,23 @@ interface Pointc {
         return Math.sqrt((dx * dx + dy * dy).toDouble()).toInt()
     }
 
-    operator fun plus(other: Pointc): Pointc = Point(x + other.x, y + other.y)
-    operator fun minus(other: Pointc): Pointc = Point(x - other.x, y - other.y)
-    operator fun plus(offs: Int): Pointc = Point(x + offs, y + offs)
-    operator fun minus(offs: Int): Pointc = Point(x - offs, y - offs)
-
     fun toPointc(): Pointc = Point(this)
     fun toPoint() = Point(this)
 }
 
+@ExperimentalUnsignedTypes
+operator fun Pointc.plus(other: Pointc): Pointc = Point(x + other.x, y + other.y)
+
+@ExperimentalUnsignedTypes
+operator fun Pointc.minus(other: Pointc): Pointc = Point(x - other.x, y - other.y)
+
+@ExperimentalUnsignedTypes
+operator fun Pointc.plus(offs: Int): Pointc = Point(x + offs, y + offs)
+
+@ExperimentalUnsignedTypes
+operator fun Pointc.minus(offs: Int): Pointc = Point(x - offs, y - offs)
+
+@ExperimentalUnsignedTypes
 data class Point(override var x: Int, override var y: Int) : Pointc {
     constructor() : this(0, 0)
 
@@ -44,13 +53,13 @@ data class Point(override var x: Int, override var y: Int) : Pointc {
     }
 
     operator fun plusAssign(siz: Sizec) {
-        x += siz.w
-        y += siz.h
+        x += siz.w.toInt()
+        y += siz.h.toInt()
     }
 
     operator fun minusAssign(siz: Sizec) {
-        x -= siz.w
-        y -= siz.h
+        x -= siz.w.toInt()
+        y -= siz.h.toInt()
     }
 
     operator fun plusAssign(offs: Int) {

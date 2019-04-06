@@ -19,6 +19,7 @@ const val GFNT_FILE_VERSION: Short = 0x01
 const val RANDOM_QUANTITY = 0
 const val RAND_VAL = -1
 
+@ExperimentalUnsignedTypes
 fun CalcCellSeqGame(pnt: Pointc, maxv: Int): Int {
     var result = pnt.x
     result += (pnt.y shl 16).inv()
@@ -34,6 +35,7 @@ fun CalcCellSeqGame(pnt: Pointc, maxv: Int): Int {
     return result % maxv
 }
 
+@ExperimentalUnsignedTypes
 fun CalcCellSeqGameInEditor(pnt: Pointc, maxv: Int): Int {
     TODO("Uncomment when editor will be coded")
 //    int result = pnt.x;
@@ -68,8 +70,10 @@ fun MineralExchRate(from: MineralType, to: MineralType, mlvl: Int): FractionCoef
 
 val MINERALS_DIVIDER = listOf(1000, 2, 2, 1, 1, 1, 1)
 
+@ExperimentalUnsignedTypes
 private infix fun Int.x(other: Int): Pointc = Point(this, other)
 
+@ExperimentalUnsignedTypes
 val HERO_FLAG_ANCHOR = listOf(
         4 x 7, 4 x 5, 4 x 4, 4 x 5, 4 x 7, 4 x 6, 4 x 4, 4 x 5, 4 x 6,
         8 x 7, 9 x 7, 8 x 7, 9 x 8, 10 x 8, 10 x 7, 9 x 7, 8 x 7, 7 x 7,

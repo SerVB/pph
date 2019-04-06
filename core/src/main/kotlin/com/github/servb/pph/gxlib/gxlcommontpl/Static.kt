@@ -96,12 +96,13 @@ fun iDIF(x: Double, y: Double): Double {
 /**
  * TODO: Provide documentation.
  *
- * @param value The value to be aligned. Should be not negative.
+ * @param value The value to be aligned.
  * @param al    Should be positive.
  * @return      Aligned value.
  */
-fun iALIGN(value: Int, al: Int): Int {
-    return (value + al - 1) / al * al
+@ExperimentalUnsignedTypes
+fun iALIGN(value: UInt, al: UInt): UInt {
+    return (value + al - 1u) / al * al
 }
 
 /**

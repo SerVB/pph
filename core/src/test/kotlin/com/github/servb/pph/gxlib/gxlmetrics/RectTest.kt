@@ -5,37 +5,40 @@ import io.kotlintest.properties.assertAll
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
+@ExperimentalUnsignedTypes
 class RectcGenerator : Gen<Rectc> {
     override fun constants() = listOf(Rect().toRectc())
     override fun random() = generateSequence {
         Rect(Gen.int().random().first(), Gen.int().random().first(),
-                Gen.nats().random().first(), Gen.nats().random().first()).toRectc()
+                Gen.nats().random().first().toUInt(), Gen.nats().random().first().toUInt()).toRectc()
     }
 }
 
+@ExperimentalUnsignedTypes
 class RectGenerator : Gen<Rect> {
     override fun constants() = listOf(Rect())
     override fun random() = generateSequence {
         Rect(Gen.int().random().first(), Gen.int().random().first(),
-                Gen.nats().random().first(), Gen.nats().random().first())
+                Gen.nats().random().first().toUInt(), Gen.nats().random().first().toUInt())
     }
 }
 
+@ExperimentalUnsignedTypes
 class RectcTest : StringSpec() {
     init {
         "x1 x2 y1 y2" {
             assertAll(RectcGenerator()) { r ->
                 r.x1 shouldBe r.x
-                r.x2 shouldBe r.x + r.w - 1
+                r.x2 shouldBe r.x + r.w.toInt() - 1
 
                 r.y1 shouldBe r.y
-                r.y2 shouldBe r.y + r.h - 1
+                r.y2 shouldBe r.y + r.h.toInt() - 1
             }
         }
 
         "center" {
             assertAll(RectcGenerator()) { r ->
-                r.Center() shouldBe Point(r.x + r.w / 2, r.y + r.h / 2)
+                r.Center() shouldBe Point(r.x + (r.w / 2u).toInt(), r.y + (r.h / 2u).toInt())
             }
         }
 
@@ -58,31 +61,32 @@ class RectcTest : StringSpec() {
 
         "PtInRect" {
             assertAll(RectcGenerator(), Gen.int(), Gen.int()) { r, x, y ->
-                r.PtInRect(x, y) shouldBe (r.x <= x && x < r.x + r.w && r.y <= y && y < r.y + r.h)
+                r.PtInRect(x, y) shouldBe (r.x <= x && x < r.x + r.w.toInt() && r.y <= y && y < r.y + r.h.toInt())
                 r.PtInRect(Point(x, y)) shouldBe r.PtInRect(x, y)
             }
         }
 
         "IsEmpty" {
             assertAll(RectcGenerator()) { r ->
-                r.IsEmpty() shouldBe (r.w * r.h == 0)
+                r.IsEmpty() shouldBe (r.w * r.h == 0u)
             }
         }
 
         "+ Int offs" {
             assertAll(RectcGenerator(), Gen.int()) { r, offs ->
-                (r + offs) shouldBe Rect(r.x + offs, r.y + offs, r.w + offs, r.h + offs).toRectc()
+                (r + offs) shouldBe Rect(r.x + offs, r.y + offs, r.w + offs.toUInt(), r.h + offs.toUInt()).toRectc()
             }
         }
 
         "- Int offs" {
             assertAll(RectcGenerator(), Gen.int()) { r, offs ->
-                (r - offs) shouldBe Rect(r.x - offs, r.y - offs, r.w - offs, r.h - offs).toRectc()
+                (r - offs) shouldBe Rect(r.x - offs, r.y - offs, r.w - offs.toUInt(), r.h - offs.toUInt()).toRectc()
             }
         }
     }
 }
 
+@ExperimentalUnsignedTypes
 class RectTest : StringSpec() {
     init {
         "constructor Pointc Pointc should give a rect by two edges" {
@@ -92,8 +96,8 @@ class RectTest : StringSpec() {
                 val (minX, maxX) = listOf(a.x, b.x).sorted()
                 val (minY, maxY) = listOf(a.y, b.y).sorted()
 
-                val w = maxX - minX + 1
-                val h = maxY - minY + 1
+                val w = (maxX - minX + 1).toUInt()
+                val h = (maxY - minY + 1).toUInt()
 
                 r.x shouldBe minX
                 r.y shouldBe minY
@@ -104,7 +108,7 @@ class RectTest : StringSpec() {
         }
 
         "default constructor should give (0, 0, 0, 0) Rect" {
-            Rect() shouldBe Rect(0, 0, 0, 0)
+            Rect() shouldBe Rect(0, 0, 0u, 0u)
         }
 
         "constructor Point Size should give Rect that doesn't change when initial objects change" {
@@ -121,8 +125,8 @@ class RectTest : StringSpec() {
 
                 p.x += 42
                 p.y += 42
-                s.w += 42
-                s.h += 42
+                s.w += 42u
+                s.h += 42u
 
                 r.x shouldBe initialP.x
                 r.y shouldBe initialP.y
@@ -144,8 +148,8 @@ class RectTest : StringSpec() {
 
                 rect.x += 42
                 rect.y += 42
-                rect.w += 42
-                rect.h += 42
+                rect.w += 42u
+                rect.h += 42u
 
                 r.x shouldBe x
                 r.y shouldBe y

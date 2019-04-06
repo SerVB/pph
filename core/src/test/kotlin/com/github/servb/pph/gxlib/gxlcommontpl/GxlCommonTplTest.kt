@@ -4,6 +4,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 import io.kotlintest.tables.*
 
+@ExperimentalUnsignedTypes
 class GxlCommonTplTest : StringSpec() {
     init {
         "iCLAMP" {
@@ -50,13 +51,13 @@ class GxlCommonTplTest : StringSpec() {
                     Table3(
                             Headers3("a", "b", "expected"),
                             listOf(
-                                    row(2, 3, 3),
-                                    row(1, 1, 1),
-                                    row(1, 10, 10),
-                                    row(30, 12, 36),
-                                    row(30, 16, 32),
-                                    row(15, 10, 20),
-                                    row(15, 15, 15)
+                                    row(2u, 3u, 3u),
+                                    row(1u, 1u, 1u),
+                                    row(1u, 10u, 10u),
+                                    row(30u, 12u, 36u),
+                                    row(30u, 16u, 32u),
+                                    row(15u, 10u, 20u),
+                                    row(15u, 15u, 15u)
                             )
                     )
             ) { a, b, expected ->

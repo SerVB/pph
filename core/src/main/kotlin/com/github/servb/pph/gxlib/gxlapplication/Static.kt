@@ -1,6 +1,5 @@
 package com.github.servb.pph.gxlib.gxlapplication
 
-import com.github.servb.pph.gxlib.gxlinc.Inc
 import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.util.helpertype.*
@@ -15,7 +14,7 @@ interface IGame {
 
 class iGXApp {
 
-    fun Init(hInst: HINSTANCE, appName: LPCWSTR, pGame: IGame, cdelay: Int, flags: Int): Boolean {
+    fun Init(hInst: HINSTANCE, appName: LPCWSTR, pGame: IGame, cdelay: UInt, flags: UInt): Boolean {
         var flags = flags
         check(!m_bInited)
         m_pGame = pGame
@@ -104,11 +103,11 @@ class iGXApp {
             m_viewMgr.ProcessMessage(m_Input.Get())
         }
 
-        val m_LastUpdate: Int = m_Timer.GetCurTime()  // TODO: static?
-        val step: Int = m_Timer.GetStep()
+        val m_LastUpdate: UInt = m_Timer.GetCurTime()  // TODO: static?
+        val step: UInt = m_Timer.GetStep()
 
         /*if (OS_WINCE) { // TODO: winapi?
-            val pwrTimeout = 0  // TODO: static?
+            val pwrTimeout = 0u  // TODO: static?
             pwrTimeout += step
             if (pwrTimeout >= 10000) {
                 pwrTimeout = 0
@@ -141,7 +140,7 @@ class iGXApp {
         return 0
     }
 
-    fun Exit(code: Int) {
+    fun Exit(code: UInt) {
         m_bExit = true
     }
 
@@ -287,9 +286,9 @@ class iGXApp {
     }
 
     protected var m_BaseMetrics: Size
-    protected var m_Flags: Int
-    protected var m_CycleDelay: Int
-    protected var m_processTimer: Int
+    protected var m_Flags: UInt
+    protected var m_CycleDelay: UInt
+    protected var m_processTimer: UInt
     protected var m_bExit: Boolean
 
     protected var m_pGame: IGame?

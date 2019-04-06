@@ -89,12 +89,15 @@ class UndefinedCountValueEnumTest : StringSpec() {
                 var hasCount = false
                 var count = 0
 
+                var hasPassing = false
+
                 val list = mutableListOf<UndefinedCountValueEnum>()
 
                 for (member in enumClass.enumConstants) {
                     val name = member.toString().toLowerCase()
 
-                    if (passingMembers.any { it == name }) {
+                    if (!hasPassing && passingMembers.any { it == name }) {
+                        hasPassing = true
                         continue
                     } else if ("count" == name) {
                         if (member.v != count) {
@@ -109,6 +112,12 @@ class UndefinedCountValueEnumTest : StringSpec() {
                         list.add(member)
                     }
                 }
+
+                if (!hasPassing) {
+                    println("No passing in $enumClass")
+                }
+
+                hasPassing shouldBe true
 
                 if (!hasCount) {
                     println("No count value in $enumClass")

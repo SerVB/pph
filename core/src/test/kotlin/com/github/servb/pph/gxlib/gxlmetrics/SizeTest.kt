@@ -6,32 +6,35 @@ import io.kotlintest.properties.assertAll
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
+@ExperimentalUnsignedTypes
 class SizecGenerator : Gen<Sizec> {
     override fun constants() = listOf(Size().toSizec())
     override fun random() = generateSequence {
-        Size(Gen.nats().random().first(), Gen.nats().random().first()).toSizec()
+        Size(Gen.nats().random().first().toUInt(), Gen.nats().random().first().toUInt()).toSizec()
     }
 }
 
+@ExperimentalUnsignedTypes
 class SizeGenerator : Gen<Size> {
     override fun constants() = listOf(Size())
     override fun random() = generateSequence {
-        Size(Gen.nats().random().first(), Gen.nats().random().first())
+        Size(Gen.nats().random().first().toUInt(), Gen.nats().random().first().toUInt())
     }
 }
 
+@ExperimentalUnsignedTypes
 class SizecTest : StringSpec() {
     init {
         ".IsZero()" {
             assertAll(SizecGenerator()) { s ->
-                s.IsZero() shouldBe (s.w == 0 && s.h == 0)
+                s.IsZero() shouldBe (s.w == 0u && s.h == 0u)
             }
         }
 
         ".GetAspectRatio()" {
             assertAll(SizecGenerator()) { s ->
                 if (!s.IsZero()) {
-                    s.GetAspectRatio() shouldBe exactly(s.w.toFloat() / s.h.toFloat())
+                    s.GetAspectRatio() shouldBe exactly(s.w.toLong().toFloat() / s.h.toLong().toFloat())
                 }
             }
         }
@@ -49,23 +52,24 @@ class SizecTest : StringSpec() {
         }
 
         "+ Int" {
-            assertAll(SizecGenerator(), Gen.int()) { s, offs ->
-                (s + offs) shouldBe Size(s.w + offs, s.h + offs)
+            assertAll(SizecGenerator(), Gen.nats()) { s, offs ->
+                (s + offs.toUInt()) shouldBe Size(s.w + offs.toUInt(), s.h + offs.toUInt())
             }
         }
 
         "- Int" {
-            assertAll(SizecGenerator(), Gen.int()) { s, offs ->
-                (s - offs) shouldBe Size(s.w - offs, s.h - offs)
+            assertAll(SizecGenerator(), Gen.nats()) { s, offs ->
+                (s - offs.toUInt()) shouldBe Size(s.w - offs.toUInt(), s.h - offs.toUInt())
             }
         }
     }
 }
 
+@ExperimentalUnsignedTypes
 class SizeTest : StringSpec() {
     init {
         "default constructor should give (0, 0) size" {
-            Size() shouldBe Size(0, 0)
+            Size() shouldBe Size(0u, 0u)
         }
 
         "copy constructor (Sizec)" {
@@ -87,63 +91,63 @@ class SizeTest : StringSpec() {
         }
 
         "+ Int" {
-            assertAll(SizeGenerator(), Gen.int()) { s, offs ->
-                (s + offs) shouldBe Size(s.w + offs, s.h + offs)
+            assertAll(SizeGenerator(), Gen.nats()) { s, offs ->
+                (s + offs.toUInt()) shouldBe Size(s.w + offs.toUInt(), s.h + offs.toUInt())
             }
         }
 
         "- Int" {
-            assertAll(SizeGenerator(), Gen.int()) { s, offs ->
-                (s - offs) shouldBe Size(s.w - offs, s.h - offs)
+            assertAll(SizeGenerator(), Gen.nats()) { s, offs ->
+                (s - offs.toUInt()) shouldBe Size(s.w - offs.toUInt(), s.h - offs.toUInt())
             }
         }
 
         ".InflateSize Int offset" {
-            assertAll(SizeGenerator(), Gen.int()) { s, offs ->
+            assertAll(SizeGenerator(), Gen.nats()) { s, offs ->
                 val initial = s.copy()
-                s.InflateSize(offs)
-                s shouldBe Size(initial.w + offs, initial.h + offs)
+                s.InflateSize(offs.toUInt())
+                s shouldBe Size(initial.w + offs.toUInt(), initial.h + offs.toUInt())
             }
 
-            assertAll(SizeGenerator(), Gen.int()) { s, offs ->
+            assertAll(SizeGenerator(), Gen.nats()) { s, offs ->
                 val initial = s.copy()
-                s.InflateSize(offs)
-                s shouldBe Size(initial.w + offs, initial.h + offs)
+                s.InflateSize(offs.toUInt())
+                s shouldBe Size(initial.w + offs.toUInt(), initial.h + offs.toUInt())
             }
         }
 
         ".InflateSize Int Int offsets" {
-            assertAll(SizeGenerator(), Gen.int(), Gen.int()) { s, widthOffset, heightOffset ->
+            assertAll(SizeGenerator(), Gen.nats(), Gen.nats()) { s, widthOffset, heightOffset ->
                 val initial = s.copy()
-                s.InflateSize(widthOffset, heightOffset)
-                s shouldBe Size(initial.w + widthOffset, initial.h + heightOffset)
+                s.InflateSize(widthOffset.toUInt(), heightOffset.toUInt())
+                s shouldBe Size(initial.w + widthOffset.toUInt(), initial.h + heightOffset.toUInt())
             }
         }
 
         ".DeflateSize Int offset" {
-            assertAll(SizeGenerator(), Gen.int()) { s, offs ->
+            assertAll(SizeGenerator(), Gen.nats()) { s, offs ->
                 val initial = s.copy()
-                s.DeflateSize(offs)
-                s shouldBe Size(initial.w - offs, initial.h - offs)
+                s.DeflateSize(offs.toUInt())
+                s shouldBe Size(initial.w - offs.toUInt(), initial.h - offs.toUInt())
             }
 
-            assertAll(SizeGenerator(), Gen.int()) { s, offs ->
+            assertAll(SizeGenerator(), Gen.nats()) { s, offs ->
                 val initial = s.copy()
-                s.DeflateSize(offs)
-                s shouldBe Size(initial.w - offs, initial.h - offs)
+                s.DeflateSize(offs.toUInt())
+                s shouldBe Size(initial.w - offs.toUInt(), initial.h - offs.toUInt())
             }
         }
 
         ".DeflateSize Int Int offsets" {
-            assertAll(SizeGenerator(), Gen.int(), Gen.int()) { s, widthOffset, heightOffset ->
+            assertAll(SizeGenerator(), Gen.nats(), Gen.nats()) { s, widthOffset, heightOffset ->
                 val initial = s.copy()
-                s.DeflateSize(widthOffset, heightOffset)
-                s shouldBe Size(initial.w - widthOffset, initial.h - heightOffset)
+                s.DeflateSize(widthOffset.toUInt(), heightOffset.toUInt())
+                s shouldBe Size(initial.w - widthOffset.toUInt(), initial.h - heightOffset.toUInt())
             }
         }
 
         ".Zero() should reset metrics" {
-            val zero = Size(0, 0).toSizec()
+            val zero = Size(0u, 0u).toSizec()
 
             assertAll(SizeGenerator()) { s ->
                 s.Zero()

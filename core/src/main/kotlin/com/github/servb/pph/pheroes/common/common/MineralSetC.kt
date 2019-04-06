@@ -62,7 +62,15 @@ class MineralSet : MineralSetC {
         quant = IntArray(MineralType.COUNT.v)
     }
 
-    constructor(gold: Int, ore: Int, wood: Int, mercury: Int, gem: Int, crystal: Int, sulfur: Int) {
+    constructor(
+            gold: Int = 0,
+            ore: Int = 0,
+            wood: Int = 0,
+            mercury: Int = 0,
+            gem: Int = 0,
+            crystal: Int = 0,
+            sulfur: Int = 0
+    ) {
         this.quant = intArrayOf(gold, ore, wood, mercury, gem, crystal, sulfur)
     }
 

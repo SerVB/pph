@@ -1,0 +1,29 @@
+package com.github.servb.pph.pheroes.common.magic
+
+import com.github.servb.pph.util.helpertype.UniqueValueEnum
+import com.github.servb.pph.util.helpertype.or
+
+/** Target type mask (used for combat spells). */
+enum class SpellTargetTypeMask(override val v: Int) : UniqueValueEnum {
+    NONE(0),
+    FRIENDLY(0b000_0001),
+    ENEMY(0b000_0010),
+    UNDEAD(0b000_0100),
+    LIFELESS(0b000_1000),
+    NORMAL(0b001_0000),
+    TROOPS(0b010_0000),
+    SHOOTERS(0b100_0000),
+    FRUNDEADS(FRIENDLY or UNDEAD or TROOPS or SHOOTERS),
+    FRNUNDEADS(FRIENDLY or LIFELESS or NORMAL or TROOPS or SHOOTERS),
+    ENNUNDEADS(ENEMY or LIFELESS or NORMAL or TROOPS or SHOOTERS),
+    ENNORMALS(ENEMY or NORMAL or TROOPS or SHOOTERS),
+    ALLUNDEADS(FRIENDLY or ENEMY or UNDEAD or TROOPS or SHOOTERS),
+    ALLNUNDEADS(FRIENDLY or ENEMY or NORMAL or LIFELESS or TROOPS or SHOOTERS),
+    ALLNORMALS(FRIENDLY or ENEMY or NORMAL or TROOPS or SHOOTERS),
+    FRNORMALS(FRIENDLY or NORMAL or TROOPS or SHOOTERS),
+    FRTROOPS(FRIENDLY or UNDEAD or LIFELESS or NORMAL or TROOPS),
+    FRSHOOTERS(FRIENDLY or UNDEAD or LIFELESS or NORMAL or SHOOTERS),
+    ALLFRIENDLY(FRIENDLY or UNDEAD or LIFELESS or NORMAL or TROOPS or SHOOTERS),
+    ALLENEMY(ENEMY or UNDEAD or LIFELESS or NORMAL or TROOPS or SHOOTERS),
+    ALL(FRIENDLY or ENEMY or UNDEAD or LIFELESS or NORMAL or TROOPS or SHOOTERS),
+}
