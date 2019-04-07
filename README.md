@@ -1,4 +1,4 @@
-# Palm Pocket Heroes [![Discord](https://img.shields.io/discord/563755662866251786.svg?label=Join%20PPH%20on%20Discord!)](https://discord.gg/Rw95NQx)
+# Pocket Palm Heroes [![Discord](https://img.shields.io/discord/563755662866251786.svg?label=Join%20PPH%20on%20Discord!)](https://discord.gg/Rw95NQx)
 This project tries to bring good old Palm Heroes/Pocket Heroes back to life. The work was started in 2017.
 
 ![Screenshots image](pictures/good-old-gif.gif)
