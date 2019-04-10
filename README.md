@@ -55,9 +55,7 @@ Maybe in the future everything will be rewritten as immutable.
 #### Use standard Kotlin/Java classes
 Kotlin or Java class|Initial type
 ---|---
-`String`|`_T("String content")`
-`String`|`L"String content"`
-`String`|`LPCTSTR`
+`String`|`_T("String content")`, `L"String content"`, `LPCTSTR`, `iStringTemplate<E>`, `iStringW`, `iStringA`, `iStringT`
 `Byte`|`sint8`
 `UByte`|`uint8`
 `Short`|`sint16`
