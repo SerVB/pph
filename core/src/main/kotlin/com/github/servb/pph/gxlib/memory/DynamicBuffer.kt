@@ -176,6 +176,8 @@ class DynamicBuffer {
     sealed class ReadResult<out T> {
         class ReadSuccess<T>(val value: T) : ReadResult<T>()
         object ReadError : ReadResult<Nothing>()
+
+        val valueOrError: T get() = (this as ReadSuccess<T>).value
     }
 
     fun readByte() = byteBuffer.readIfCan { get() }

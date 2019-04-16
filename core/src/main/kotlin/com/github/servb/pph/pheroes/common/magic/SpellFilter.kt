@@ -15,4 +15,4 @@ data class SpellFilter(
 }
 
 @ExperimentalUnsignedTypes
-typealias SpellList = List<SpellFilter>
+typealias SpellList = List<UShort>
