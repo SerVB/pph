@@ -95,6 +95,7 @@ project(":core") {
     dependencies {
         implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
         implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+        implementation "io.airlift:aircompressor:0.13"
         testImplementation "org.slf4j:slf4j-simple:1.6.1"
         testImplementation "io.kotlintest:kotlintest-runner-junit5:3.1.7"
     }
