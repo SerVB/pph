@@ -44,7 +44,7 @@ The progress can be seen under the [Issues](https://github.com/anonymous-frog-st
 There are some practices of rewriting C++ code to JVM-related code.
 
 #### Constant references
-To archive this, it's needed to write an interface with constant methods and another interface or class with other classes that extends/implements the constant interface. See an example [here](https://github.com/anonymous-frog-studio/pph/blob/master/core/src/main/kotlin/com/github/servb/pph/gxlib/gxlmetrics/Point.kt).
+To archive this, it's needed to write an interface with constant methods and another interface or class with other methods that extends/implements the constant interface. See an example [here](https://github.com/anonymous-frog-studio/pph/blob/master/core/src/main/kotlin/com/github/servb/pph/gxlib/gxlmetrics/Point.kt).
 
 Maybe in the future everything will be rewritten as immutable.
 
