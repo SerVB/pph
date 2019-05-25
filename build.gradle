@@ -91,6 +91,9 @@ project(":ios") {
 project(":core") {
     apply plugin: "kotlin"
 
+    test {
+        useJUnitPlatform()
+    }
 
     dependencies {
         implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
