@@ -6,58 +6,58 @@ import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
 
-enum class DLG_RETCODE {
-    DRC_UNDEFINED,
-    DRC_OK,
-    DRC_CANCEL,
-    DRC_YES,
-    DRC_NO;
+enum class DialogReturnCode {
+    UNDEFINED,
+    OK,
+    CANCEL,
+    YES,
+    NO,
 }
 
-abstract class iDialog(pViewMgr: iViewMgr)
-    : iView(pViewMgr, Rect(), VIEWCLSID.MODAL_DIALOG, 0, ViewState.Enabled.v) {
-    private var m_retCode = DLG_RETCODE.DRC_UNDEFINED
+@ExperimentalUnsignedTypes
+abstract class iDialog(viewMgr: iViewMgr)
+    : iView(viewMgr, Rect(0, 0, 0u, 0u), ViewClassId.MODAL_DIALOG, 0u, setOf(ViewState.Enabled)) {
 
-    fun DoModal(): DLG_RETCODE {
-        Center()
-        OnCreateDlg()
-        SetVisible()
-        mgr.PushModalDlg(this)
-        while (mgr.App().Cycle() && m_retCode == DLG_RETCODE.DRC_UNDEFINED) {
+    private var returnCode = DialogReturnCode.UNDEFINED
+
+    fun doModal(): DialogReturnCode {
+        center()
+        onCreateDlg()
+        isVisible = true
+        mgr.pushModalDlg(this)
+        while (mgr.App().Cycle() && returnCode == DialogReturnCode.UNDEFINED) {
         }
-        val pDlg = mgr.PopModalDlg()
+        val pDlg = mgr.popModalDialog()
         check(pDlg == this)
 
-        return m_retCode
+        return returnCode
     }
 
-    // Pure virtuals
-    abstract fun GetDlgMetrics(): Size
-    abstract fun OnCreateDlg()
-    open fun OnPlace(rect: Rect) {}
+    abstract fun getDialogMetrics(): Size
+    abstract fun onCreateDlg()
+    open fun onPlace(rect: Rect) {}
 
-    // Virtuals
-    open fun KeyDown(key: Int) = false
-    open fun KeyUp(key: Int) = false
+    open fun keyDown(key: Int) = false
+    open fun keyUp(key: Int) = false
 
-    protected fun IsValidDialog() = m_retCode == DLG_RETCODE.DRC_UNDEFINED
+    protected val isValidDialog: Boolean get() = returnCode == DialogReturnCode.UNDEFINED
 
-    protected fun Center() {
-        val rect = Rect(AlignRect(GetDlgMetrics(), Rect(mgr.Metrics()), Alignment.AlignCenter))
-        OnPlace(rect)
-        SetRect(rect)
+    protected fun center() {
+        val rect = Rect(AlignRect(getDialogMetrics(), Rect(mgr.Metrics()), Alignment.AlignCenter))
+        onPlace(rect)
+        this.relativeRect = rect
     }
 
-    protected fun EndDialog(retCode: DLG_RETCODE): Boolean {
-        if (m_retCode != DLG_RETCODE.DRC_UNDEFINED) {
+    protected fun endDialog(retCode: DialogReturnCode): Boolean {
+        if (returnCode != DialogReturnCode.UNDEFINED) {
             return false
         }
-        m_retCode = retCode
+        returnCode = retCode
         return true
     }
 
     override fun invalidate() {
         needRedraw = true
-        mgr.CurView()?.invalidate()
+        mgr.curView()?.invalidate()
     }
 }

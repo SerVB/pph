@@ -3,7 +3,7 @@ package com.github.servb.pph.gxlib
 import com.github.servb.pph.gxlib.gxlmetrics.*
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
 
-enum class VIEWCLSID {
+enum class ViewClassId {
     GENERIC_VIEWPORT,
     MODAL_DIALOG,
     PUSH_BUTTON,
@@ -20,7 +20,7 @@ enum class CTRL_EVT_ID {
 }
 
 @ExperimentalUnsignedTypes
-abstract class iView(viewMgr: iViewMgr, rect: Rect, val classId: VIEWCLSID, val uid: UInt, state: Set<ViewState>) {
+abstract class iView(viewMgr: iViewMgr, rect: Rect, val classId: ViewClassId, val uid: UInt, state: Set<ViewState>) {
 
     enum class ViewState(val v: Int) {
         Visible(0x1),

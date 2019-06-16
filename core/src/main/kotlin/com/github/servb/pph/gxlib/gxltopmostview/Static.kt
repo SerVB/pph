@@ -1,6 +1,6 @@
 package com.github.servb.pph.gxlib.gxltopmostview
 
-import com.github.servb.pph.gxlib.VIEWCLSID
+import com.github.servb.pph.gxlib.ViewClassId
 import com.github.servb.pph.gxlib.gxlmetrics.Point
 import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
@@ -9,7 +9,7 @@ import com.github.servb.pph.gxlib.iView
 class iTopmostView(pViewMgr: iViewMgr) : iView(
         pViewMgr,
         Rect(pViewMgr.Metrics()),
-        VIEWCLSID.GENERIC_VIEWPORT,
+        ViewClassId.GENERIC_VIEWPORT,
         0,
         ViewState.Visible.v or ViewState.Enabled.v
 ) {

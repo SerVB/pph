@@ -30,7 +30,7 @@ interface IViewCmdHandler {
 
 /** Base view-port based control. */
 abstract class iBaseCtrl(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect: Rect,
-                         clsId: VIEWCLSID, uid: Int, state: Int) : iView(pViewMgr, rect, clsId, uid, state) {
+                         clsId: ViewClassId, uid: Int, state: Int) : iView(pViewMgr, rect, clsId, uid, state) {
     protected var m_pCmdHandler: IViewCmdHandler? = pCmdHandler
 
     fun SetCommandHandler(pCmdHandler: IViewCmdHandler) {
@@ -40,7 +40,7 @@ abstract class iBaseCtrl(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect
 
 /** Generic push button. */
 open class iButton(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect: Rect, uid: Int, state: Int)
-    : iBaseCtrl(pViewMgr, pCmdHandler, rect, VIEWCLSID.PUSH_BUTTON, uid, state) {
+    : iBaseCtrl(pViewMgr, pCmdHandler, rect, ViewClassId.PUSH_BUTTON, uid, state) {
     private var m_state: Int = 0
     private var m_lastClick: Int = 0
 
@@ -99,7 +99,7 @@ open class iButton(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect: Rect
 /** Tabbed switch control. */
 abstract class iTabbedSwitch(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?,
                              rect: Rect, tabcnt: Int, uid: Int, state: Int = Visible or Enabled)
-    : iBaseCtrl(pViewMgr, pCmdHandler, rect, VIEWCLSID.TABBED_SWITCH, uid, state) {
+    : iBaseCtrl(pViewMgr, pCmdHandler, rect, ViewClassId.TABBED_SWITCH, uid, state) {
     protected var m_tabStates: Array<Int> // uint32*
     protected var m_ItemWidth: Int
     protected var m_TabsCount: Int = tabcnt
@@ -204,7 +204,7 @@ abstract class iTabbedSwitch(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?,
 
 /** Scroll Bar. */
 abstract class iScrollBar(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect: Rect, uid: Int, flags: Int = 0)
-    : iBaseCtrl(pViewMgr, pCmdHandler, rect, VIEWCLSID.SCROLL_BAR,
+    : iBaseCtrl(pViewMgr, pCmdHandler, rect, ViewClassId.SCROLL_BAR,
         uid, ViewState.Visible.v or ViewState.Enabled.v), IViewCmdHandler {
     protected var m_flags: Int = flags
     protected var m_bThumbTrack: Boolean = false
@@ -428,7 +428,7 @@ abstract class iScrollBar(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rec
 
 /** List Box (virtual). */
 abstract class iListBox(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect: Rect, uid: Int)
-    : iBaseCtrl(pViewMgr, pCmdHandler, rect, VIEWCLSID.LIST_BOX, uid, ViewState.Visible.v or ViewState.Enabled.v),
+    : iBaseCtrl(pViewMgr, pCmdHandler, rect, ViewClassId.LIST_BOX, uid, ViewState.Visible.v or ViewState.Enabled.v),
         IViewCmdHandler {
     protected var m_pScrollBar: iScrollBar? = null
     protected var m_scrVal: Int = 0

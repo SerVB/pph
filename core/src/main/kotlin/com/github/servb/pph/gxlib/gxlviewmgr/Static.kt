@@ -76,10 +76,10 @@ class iViewMgr {
                 } else {
                     pDlg.mouseUp(Point(msg.px, msg.py))
                 }
-                iInput.iEntry.KeyDown -> if (!pDlg.KeyDown(msg.key)) {
+                iInput.iEntry.KeyDown -> if (!pDlg.keyDown(msg.key)) {
                     m_pApp.KeyDown(msg.key)
                 }
-                iInput.iEntry.KeyUp -> if (!pDlg.KeyUp(msg.key)) {
+                iInput.iEntry.KeyUp -> if (!pDlg.keyUp(msg.key)) {
                     m_pApp.KeyUp(msg.key)
                 }
             }
@@ -150,7 +150,8 @@ class iViewMgr {
     fun SetCurView(pCurView: iTopmostView) {
         m_pCurView = pCurView
     }
-    fun CurView() = m_pCurView as iView?
+
+    fun curView() = m_pCurView as iView?
 
     // Capture view
     fun SetViewCapture(pCapView: iView) {
@@ -167,10 +168,12 @@ class iViewMgr {
 
     // Modal stack
     val HasModalDlg get() = m_dlgStack.GetSize() > 0
-    fun PushModalDlg(pDlg: iDialog) {
+
+    fun pushModalDlg(pDlg: iDialog) {
         m_dlgStack.add(pDlg)
     }
-    fun PopModalDlg(): iDialog {
+
+    fun popModalDialog(): iDialog {
         if (m_pCurView) {
             m_pCurView.invalidate()
         }

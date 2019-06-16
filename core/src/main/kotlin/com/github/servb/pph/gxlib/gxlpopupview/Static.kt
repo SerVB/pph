@@ -1,12 +1,12 @@
 package com.github.servb.pph.gxlib.gxlpopupview
 
-import com.github.servb.pph.gxlib.VIEWCLSID
+import com.github.servb.pph.gxlib.ViewClassId
 import com.github.servb.pph.gxlib.gxlmetrics.*
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
 import com.github.servb.pph.gxlib.iView
 
 abstract class iPopupView(pViewMgr: iViewMgr) : iView(
-        pViewMgr, Rect(0,0,0,0), VIEWCLSID.GENERIC_VIEWPORT, 0, ViewState.Enabled) {
+        pViewMgr, Rect(0, 0, 0, 0), ViewClassId.GENERIC_VIEWPORT, 0, ViewState.Enabled) {
 
     // operations
     fun TrackPopup(pos: Pointc, bound: Rectc, al: Alignment) {
