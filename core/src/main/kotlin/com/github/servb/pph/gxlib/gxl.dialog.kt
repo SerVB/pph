@@ -4,8 +4,6 @@ import com.github.servb.pph.gxlib.gxlmetrics.AlignRect
 import com.github.servb.pph.gxlib.gxlmetrics.Alignment
 import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxlmetrics.Size
-import com.github.servb.pph.gxlib.gxlview.VIEWCLSID
-import com.github.servb.pph.gxlib.gxlview.iView
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
 
 enum class DLG_RETCODE {
@@ -24,9 +22,10 @@ abstract class iDialog(pViewMgr: iViewMgr)
         Center()
         OnCreateDlg()
         SetVisible()
-        m_pMgr.PushModalDlg(this)
-        while (m_pMgr.App().Cycle() && m_retCode == DLG_RETCODE.DRC_UNDEFINED) {}
-        val pDlg = m_pMgr.PopModalDlg()
+        mgr.PushModalDlg(this)
+        while (mgr.App().Cycle() && m_retCode == DLG_RETCODE.DRC_UNDEFINED) {
+        }
+        val pDlg = mgr.PopModalDlg()
         check(pDlg == this)
 
         return m_retCode
@@ -44,7 +43,7 @@ abstract class iDialog(pViewMgr: iViewMgr)
     protected fun IsValidDialog() = m_retCode == DLG_RETCODE.DRC_UNDEFINED
 
     protected fun Center() {
-        val rect = Rect(AlignRect(GetDlgMetrics(), Rect(m_pMgr.Metrics()), Alignment.AlignCenter))
+        val rect = Rect(AlignRect(GetDlgMetrics(), Rect(mgr.Metrics()), Alignment.AlignCenter))
         OnPlace(rect)
         SetRect(rect)
     }
@@ -57,8 +56,8 @@ abstract class iDialog(pViewMgr: iViewMgr)
         return true
     }
 
-    override fun Invalidate() {
-        m_bNeedRedraw = true
-        m_pMgr.CurView()?.Invalidate()
+    override fun invalidate() {
+        needRedraw = true
+        mgr.CurView()?.invalidate()
     }
 }

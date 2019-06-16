@@ -1,9 +1,9 @@
 package com.github.servb.pph.gxlib.gxlpopupview
 
+import com.github.servb.pph.gxlib.VIEWCLSID
 import com.github.servb.pph.gxlib.gxlmetrics.*
-import com.github.servb.pph.gxlib.gxlview.VIEWCLSID
-import com.github.servb.pph.gxlib.gxlview.iView
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
+import com.github.servb.pph.gxlib.iView
 
 abstract class iPopupView(pViewMgr: iViewMgr) : iView(
         pViewMgr, Rect(0,0,0,0), VIEWCLSID.GENERIC_VIEWPORT, 0, ViewState.Enabled) {
@@ -29,22 +29,22 @@ abstract class iPopupView(pViewMgr: iViewMgr) : iView(
             orc.y = pos.y
         }
 
-        m_Rect = AlignRect(nsiz, orc, al)
+        relativeRect = AlignRect(nsiz, orc, al)
 
 
-        if (m_Rect.x < bound.x) {
-            m_Rect.x = bound.x
-        } else if (m_Rect.x + m_Rect.w > bound.x + bound.w) {
-            m_Rect.x = bound.x + bound.w - m_Rect.w
+        if (relativeRect.x < bound.x) {
+            relativeRect.x = bound.x
+        } else if (relativeRect.x + relativeRect.w > bound.x + bound.w) {
+            relativeRect.x = bound.x + bound.w - relativeRect.w
         }
 
-        if (m_Rect.y < bound.y) {
-            m_Rect.y = bound.y
-        } else if (m_Rect.y + m_Rect.h > bound.y + bound.h) {
-            m_Rect.y = bound.y + bound.h - m_Rect.h
+        if (relativeRect.y < bound.y) {
+            relativeRect.y = bound.y
+        } else if (relativeRect.y + relativeRect.h > bound.y + bound.h) {
+            relativeRect.y = bound.y + bound.h - relativeRect.h
         }
 
-        OnTrackPopup(m_Rect)
+        OnTrackPopup(relativeRect)
         SetVisible(true)
     }
     fun HidePopup() {

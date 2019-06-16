@@ -4,8 +4,6 @@ import com.github.servb.pph.gxlib.gxlcommontpl.iCLAMP
 import com.github.servb.pph.gxlib.gxlmetrics.Point
 import com.github.servb.pph.gxlib.gxlmetrics.Rect
 import com.github.servb.pph.gxlib.gxltimer.GetTickCount
-import com.github.servb.pph.gxlib.gxlview.VIEWCLSID
-import com.github.servb.pph.gxlib.gxlview.iView
 import com.github.servb.pph.gxlib.gxlviewmgr.iViewMgr
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
@@ -57,14 +55,14 @@ open class iButton(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect: Rect
     private fun OnMouseDown(pos: Point) {
         m_state = m_state or State.Pressed.v
         OnBtnDown()
-        Invalidate()
+        invalidate()
     }
 
     private fun OnMouseUp(pos: Point) {
         if (m_state and State.Pressed.v != 0) {
             m_state = m_state xor State.Pressed.v
             OnBtnUp()
-            Invalidate()
+            invalidate()
         }
     }
 
@@ -82,14 +80,14 @@ open class iButton(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect: Rect
     }
 
     private fun OnMouseTrack(pos: Point) {
-        if (GetScrRect().PtInRect(pos)) {
+        if (screenRect.PtInRect(pos)) {
             if (m_state and State.Pressed.v != State.Pressed.v) {
                 m_state = m_state or State.Pressed.v
-                Invalidate()
+                invalidate()
             }
         } else if (m_state and State.Pressed.v != 0) {
             m_state = m_state xor State.Pressed.v
-            Invalidate()
+            invalidate()
         }
     }
 
@@ -111,7 +109,7 @@ abstract class iTabbedSwitch(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?,
 
     init {
         m_tabStates = Array(tabcnt) { 1 }
-        m_ItemWidth = m_Rect.w / m_TabsCount
+        m_ItemWidth = this.relativeRect.w / m_TabsCount
         check(m_ItemWidth != 0)
         check(rect.w % m_TabsCount == 0)
     }
@@ -142,16 +140,16 @@ abstract class iTabbedSwitch(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?,
     fun GetFocusedTab() = m_CurFocTab
 
     private fun OnMouseDown(pos: Point) {
-        val ntab = GetTabByPos(pos - GetScrRect().Point())
+        val ntab = GetTabByPos(pos - screenRect.Point())
         if (ntab in 0..(m_TabsCount - 1) && m_tabStates[ntab] != 0) {
             m_FocTab = ntab
             m_CurFocTab = ntab
         }
-        Invalidate()
+        invalidate()
     }
 
     private fun OnMouseUp(pos: Point) {
-        val tab = GetTabByPos(pos - GetScrRect().point())
+        val tab = GetTabByPos(pos - screenRect.point())
         if (tab == m_FocTab) {
             if (m_CurTab == m_FocTab) {
                 if (m_pCmdHandler != null && IsEnabled()) {
@@ -163,22 +161,22 @@ abstract class iTabbedSwitch(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?,
                     m_pCmdHandler?.iCMDH_ControlCommand(this, CTRL_CMD_ID.CCI_TABCHANGED, m_CurTab)
                 }
             }
-            Invalidate()
+            invalidate()
         }
         m_FocTab = -1
         m_CurFocTab = -1
     }
 
     private fun OnMouseTrack(pos: Point) {
-        val tab = GetTabByPos(pos - GetScrRect().Point())
+        val tab = GetTabByPos(pos - screenRect.Point())
         if (tab != m_CurFocTab) {
-            Invalidate()
+            invalidate()
         }
         m_CurFocTab = if (tab == m_FocTab) tab else -1
     }
 
-    override fun OnCompose() {
-        val rc = GetScrRect()
+    override fun onCompose() {
+        val rc = screenRect
         rc.w = m_ItemWidth
         for (xx in 0 until m_TabsCount) {
             var state = 0
@@ -197,7 +195,7 @@ abstract class iTabbedSwitch(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?,
     }
 
     protected fun GetTabByPos(pos: Point): Int {
-        if (!Rect(m_Rect.Size()).PtInRect(pos)) {
+        if (!Rect(relativeRect.Size()).PtInRect(pos)) {
             return -1
         }
         return pos.x / m_ItemWidth.v
@@ -224,22 +222,22 @@ abstract class iScrollBar(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rec
         if (IsHorizontal()) {
             val up = iTBButton(pViewMgr, this, Rect(0, 0, GetDefBtnSiz(), rect.h),
                     uid + 1, ViewState.Visible.v or ViewState.Enabled.v, this, Element.EL_BtnLeft)
-            AddChild(up)
+            addChild(up)
             m_pUp = up
             val down = iTBButton(pViewMgr, this,
                     Rect(rect.w - GetDefBtnSiz(), 0, GetDefBtnSiz(), rect.h), uid + 2,
                     ViewState.Visible.v or ViewState.Enabled.v, this, Element.EL_BtnRight)
-            AddChild(down)
+            addChild(down)
             m_pDown = down
         } else {
             val up = iTBButton(pViewMgr, this, Rect(0, 0, rect.w, GetDefBtnSiz()), uid + 1,
                     ViewState.Visible.v or ViewState.Enabled.v, this, Element.EL_BtnUp)
-            AddChild(up)
+            addChild(up)
             m_pUp = up
             val down = iTBButton(pViewMgr, this,
                     Rect(0, rect.h - GetDefBtnSiz(), rect.w, GetDefBtnSiz()), uid + 2,
                     ViewState.Visible.v or ViewState.Enabled.v, this, Element.EL_BtnDown)
-            AddChild(down)
+            addChild(down)
             m_pDown = down
         }
         CalcThumbMetrix()
@@ -272,8 +270,8 @@ abstract class iScrollBar(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rec
         private val m_el: Element = el
         private val m_pScrollBar: iScrollBar = pScrollBar
 
-        override fun OnCompose() {
-            m_pScrollBar.ComposeSBElement(m_el, Rect(GetScrRect()), GetButtonState())
+        override fun onCompose() {
+            m_pScrollBar.ComposeSBElement(m_el, Rect(screenRect), GetButtonState())
         }
     }
 
@@ -297,7 +295,7 @@ abstract class iScrollBar(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rec
     fun PageUp(): Boolean {
         if (SetCurPos(m_curPos - m_pagSiz)) {
             m_pCmdHandler?.iCMDH_ControlCommand(this, CTRL_CMD_ID.CCI_SBPAGEUP, m_curPos)
-            Invalidate()
+            invalidate()
             return true
         }
         return false
@@ -306,7 +304,7 @@ abstract class iScrollBar(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rec
     fun PageDown(): Boolean {
         if (SetCurPos(m_curPos + m_pagSiz)) {
             m_pCmdHandler?.iCMDH_ControlCommand(this, CTRL_CMD_ID.CCI_SBPAGEDOWN, m_curPos)
-            Invalidate()
+            invalidate()
             return true
         }
         return false
@@ -321,27 +319,27 @@ abstract class iScrollBar(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rec
     abstract fun ComposeSBElement(el: Element, rc: Rect, flags: Int)
 
     private fun OnMouseDown(pos: Point) {
-        val res = HitTest(pos - GetScrRect().Point())
+        val res = HitTest(pos - screenRect.Point())
 
         if (res == HitTestRes.HTR_Thumb) {
             m_bThumbTrack = true
             m_trackAnchor = MutablePoint(pos)
             m_trackPos = m_curPos
-            Invalidate()
+            invalidate()
         } else if (res == HitTestRes.HTR_PgUp){
             if (PageUp()) {
-                Invalidate()
+                invalidate()
             }
         } else if (res == HitTestRes.HTR_PgDown){
             if (PageDown()) {
-                Invalidate()
+                invalidate()
             }
         }
     }
 
     private fun OnMouseUp(pos: Point) {
         m_bThumbTrack = false
-        Invalidate()
+        invalidate()
     }
 
     private fun OnMouseTrack(pos: Point) {
@@ -349,16 +347,16 @@ abstract class iScrollBar(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rec
             val n = if (IsHorizontal()) pos.x - m_trackAnchor.x else pos.y - m_trackAnchor.y
             if (SetCurPos(m_trackPos + NItems(n))) {
                 m_pCmdHandler?.iCMDH_ControlCommand(this, CTRL_CMD_ID.CCI_SBTRACKING, m_curPos)
-                Invalidate()
+                invalidate()
             }
         }
     }
 
-    override fun OnCompose() {
-        fun flags() = if (m_bEnabled) 0 else iButton.State.Disabled.v or
+    override fun onCompose() {
+        fun flags() = if (isEnabled) 0 else iButton.State.Disabled.v or
                 if (m_bThumbTrack) iButton.State.Pressed.v else 0
 
-        val rc = MutableRect(GetScrRect())
+        val rc = MutableRect(screenRect)
         if (IsHorizontal()) {
             ComposeSBElement(Element.EL_Bkgnd,
                     Rect(rc.x + m_thumbMetrix.es, rc.y, m_thumbMetrix.h, rc.h), 0)  // TODO: m_thumbMetrix.w??
@@ -390,10 +388,10 @@ abstract class iScrollBar(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rec
     protected fun CalcThumbMetrix() {
         if (IsHorizontal()){
             m_thumbMetrix.es = GetDefBtnSiz().v
-            m_thumbMetrix.h = m_Rect.w.v - m_thumbMetrix.es * 2
+            m_thumbMetrix.h = relativeRect.w.v - m_thumbMetrix.es * 2
         } else {
             m_thumbMetrix.es = GetDefBtnSiz().v
-            m_thumbMetrix.h = m_Rect.h.v - m_thumbMetrix.es * 2
+            m_thumbMetrix.h = relativeRect.h.v - m_thumbMetrix.es * 2
         }
 
         if (m_totSiz == 0) {
@@ -414,12 +412,12 @@ abstract class iScrollBar(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rec
 
     override fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
         val uid = pView.GetUID()
-        if (uid == m_UID + 1) {
+        if (uid == this.uid + 1) {
             // Scroll up
             if (SetCurPos(m_curPos - 1)) {
                 m_pCmdHandler!!.iCMDH_ControlCommand(this, CTRL_CMD_ID.CCI_SBLINEUP, m_curPos)
             }
-        } else if (uid == m_UID + 2) {
+        } else if (uid == this.uid + 2) {
             // Scroll down
             if (SetCurPos(m_curPos + 1)) {
                 m_pCmdHandler!!.iCMDH_ControlCommand(this, CTRL_CMD_ID.CCI_SBLINEDOWN, m_curPos)
@@ -454,7 +452,7 @@ abstract class iListBox(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect:
         m_pScrollBar!!.SetCurPos(m_scrVal)
         m_selItem = if (LBItemsCount() != 0) 0 else -1
         m_pCmdHandler?.iCMDH_ControlCommand(this, CTRL_CMD_ID.CCI_LBSELCHANGED, m_selItem)
-        Invalidate()
+        invalidate()
     }
 
     fun SetCurPos(sval: Int) {
@@ -478,7 +476,7 @@ abstract class iListBox(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect:
                     SetCurPos(npos)
                 }
             }
-            Invalidate()
+            invalidate()
         }
     }
 
@@ -495,7 +493,7 @@ abstract class iListBox(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect:
     }
 
     fun SelItem() = m_selItem
-    fun PageSize() = m_Rect.h / LBItemHeight()
+    fun PageSize() = relativeRect.h / LBItemHeight()
 
     // Pure methods
     abstract fun ComposeLBBackground(rect: Rect)
@@ -526,8 +524,8 @@ abstract class iListBox(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect:
         }
     }
 
-    override fun OnCompose() {
-        val rc = GetScrRect()
+    override fun onCompose() {
+        val rc = screenRect
         ComposeLBBackground(Rect(rc))
         val ih = LBItemHeight()
         val ic = LBItemsCount()
@@ -545,5 +543,5 @@ abstract class iListBox(pViewMgr: iViewMgr, pCmdHandler: IViewCmdHandler?, rect:
     }
 
     protected fun IsValidIdx(idx: Int) = idx < LBItemsCount()
-    protected fun IdxByPos(pos: XYHolder): Int = m_scrVal + (pos.y - GetScrRect().y) / LBItemHeight()
+    protected fun IdxByPos(pos: XYHolder): Int = m_scrVal + (pos.y - screenRect.y) / LBItemHeight()
 }

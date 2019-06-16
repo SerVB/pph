@@ -5,8 +5,8 @@ import com.github.servb.pph.gxlib.gxlmetrics.Alignment
 import com.github.servb.pph.gxlib.gxlmetrics.Point
 import com.github.servb.pph.gxlib.gxlmetrics.Size
 import com.github.servb.pph.gxlib.gxltopmostview.iTopmostView
-import com.github.servb.pph.gxlib.gxlview.iView
 import com.github.servb.pph.gxlib.iDialog
+import com.github.servb.pph.gxlib.iView
 
 class iViewMgr {
     interface IDragGlyph {
@@ -27,18 +27,18 @@ class iViewMgr {
             // In case of popup view
             when (msg.taskType) {
                 iInput.iEntry.MouseMove -> if (m_pCapView != null) {
-                    m_pCapView.MouseTrack(Point(msg.px, msg.py))
+                    m_pCapView.mouseTrack(Point(msg.px, msg.py))
                 } else {
                     m_pPopupView.MouseTrack(Point(msg.px, msg.py))
                 }
                 iInput.iEntry.MouseDown ->
                 if (m_pCapView != null) {
-                    m_pCapView.MouseDown(Point(msg.px, msg.py))
+                    m_pCapView.mouseDown(Point(msg.px, msg.py))
                 } else {
                     if (!m_pPopupView.GetRect().PtInRect(msg.px, msg.py)) {
                         m_pPopupView.HidePopup()
                         if (m_pCurView) {
-                            m_pCurView.Invalidate()
+                            m_pCurView.invalidate()
                         }
                     } else {
                         m_pPopupView.MouseDown(Point(msg.px,msg.py))
@@ -46,7 +46,7 @@ class iViewMgr {
                 }
                 iInput.iEntry.MouseUp ->
                 if (m_pCapView != null) {
-                    m_pCapView.MouseUp(Point(msg.px, msg.py))
+                    m_pCapView.mouseUp(Point(msg.px, msg.py))
                 } else {
                     if (m_pPopupView.IsVisible()) {
                         m_pPopupView.MouseUp(Point(msg.px, msg.py))
@@ -62,19 +62,19 @@ class iViewMgr {
             val pDlg = m_dlgStack[m_dlgStack.size - 1]
             when (msg.taskType) {
                 iInput.iEntry.MouseMove -> if (m_pCapView != null) {
-                    m_pCapView.MouseTrack(Point(msg.px, msg.py))
+                    m_pCapView.mouseTrack(Point(msg.px, msg.py))
                 } else {
-                    pDlg.MouseTrack(Point(msg.px, msg.py))
+                    pDlg.mouseTrack(Point(msg.px, msg.py))
                 }
                 iInput.iEntry.MouseDown -> if (m_pCapView != null) {
-                    m_pCapView.MouseDown(Point(msg.px, msg.py))
+                    m_pCapView.mouseDown(Point(msg.px, msg.py))
                 } else {
-                    pDlg.MouseDown(Point(msg.px, msg.py))
+                    pDlg.mouseDown(Point(msg.px, msg.py))
                 }
                 iInput.iEntry.MouseUp -> if (m_pCapView != null) {
-                    m_pCapView.MouseUp(Point(msg.px, msg.py))
+                    m_pCapView.mouseUp(Point(msg.px, msg.py))
                 } else {
-                    pDlg.MouseUp(Point(msg.px, msg.py))
+                    pDlg.mouseUp(Point(msg.px, msg.py))
                 }
                 iInput.iEntry.KeyDown -> if (!pDlg.KeyDown(msg.key)) {
                     m_pApp.KeyDown(msg.key)
@@ -88,21 +88,21 @@ class iViewMgr {
             when (msg.taskType) {
                 iInput.iEntry.MouseMove ->
                 if (m_pCapView != null) {
-                    m_pCapView.MouseTrack(Point(msg.px,msg.py))
+                    m_pCapView.mouseTrack(Point(msg.px, msg.py))
                 } else {
-                    m_pCurView.MouseTrack(Point(msg.px, msg.py))
+                    m_pCurView.mouseTrack(Point(msg.px, msg.py))
                 }
                 iInput.iEntry.MouseDown ->
                 if (m_pCapView != null) {
-                    m_pCapView.MouseDown(Point(msg.px, msg.py))
+                    m_pCapView.mouseDown(Point(msg.px, msg.py))
                 } else {
-                    m_pCurView.MouseDown(Point(msg.px,msg.py))
+                    m_pCurView.mouseDown(Point(msg.px, msg.py))
                 }
                 iInput.iEntry.MouseUp ->
                 if (m_pCapView != null) {
-                    m_pCapView.MouseUp(Point(msg.px, msg.py))
+                    m_pCapView.mouseUp(Point(msg.px, msg.py))
                 } else {
-                    m_pCurView.MouseUp(Point(msg.px, msg.py))
+                    m_pCurView.mouseUp(Point(msg.px, msg.py))
                 }
                 iInput.iEntry.KeyDown ->
                 if (!m_pCurView.KeyDown(msg.key)) {
@@ -124,20 +124,20 @@ class iViewMgr {
     }
 
     fun Compose(rect: Rect) {
-        // Compose current topmost view
+        // compose current topmost view
         if (m_pCurView != null && m_pCurView.NeedRedraw()) {
-            m_pCurView.Compose(rect)
+            m_pCurView.compose(rect)
         }
 
-        // Compose dialog stack
-        m_dlgStack.forEach { it.Compose(rect) }
+        // compose dialog stack
+        m_dlgStack.forEach { it.compose(rect) }
 
-        // Compose Popup view
+        // compose Popup view
         if (m_pPopupView != null) {
             m_pPopupView.Compose(rect)
         }
 
-        // Compose drag'n'drop glyph
+        // compose drag'n'drop glyph
         if (m_pDragGlyph != null) {
             m_pDragGlyph.ComposeDragGlyph()
         }
@@ -172,7 +172,7 @@ class iViewMgr {
     }
     fun PopModalDlg(): iDialog {
         if (m_pCurView) {
-            m_pCurView.Invalidate()
+            m_pCurView.invalidate()
         }
         return m_dlgStack.removeAt(m_dlgStack.size - 1)
     }
@@ -187,7 +187,7 @@ class iViewMgr {
         check(m_pPopupView)
         m_pPopupView = null
         if (m_pCurView != null) {
-            m_pCurView.Invalidate()
+            m_pCurView.invalidate()
         }
     }
 
@@ -203,7 +203,7 @@ class iViewMgr {
             m_timerCounter += interval
             while (!m_timers.isEmpty() && m_timers[m_timers.size - 1].timer <= m_timerCounter) {
                 val item = m_timers.removeAt(m_timers.size - 1)
-                item.pHandler.OnTimer(item.tid)
+                item.pHandler.onTimer(item.tid)
             }
         }
     }
