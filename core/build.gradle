@@ -11,7 +11,6 @@ sourceSets.main.kotlin.excludes = [
         "com/github/servb/pph/gxlib/gxltopmostview/Static.kt",
         "com/github/servb/pph/gxlib/gxlviewmgr/Static.kt",
         "com/github/servb/pph/gxlib/gxlwindow/Static.kt",
-        "com/github/servb/pph/gxlib/gxl.stdctrl.kt",
 ]
 
 eclipse.project {

@@ -168,11 +168,11 @@ abstract class iView(viewMgr: iViewMgr, rect: Rect, val classId: ViewClassId, va
         parent?.invalidate()
     }
 
-    abstract fun onTimer(tid: Int)
-    abstract fun onCompose()
-    abstract fun onRectChanged(rc: Rectc)
-    abstract fun onMouseDown(pos: Pointc)
-    abstract fun onMouseUp(pos: Pointc)
-    abstract fun onMouseClick(pos: Pointc)
-    abstract fun onMouseTrack(pos: Pointc)
+    open fun onTimer(tid: Int) {}
+    open fun onCompose() {}
+    open fun onRectChanged(rc: Rectc) {}
+    open fun onMouseDown(pos: Pointc) {}
+    open fun onMouseUp(pos: Pointc) {}
+    open fun onMouseClick(pos: Pointc) {}
+    open fun onMouseTrack(pos: Pointc) {}
 }
