@@ -1,8 +1,8 @@
 package com.github.servb.pph.util.helpertype
 
-import io.kotlintest.shouldBe
-import io.kotlintest.shouldNotBe
-import io.kotlintest.specs.StringSpec
+import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import org.reflections.Reflections
 
 class UniqueValueEnumTest : StringSpec() {
