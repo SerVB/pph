@@ -1,7 +1,6 @@
 package com.github.servb.pph.util
 
 import com.soywiz.korma.geom.*
-import com.soywiz.korma.geom.shape.Shape2d
 
 typealias SizeT = Int  // in C++ sources, these types are mostly unsigned
 
@@ -17,6 +16,7 @@ fun IRectangleInt.asPoint(): IPointInt = object : IPointInt {
     override val y: Int get() = this@asPoint.y
 }
 
+// submit after https://github.com/korlibs/korma/issues/44
 fun ISizeInt.asRectangle(): IRectangleInt = object : IRectangleInt {
 
     override val x: Int get() = 0
@@ -25,33 +25,24 @@ fun ISizeInt.asRectangle(): IRectangleInt = object : IRectangleInt {
     override val height: Int get() = this@asRectangle.height
 }
 
+// https://github.com/korlibs/korma/pull/46
 fun Rectangle.inflate(offsets: Double) = inflate(offsets, offsets)
 fun Rectangle.inflate(offsets: Float) = inflate(offsets.toDouble())
 fun Rectangle.inflate(offsets: Int) = inflate(offsets.toDouble())
 
-// as IRectangle.toShape()
-fun IRectangleInt.toShape() = Shape2d.Rectangle(x, y, width, height)
-
-// remove from Rectangle, create the following:
+// remove from Rectangle, create the following (after https://github.com/korlibs/korma/pull/47):
 val IRectangle.topLeft get() = Point(left, top)
 val IRectangle.topRight get() = Point(right, top)
 val IRectangle.bottomLeft get() = Point(left, bottom)
 val IRectangle.bottomRight get() = Point(right, bottom)
+
+// https://github.com/korlibs/korma/pull/47
 val IRectangleInt.topLeft get() = PointInt(left, top)
 val IRectangleInt.topRight get() = PointInt(right, top)
 val IRectangleInt.bottomLeft get() = PointInt(left, bottom)
 val IRectangleInt.bottomRight get() = PointInt(right, bottom)
-
-// new:
-val IRectangle.x2: Double get() = x + width - 1
-val IRectangle.y2: Double get() = y + height - 1
 val IRectangleInt.x2: Int get() = x + width - 1
 val IRectangleInt.y2: Int get() = y + height - 1
-
-val IRectangle.topLeft2 get() = Point(x, y)
-val IRectangle.topRight2 get() = Point(x2, y)
-val IRectangle.bottomLeft2 get() = Point(x, y2)
-val IRectangle.bottomRight2 get() = Point(x2, y2)
 val IRectangleInt.topLeft2 get() = PointInt(x, y)
 val IRectangleInt.topRight2 get() = PointInt(x2, y)
 val IRectangleInt.bottomLeft2 get() = PointInt(x, y2)
@@ -60,10 +51,24 @@ val IRectangleInt.bottomRight2 get() = PointInt(x2, y2)
 operator fun RectangleInt.Companion.invoke(other: IRectangleInt) =
     RectangleInt(other.x, other.y, other.width, other.height)
 
+// new:
+//operator fun IRectangleInt.contains(that: Point) = contains(that.x, that.y)  // this is not needed, remove from Rectangle too
+operator fun IRectangleInt.contains(that: IPoint) = contains(that.x, that.y)
+fun IRectangleInt.contains(x: Double, y: Double) = (x >= left && x < right) && (y >= top && y < bottom)
+fun IRectangleInt.contains(x: Float, y: Float) = contains(x.toDouble(), y.toDouble())
+fun IRectangleInt.contains(x: Int, y: Int) = contains(x.toDouble(), y.toDouble())
+
 // as IPointInt.Companion.invoke()
 fun ISizeInt(width: Int, height: Int): ISizeInt = SizeInt(width, height)
 
-// change Iterable<Rectangle> to Iterable<IRectangle>
+// https://github.com/korlibs/korma/pull/49
+fun IRectangleInt.anchor(ax: Double, ay: Double): PointInt =
+    PointInt((x + width * ax).toInt(), (y + height * ay).toInt())
+
+inline fun IRectangleInt.anchor(ax: Number, ay: Number): PointInt = anchor(ax.toDouble(), ay.toDouble())
+val IRectangleInt.center get() = anchor(0.5, 0.5)
+
+// https://github.com/korlibs/korma/pull/48
 fun Iterable<IRectangle>.bounds(target: Rectangle = Rectangle()): Rectangle {
     var first = true
     var left = 0.0

@@ -9,10 +9,10 @@ package com.github.servb.pph.gxlib
 import com.github.servb.pph.util.*
 import com.soywiz.kmem.clamp
 import com.soywiz.korim.bitmap.Bitmap16
+import com.soywiz.korim.color.BGR_565
 import com.soywiz.korim.color.ColorFormat16
 import com.soywiz.korim.color.RGBA_4444
 import com.soywiz.korim.color.RGBA_5551
-import com.soywiz.korim.color.RGB_565
 import com.soywiz.korma.geom.*
 
 fun RGB16(r: Number, g: Number, b: Number): UShort {
@@ -140,16 +140,56 @@ private fun FillDibBlock(dst: IDibPixelIPointer, src: IDibPixel, size: SizeT) {
     }
 }
 
-private fun FillDibBlockAlpha(dst: IDibPixelIPointer, src: IDibPixel, a: UByte, size: SizeT): Unit = TODO()
+private fun FillDibBlockAlpha(dst: IDibPixelIPointer, src: IDibPixel, a: UByte, size: SizeT) {
+    val alpha = a.toUInt()
+    val sb = src.toUInt() and 0x1Fu
+    val sg = (src.toUInt() shr 5) and 0x3Fu
+    val sr = (src.toUInt() shr 11) and 0x1Fu
 
-private fun SetDibPixelAlpha(dst: IDibPixelIPointer, src: IDibPixel, a: UByte): Unit = TODO()
+    (0 until size).forEach { xx ->
+        val b = dst[xx].toUInt()
+        val db = b and 0x1Fu
+        val dg = (b shr 5) and 0x3Fu
+        val dr = (b shr 11) and 0x1Fu
+
+        dst[xx] = ((((alpha * (sb - db)) shr 8) + db) or
+                ((((alpha * (sg - dg)) shr 8) + dg) shl 5) or
+                ((((alpha * (sr - dr)) shr 8) + dr) shl 11)).toUShort()
+    }
+    // second variant commented in sources:
+//    uint8 inv_a = 255-a;
+//    uint16 sr = a * ((src & RED_MASK[iDib::RGB]) >> 11);
+//    uint16 sg = a * ((src & GREEN_MASK[iDib::RGB]) >> 5);
+//    uint16 sb = a * ((src & BLUE_MASK[iDib::RGB]));
+//    for (uint32 xx=0; xx<size; ++xx, ++dst) {
+//        uint16 dr = inv_a * ((*dst & RED_MASK[iDib::RGB]) >> 11);
+//        uint16 dg = inv_a * ((*dst & GREEN_MASK[iDib::RGB]) >> 5);
+//        uint16 db = inv_a * ((*dst & BLUE_MASK[iDib::RGB]));
+//        *dst = (((sr+dr)>>8)<<11 | ((sg+dg)>>8)<<5 | ((sb+db)>>8));
+//    }
+}
+
+private fun SetDibPixelAlpha(dst: IDibPixelIPointer, src: IDibPixel, a: UByte) {
+    val inv_a = (255u - a).toUByte()
+    val sr = (a * ((src and RED_MASK(IiDib.Type.RGB)).toUInt() shr 11)).toUShort()
+    val sg = (a * ((src and GREEN_MASK(IiDib.Type.RGB)).toUInt() shr 5)).toUShort()
+    val sb = (a * (src and BLUE_MASK(IiDib.Type.RGB))).toUShort()
+    val dr = (inv_a * ((dst[0] and RED_MASK(IiDib.Type.RGB)).toUInt() shr 11)).toUShort()
+    val dg = (inv_a * ((dst[0] and GREEN_MASK(IiDib.Type.RGB)).toUInt() shr 5)).toUShort()
+    val db = (inv_a * (dst[0] and BLUE_MASK(IiDib.Type.RGB))).toUShort()
+    dst[0] = ((((sr + dr) shr 8) shl 11) or
+            (((sg + dg) shr 8) shl 5) or
+            ((sb + db) shr 8)).toUShort()
+}
 
 // unused methods in the whole game:
 // BlendToDibXY, BlitToDCXY
 interface IiDib {
 
     enum class Type(val colorFormat16: ColorFormat16) {
-        RGB(RGB_565),
+        RGB(BGR_565),  // todo: why need to swap colors (B<->R)?
+
+        //        RGB(RGB_565),
         RGBA(RGBA_4444),
         RGBCK(RGBA_5551),
     }
