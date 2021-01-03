@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
-
 plugins {
     id("com.soywiz.korge")
 }
@@ -13,6 +11,11 @@ val kotestVersion: String by project
 
 kotlin {
     sourceSets {
+        all {
+            languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
+            languageSettings.useExperimentalAnnotation("kotlin.ExperimentalUnsignedTypes")
+        }
+
         getByName("jvmTest") {
             dependencies {
                 implementation("io.kotest:kotest-assertions-core-jvm:$kotestVersion")
@@ -25,10 +28,4 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-}
-
-tasks.withType<KotlinCompile<*>> {
-    kotlinOptions {
-        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
-    }
 }

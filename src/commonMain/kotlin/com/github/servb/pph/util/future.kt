@@ -3,6 +3,7 @@ package com.github.servb.pph.util
 import com.soywiz.korma.geom.*
 
 typealias SizeT = Int  // in C++ sources, these types are mostly unsigned
+typealias SizeTArray = IntArray
 
 fun IRectangleInt.asSize(): ISizeInt = object : ISizeInt {
 
@@ -58,8 +59,11 @@ fun IRectangleInt.contains(x: Double, y: Double) = (x >= left && x < right) && (
 fun IRectangleInt.contains(x: Float, y: Float) = contains(x.toDouble(), y.toDouble())
 fun IRectangleInt.contains(x: Int, y: Int) = contains(x.toDouble(), y.toDouble())
 
-// as IPointInt.Companion.invoke()
+// as ISizeInt.Companion.invoke()
 fun ISizeInt(width: Int, height: Int): ISizeInt = SizeInt(width, height)
+
+// as PointInt.Companion.invoke()
+fun PointInt(other: IPointInt): PointInt = PointInt(other.x, other.y)
 
 // https://github.com/korlibs/korma/pull/49
 fun IRectangleInt.anchor(ax: Double, ay: Double): PointInt =

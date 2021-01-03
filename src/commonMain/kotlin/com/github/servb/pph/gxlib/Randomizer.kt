@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalUnsignedTypes::class)
-
 package com.github.servb.pph.gxlib
 
 import kotlin.properties.Delegates

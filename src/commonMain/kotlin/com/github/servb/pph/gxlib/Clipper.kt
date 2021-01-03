@@ -1,5 +1,4 @@
-@file:Suppress("EXPERIMENTAL_UNSIGNED_LITERALS", "FunctionName")
-@file:OptIn(ExperimentalUnsignedTypes::class)
+@file:Suppress("FunctionName")
 
 package com.github.servb.pph.gxlib
 

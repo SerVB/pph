@@ -2,7 +2,6 @@
     "FunctionName", "ClassName", "PropertyName", "PrivatePropertyName", "NAME_SHADOWING",
     "LocalVariableName"
 )
-@file:OptIn(ExperimentalUnsignedTypes::class)
 
 package com.github.servb.pph.gxlib
 
@@ -70,17 +69,18 @@ interface IDibPixelIPointer : IDibIPixelIPointer {
 }
 
 // `iDib::pixel*`
-class IDibPixelPointer(private val data: ShortArray, private var offset: SizeT) : IDibIPixelPointer, IDibPixelIPointer {
+class IDibPixelPointer(private val data: UShortArray, private var offset: SizeT) : IDibIPixelPointer,
+    IDibPixelIPointer {
 
     override fun incrementOffset(increment: SizeT) {
         offset += increment
     }
 
-    override fun get(pos: SizeT): IDibPixel = data[offset + pos].toUShort()
+    override fun get(pos: SizeT): IDibPixel = data[offset + pos]
     override fun copy(): IDibPixelPointer = IDibPixelPointer(data, offset)
 
     override fun set(pos: SizeT, value: IDibPixel) {
-        data[offset + pos] = value.toShort()
+        data[offset + pos] = value
     }
 }
 
@@ -295,8 +295,10 @@ class iDib : IiDib {
     override fun GetPixel(x: Int, y: Int): IDibPixel = m_RGB.data[m_RGB.index(x, y)].toUShort()
     override fun GetPixel(pos: IPointInt): IDibPixel = GetPixel(pos.x, pos.y)
     override fun GetBuffLen(): SizeT = m_RGB.width * m_RGB.width * IDibPixel.SIZE_BYTES
-    override fun GetPtr(pos: IPointInt): IDibPixelPointer = IDibPixelPointer(m_RGB.data, m_RGB.index(pos.x, pos.y))
-    override fun GetPtr(): IDibPixelPointer = IDibPixelPointer(m_RGB.data, 0)
+    override fun GetPtr(pos: IPointInt): IDibPixelPointer =
+        IDibPixelPointer(m_RGB.data.asUShortArray(), m_RGB.index(pos.x, pos.y))
+
+    override fun GetPtr(): IDibPixelPointer = IDibPixelPointer(m_RGB.data.asUShortArray(), 0)
     override fun GetType(): IiDib.Type = m_dibType
     override fun IsEmpty(): Boolean = m_RGB.data.isEmpty()
     override fun GetSize(): SizeInt = m_RGB.size.asInt()
@@ -514,7 +516,7 @@ interface IiPalette {
 
 class iPalette : IiPalette {
 
-    private val m_Palette = ShortArray(256)
+    private val m_Palette = UShortArray(256)
 
     constructor()
 
@@ -524,18 +526,18 @@ class iPalette : IiPalette {
 
     fun Init(pal: IDibIPixelIPointer) {
         m_Palette.indices.forEach {
-            m_Palette[it] = pal[it].toShort()
+            m_Palette[it] = pal[it]
         }
     }
 
     override fun get(nIndex: SizeT): IDibPixel {
         check(nIndex in m_Palette.indices)
-        return m_Palette[nIndex].toUShort()
+        return m_Palette[nIndex]
     }
 
     operator fun set(nIndex: SizeT, value: IDibPixel) {
         check(nIndex in m_Palette.indices)
-        m_Palette[nIndex] = value.toShort()
+        m_Palette[nIndex] = value
     }
 
     fun GetPtr(): IDibPixelPointer {
