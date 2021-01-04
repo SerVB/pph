@@ -5,6 +5,8 @@ import com.github.servb.pph.gxlib.copyTo
 import com.github.servb.pph.gxlib.iDib
 import com.github.servb.pph.util.ISizeInt
 import com.github.servb.pph.util.SizeT
+import com.soywiz.korim.bitmap.Bitmap32
+import com.soywiz.korim.bitmap.context2d
 import com.soywiz.korim.format.readBitmap
 import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korma.geom.IPointInt
@@ -19,6 +21,7 @@ class iCreditsComposer {
     private val m_back: iDib = iDib()
     private var m_pos: SizeT by Delegates.notNull()
     private val m_logo: iDib = iDib()
+    private val buffer = Bitmap32(320, 240)  // todo: port blitting and get rid of this buffer
 
     private var m_bEnd: Boolean = false
     private var m_scrPos: Int = 0
@@ -35,7 +38,7 @@ class iCreditsComposer {
         resourcesVfs["pheroes/bin/Resources/hmm/GFX/Pix/MenuBack.png"].readBitmap().copyTo(m_back)
 
         val title = resourcesVfs["pheroes/bin/Resources/hmm/GFX/Pix/title_hmm.png"].readBitmap()
-        m_logo.Init(SizeInt(title.size), IiDib.Type.RGB)
+        m_logo.Init(SizeInt(title.size), IiDib.Type.RGBA)
         title.copyTo(m_logo)
 
         m_pos = 0
@@ -66,7 +69,21 @@ class iCreditsComposer {
             m_bEnd
         }
 
-        // todo: draw logo
+        // todo: try to implement original blitting:
+//        // compose 'Heroes' logo directly on surface  // todo: won't work on other resolutions
+//        val src = m_logo.GetPtr()
+//        val dst = surface.GetPtr()
+//        // magic position constant ;)
+//        dst.incrementOffset(320 * 4 + 45)
+//        repeat(m_logo.GetHeight()) { nh ->
+//            src.incrementOffset(blit_16aline(src, dst, m_logo.GetWidth() / 2))
+//            dst.incrementOffset(320)
+//        }
+        surface.backingBitmap.copy(0, 0, buffer, 0, 0, buffer.width, buffer.height)
+        buffer.context2d {
+            drawImage(m_logo.backingBitmap, 45, 4)  // magic position constant ;)
+        }
+        buffer.copy(0, 0, surface.backingBitmap, 0, 0, buffer.width, buffer.height)
     }
 
     fun StartCredits() {
