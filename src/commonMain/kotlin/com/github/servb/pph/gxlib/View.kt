@@ -143,7 +143,7 @@ abstract class iView : IiView {
         return true
     }
 
-    fun MouseUp(pos: IPointInt): Boolean {
+    suspend fun MouseUp(pos: IPointInt): Boolean {
         check(m_bTracking)
         m_bTracking = false
         m_pMgr.ReleaseViewCapture()
@@ -166,7 +166,7 @@ abstract class iView : IiView {
     open fun OnRectChanged(rc: IRectangleInt) {}
     open fun OnMouseDown(pos: IPointInt) {}
     open fun OnMouseUp(pos: IPointInt) {}
-    open fun OnMouseClick(pos: IPointInt) {}
+    open suspend fun OnMouseClick(pos: IPointInt) {}
     open fun OnMouseTrack(pos: IPointInt) {}
 
     fun SetSize(nsiz: ISizeInt) {

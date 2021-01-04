@@ -47,7 +47,7 @@ abstract class iChildGameView : iTopmostView, IViewCmdHandler {
 
     fun Eternal(): Boolean = m_bEternal
     fun ParentView(): CHILD_VIEW = m_parentView
-    open fun Process(t: Double): Boolean = true
+    open suspend fun Process(t: Double): Boolean = true
     open fun OnActivate(bActivate: Boolean) {}
 }
 
@@ -159,7 +159,7 @@ class Game : IGame {
 //    fun ItemMgr(): iItemMgr = m_itemMgr  // todo
 //    fun SoundMap(): iSoundMap = m_soundMap  // todo
 
-    fun ShowView(cv: iChildGameView.CHILD_VIEW) {
+    suspend fun ShowView(cv: iChildGameView.CHILD_VIEW) {
         check(cv != iChildGameView.CHILD_VIEW.UNDEFINED)
         if (cv == m_tActView) {
             return
@@ -190,7 +190,7 @@ class Game : IGame {
         when (cv) {
             iChildGameView.CHILD_VIEW.MENU -> {
                 check(m_pChildView[cv.v] == null)
-                m_pChildView[cv.v] = iMenuView()
+                m_pChildView[cv.v] = iMenuView.construct()
             }
             iChildGameView.CHILD_VIEW.OVERLAND -> TODO()
             iChildGameView.CHILD_VIEW.BATTLE -> TODO()
@@ -205,7 +205,7 @@ class Game : IGame {
         m_tActView = cv
     }
 
-    fun HideView(cv: iChildGameView.CHILD_VIEW) {
+    suspend fun HideView(cv: iChildGameView.CHILD_VIEW) {
         check(cv != iChildGameView.CHILD_VIEW.UNDEFINED)
         check(cv != iChildGameView.CHILD_VIEW.OVERLAND)
         val view = checkNotNull(m_pChildView[cv.v])

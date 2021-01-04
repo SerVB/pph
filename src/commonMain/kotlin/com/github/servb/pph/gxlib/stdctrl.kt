@@ -92,7 +92,7 @@ abstract class iButton : iBaseCtrl {
         }
     }
 
-    override fun OnMouseClick(pos: IPointInt) {
+    override suspend fun OnMouseClick(pos: IPointInt) {
         m_pCmdHandler?.let {
             if (IsEnabled()) {
                 val nt = GetTickCount()
@@ -606,7 +606,7 @@ abstract class iListBox : iBaseCtrl, IViewCmdHandler {
         SetCurSel(nIdx, true)
     }
 
-    override fun OnMouseClick(pos: IPointInt) {
+    override suspend fun OnMouseClick(pos: IPointInt) {
         m_pCmdHandler?.let {
             val nt = GetTickCount()
             if (m_lcTime != 0u && m_lcTime in (nt - 500u) until nt && m_selItem != -1 && m_lcIdx == m_selItem) {

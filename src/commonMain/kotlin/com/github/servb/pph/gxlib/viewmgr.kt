@@ -37,7 +37,7 @@ class iViewMgr {
         m_timerCounter = 0u
     }
 
-    fun ProcessMessage(msg: iInput.iEntry): Boolean {
+    suspend fun ProcessMessage(msg: iInput.iEntry): Boolean {
         val popupView = m_pPopupView
         val capView = m_pCapView
         val curView = m_pCurView

@@ -7,6 +7,7 @@ package com.github.servb.pph.gxlib
 
 import com.github.servb.pph.util.*
 import com.soywiz.kmem.clamp
+import com.soywiz.korim.bitmap.Bitmap
 import com.soywiz.korim.bitmap.Bitmap16
 import com.soywiz.korim.color.BGR_565
 import com.soywiz.korim.color.ColorFormat16
@@ -444,7 +445,36 @@ class iDib : IiDib {
 
     override fun CopyToDibXY(dib: iDib, pos: IPointInt) = TODO()
 
-    override fun CopyRectToDibXY(dib: iDib, srect: IRectangleInt, pos: IPointInt, a: UByte) = TODO()
+    override fun CopyRectToDibXY(dib: iDib, srect: IRectangleInt, pos: IPointInt, a: UByte) {
+        val src_rect = RectangleInt(srect)
+        val siz = SizeInt(dib.GetWidth() - pos.x, dib.GetHeight() - pos.y)
+        val dst_rect = RectangleInt(pos.x, pos.y, siz.width, siz.height)
+        if (!iClipRectRect(dst_rect, dib.GetSize().asRectangle(), src_rect, GetSize().asRectangle())) {
+            return
+        }
+
+        val src_clr = IDibPixelPointer(m_RGB.data.asUShortArray(), m_RGB.index(src_rect.x, src_rect.y))
+        val dst_clr = IDibPixelPointer(dib.m_RGB.data.asUShortArray(), dib.m_RGB.index(dst_rect.x, dst_rect.y))
+
+        if (a == 255u.toUByte()) {
+            repeat(dst_rect.height) { yy ->
+                when (m_dibType) {
+                    IiDib.Type.RGB -> BlitDibBlock_RGB(dst_clr, src_clr, dst_rect.width)
+                    IiDib.Type.RGBA -> BlitDibBlock_RGBA(dst_clr, src_clr, dst_rect.width)
+                    IiDib.Type.RGBCK -> BlitDibBlock_RGBCK(dst_clr, src_clr, dst_rect.width)
+                }
+
+                src_clr.incrementOffset(m_RGB.width)
+                dst_clr.incrementOffset(dib.GetWidth())
+            }
+        } else {
+            repeat(dst_rect.height) { yy ->
+                BlitDibBlockAlpha(dst_clr, src_clr, a, dst_rect.width)
+                src_clr.incrementOffset(m_RGB.width)
+                dst_clr.incrementOffset(dib.GetWidth())
+            }
+        }
+    }
 
     override val backingBitmap: Bitmap16 get() = m_RGB
 }
@@ -595,3 +625,7 @@ class iDibReader : IiDibReader {
 
 fun SaveDibBitmap32(dib: IiDib, fname: String): Boolean = TODO()
 fun SaveDibBitmap16(dib: IiDib, fname: String): Boolean = TODO()
+
+fun Bitmap.copyTo(dib: iDib) {
+    this.copy(0, 0, dib.backingBitmap, 0, 0, this.width, this.height)
+}

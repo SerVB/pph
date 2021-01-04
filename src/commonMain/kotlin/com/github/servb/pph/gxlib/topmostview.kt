@@ -16,7 +16,7 @@ abstract class iTopmostView : iView {
 
     override fun `$destruct`() {}
 
-    fun ProcessMessage(msg: iInput.iEntry): Boolean {
+    suspend fun ProcessMessage(msg: iInput.iEntry): Boolean {
         when (msg) {
             is iInput.iEntry.MouseMove -> MouseTrack(IPointInt(msg.px, msg.py))
             is iInput.iEntry.MouseDown -> MouseDown(IPointInt(msg.px, msg.py))

@@ -117,12 +117,13 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
 }
 
 
-class iMenuView : iChildGameView {
+class iMenuView private constructor() : iChildGameView(false, CHILD_VIEW.UNDEFINED) {
 
-//    private val m_crComposer: iCreditsComposer  // todo
+    private val m_crComposer: iCreditsComposer = iCreditsComposer()
 
-    constructor() : super(false, CHILD_VIEW.UNDEFINED) {
-//        m_crComposer.Init()  // todo
+    companion object {
+
+        suspend fun construct(): iMenuView = iMenuView().apply { m_crComposer.Init() }
     }
 
     suspend fun Start() {
@@ -154,7 +155,7 @@ class iMenuView : iChildGameView {
     }
 
     override fun OnCompose() {
-//        m_crComposer.Compose(gApp.Surface(),iPoint(0,0))  // todo
+        m_crComposer.Compose(gApp.Surface())
 
         // commented in sources:
 //	gGfxMgr.Blit(PDGG_LOGO, gApp.Surface(), iPoint(44,2));
@@ -165,23 +166,25 @@ class iMenuView : iChildGameView {
 //            iRect(0,m_Rect.y2()-15,m_Rect.w, 15), AlignCenter);
     }
 
-    override fun Process(t: Double): Boolean {
-//        if (m_crComposer.IsCreaditsStarted() && m_crComposer.IsCreaditsEnd()) StopCredits()  // todo
+    override suspend fun Process(t: Double): Boolean {
+        if (m_crComposer.IsCreaditsStarted() && m_crComposer.IsCreaditsEnd()) {
+            StopCredits()
+        }
         Invalidate()
         return true
     }
 
-    override fun OnMouseClick(pos: IPointInt) {
+    override suspend fun OnMouseClick(pos: IPointInt) {
         StopCredits()
     }
 
     fun StartCredits() {
-//        m_crComposer.StartCredits()  // todo
+        m_crComposer.StartCredits()
     }
 
-    fun StopCredits() {
-//        m_crComposer.StopCredits()  // todo
-//        Start()
+    suspend fun StopCredits() {
+        m_crComposer.StopCredits()
+        Start()
     }
 
     override fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
