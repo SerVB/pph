@@ -18,3 +18,9 @@ interface UndefinedCountValueEnum : EnumWithValue
 
 infix fun EnumWithValue.or(other: EnumWithValue): Int = this.v or other.v
 infix fun Int.or(other: EnumWithValue): Int = this or other.v
+
+infix fun EnumWithValue.and(other: EnumWithValue): Int = this.v and other.v
+infix fun Int.and(other: EnumWithValue): Int = this and other.v
+
+infix fun EnumWithValue.xor(other: EnumWithValue): Int = this.v xor other.v
+infix fun Int.xor(other: EnumWithValue): Int = this xor other.v

@@ -2,13 +2,12 @@
 
 package com.github.servb.pph.pheroes.Game
 
-import com.github.servb.pph.gxlib.INVALID
+import com.github.servb.pph.gxlib.iKbdKey
 import com.github.servb.pph.util.helpertype.CountValueEnum
 import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.soywiz.klogger.Logger
 import com.soywiz.kmem.buildByteArray
-import com.soywiz.korev.Key
 import com.soywiz.korio.file.std.localCurrentDirVfs
 import com.soywiz.korio.stream.readS32LE
 import com.soywiz.korio.stream.readU32LE
@@ -39,13 +38,12 @@ private val CONFIG_ENTRY_DESC = listOf(
 )
 
 // todo: add check for size == ButtonActionType.COUNT
-// todo: change to iKbdKey
 private val CONFIG_DEFKEYS = listOf(
-    Key.ENTER,  // Help mode
-    Key.A,  // Hand mode
-    Key.B,  // Survey map
-    Key.C,  // Minimize
-    Key.INVALID,  // Make screenshot
+    iKbdKey.ENTER,  // Help mode
+    iKbdKey.VKA,  // Hand mode
+    iKbdKey.VKB,  // Survey map
+    iKbdKey.VKC,  // Minimize
+    iKbdKey.INVALID,  // Make screenshot
 )
 
 private const val CONFIG_FILE = "PalmHeroes.cfg"
@@ -86,7 +84,7 @@ enum class ConfigEntryType(override val v: Int) : CountValueEnum, UniqueValueEnu
 interface IiSettings {
 
     fun GetEntryValue(entry: ConfigEntryType): Int
-    fun ActionKey(bat: ButtonActionType): Key?
+    fun ActionKey(bat: ButtonActionType): iKbdKey
     fun ForceNoSound(): Boolean
     fun FogOfWar(): Boolean
     fun ShowEnemyTurn(): Boolean
@@ -96,7 +94,7 @@ interface IiSettings {
 class iSettings : IiSettings {
 
     private val m_cfgEntries = IntArray(ConfigEntryType.COUNT.v)
-    private val m_actionKeys = arrayOfNulls<Key?>(ButtonActionType.COUNT.v)
+    private val m_actionKeys = IntArray(ButtonActionType.COUNT.v)
     private var m_bFogOfWar: Boolean by Delegates.notNull()
     private var m_bShowEnemyTurn: Boolean by Delegates.notNull()
     private var m_bMapSpriteFile: Boolean by Delegates.notNull()
@@ -117,7 +115,7 @@ class iSettings : IiSettings {
             m_cfgEntries[nn] = CONFIG_ENTRY_DESC[nn].default
         }
         m_actionKeys.indices.forEach { nn ->
-            m_actionKeys[nn] = CONFIG_DEFKEYS[nn]
+            m_actionKeys[nn] = CONFIG_DEFKEYS[nn].v
         }
 
         if ("--show_enemy_turn" in cmdLine) {
@@ -148,7 +146,7 @@ class iSettings : IiSettings {
             m_cfgEntries[nn] = stream.readS32LE()
         }
         m_actionKeys.indices.forEach { nn ->
-            m_actionKeys[nn] = stream.readS32LE().let { if (it == -1) null else Key.values()[it] }
+            m_actionKeys[nn] = stream.readS32LE()
         }
         return true
     }
@@ -160,7 +158,7 @@ class iSettings : IiSettings {
                 s32LE(m_cfgEntries[nn])
             }
             m_actionKeys.indices.forEach { nn ->
-                s32LE(m_actionKeys[nn].let { it?.ordinal ?: -1 })
+                s32LE(m_actionKeys[nn])
             }
         }
 
@@ -177,15 +175,14 @@ class iSettings : IiSettings {
         }
     }
 
-    // todo: switch from Key to iKbdKey everywhere in this file (because Key can be changed after KorGE update)
-    override fun ActionKey(bat: ButtonActionType): Key? = m_actionKeys[bat.v]
+    override fun ActionKey(bat: ButtonActionType): iKbdKey = iKbdKey.values().first { it.v == m_actionKeys[bat.v] }
 
-    fun AssignActionKey(bat: ButtonActionType, key: Key?) {
-        m_actionKeys[bat.v] = key
+    fun AssignActionKey(bat: ButtonActionType, key: iKbdKey) {
+        m_actionKeys[bat.v] = key.v
     }
 
-    fun GetActionByKey(key: Key?): ButtonActionType {
-        val idx = m_actionKeys.indexOf(key)
+    fun GetActionByKey(key: iKbdKey): ButtonActionType {
+        val idx = m_actionKeys.indexOf(key.v)
 
         return if (idx == -1) {
             ButtonActionType.INVALID

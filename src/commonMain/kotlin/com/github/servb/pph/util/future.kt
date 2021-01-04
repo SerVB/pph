@@ -55,15 +55,45 @@ operator fun RectangleInt.Companion.invoke(other: IRectangleInt) =
 // new:
 //operator fun IRectangleInt.contains(that: Point) = contains(that.x, that.y)  // this is not needed, remove from Rectangle too
 operator fun IRectangleInt.contains(that: IPoint) = contains(that.x, that.y)
+operator fun IRectangleInt.contains(that: IPointInt) = contains(that.x, that.y)
 fun IRectangleInt.contains(x: Double, y: Double) = (x >= left && x < right) && (y >= top && y < bottom)
 fun IRectangleInt.contains(x: Float, y: Float) = contains(x.toDouble(), y.toDouble())
 fun IRectangleInt.contains(x: Int, y: Int) = contains(x.toDouble(), y.toDouble())
+
+val IRectangleInt.isEmpty get() = width == 0 || height == 0
+
+fun RectangleInt.setToUnion(that: IRectangleInt) {
+    if (isEmpty) {
+        setTo(that)
+        return
+    }
+
+    val minX = minOf(that.x, x)
+    val minY = minOf(that.y, y)
+
+    val maxX = maxOf(that.x2, x2)
+    val maxY = maxOf(that.y2, y2)
+
+    x = minX
+    y = minY
+    width = maxX - minX + 1
+    height = maxY - minY + 1
+}
+
+// replace `(that: RectangleInt)` with this
+fun RectangleInt.setTo(that: IRectangleInt) = setTo(that.x, that.y, that.width, that.height)
+
+// replace `(that: SizeInt)` with this
+fun SizeInt.setTo(that: ISizeInt) = setTo(that.width, that.height)
 
 // as ISizeInt.Companion.invoke()
 fun ISizeInt(width: Int, height: Int): ISizeInt = SizeInt(width, height)
 
 // as PointInt.Companion.invoke()
 fun PointInt(other: IPointInt): PointInt = PointInt(other.x, other.y)
+
+// as SizeInt.Companion.invoke()
+fun SizeInt(that: ISizeInt): SizeInt = SizeInt(that.width, that.height)
 
 // https://github.com/korlibs/korma/pull/49
 fun IRectangleInt.anchor(ax: Double, ay: Double): PointInt =

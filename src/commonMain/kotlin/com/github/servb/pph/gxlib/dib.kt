@@ -583,7 +583,7 @@ interface IiDibReader {
 
 class iDibReader : IiDibReader {
 
-    private val pimpl: iDibReaderImpl = TODO()
+    private val pimpl: iDibReaderImpl by lazy { TODO() }
 
     //    constructor()
     fun `$destruct`(): Unit = TODO()

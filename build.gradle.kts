@@ -8,6 +8,7 @@ korge {
 }
 
 val kotestVersion: String by project
+val reflectionsVersion: String by project
 
 kotlin {
     sourceSets {
@@ -20,7 +21,7 @@ kotlin {
             dependencies {
                 implementation("io.kotest:kotest-assertions-core-jvm:$kotestVersion")
                 implementation("io.kotest:kotest-runner-junit5:$kotestVersion")
-                implementation("org.reflections:reflections:0.9.12")
+                implementation("org.reflections:reflections:$reflectionsVersion")
             }
         }
     }

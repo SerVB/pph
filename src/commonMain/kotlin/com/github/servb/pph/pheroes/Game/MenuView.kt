@@ -1,0 +1,190 @@
+package com.github.servb.pph.pheroes.Game
+
+import com.github.servb.pph.gxlib.*
+import com.github.servb.pph.util.asRectangle
+import com.github.servb.pph.util.helpertype.and
+import com.github.servb.pph.util.helpertype.or
+import com.github.servb.pph.util.inflate
+import com.github.servb.pph.util.invoke
+import com.soywiz.korma.geom.IPointInt
+import com.soywiz.korma.geom.IRectangleInt
+import com.soywiz.korma.geom.RectangleInt
+import com.soywiz.korma.geom.SizeInt
+
+private val menuBtnText = ushortArrayOf(
+    RGB16(210, 190, 115), RGB16(214, 192, 110), RGB16(216, 192, 102), RGB16(219, 193, 96), RGB16(221, 193, 85),
+    RGB16(224, 194, 76), RGB16(228, 196, 67), RGB16(231, 195, 59), RGB16(233, 196, 49), RGB16(236, 196, 40),
+    RGB16(239, 198, 31), RGB16(242, 198, 23), RGB16(224, 198, 16), RGB16(247, 199, 0), RGB16(248, 200, 0)
+)  // todo: check size == 15
+
+/** Main dialog. */
+private class iMainMenuDlg : iDialog, IViewCmdHandler {
+
+    class iMainMenuBtn : iButton {
+
+        //        private val m_TextKey: TextResId
+        private val plainText: String  // todo: remove this field, uncomment the original one. change constructor
+
+        constructor(
+            pViewMgr: iViewMgr,
+            pCmdHandler: IViewCmdHandler,
+            rect: IRectangleInt,
+            text: String,
+            uid: UInt,
+            state: Int = ViewState.Visible or ViewState.Enabled
+        ) : super(pViewMgr, pCmdHandler, rect, uid, state) {
+            plainText = text
+        }
+
+        override fun OnBtnDown() {
+            //gSfxMgr.PlaySound(CSND_BUTTON)  // commented in sources
+        }
+
+        override fun OnCompose() {
+            //			gApp.Surface().Darken50Rect(GetScrRect())  // commented in sources
+            // Compose outer frame
+            val rect = GetScrRect()
+            rect.rect.inflate(1)
+
+            var props = IiDibFont.ComposeProps(
+                iGradient(IDibPixelPointer(menuBtnText, 0), 15),
+                cColor.Black.pixel,
+                IiDibFont.Decor.Border
+            )
+            val state = GetButtonState()
+
+            if (state and State.Disabled != 0) {
+                props = IiDibFont.ComposeProps(RGB16(255, 160, 80), cColor.Black.pixel, IiDibFont.Decor.Border)
+            } else if (state and State.Pressed != 0) {
+                props = IiDibFont.ComposeProps(RGB16(255, 255, 255), cColor.Black.pixel, IiDibFont.Decor.Border)
+                val cColor_Grey = RGB16(32, 32, 32)
+                gApp.Surface().HLine(IPointInt(rect.x + 2, rect.y), rect.x + rect.width - 3, cColor_Grey)
+                gApp.Surface()
+                    .HLine(IPointInt(rect.x + 2, rect.y + rect.height - 1), rect.x + rect.width - 3, cColor_Grey)
+                gApp.Surface().VLine(IPointInt(rect.x, rect.y + 2), rect.y + rect.height - 2, cColor_Grey)
+                gApp.Surface()
+                    .VLine(IPointInt(rect.x + rect.width - 1, rect.y + 2), rect.y + rect.height - 2, cColor_Grey)
+                gApp.Surface().Darken50Rect(GetScrRect())
+            }
+
+            val fc = iTextComposer.FontConfig(iTextComposer.FontSize.LARGE, props)
+            gTextComposer.TextOut(fc, gApp.Surface(), IPointInt(0, 0), plainText, GetScrRect(), Alignment.AlignCenter)
+        }
+    }
+
+    constructor(pViewMgr: iViewMgr) : super(pViewMgr)
+
+    override fun OnCreateDlg() {
+        val TRID_MENU_NEWGAME = "Start New Game"
+        val TRID_MENU_LOADGAME = "Load Saved Game"
+        val TRID_MENU_HIGHSCORE = "Hall of Fame"
+        val TRID_MENU_CREDITS = "Credits"
+        val TRID_MENU_EXITGAME = "Quit"
+
+        val rc = RectangleInt(GetDialogMetrics().asRectangle())
+        rc.height = DEF_BTN_HEIGHT + 2
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_NEWGAME, 100u, ViewState.Visible or ViewState.Enabled))
+        rc.y += DEF_BTN_HEIGHT + BTN_DIST
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_LOADGAME, 101u, ViewState.Visible or ViewState.Enabled))
+        rc.y += DEF_BTN_HEIGHT + BTN_DIST
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_HIGHSCORE, 102u, ViewState.Visible or ViewState.Enabled))
+        rc.y += DEF_BTN_HEIGHT + BTN_DIST
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_CREDITS, 103u, ViewState.Visible or ViewState.Enabled))
+        rc.y += DEF_BTN_HEIGHT + BTN_DIST
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_EXITGAME, 104u, ViewState.Visible or ViewState.Enabled))
+    }
+
+    override fun OnPlace(rect: RectangleInt) {
+        rect.y += 40
+    }
+
+    override fun OnCompose() {
+        // empty in sources
+    }
+
+    override fun GetDialogMetrics(): SizeInt {
+        return SizeInt(150, 5 * (DEF_BTN_HEIGHT + 2) + 12)
+    }
+
+    override fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
+        EndDialog(pView.GetUID().toInt())
+    }
+
+    companion object {
+
+        const val BTN_DIST = 5
+    }
+}
+
+
+class iMenuView : iChildGameView {
+
+//    private val m_crComposer: iCreditsComposer  // todo
+
+    constructor() : super(false, CHILD_VIEW.UNDEFINED) {
+//        m_crComposer.Init()  // todo
+    }
+
+    suspend fun Start() {
+        while (true) {
+            val mdlg = iMainMenuDlg(gApp.ViewMgr())
+            val res = mdlg.DoModal()
+
+            when (res) {
+                100 -> {
+                    // Start new game
+                    continue  // todo
+                }
+                101 -> {
+                    // Load saved game
+                    continue  // todo
+                }
+                102 -> {
+                    // todo
+                }
+                103 -> {
+                    // todo
+                }
+                104 -> {
+                    gGame.Quit()
+                    break
+                }
+            }
+        }
+    }
+
+    override fun OnCompose() {
+//        m_crComposer.Compose(gApp.Surface(),iPoint(0,0))  // todo
+
+        // commented in sources:
+//	gGfxMgr.Blit(PDGG_LOGO, gApp.Surface(), iPoint(44,2));
+//	gGfxMgr.Blit(PDGG_LOGO2, gApp.Surface(), iPoint(174,3));
+//        gTextComposer.TextOut(
+//            iTextComposer::FontConfig(iTextComposer::FS_MEDIUM, iDibFont::ComposeProps(cColor_White, cColor_Black, iDibFont::DecBorder ) ),
+//            gApp.Surface(), iPoint(), _T("Эксклюзивная версия для читателей журнала Mobi (www.mobi.ru)"),
+//            iRect(0,m_Rect.y2()-15,m_Rect.w, 15), AlignCenter);
+    }
+
+    override fun Process(t: Double): Boolean {
+//        if (m_crComposer.IsCreaditsStarted() && m_crComposer.IsCreaditsEnd()) StopCredits()  // todo
+        Invalidate()
+        return true
+    }
+
+    override fun OnMouseClick(pos: IPointInt) {
+        StopCredits()
+    }
+
+    fun StartCredits() {
+//        m_crComposer.StartCredits()  // todo
+    }
+
+    fun StopCredits() {
+//        m_crComposer.StopCredits()  // todo
+//        Start()
+    }
+
+    override fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
+        pView.GetUID()  // strange no behavior in sources
+    }
+}
