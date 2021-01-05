@@ -19,7 +19,8 @@ val gApp: iGXApp = iGXApp()
 private val gDibReader: iDibReader = iDibReader()
 val gTextComposer: iTextComposer = iTextComposer()
 
-//private val gTextMgr: iTextManager  // todo
+val gTextMgr: iTextManager = iTextManager()
+
 //val gGfxMgr: iGfxManager  // todo
 //private val gSfxMgr: iSfxManager  // todo
 val gGame: Game = Game()
@@ -83,11 +84,9 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
         TODO("MessageBox(NULL, _T(\"Unable to init text composer!\"), NULL, MB_OK); return -1;")
     }
 
-    // todo:
-//    if (!gTextMgr.Init()) {
-//        MessageBox(NULL, _T("Unable to init text manager!"), NULL, MB_OK);
-//        return -1;
-//    }
+    if (!gTextMgr.Init()) {
+        TODO("MessageBox(NULL, _T(\"Unable to init text manager!\"), NULL, MB_OK); return -1;")
+    }
 
     // todo:
 //    gGfxMgr.SetGamma( gSettings.GetEntryValue(CET_DISPGAMMA) );

@@ -1,6 +1,7 @@
 package com.github.servb.pph.pheroes.Game
 
 import com.github.servb.pph.gxlib.*
+import com.github.servb.pph.pheroes.common.TextResId
 import com.github.servb.pph.util.asRectangle
 import com.github.servb.pph.util.helpertype.and
 import com.github.servb.pph.util.helpertype.or
@@ -22,18 +23,17 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
 
     class iMainMenuBtn : iButton {
 
-        //        private val m_TextKey: TextResId
-        private val plainText: String  // todo: remove this field, uncomment the original one. change constructor
+        private val m_TextKey: TextResId
 
         constructor(
             pViewMgr: iViewMgr,
             pCmdHandler: IViewCmdHandler,
             rect: IRectangleInt,
-            text: String,
+            textKey: TextResId,
             uid: UInt,
             state: Int = ViewState.Visible or ViewState.Enabled
         ) : super(pViewMgr, pCmdHandler, rect, uid, state) {
-            plainText = text
+            m_TextKey = textKey
         }
 
         override fun OnBtnDown() {
@@ -68,30 +68,49 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
             }
 
             val fc = iTextComposer.FontConfig(iTextComposer.FontSize.LARGE, props)
-            gTextComposer.TextOut(fc, gApp.Surface(), IPointInt(0, 0), plainText, GetScrRect(), Alignment.AlignCenter)
+            gTextComposer.TextOut(
+                fc,
+                gApp.Surface(),
+                IPointInt(0, 0),
+                gTextMgr[m_TextKey],
+                GetScrRect(),
+                Alignment.AlignCenter
+            )
         }
     }
 
     constructor(pViewMgr: iViewMgr) : super(pViewMgr)
 
     override fun OnCreateDlg() {
-        val TRID_MENU_NEWGAME = "Start New Game"
-        val TRID_MENU_LOADGAME = "Load Saved Game"
-        val TRID_MENU_HIGHSCORE = "Hall of Fame"
-        val TRID_MENU_CREDITS = "Credits"
-        val TRID_MENU_EXITGAME = "Quit"
-
         val rc = RectangleInt(GetDialogMetrics().asRectangle())
         rc.height = DEF_BTN_HEIGHT + 2
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_NEWGAME, 100u, ViewState.Visible.v))
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TextResId.TRID_MENU_NEWGAME, 100u, ViewState.Visible.v))
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_LOADGAME, 101u, ViewState.Visible.v))
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TextResId.TRID_MENU_LOADGAME, 101u, ViewState.Visible.v))
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_HIGHSCORE, 102u, ViewState.Visible.v))
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TextResId.TRID_MENU_HIGHSCORE, 102u, ViewState.Visible.v))
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_CREDITS, 103u, ViewState.Visible or ViewState.Enabled))
+        AddChild(
+            iMainMenuBtn(
+                m_pMgr,
+                this,
+                rc,
+                TextResId.TRID_MENU_CREDITS,
+                103u,
+                ViewState.Visible or ViewState.Enabled
+            )
+        )
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_EXITGAME, 104u, ViewState.Visible or ViewState.Enabled))
+        AddChild(
+            iMainMenuBtn(
+                m_pMgr,
+                this,
+                rc,
+                TextResId.TRID_MENU_EXITGAME,
+                104u,
+                ViewState.Visible or ViewState.Enabled
+            )
+        )
     }
 
     override fun OnPlace(rect: RectangleInt) {
