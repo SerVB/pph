@@ -3,6 +3,8 @@ package com.github.servb.pph.pheroes.Game
 import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.util.ISizeInt
 import com.github.servb.pph.util.SizeT
+import com.soywiz.klock.DateTime
+import com.soywiz.klock.Month
 import com.soywiz.korim.bitmap.Bitmap32
 import com.soywiz.korim.color.RGBA
 import com.soywiz.korim.color.convertTo
@@ -45,6 +47,18 @@ private fun blit_16aline(src: Bitmap32, srcOffset: Int, dst: IDibPixelIPointer, 
     return srcOffset
 }
 
+private fun selectLogoPath(): String {
+    val time = DateTime.now()
+
+    val isNy = (time.month == Month.December && time.dayOfMonth >= 25) ||
+            (time.month == Month.January && time.dayOfMonth <= 5)
+
+    return when (isNy) {
+        true -> "pheroes/bin/Resources/hmm/GFX/Pix/title_hmm_ny.png"
+        false -> "pheroes/bin/Resources/hmm/GFX/Pix/title_hmm.png"
+    }
+}
+
 // InitMotionBlur, InitBump, InitLight and related are deleted as unused in sources
 class iCreditsComposer {
 
@@ -64,7 +78,7 @@ class iCreditsComposer {
         m_back.Init(ISizeInt(320, 720), IiDib.Type.RGB)
         resourcesVfs["pheroes/bin/Resources/hmm/GFX/Pix/MenuBack.png"].readBitmap().copyTo(m_back)
 
-        m_logo = resourcesVfs["pheroes/bin/Resources/hmm/GFX/Pix/title_hmm.png"].readBitmap().toBMP32()
+        m_logo = resourcesVfs[selectLogoPath()].readBitmap().toBMP32()
 
         m_pos = 0
     }
