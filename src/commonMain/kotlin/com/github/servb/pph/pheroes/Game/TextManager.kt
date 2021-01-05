@@ -50,8 +50,8 @@ class iTextManager {
                     val trid = TextResId.valueOf(fqn)
                     m_lngData[trid] = text
                 } catch (e: IllegalArgumentException) {
-                    println(fqn)
-                    // todo: add logging and find places
+                    println("Missing $fqn for $language, using English one")
+                    // todo: add proper logging and find missing translations via tests
                 }
             }
         }
