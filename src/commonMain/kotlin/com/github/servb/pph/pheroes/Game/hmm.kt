@@ -49,7 +49,7 @@ private suspend fun ShowProgressReport(curProg: SizeT, initial: Boolean = true) 
     delay(1.milliseconds)
 }
 
-suspend fun Stage.mainHmm(cmdLine: String) {
+suspend fun WinMain(stage: Stage, cmdLine: String) {
     // skipped remaining memory check
     // skipped single instance mutex
 
@@ -64,7 +64,7 @@ suspend fun Stage.mainHmm(cmdLine: String) {
     val flags = GXLF_LANDSCAPE
     // todo: port other flags generation
 
-    if (!gApp.Init(gGame, 30u, flags, this)) {
+    if (!gApp.Init(gGame, 30u, flags, stage)) {
         TODO("return -1, maybe MessageBox is better?")
     }
 

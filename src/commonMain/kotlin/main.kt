@@ -1,4 +1,4 @@
-import com.github.servb.pph.pheroes.Game.mainHmm
+import com.github.servb.pph.pheroes.Game.WinMain
 import com.soywiz.klogger.Logger
 import com.soywiz.korge.Korge
 
@@ -8,6 +8,6 @@ suspend fun main() = Korge(
 ) {
     Logger.defaultLevel = Logger.Level.INFO
 
-    mainHmm("")
+    WinMain(this, "")
 //    mainDev()
 }
