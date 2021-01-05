@@ -81,6 +81,8 @@ constant (read-only) methods and another interface or class with other methods t
 interface. The interface should have the "I" prefix (from "Immutable"). You can find many examples in the ported
 sources.
 
+Maybe Kotlin will have such a concept in the future: [KT-44173](https://youtrack.jetbrains.com/issue/KT-44173).
+
 #### Pointers
 
 Some arguments are passed as pointers and are modified inside the function. For these purposes, just pass mutable
