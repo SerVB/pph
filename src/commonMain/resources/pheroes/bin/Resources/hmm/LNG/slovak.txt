@@ -1,0 +1,1780 @@
+<-- Common GUI -->
+{VOID}, {}, {}
+{PLUS}, {+}, {+}
+{MINUS}, {-}, {-}
+{OK}, {Ok}, {Ok}
+{CANCEL}, {Cancel},{Zrušiť}
+{YES},{Yes},{Áno}
+{NO},{No},{Nie}	
+{NA},{n/a},{n/a}
+{CLOSE},{Close},{Zatvoriť}
+{HELP},{Help},{Nápoveda}
+{CAST},{Cast},{Čarovať}
+{INFO}, {Info},{Info}
+{MAP_SIZE},{Map size},{Veľkosť mapy}
+{MAP_VERSION},{Map version},{Verzia mapy}
+{MAP_AUTHOR},{Author},{Autor}
+{CREAT_DISMISS},{Dismiss},{Rozpustiť}
+{BTN_BUILD},{Build},{Postaviť}
+{BTN_RECRUIT},{Recruit},{Najať}
+{REQUIRES},{Requires:},{Vyžaduje:}
+{COST},{Cost:},{Cena:}
+{GUARD},{Guard:},{Stráž:}
+{VISITED},{Visited},{Navštívené}
+{NOT_VISITED},{Not Visited},{Nenavštívené}
+{OWNEDBY},{Owned},{Vlastník}
+{NONE},{None},{Žiaden}
+{SPLIT},{Split},{Rozdeliť}
+{TRADE},{Trade},{Vymeniť}
+{SURRENDER},{Surrender},{Vzdať sa}
+{RETREAT},{Retreat},{Ústup}
+{LOAD},{Load},{Nahrať}
+{SAVE},{Save},{Uložiť}
+{EMPTY},{<...>},{<...>}
+{LOAD_DLG_HDR},{Load a Saved Game:},{Nahrať uloženú hru:}
+{SAVE_DLG_HDR},{Save the Current Game:},{Uložiť hru:}
+{SELECT_SCENARIO_DLG_HDR},{Select a Scenario to Play:},{Výber príbehu:}
+{VICTORY},{Victory},{Víťazstvo}
+{DEFEAT},{Defeat},{Porážka}
+{MAP_NAME},{Map Name},{Názov mapy}
+{AUTO_COMBAT},{Auto Combat},{Automatický súboj}
+{KINGDOM_OVERVIEW},{Kingdom Overview},{Prehľad kráľovstva}
+{PUZZLE_MAP},{Puzzle Map},{Skladačková mapa}
+{SYSTEM_MENU},{System Menu},{Systémové menu}
+{DAILY_INCOME},{Daily Income:},{Denný príjem:}
+
+{UNCHARTED_TERRITORY},{Uncharted Territory},{Nezmapované územie}
+{UNOCCUPIED},{Unoccupied},{Neobsadené}
+{NO_TAVERN},{No Tavern},{Bez hostinca}
+{SELECT_DESTINATION},{Select a Destination},{Vyber cieľ}
+{GROWTH},{Growth},{Prírastok}
+{AVAILABLE},{Available},{Dostupné}
+{COST_PER_TROOP},{Cost per Troop},{Cena za jednotku}
+{RECRUIT},{Recruit},{Najať}
+{TOTAL_COST},{Total cost},{Celková cena}
+{MANA},{Mana},{Mana}
+{LEVEL},{Level},{Úroveň}
+{EXPERIENCE},{Experience},{Skúsenosti}
+{TRAVELPTS},{Travel Points},{Počet krokov}
+{LEAVE_GUARDS},{Leave Guards},{Zanechať stráž}
+
+{SAVED_AT},{Saved at},{Uložené dňa}
+{GAME_DATE},{Game Date},{Dátum v hre}
+{KINGDOM_RESOURCES},{Kingdom Resources},{Zdroje kráľovstva}
+{AVAILABLE_FOR_TRADE},{Available for Trade},{Dostupné na obchodovanie}
+
+{ART_GUARDED_BY},{Through a clearing you see an ancient artifact. Unfortunately, it's guarded by:},{Na mýtine vidíš ležať dávnoveký artefakt. Nanešťastie ho stráži:}
+{OBJ_GUARDED_BY},{Much to your dismay, the %s is guarded by:},{K všeobecnému zdeseniu, %s stráži:}
+{FIGHT_GUARD_QUESTION},{Do you wish to fight the guards?},{Želáš si bojovať so strážou?}
+
+<-- Settings -->
+{SFX_VOLUME},{Sound},{Zvuk}
+{OFF},{Off},{Off}
+{HARDWARE_KEYS},{Key Map},{Tlačidlá}
+{HARDWARE_KEYS_SETTINGS},{Key Map Settings},{Nastavenie tlačidiel}
+
+{HKEY_PRESS_KEY},{Press the key you want to assign...},{Stlač tlačidlo, ktoré chceš priradiť...}
+
+{HKEY_NAME_NONE},{- N/A -},{- Žiadne -}
+{HKEY_NAME_ENTER},{Start},{Štart}
+{HKEY_NAME_UP},{Up},{Hore}
+{HKEY_NAME_DOWN},{Down},{Dole}
+{HKEY_NAME_LEFT},{Left},{Vľavo}
+{HKEY_NAME_RIGHT},{Right},{Vpravo}
+{HKEY_NAME_VKA},{Button #1},{Tlačidlo #1}
+{HKEY_NAME_VKB},{Button #2},{Tlačidlo #2}
+{HKEY_NAME_VKC},{Button #3},{Tlačidlo #3}
+
+{HKEY_ACT_HELPMODE},{Help Mode},{Režim nápovedy}
+{HKEY_ACT_HANDMODE},{Hand Mode},{Režim posuvu}
+{HKEY_ACT_SURVEYMAP},{Survey Map},{Prehľadná mapa}
+{HKEY_ACT_MINIMIZE},{Minimize},{Minimalizovať}
+{HKEY_ACT_SCREENSHOT},{Make Screenshot},{Urobiť screenshot}
+
+{CFGENTRY_ENDTURN},{Show Hero Reminder},{Ukazovať upozornenia}
+{CFGENTRY_MAPGRID},{Show Map Grid},{Ukázať mriežku na mape}
+{CFGENTRY_COMBATGRID},{Show combat grid},{Ukázať mriežku pri súboji}
+{CFGENTRY_QUICKCOMBAT},{Quick Combat},{Rýchly súboj}
+{CFGENTRY_PATHMODE},{Show Travel Points},{Ukázať počet krokov}
+{CFGENTRY_SURVMAPFILT},{Smoothed Survey Map},{Vyhladená prehľadná mapa}
+{CFGENTRY_SURVMAPSCALE},{4x Survey Map Scale},{4х zmenšiť prehľadnú mapu}
+{CFGENTRY_LHANDER},{Left Hand Mode},{Otočiť obrazovku}
+
+{CFGENTRY_SFXVOL},{Sound Volume},{Hlasitosť}
+{CFGENTRY_DISPGAMMA},{Display Gamma},{Gamma korekcia}
+{CFGENTRY_MAPSCROLLSPEED},{Map Scroll},{Posúvanie mapy}
+{CFGENTRY_HEROSPEED},{Hero Speed},{Rýchlosť hrdinu}
+{CFGENTRY_COMBATSPEED},{Combat Speed},{Rýchlosť súboja}
+
+{CFG_SPEED_VSLOW},{Very Slow},{Veľmi pomaly}
+{CFG_SPEED_SLOW},{Slow},{Pomaly}
+{CFG_SPEED_NORMAL},{Normal},{Normálne}
+{CFG_SPEED_FAST},{Fast},{Rýchlo}
+{CFG_SPEED_VFAST},{Very Fast},{Veľmi rýchlo}
+
+<-- Date and time formating -->
+{MONTH_JAN},{Jan},{Jan}
+{MONTH_FEB},{Feb},{Feb}
+{MONTH_MAR},{Mar},{Mar}
+{MONTH_APR},{Apr},{Apr}
+{MONTH_MAY},{May},{Máj}
+{MONTH_JUN},{Jun},{Jún}
+{MONTH_JUL},{Jul},{Júl}
+{MONTH_AUG},{Aug},{Aug}
+{MONTH_SEP},{Sep},{Sep}
+{MONTH_OCT},{Oct},{Okt}
+{MONTH_NOV},{Nov},{Nov}
+{MONTH_DEC},{Dec},{Dec}
+
+<-- Messages -->
+{CONFIRM_RELOAD},{Your current game will be lost. Are you sure you want to load another game?},{Súčasná hra bude zrušená. Nahrať inú?}
+{CONFIRM_QUIT},{Are you sure you want to quit?},{Naozaj ukončiť?}
+{CONFIRM_EXITMM},{Your current game will be lost. Are you sure you want to exit to main menu?},{Súčasná hra bude zrušená. Vrátiť sa do hlavného menu?}
+{CONFIRM_OVERWRITE},{The selected slot already used. Overwrite?},{Vo vybranom priečinku je už hra uložená. Prepísať?}
+
+{MSG_NOTIMPL},{Sorry - this feature is not available in the current version.},{Táto možnosť nie je v súčasnej verzii dostupná.}
+{MSG_YOUVEWON},{You've won!},{Vyhral si!}
+{MSG_REACHLEVEL},{has gained a level %d},{získal úroveň %d}
+{MSG_HEROSELECTED},{#FFFF%s #S0#FDDD(%s level %d)},{#FFFF%s #S0#FDDD(%s úroveň %d)}
+{MSG_BLDNODEPS},{All prerequisites for this building have been met},{Všetky podmienky na stavbu tejto budovy sú splnené}
+{MSG_CNSTALREADYBUILT},{Already built},{Postavené}
+{MSG_QDISMISS},{Are you sure you want to dismiss this army?},{Prepustiť túto armádu?}
+{MSG_HDISMISS},{Are you sure you want to dismiss this Hero?},{Prepustiť tohoto hrdinu?}
+{CREAT_JOIN_MESSAGE},{A group of %s with a desire for greater glory wish to join you. Do you accept?},{%s sa chcú pripojiť k tvojej družine. Súhlasíš?}
+{CREAT_ESCAPE_MESSAGE},{The %s, awed by the power of your forces, begin to scatter. Do you wish to pursue and engage them?}, {%s sú vystrašení silou tvojich jednotiek. Chceš ich doraziť? }
+{SECSKILL_CHOOSE_MESSAGE},{Your hero may learn either secondary skill:},{Hrdina sa môže naučiť sekundárnu schopnosť:}
+{SECSKILL_LEARN_MESSAGE},{Your hero has learned:},{Hrdina sa naučil:}
+{CHOOSE_QUESTION},{Which do you choose?},{Čo si vyberieš?}
+{MAKE_ROOM_MESSAGE},{Make room for the %s in your army.},{Vytvor miesto pre %s.}
+{SURRENDER_STATES},{%s states:},{%s prehlasuje:}
+{SURRENDER_CONDITION},{I will accept your surrender and grant you and your army safe passage for the price of %d gold.},{Prijmem tvoju kapituláciu a zaručím tvojej armáde bezpečný odchod za %d zlata.}
+{MSG_EXP_TO_NEXT_LEVEL},{You need %d experience points to reach the next level.},{Na dosiahnutie ďalšej úrovne ti chýba %d skúseností.}
+{MSG_VICTORY},{Congratulations! All your enemies have been defeated! Victory is yours!},{Gratulujem! Všetci nepriatelia porazení! Vivat Slovakia!}
+{MSG_DEFEAT},{All your forces have been defeated, and you are banished from this land!},{Všetky tvoje jednotky boli porazené a ty si poslaný do vyhnanstva!}
+{MSG_PLAYER_VANQUISHED},{%s Player has been Vanquished!},{%s bol porazený!}
+{MSG_NO_ROOM},{There is no room in the garrison for this troop.},{V posádke nie je miesto pre túto jednotku.}
+{MSG_END_TURN},{Are you sure you want to end your turn?},{Ukončiť ťah?}
+{MSG_MARKET_DEF},{Please inspect our fine wares. If you feel like offering a trade, click on the items you wish to trade.},{Obzrite si náš tovar. Vyberte veci, s ktorými chcete obchodovať.}
+{MSG_MARKET_OFFER},{I can offer you:},{Ponúkam ti:}
+{MSG_MARKET_SFORS},{%s   for   %s},{%s   za   %s}
+{MSG_ALREADY_FOUR_HEROES},{You already have four heroes.},{Nemôžeš mať viac ako 4 hrdinov.}
+{MSG_NO_HERO_TO_RECRUIT},{There are no heroes in this Tavern to recruit. Come back next week.},{V hostinci nie sú žiadni hrdinovia. Skús budúci týždeň.}
+{MSG_SPELL_AFFECT_NO_ONE},{That spell will affect no one!},{Kúzlo nebude na nikoho účinkovať!}
+{MSG_SPELL_NOT_ENOUGH_MANA},{Not enogh mana to cast the spell.},{Nedostatok many na toto kúzlo.}
+{MSG_SPELL_REQUIRES_SKILL},{This spell requires %s skill at %s level.},{Na toto kúzlo potrebuješ ovládať %s a mať minimálne úroveň %s.}
+{MSG_SPELL_DOES_DAMAGE},{Does %d points of damage.},{Spôsobí %d bodov poškodenia.}
+{MSG_GUARDS_POPUP_JOIN},{The creatures are willing to join us!},{Jednotky sa k nám chcú pridať!}
+{MSG_GUARDS_POPUP_FLEE},{These weak creatures will surely flee before us.},{Tieto slabé jednotky určite před nami utečú.}
+{MSG_GUARDS_POPUP_ATTACK},{I fear these creatures are in the mood for a fight.},{Obávam sa že tieto jednotky sa tešia na boj.}
+{NO_SPELL_SELECTED},{No spell selected},{Nebolo vybrané žiadne kúzlo}
+{MSG_TIRED_TO_CAST},{Your hero is too tired to cast this spell today. Try again tomorrow.},{Hrdina je už dnes na čarovanie unavený, skús zajtra.}
+{MSG_ARTREQ_LVL_SKILL},{Required Level %d hero with %s skill.},{Požaduje sa hrdina úrovne %d, ktorý ovláda umenie %s.}
+{MSG_ARTREQ_LVL},{Required Level %d hero.},{Požaduje sa hrdina úrovne %d.}
+{MSG_ARTREQ_SKILL},{Required hero with %s skill.},{Požaduje sa hrdina, ktorý ovláda umenie %s.}
+{MSG_PLAYER_TURN},{%s player's turn.},{%s je na ťahu.}
+{MSG_PLAYER_UNDER_ATTACK},{%s player is under attack!},{%s sa bráni útoku!}
+{MSG_MAPEVENT_ATTACK},{You should have known better - you have been attacked!},{Len aby si vedel – zaútočili na teba!}
+
+{MSG_DIG_TRY_TOMORROW},{Digging for artifacts requires an entire day, try again tomorrow.},{Kopanie artefaktu trvá celý deň, skús zajtra.}
+{MSG_DIG_TRY_ON_CLEAR_LAND},{Try searching on clear ground.},{Skús hľadať sa čistej zemi.}
+{MSG_DIG_FOUND},{Congratulations! After spending many hours digging here, your hero has uncovered the Conqueror's Crown.},{Gratulujeme! Po dlhom čase strávenom kopaním, tvoj hrdina objavil Korunu dobyvateľa.}
+{MSG_DIG_NOTHING},{Nothing here. Where could it be?},{Zase hovno, kde to môže byť?}
+
+{INFO_MINERALS},{There are seven resources in Pocket Heroes used to build and improve castles, purchase troops and recruit Heroes. Gold is the most common and is required for virtually everything. Wood and Ore are used for most buildings. Gems, Mercury, Sulfur and Crystal are rare magical resources used for the most powerful creatures and buildings.},{Vo svete Pocket Heroes sa vyskytuje 7 druhov zdrojov, za ktoré sa dajú postaviť stavby a vylepšiť hrady, najať armádu a hrdinov. Zlato sa tu vyskutuje najčastejšie a je potrebné v podstate na všetko. Drevo a kamene sa používajú na väčšinu stavieb. Drahokamy, ortuť, síra a kryštály sú vzácne magické zdroje, ktoré sa dajú využiť na nákup lepších jednotiek a stavieb.}
+{INFO_EXPERIENCE},{Experience allows your Heroes to advance levels, increasing their primary and secondary skills.},{Získavanie skúseností dovoľuje hrdinovi zvyšovať svoju úroveň, ako aj primárne a sekundárne schopnosti.}
+{INFO_MANA},{Spell Points are required to cast spells. Your Hero's maximum spell point level is 10 times your Knowledge Skill. Certain events and structures may temporarily increase your maximum spell point level.},{Body na čarovanie sú potrebné na zoslanie kúzla. Maximum bodov na čarovanie hrdinu je desaťnásobok jeho Vedomostí. Niektoré udalosti a stavby môžu dočasne zvýšiť hrdinove maximum týchto bodov.}
+{INFO_TRAVELPTS},{Travel Points determine how far your Hero can move each day. The distance is determined by the type of terrain, roads, and the level of your Logistics and Pathfinding skills. Special locations, events and artifacts can also increase the number of Travel Points.},{Počet krokov určuje, ako ďaleko môže zájsť hrdina počas jedného dňa. Vzdialenosť ovplyvňuje typ terénu, cesty a úroveň hrdinovych schopností Stopovanie a Logistika. Niektoré udalosti a stavby môžu dočasne zvýšiť hrdinove maximum týchto krokov.}
+{INFO_ATTACK},{Attack skill is a bonus added to the base attack skill of any troops your Hero commands, allowing them to inflict more damage in combat.},{Schopnosť Útok je bonus pridaný k základnému útočnému číslu každej jednotky pod hrdinovým velením. Tento bonus umožňuje jednotkám spôsobiť väčšie poškodenie v súboji.}
+{INFO_DEFENCE},{Defense skill is a bonus added to the base defense skill of any troops your Hero commands, allowing them to resist more damage in combat.},{Schopnosť Obrana je bonus pridaný k základnému obrannému číslu každej jednotky pod hrdinovým velením. Tento bonus umožňuje jednotkám odolať väčším poškodeniam v súboji.}
+{INFO_POWER},{Spell power determines the duration or strength of a spell.},{Magická sila určuje silu alebo trvanie kúzla.}
+{INFO_KNOWLEDGE},{Knowledge determines you Hero's number of Spell Points. Under normal circumstances, a Hero is limited to 10 spell points per level of Knowledge.},{Vedomosti určujú počet bodov na čarovanie (many). Za normálnych okolností má hrdina počet bodov na čarovanie, ktorý sa rovná desaťnásobku úrovne Vedomostí.}
+{INFO_GOOD_LUCK},{Good luck allows your troops to inflict double damage in combat.},{Šťastie dovoľuje jednotkám zasadiť dvojnásobné poškodenie v boji.}
+{INFO_NEUT_LUCK},{With neutral luck your troops' attacks will be unmodified.},{Pri nuetrálnom šťastí nebudú útoky hrdinových jednotiek ničím ovplyvnené..}
+{INFO_BAD_LUCK},{Bad luck reduces affected troops' damage by half.},{Smola znižuje poškodenie, ktoré jednotka uštedrí, na polovicu.}
+{INFO_GOOD_MORALE},{Good morale may result in extra attacks for affected troops.},{Vysoká morálka môže dovoliť jednotke ešte jeden útok za kolo.}
+{INFO_NEUT_MORALE},{Neutral morale eliminates the potential for troops to freeze in combat or be endowed with extra attacks},{Neutrálna morálka eliminuje možnosť znehybnenia alebo extra útoku jednotky za kolo.}
+{INFO_BAD_MORALE},{Bad morale may cause your troops to freeze in combat.},{Zlá morálka môže spôsobiť znehybnenie jedotky počas súboja.}
+
+<-- Week and month -->
+{MSG_NEWWEEK},{New Week},{Nový týždeň}
+{MSG_NEWMONTH},{New Month},{Nový mesiac}
+{MSG_MONTHOF},{Astrologers Proclaim Month of the %s.},{Astrológovia oznámili mesiac %s.}
+{MSG_MONTHOFPLAGUE},{Astrologers Proclaim Month of the PLAGUE!},{Grigorij Mesežnikov vyhlásil mesiac moru!}
+{MSG_WEEKOF},{Astrologers Proclaim Week of the %s.},{Astrológovia oznámili týždeň %s.}
+{MSG_DWINCPOP},{All Dwellings Increase in Population.},{Všetci obyvatelia sa úspešne rozmnožili.}
+{MSG_DWHALFPOP},{All Populations are Halved.},{Počet obyvateľov klesol na polovicu.}
+{MSG_DOUBLEPOP},{%s Population Doubles!},{Populácia %s sa zdvojnásobila!}
+{MSG_PLUSPOP},{%s growth +5.},{Populácia %s sa zvýšila o +5.}
+
+{WEEKN_01},{Squirrel},{Veverice}
+{WEEKN_02},{Rabbit},{Zajačika}
+{WEEKN_03},{Gopher},{Sysla}
+{WEEKN_04},{Badger},{Jazveca}
+{WEEKN_05},{Rat},{Potkana}
+{WEEKN_06},{Eagle},{Orla}
+{WEEKN_07},{Weasel},{Lasice}
+{WEEKN_08},{Raven},{Havrana}
+{WEEKN_09},{Mongoose},{Munga}
+{WEEKN_10},{Dog},{Psa}
+{WEEKN_11},{Aardvark},{Mravenčiara}
+{WEEKN_12},{Lizard},{Jašterice}
+{WEEKN_13},{Tortoise},{Korytnačky}
+{WEEKN_14},{Hedgehog},{Ježka}
+{WEEKN_15},{Condor},{Kondora}
+
+{MONTHN_01},{Grasshopper},{Kobylky}
+{MONTHN_02},{Ant},{Mravca}
+{MONTHN_03},{Ladybug},{Lienky}
+{MONTHN_04},{Spider},{Pavúka}
+{MONTHN_05},{Butterfly},{Motýľa}
+{MONTHN_06},{Bumblebee},{Čmeliaka}
+{MONTHN_07},{Locust},{Saranče}
+{MONTHN_08},{Earthworm},{Húsenice}
+{MONTHN_09},{Hornet},{Sršňa}
+{MONTHN_10},{Beetle},{Švába}
+
+<-- Battle -->
+{BAT_CASUALTIES},{Battlefild Casualties},{Bojové straty}
+{BAT_ATTACKER},{Attacker},{Útočiaci}
+{BAT_DEFENDER},{Defender},{Obrancovia}
+{COMBAT_LOG},{Combat Log},{Záznam súboja}
+
+{MSG_GOOD_MORALE},{High morale enables the %s to attack again.},{Vysoká morálka dovolila, aby rota %s zaútočila znovu.}
+{MSG_BAD_MORALE},{Low morale causes the %s to freeze in panic.},{Zlá morálka spôsonila, že rota %s znehybnela.}
+{MSG_GOOD_LUCK},{Good luck shines on the %s},{Šťastena sa usmiala na rotu %s}
+{MSG_BAD_LUCK},{Bad luck descends on the %s},{Smola sa vyliala na rotu %s}
+{MSG_BAT_NEXTROUND},{Round %d},{Kolo %d}
+
+{MSG_BAT_ATTACK},{Attack %s},{Zaútoč na rotu %s}
+{MSG_BAT_SHOOT},{Shoot %s},{Vystreľ na rotu %s}
+{MSG_BAT_DAMAGE1},{ (%d damage)},{ (Poškodenie %d)}
+{MSG_BAT_DAMAGE2},{ (%d-%d damage)},{ (Poškodenie %d-%d)}
+
+{MSG_BAT_DODAMAGE},{The %s do %d damage.},{Rota %s spôsobila poškodenie %d.}
+{MSG_BAT_PERISH},{%d %s perish.},{%d z roty %s zahynulo.}
+{MSG_BAT_WAIT},{The %s pause and wait for a better time to act.},{Rota %s čaká na vhodnejší čas útoku.}
+{MSG_BAT_DEFEND},{The %s take a defensive stance and gain +%d defense skill.},{Rota %s utvorila obrannú pozíciu a získala +%d k Obrane.}
+{MSG_BAT_TURRET_DODAMAGE},{The turret does %d damage.},{Veža spôsobila poškodenie %d.}
+{MSG_BAT_MOAT_DODAMAGE},{The moat does %d damage.},{Vodná priekopa spôsobila poškodenie %d.}
+{MSG_BAT_HALF},{%s destroy half the enemy troops!},{Rota %s zničila polovicu jednotiek nepriateľa!}
+
+{MSG_BAT_CAST_SPELL},{Cast %s.},{Zakúzli "%s".}
+{MSG_BAT_CAST_SPELL_TO},{Cast %s to %s.},{Zakúzli "%s" na %s.}
+{MSG_BAT_CASTS_SPELL},{%s casts %s.},{%s kúzli "%s".}
+{MSG_BAT_CASTS_SPELL_TO},{%s casts %s to %s.},{%s zakúzlil "%s" na rotu %s.}
+
+{MSG_CAP_ART},{You have captured an enemy artifact!},{Zmocnil si sa nepriateľovho artefaktu!}
+{MSG_CAP_ARTS},{You have captured %d enemy artifacts!},{Získal si %d artefaktov nepriateľa!}
+{MSG_BAT_VICTORY},{A Glorious Victory!},{Nádherné víťazstvo!}
+{MSG_BAT_ENEMY_FLEES},{The Enemy has Fled!},{Nepriateľ zdrhol!}
+{MSG_BAT_ENEMY_SURREND},{The Enemy has Surrendered!},{Nepriateľ sa vzdal!}
+{MSG_BAT_RECEXP},{For valor in combat, %s receives %d experience.},{Za chrabrosť v boji, %s získava %d skúseností.}
+
+{MSG_BAT_HERO_DEFEAT},{Your forces suffer a bitter defeat, and %s abandons your cause.},{Tvoja armáda utrpela trpkú porážku a %s opustil tvoje služby.}
+{MSG_BAT_FORCES_DEFEAT},{Your forces suffer a bitter defeat.},{Tvoja armáda utrpela trpkú porážku.}
+{MSG_BAT_FLEES},{The cowardly %s flees from battle.},{Armády %s zbabelo utiekli z boja.}
+{MSG_BAT_SURREND},{%s surrenders to the enemy and departs in shame.},{%s sa vzdal nepriateľovi a ide sa hanbiť do kúta.}
+
+{MSG_BAT_NEGSPHERE},{%s wields the Sphere of Negation, an ancient artifact which prevents magic spells from being cast.},{%s má so sebou Sféru negácie. Je to staroveký artefakt, ktorý zamedzuje používaniu kúziel na bojisku.}
+{MSG_BAT_SHOFWAR},{%s wields the Shackles of War. You can not retreat or surrender!},{%s má so sebou artefakt Putá vojny. Nemôžeš ustúpiť, ani sa vzdať!}
+
+{MSG_NOTENOUGHGOLD},{You don't have enough gold!},{Nemáš dostatok zlata!}
+
+{MSG_RISE_SKELETONS},{Practicing the dark arts of necromancy, you are able to raise %d of the enemy's dead to return under your service as Skeletons.},{Používaním temných síl nekromancie si vyvolal %d skeletonov z nepriateľových zabitých jednotiek.}
+
+<-- Map size -->
+{MAPSIZ_SMALL},{Small},{Malá}
+{MAPSIZ_MEDIUM},{Medium},{Stredná}
+{MAPSIZ_LARGE},{Large},{Veľká}
+{MAPSIZ_EXTRALARGE},{Extra Large},{Veľmi veľká}
+
+{SHORT_MAPSIZ_SMALL},{S},{S}
+{SHORT_MAPSIZ_MEDIUM},{M},{M}
+{SHORT_MAPSIZ_LARGE},{L},{L}
+{SHORT_MAPSIZ_EXTRALARGE},{XL},{XL}
+
+<-- Hall of Fame -->
+{HOF_RANK},{Rank},{Poradie}
+{HOF_LAND},{Land},{Mapa}
+{HOF_DATE},{Date},{Dátum}
+{HOF_DAYS},{Days},{Počet dní}
+{HOF_SCORE},{Score},{Skóre}
+
+<-- Game difficulty -->
+{DIFFICULTY_LEVEL},{Difficulty Level},{Obtiažnosť}
+{DIFF_EASY},{Easy},{Ľahká}
+{DIFF_NORMAL},{Normal},{Normálna}
+{DIFF_HARD},{Hard},{Ťažká}
+{DIFF_EXPERT},{Expert},{Expert}
+{DIFF_IMPOSSIBLE},{Impossible},{Nemožná}
+
+<-- Menus -->
+{MENU_NEWGAME},{Start New Game},{Začať novú hru}
+{MENU_LOADGAME},{Load Saved Game},{Nahrať uloženú hru}
+{MENU_SAVEGAME},{Save game},{Uložiť hru}
+{MENU_HIGHSCORE},{Hall of Fame},{Sieň slávy}
+{MENU_CREDITS},{Credits},{Autori}
+{MENU_GAMESETTINGS},{Game Settings},{Nastavenie hry}
+{MENU_EXITTOMAINMENU},{Exit to Main Menu},{Návrat do hlavného menu}
+{MENU_EXITGAME},{Quit},{Ukončiť}
+{MENU_RETURNTOGAME},{Return to Game},{Návrat do hry}
+
+<-- Thieves guild information -->
+{THGUILD_NUMOFTOWNS},{Number of Towns},{Počet miest}
+{THGUILD_NUMOFHEROES},{Number of Heroes},{Počet hrdinov}
+{THGUILD_RESOURCES},{Resources},{Zdroje}
+{THGUILD_OBELISKS},{Obelisks Found},{Počet nájdených obeliskov}
+{THGUILD_ARTIFACTS},{Artifacts},{Artefakty}
+{THGUILD_ARMYSTRENGTH},{Army Strength},{Sila armády}
+{THGUILD_INCOME},{Income},{Príjem}
+
+<-- Surfaces -->
+{SURF_WATER},{Water},{Voda}
+{SURF_SAND},{Beach},{Pláž}
+{SURF_DIRT},{Dirt},{Hlina}
+{SURF_GRASS},{Grass},{Tráva}
+{SURF_SWAMP},{Swamp},{Močiar}
+{SURF_LAVA},{Lava},{Láva}
+{SURF_WASTELAND},{Wasteland},{Pustatina}
+{SURF_DESERT},{Desert},{Púšť}
+{SURF_SNOW},{Snow},{Sneh}
+{SURF_NDESERT},{Desert},{Púšť}
+{SURF_COAST},{Coast},{Pobrežie}
+
+
+<-- Players -->
+{PLAYER},{player},{hráč}
+{PLAYER_D},{player},{hráčovi}
+{PLAYER_RED},{Red},{Červený}
+{PLAYER_GREEN},{Green},{Zelený}
+{PLAYER_BLUE},{Blue},{Modrý}
+{PLAYER_CYAN},{Cyan},{Azúrový}
+{PLAYER_MAGENTA},{Purple},{Fialový}
+{PLAYER_YELLOW},{Yellow},{Žltý}
+{PLAYER_RED_D},{Red},{Červenému}
+{PLAYER_GREEN_D},{Green},{Zelenému}
+{PLAYER_BLUE_D},{Blue},{Modrému}
+{PLAYER_CYAN_D},{Cyan},{Azúrovému}
+{PLAYER_MAGENTA_D},{Purple},{Fialovému}
+{PLAYER_YELLOW_D},{Yellow},{Žltému}
+
+{PT_UNDEFINED},{Undefined},{Nepreddefinované}
+{PT_HUMAN},{Human},{Človek}
+{PT_Computer},{Computer},{Počítač}
+
+{PTM_HUMAN_ONLY},{Human only},{Len človek}
+{PTM_COMPUTER_ONLY},{Computer only},{Len počítač}
+{PTM_HUMAN_OR_COMPUTER},{Human or Computer},{Počítač alebo človek}
+
+<-- Date metrics -->
+{DATE},{Date},{Dátum}
+{MONTH},{Month},{Mesiac}
+{WEEK},{Week},{Týždeň}
+{DAY},{Day},{Deň}
+{MONTH_S},{M},{М}
+{WEEK_S},{W},{T}
+{DAY_S},{D},{D}
+
+<-- Common skills -->
+{SKILL_ATTACK_S},{Attack},{Útok}
+{SKILL_DEFENCE_S},{Defense},{Obrana}
+{SKILL_SPOWER_S},{Sp. power},{Mag. sila}
+{SKILL_KNOWLEDGE_S},{Knowl.},{Vedomosti}
+{SKILL_SHOTS_S},{Shots},{Výstrely}
+{SKILL_DAMAGE_S},{Damage},{Poškodenie}
+{SKILL_HEALTH_S},{Health},{Zdravie}
+{SKILL_SPEED_S},{Speed},{Rýchlosť}
+{SKILL_QUANT_S},{Quant.},{Počet}
+{SKILL_MORALE_S},{Morale},{Morálka}
+{SKILL_LUCK_S},{Luck},{Šťastie}
+
+{SKILL_ATTACK},{Attack Skill},{Útok}
+{SKILL_DEFENCE},{Defense Skill},{Obrana}
+{SKILL_SPOWER},{Spell Power},{Magická sila}
+{SKILL_KNOWLEDGE},{Knowledge},{Vedomosti}
+{SKILL_SHOTS},{Shots},{Počet výstrelov}
+{SKILL_DAMAGE},{Damage},{Poškodenie}
+{SKILL_HEALTH},{Health},{Zdravie}
+{SKILL_SPEED},{Speed},{Rýchlosť}
+{SKILL_QUANT},{Quantity},{Počet}
+{SKILL_MORALE},{Morale},{Morálka}
+{SKILL_LUCK},{Luck},{Šťastie}
+
+<-- Hero Skills -->
+{HSKILL_ESTATES},{Estates},{Bankovníctvo}
+{HSKILL_LEADERSHIP},{Leadership},{Vodcovstvo}
+{HSKILL_LUCK},{Luck},{Šťastie}
+{HSKILL_DIPLOMACY},{Diplomacy},{Diplomacia}
+{HSKILL_AIRMAGIC},{Air Magic},{Vzdušné kúzla}
+{HSKILL_EARTHMAGIC},{Earth Magic},{Zemské kúzla}
+{HSKILL_FIREMAGIC},{Fire Magic},{Ohnivé kúzla}
+{HSKILL_WATERMAGIC},{Water Magic},{Vodné kúzla}
+{HSKILL_WISDOM},{Wisdom},{Učenosť}
+{HSKILL_NECROMANCY},{Necromancy},{Nekromancia}
+{HSKILL_MYSTICISM},{Mysticism},{Mysticizmus}
+{HSKILL_INTELLIGENCE},{Intelligence},{Inteligencia}
+{HSKILL_RESISTANCE},{Resistance},{Odolnosť}
+{HSKILL_SORCERY},{Sorcery},{Čarodejníctvo}
+{HSKILL_LEARNING},{Learning},{Vzdelávanie}
+{HSKILL_SCOUTING},{Scouting},{Prieskum}
+{HSKILL_LOGISTICS},{Logistics},{Logistika}
+{HSKILL_PATHFINDING},{Pathfinding},{Stopovanie}
+{HSKILL_ARCHERY},{Archery},{Lukostreľba}
+{HSKILL_BALLISTICS},{Ballistics},{Balistika}
+{HSKILL_OFFENCE},{Offense},{Útok}
+{HSKILL_ARMORER},{Armorer},{Zbrojmajster}
+
+{HSKILL_ESTATES_BAS_DESC},{Hero contributes 250 gold per day to your cause.},{Hrdina prispeje sumou 250 zlata za deň.}
+{HSKILL_ESTATES_ADV_DESC},{Hero contributes 500 gold per day to your cause.},{ Hrdina prispeje sumou 500 zlata za deň.}
+{HSKILL_ESTATES_EXP_DESC},{Hero contributes 1000 gold per day to your cause.},{ Hrdina prispeje sumou 1000 zlata za deň.}
+
+{HSKILL_LEADERSHIP_BAS_DESC},{Increases your Hero's troops' morale by 1.},{Zdvihne morálku hrdinovej armády o +1.}
+{HSKILL_LEADERSHIP_ADV_DESC},{Increases your Hero's troops' morale by 2.},{Zdvihne morálku hrdinovej armády o +2.}
+{HSKILL_LEADERSHIP_EXP_DESC},{Increases your Hero's troops' morale by 3.},{Zdvihne morálku hrdinovej armády o +3.}
+
+{HSKILL_LUCK_BAS_DESC},{Increases your Hero's luck by 1.},{Zdvihne šťastie hrdinovej armády o +1.}
+{HSKILL_LUCK_ADV_DESC},{Increases your Hero's luck by 2.},{Zdvihne šťastie hrdinovej armády o +2.}
+{HSKILL_LUCK_EXP_DESC},{Increases your Hero's luck by 3.},{Zdvihne šťastie hrdinovej armády o +3.}
+
+{HSKILL_DIPLOMACY_BAS_DESC},{Allows you to negotiate with monsters who are weaker than your group and reduces the cost of surrendering by 20%.},{Dovoľuje rokovať s nepriateľskými jednotkami, ktoré sú slabšie ako hrdinova armáda, a zároveň znižuje náklady pri kapitulácii tvojho hrdinu o 20%.}
+{HSKILL_DIPLOMACY_ADV_DESC},{Allows you to negotiate with monsters who are weaker than your group and reduces the cost of surrendering by 40%.},{Dovoľuje rokovať s nepriateľskými jednotkami, ktoré sú slabšie ako hrdinova armáda, a zároveň znižuje náklady pri kapitulácii tvojho hrdinu o 30%.}
+{HSKILL_DIPLOMACY_EXP_DESC},{Allows you to negotiate with monsters who are weaker than your group and reduces the cost of surrendering by 60%.},{Dovoľuje rokovať s nepriateľskými jednotkami, ktoré sú slabšie ako hrdinova armáda, a zároveň znižuje náklady pri kapitulácii tvojho hrdinu o 60%.}
+
+{HSKILL_AIRMAGIC_BAS_DESC},{Basic Air Magic allows your Hero to cast Air spells at reduced cost.},{Základná úroveň Vzdušných kúziel dovoľuje hrdinovi zosielať kúzla za menej many.}
+{HSKILL_AIRMAGIC_ADV_DESC},{Advanced Air Magic allows your Hero to cast Air spells at reduced cost and increased effectiveness.},{Pokročilá úroveň Vzdušných kúziel dovoľuje hrdinovi zosielať kúzla s väčšou účinnosťou a za menej many.}
+{HSKILL_AIRMAGIC_EXP_DESC},{Expert Air Magic allows your Hero to cast Air spells at reduced cost and maximum effectiveness.},{Expertná úroveň Vzdušných kúziel dovoľuje hrdinovi zosielať kúzla s maximálnou účinnosťou a za menej many.}
+
+{HSKILL_EARTHMAGIC_BAS_DESC},{Basic Earth Magic allows your Hero to cast Earth spells at reduced cost.},{Základná úroveň Zemských kúziel dovoľuje hrdinovi zosielať kúzla za menej many.}
+{HSKILL_EARTHMAGIC_ADV_DESC},{Advanced Earth Magic allows your Hero to cast Earth spells at reduced cost and increased effectiveness.},{Pokročilá úroveň Zemských kúziel dovoľuje hrdinovi zosielať kúzla s väčšou účinnosťou a za menej many.}
+{HSKILL_EARTHMAGIC_EXP_DESC},{Expert Earth Magic allows your Hero to cast Earth spells at reduced cost and maximum effectiveness.},{Expertná úroveň Zemských kúziel dovoľuje hrdinovi zosielať kúzla s maximálnou účinnosťou a za menej many.}
+
+{HSKILL_FIREMAGIC_BAS_DESC},{Basic Fire Magic allows your Hero to cast Fire spells at reduced cost.},{Základná úroveň Ohňových kúziel dovoľuje hrdinovi zosielať kúzla za menej many.}
+{HSKILL_FIREMAGIC_ADV_DESC},{Advanced Fire Magic allows your Hero to cast Fire spells at reduced cost and increased effectiveness.},{Pokročilá úroveň Ohňových kúziel dovoľuje hrdinovi zosielať kúzla s väčšou účinnosťou a za menej many.}
+{HSKILL_FIREMAGIC_EXP_DESC},{Expert Fire Magic allows your Hero to cast Fire spells at reduced cost and maximum effectiveness.},{Expertná úroveň Ohňových kúziel dovoľuje hrdinovi zosielať kúzla s maximálnou účinnosťou a za menej many.}
+
+{HSKILL_WATERMAGIC_BAS_DESC},{Basic Water Magic allows your Hero to cast Water spells at reduced cost.},{Základná úroveň Vodných kúziel dovoľuje hrdinovi zosielať kúzla za menej many.}
+{HSKILL_WATERMAGIC_ADV_DESC},{Advanced Water Magic allows your Hero to cast Water spells at reduced cost and increased effectiveness.},{Pokročilá úroveň Vodných kúziel dovoľuje hrdinovi zosielať kúzla s väčšou účinnosťou a za menej many.}
+{HSKILL_WATERMAGIC_EXP_DESC},{Expert Water Magic allows your Hero to cast Water spells at reduced cost and maximum effectiveness.},{Expertná úroveň Vodných kúziel dovoľuje hrdinovi zosielať kúzla s maximálnou účinnosťou a za menej many.}
+
+{HSKILL_WISDOM_BAS_DESC},{Allows your Hero to learn Third level spells.},{Dovoľuje hrdinovi naučiť sa kúzla tretej úrovne.}
+{HSKILL_WISDOM_ADV_DESC},{Allows your Hero to learn Fourth level spells.},{ Dovoľuje hrdinovi naučiť sa kúzla štvrtej úrovne.}
+{HSKILL_WISDOM_EXP_DESC},{Allows your Hero to learn Fifth level spells.},{ Dovoľuje hrdinovi naučiť sa kúzla piatej úrovne.}
+
+{HSKILL_NECROMANCY_BAS_DESC},{Allows 10% of the creatures killed in combat to be brought back from the dead as Skeletons.},{10% zabitých jednotiek v súboji sa vráti k hrdinovi ako Kostlivci.}
+{HSKILL_NECROMANCY_ADV_DESC},{Allows 20% of the creatures killed in combat to be brought back from the dead as Skeletons.},{20% zabitých jednotiek v súboji sa vráti k hrdinovi ako Kostlivci.}
+{HSKILL_NECROMANCY_EXP_DESC},{Allows 30% of the creatures killed in combat to be brought back from the dead as Skeletons.},{30% zabitých jednotiek v súboji sa vráti k hrdinovi ako Kostlivci.}
+
+{HSKILL_MYSTICISM_BAS_DESC},{Allows your Hero to regenerate 2 spell points per day.},{Dovoľuje hrdinovi zregenerovať 2 body na čarovanie (many) za deň.}
+{HSKILL_MYSTICISM_ADV_DESC},{Allows your Hero to regenerate 4 spell points per day.},{ Dovoľuje hrdinovi zregenerovať 4 body na čarovanie (many) za deň.}
+{HSKILL_MYSTICISM_EXP_DESC},{Allows your Hero to regenerate 6 spell points per day.},{ Dovoľuje hrdinovi zregenerovať 6 bodov na čarovanie (many) za deň.}
+
+{HSKILL_INTELLIGENCE_BAS_DESC},{Increases a Hero's normal maximum spell points by 25%.},{Zvýši maximum hrdinových bodov na čarovanie (many) o 25%.}
+{HSKILL_INTELLIGENCE_ADV_DESC},{Increases a Hero's normal maximum spell points by 50%.},{Zvýši maximum hrdinových bodov na čarovanie (many) o 50%.}
+{HSKILL_INTELLIGENCE_EXP_DESC},{Doubles a Hero's normal maximum spell points.},{Zdvojnásobí hrdinove body na čarovanie (manu).}
+
+{HSKILL_RESISTANCE_BAS_DESC},{Endows a Hero's troops with 5% magic resistance.},{Útočné kúzla zoslané nepriateľom spôsobia o 5% menej škody.}
+{HSKILL_RESISTANCE_ADV_DESC},{Endows a Hero's troops with 10% magic resistance.},{Útočné kúzla zoslané nepriateľom spôsobia o 10% menej škody.}
+{HSKILL_RESISTANCE_EXP_DESC},{Endows a Hero's troops with 20% magic resistance.},{Útočné kúzla zoslané nepriateľom spôsobia o 20% menej škody.}
+
+{HSKILL_SORCERY_BAS_DESC},{Causes a Hero's spells to inflict an additional 5% damage in combat.},{Útočné kúzla zoslané hrdinom spôsobia o 5% viac škody.}
+{HSKILL_SORCERY_ADV_DESC},{Causes a Hero's spells to inflict an additional 10% damage in combat.},{Útočné kúzla zoslané hrdinom spôsobia o 10% viac škody.}
+{HSKILL_SORCERY_EXP_DESC},{Causes a Hero's spells to inflict an additional 15% damage in combat.},{Útočné kúzla zoslané hrdinom spôsobia o 15% viac škody.}
+
+{HSKILL_LEARNING_BAS_DESC},{Increases a Hero's earned experience by 5%.},{Zvyšuje počet skúseností získaných hrdinom o 5%.}
+{HSKILL_LEARNING_ADV_DESC},{Increases a Hero's earned experience by 10%.},{Zvyšuje počet skúseností získaných hrdinom o 10%.}
+{HSKILL_LEARNING_EXP_DESC},{Increases a Hero's earned experience by 15%.},{Zvyšuje počet skúseností získaných hrdinom o 15%.}
+
+{HSKILL_SCOUTING_BAS_DESC},{Allows your Hero to see 2 squares further into the shroud.},{Zvyšuje hrdinov rozhľad o 2 štvorce.}
+{HSKILL_SCOUTING_ADV_DESC},{Allows your Hero to see 4 squares further into the shroud.},{Zvyšuje hrdinov rozhľad o 4 štvorce.}
+{HSKILL_SCOUTING_EXP_DESC},{Allows your Hero to see 6 squares further into the shroud.},{Zvyšuje hrdinov rozhľad o 6 štvorcov.}
+
+{HSKILL_LOGISTICS_BAS_DESC},{Increases your Hero's movement points over land by 10%.},{Zvyšuje počet krokov hrdinu o 10%.}
+{HSKILL_LOGISTICS_ADV_DESC},{Increases your Hero's movement points over land by 20%.},{Zvyšuje počet krokov hrdinu o 20%.}
+{HSKILL_LOGISTICS_EXP_DESC},{Increases your Hero's movement points over land by 30%.},{Zvyšuje počet krokov hrdinu o 30%.}
+
+{HSKILL_PATHFINDING_BAS_DESC},{Reduces the movement penalty for rough terrain by 25%.},{Znižuje obmedzenie pohybu v zlom teréne o 25%.}
+{HSKILL_PATHFINDING_ADV_DESC},{Reduces the movement penalty for rough terrain by 50%.},{Znižuje obmedzenie pohybu v zlom teréne o 50%.}
+{HSKILL_PATHFINDING_EXP_DESC},{Reduces the movement penalty for rough terrain by 75%.},{Znižuje obmedzenie pohybu v zlom teréne o 75%.}
+
+{HSKILL_ARCHERY_BAS_DESC},{Increases ranged attack damage by 10%.},{Zvyšuje silu útoku na diaľku o 10%.}
+{HSKILL_ARCHERY_ADV_DESC},{Increases ranged attack damage by 25%.},{Zvyšuje silu útoku na diaľku o 25%.}
+{HSKILL_ARCHERY_EXP_DESC},{Increases ranged attack damage by 50%.},{Zvyšuje silu útoku na diaľku o 50%.}
+
+{HSKILL_BALLISTICS_BAS_DESC},{Allows one aimed shot with increased damage.},{Dovoľuje jeden mierený výstrel na hradby, ktorý spôsobí viac škody.}
+{HSKILL_BALLISTICS_ADV_DESC},{Allows two aimed shots with increased damage.},{Dovoľuje dva mierené výstrely na hradby, ktoré spôsobia viac škody.}
+{HSKILL_BALLISTICS_EXP_DESC},{Allows two aimed shots with maximum damage.},{Dovoľuje dva mierené výstrely na hradby, ktoré spôsobia maximum škody.}
+
+{HSKILL_OFFENCE_BAS_DESC},{Increases hand-to-hand attack damage by 10%.},{Zvyšuje silu hrdinovho kontaktného útoku o 10%.}
+{HSKILL_OFFENCE_ADV_DESC},{Increases hand-to-hand attack damage by 20%.},{Zvyšuje silu hrdinovho kontaktného útoku o 20%.}
+{HSKILL_OFFENCE_EXP_DESC},{Increases hand-to-hand attack damage by 30%.},{Zvyšuje silu hrdinovho kontaktného útoku o 30%.}
+
+{HSKILL_ARMORER_BAS_DESC},{Reduces all damage inflicted against the Hero's troops by 5%.},{Znižuje silu nepriateľovho útoku o 5%.}
+{HSKILL_ARMORER_ADV_DESC},{Reduces all damage inflicted against the Hero's troops by 10%.},{Znižuje silu nepriateľovho útoku o 10%.}
+{HSKILL_ARMORER_EXP_DESC},{Reduces all damage inflicted against the Hero's troops by 15%.},{Znižuje silu nepriateľovho útoku o 15%.}
+
+
+{HSKILL_LEVEL_BASIC},{Basic},{Začiatočník}
+{HSKILL_LEVEL_ADVANCED},{Advanced},{Pokročilý}
+{HSKILL_LEVEL_EXPERT},{Expert},{Expert}
+
+<-- Minerals -->
+{MINERAL_GOLD},{Gold},{Zlato}
+{MINERAL_ORE},{Ore},{Kameň}
+{MINERAL_WOOD},{Wood},{Drevo}
+{MINERAL_MERCURY},{Mercury},{Ortuť}
+{MINERAL_GEM},{Gem},{Drahokamy}
+{MINERAL_CRYSTAL},{Crystal},{Kryštály}
+{MINERAL_SULFUR},{Sulfur},{Síra}
+
+<-- Resources (title+msg) -->
+{MAPRES_RAND_MINERAL},{Random Resource},{Náhodné zdroje}
+{MAPRES_GOLD},{Heap of Gold},{Hruda zlata}
+{MAPRES_ORE},{Heap of Ore},{Kôpka kameňa}
+{MAPRES_WOOD},{Cord of Wood},{Náklad dreva}
+{MAPRES_MERCURY},{Bottle of Mercury},{Flaška ortuti}
+{MAPRES_GEM},{Heap of Gems},{Kôpka Drahokamov}
+{MAPRES_CRYSTAL},{Heap of Crystals},{Kôpka kryštálov}
+{MAPRES_SULFUR},{Heap of Sulfur},{Kôpka síry}
+{MAPRES_MANACRYSTAL},{Mana Crystal},{Kryštály many}
+{MAPRES_CAMPFIRE},{Campfire},{Táborák}
+{MAPRES_CHEST},{Treasure Chest},{Truhlica s pokladom}
+{MAPRES_LAMP},{Lamp},{Lampa}
+{MAPRES_SPELLSCROLL},{Spell Scroll},{Magický zvitok}
+{MAPRES_ARTIFACT},{Artifact},{Artefakt}
+{MAPRES_KEYGUARD},{Guard},{Stráž}
+
+{MAPRES_KEYGUARD_OK_MSG},{As you reign in your horse, a guard steps up to you and says, "Welcome. I have received word of your arrival. Do you wish to pass at this time?"},{Keď si zastavil koňa, pristúpil k tebe strážca a povedal: "Vítam ťa. Dopočul som sa o tvojom príchode. Praješ si prejsť?"}
+{MAPRES_KEYGUARD_NOPASS_MSG},{"No one told me of your coming," says the Border Guard. "I cannot let you pass. Perhaps you should first seek a Keymaster's Tent."},{"Nikto mi nepovedal o tvojom príchode," prehovoril Hraničiar. "Nemôžem ťa nechať prejsť. Musíš najskôr navštíviť Stan Hraničiarov."}
+
+{MAPRES_CHEST_MSG},{After scouting the area you stumble upon a hidden treasure cache. You may take the gold or distribute it to the peasants for experience.},{Preskúmal si okolie a objavil si skrytý poklad. Môžeš si ponechať Zlato, alebo ho rozdať poddaným a získať tak skúsenosti.}
+{MAPRES_SPELL_SCROLL_MSG},{You find a spell scroll inscribed with the %s spell.},{Objavil si magický zvitok s kúzlom %s.}
+
+{MAP_EVENT},{Event},{Udalosť}
+
+<-- Random guards -->
+{RAND_GUARD},{Random},{Náhodný}
+{RAND_GUARD1},{Random (Level 1)},{Náhodný (1. Úroveň)}
+{RAND_GUARD2},{Random (Level 2)},{Náhodný (2. Úroveň)}
+{RAND_GUARD3},{Random (Level 3)},{Náhodný (3. Úroveň)}
+{RAND_GUARD4},{Random (Level 4)},{Náhodný (4. Úroveň)}
+{RAND_GUARD5},{Random (Level 5)},{Náhodný (5. Úroveň)}
+{RAND_GUARD6},{Random (Level 6)},{Náhodný (6. Úroveň)}
+
+<-- Random artifacts -->
+{RAND_ARTIFACT},{Random},{Náhodný}
+{RAND_ARTIFACT1},{Random (Level 1)},{Náhodný (1. Úroveň)}
+{RAND_ARTIFACT2},{Random (Level 2)},{Náhodný (2. Úroveň)}
+{RAND_ARTIFACT3},{Random (Level 3)},{Náhodný (3. Úroveň)}
+{RAND_ARTIFACT4},{Random (Level 4)},{Náhodný (4. Úroveň)}
+
+<-- Decorations -->
+{OBJ_HOLE}, {Hole}, {Jama}
+{OBJ_CRACK}, {Crack}, {Trhlina}
+{OBJ_FLOWERS}, {Flowers}, {Kvety}
+{OBJ_ROCK}, {Rock}, {Kameň}
+{OBJ_STUMB}, {Stump}, {Peň}
+{OBJ_LOG}, {Log}, {Klát}
+{OBJ_CACTUS}, {Cactus}, {Kaktus}
+{OBJ_BUSH},{Bush},{Krovie}
+{OBJ_TREES},{Trees},{Stromy}
+{OBJ_PALMTREE}, {Palm Tree}, {Palma}
+{OBJ_PINETREE}, {Pine Tree}, {Borovica}
+{OBJ_OAKTREE}, {Oak Tree}, {Dub}
+{OBJ_DEADTREE}, {Dead Tree}, {Mŕtvy strom}
+{OBJ_VOLCANO}, {Volcano}, {Sopka}
+{OBJ_MOUNTAIN}, {Mountain}, {Hora}
+{OBJ_LAKE}, {Lake}, {Jazero}
+
+<-- Path elements -->
+{OBJ_WALL}, {Wall}, {Múr}
+{OBJ_ROAD_DIRT}, {Dirt Road}, {Prašná cesta}
+{OBJ_ROAD_STONE}, {Stone Road}, {Kamenná cesta}
+{OBJ_ROAD_SNOW}, {Stone Road}, {Kamenná cesta}
+
+<-- Visitables (title + msg + visited msg) -->
+{OBJ_LIGHTSTONE}, {Light Stone}, {Svetielkujúci kameň}
+{OBJ_WOODENSIGN}, {Wooden Sign}, {Drevená tabuľka}
+{OBJ_WATCHTOWER}, {Watch Tower}, {Strážna veža}
+{OBJ_MEDUSATEMPLE}, {Medusa Temple}, {Chrám medúz}
+{OBJ_ROGUEWAGON}, {Rogue Wagon}, {Maringotka lúpežníkov}
+{OBJ_DESERTTENT}, {Desert Tent}, {Púštny stan}
+{OBJ_HAUNTEDHOUSE}, {Haunted House}, {Dom hrôzy}
+{OBJ_STONEWELL}, {Stone Well}, {Kamenná studňa}
+{OBJ_GAZEBO}, {Gazebo}, {Altánok}
+{OBJ_TREEOFKNOWLEDGE},{Tree of Knowledge},{Strom Vedomostí}
+{OBJ_WINDMILL},{Windmill},{Veterný mlyn}
+{OBJ_SHRINE1},{Shrine of First Circle},{Kaplnka prvého kruhu}
+{OBJ_SHRINE2},{Shrine of Second Circle},{Kaplnka druhého kruhu}
+{OBJ_SHRINE3},{Shrine of Third Circle},{Kaplnka tretieho kruhu}
+{OBJ_STABLES}, {Stables}, {Stajne}
+{OBJ_IDOL}, {Idol}, {Modla}
+{OBJ_FOUNTAIN}, {Fountain}, {Fontána}
+{OBJ_TEMPLE}, {Temple}, {Chrám}
+{OBJ_SWORDINTHESTONE}, {Sword in the Stone}, {Excalibur}
+{OBJ_FORT}, {Fort}, {Pevnosť}
+{OBJ_BLACKSMITH}, {Forge}, {Vyhňa}
+{OBJ_STONEHENGE}, {Stonehenge}, {Stonehenge}
+{OBJ_PROPHETSSTATUE}, {Prophet Statue}, {Socha veštca}
+{OBJ_ARENA},{Arena},{Aréna}
+{OBJ_LIBRARY},{Library},{Knižnica}
+{OBJ_OBELISK}, {Obelisk}, {Obelisk}
+{OBJ_MAGICSPRING}, {Magic Spring}, {Magický prameň}
+{OBJ_GARDENOFREVELATION},{Garden of Knowledge},{Záhrada Vedomostí}
+{OBJ_WITCHHUT},{Witch Hut},{Bosorkina chalupa}
+{OBJ_SHIPWRECK},{Shipwreck},{Vrak lode}
+{OBJ_ICECAVE},{Ice Cave},{Ľadová jaskyňa}
+{OBJ_PYRAMID},{Pyramid},{Pyramída}
+{OBJ_TEMPLEOFINTI},{Temple of Inti},{Chrám Intov}
+{OBJ_OGRESTREASURY},{Ogre's Treasury},{Pokladnica ľudožrútov}
+{OBJ_MAGESTREASURY},{Mage's Treasury},{Pokladnica mágov}
+{OBJ_HYDRASTREASURY},{Hydras' Treasury},{Pokladnica hydier}
+{OBJ_MEDUSASTREASURY},{Medusa's Treasury},{Pokladnica medúz}
+{OBJ_GARGOYLESTREASURY},{Gargoyle's Treasury},{Pokladnica gargoylov}
+{OBJ_DRUIDSTREASURY},{Druids' Treasury},{Pokladnica druidov}
+{OBJ_TENT},{Keymaster's Tent},{Stan Hraničiarov}
+
+{OBJ_STONEWELL_MSG}, {A drink from the well has restored your spell points.}, {Hlt zo studne doplnil tvoju manu.}
+{OBJ_GAZEBO_MSG}, {An old Knight appears on the steps of the gazebo. "My liege, I will teach you all that I know to aid you in your travels."}, {Na vstupe do altánku sa objavil starý rytier. "Naučím ťa všetko čo viem, aby som ťa podporil na tvojich cestách."}
+{OBJ_TREEOFKNOWLEDGE_MSG},{Upon your approach, the tree opens its eyes in delight. "Ahh, an adventurer! Allow me to teach you a little of what I have learned over the ages."},{Keď si pristúpil, strom potešene otvoril oči: "Ahh, dobrodruh. Dovoľ mi naučiť ťa niečo málo z toho, čo som sa naučil za stáročia."}
+{OBJ_WINDMILL_MSG},{The keeper of the mill announces: "Milord, I have been working very hard to provide you with these resources, come back next week for more."},{Mlynár ti oznámil: "Môj pane, pracoval som veľmi tvrdo, aby som vám prichystal tieto zásoby. Budúci týždeň sa môžete zastaviť pre ďalšie."}
+{OBJ_SHRINE1_MSG},{You come across a small shrine attended by a group of novice acolytes. In exchange for your protection, they agree to teach you a simple spell - },{Pred malou kaplnkou si predstúpil pred novicov. Na výmenu za tvoju ochranu ťa naučili jednoduché kúzlo - }
+{OBJ_SHRINE2_MSG},{You come across an ornate shrine attended by a group of rotund friars. In exchange for your protection, they agree to teach you a spell - },{Pred ozdobenou kaplnkou si predstúpil pred pustevníkov. Na výmenu za tvoju ochranu ťa naučili kúzlo - }
+{OBJ_SHRINE3_MSG},{You come across a lavish shrine attended by a group of high priests. In exchange for your protection, they agree to teach you a sophisticated spell - },{Pred veľkolepou kaplnkou si predstúpil pred kňazov. Na výmenu za tvoju ochranu ťa naučili vysoko sofistikované kúzlo - }
+{OBJ_STABLES_MSG}, {As you approach the stables, the head groom appears, leading a fine looking war horse. "This steed will help speed you in your travels. Alas, his endurance will wane with heavy riding, and you must return for a fresh mount week."}, {Ako si sa blížil ku stajni, objavil sa hlavný koniar, ktorý viedol dobre vyzerajúceho vojnového koňa. "Tento tátoš ti pomože zrýchliť tvoje cestovanie. Pri náročnej jazde ale bude jeho rýchlosť klesať a ty sa budeš musieť za týždeň vrátiť pre odpočinutého."}
+{OBJ_IDOL_MSG}, {You've found an ancient and weathered stone idol. Kissing it is supposed to bring luck or happiness, so you do. The stone is very cold to the touch.}, {Objavil si prastarú a zvetranú modlu. Zdá sa, že keď ju pobozkáš, prinesie ti to šťastie. Urobil si teda tak. Kameň je veľmi chladný na dotyk.}
+{OBJ_FOUNTAIN_MSG}, {As you drink the sweet water, you gain luck for your next battle.}, {Tvoje jednotky sa napili sladkej vody a získali viac Šťastia do budúcej bitky.} 
+{OBJ_TEMPLE_MSG}, {A visit and a prayer at the temple raises the morale of your troops.}, {Modltiba v chráme zvýšila morálku tvojich jednotiek.}
+{OBJ_SWORDINTHESTONE_MSG}, {You have spent several hours trying to get the sword out of the stone, but it hasn't moved an inch... But don't get upset: your army had a good rest while you were having a good exercise!}, {Strávil si niekoľko hodín skúšaním vytiahnuť meč z kameňa, ale nepohol sa ani o centimeter... Nesmúť, počas tvojho cvičenia si tvoja armáda dobre oddýchla!}
+{OBJ_FORT_MSG}, {During the hour spent in the fort, the master shows you new defense technique.}, {Za hodinu strávenú v pevnosti ti majster ukázal nové techniky Obrany.}
+{OBJ_BLACKSMITH_MSG}, {You approach a forge... You walk inside and see a blacksmith at work. He puts the hammer away and says: "I can repair your armor."}, {Priblížil si sa k vyhni... Vstúpil si dovnútra a zbadal kováča pri práci. Odložil kladivo a prehovoril: "Môžem opraviť tvoje brnenie."}
+{OBJ_STONEHENGE_MSG}, {You've found a group of Druids worshipping at one of their strange stone edifices. Silently, they teach you new ways to cast spells.}, {Objavil si skupinku druidov, ktorí vykonávali svoj tajomný obrad v jednej zo svojich zvláštnych stavieb. Druidi ťa v tichosti naučili novým spôsobom ako čarovať kúzla.}
+{OBJ_PROPHETSSTATUE_MSG}, {You touch the prophet statue and feel that you become more powerful.}, {Dotkol si sa sochy veštca a ucítil si, že si sa stal silnejším.}
+{OBJ_ARENA_MSG}, {You enter the arena and face a pack of vicious lions. You handily defeat them, to the wild cheers of the crowd. Impressed by your skill, the aged trainer of gladiators agrees to train you in Attack and Defense skills.},{Vstúpil si do Arény a postavil si sa krutým levom. Šikovne si ich porazil. Ohromený tvojou zručnosťou starý tréner Gladiátorov súhlasil, že ťa bude trénovať a vylepší tvoje Útočné a Obranné schopnosti.}
+{OBJ_LIBRARY_MSG}, {The caretaker admits you into the Library of Enlightenment. You are able to learn much in the short time you spend here.},{Vrátnik ti dovolil vstúpiť do Knižnice osvietenia. Za krátku dobu, ktorú si tu strávil si sa dokázal mnoho naučiť.}
+{OBJ_OBELISK_MSG}, {You come upon an obelisk made from a type of stone you have never seen before. Staring at it intensely, the smooth surface suddenly changes to an inscription. The inscription is a piece of a lost ancient map. Quickly you copy down the odd markings and the inscription vanishes as abruptly as it had appeared.}, {Pristúpil si k obelisku, ktorý je vyrobený z kameňa, aký si ešte v živote nevidel. Sústredene si sa naň zahľadel a na jeho hladkom povrchu sa objavil nápis. Nápis je súčasťou mapy, ktorá sa stratila pred dávnymi dobami. Rýchlo si skopíroval zvláštne znaky a nápis zmizol tak náhle, ako sa zjavil.}
+{OBJ_MAGICSPRING_MSG}, {A drink from the spring fills your blood with magic! You have twice your normal spell points in reserve.}, {Hlt vody z prameňa naplnil tvoju krv mágiou! Zdvojnásobil zásobu tvojej many.}
+{OBJ_GARDENOFREVELATION_MSG},{A monk sitting in the center of a garden invites you to meditate with him. You do and, after a short time, you feel enlightened.},{Mních sediaci v centre záhrady ťa pozval na meditáciu. Prijal si pozvanie a po krátkej meditácii si sa cítil osvietený.}
+{OBJ_TENT_MSG},{The caretaker of this Keymaster's Tent seems happy to see you. "Ah, finally someone worthy," he says. "I shall send word immediately to the Border Guard that you be allowed to pass."},{Opatrovník tohoto Stanu Hraničiarov vyzerá byť šťastný že ťa vidí. "Ah, konečne niekto významný," povedal. "Ihneď pošlem správu na hranicu, že máš povolenie vstúpiť."}
+
+{OBJ_STONEWELL_VMSG}, {A second drink at the well in one week will not help you.}, {Z tejto studne sa môžeš napiť len raz za týždeň.}
+{OBJ_GAZEBO_VMSG}, {An old Knight appears on the steps of the gazebo. "I am sorry, my liege, I have taught you all I can."}, {Na vstupe do altánku sa objavil starý rytier. "Prepáč mi, študent môj, naučil som ťa už všetko čo viem."}
+{OBJ_TREEOFKNOWLEDGE_VMSG},{Upon your approach, the tree opens its eyes in delight. "It is good to see you, my student. I hope my teachings have helped you."},{Keď si pristúpil, strom potešene otvoril oči: "Rád ťa vidím, študent môj. Dúfam že ti moje učenie pomohlo."}
+{OBJ_WINDMILL_VMSG},{The keeper of the mill announces: "Milord, I am sorry, there are no resources currently available. Please try again next week."},{Mlynár ti oznámil: "Môj pane, prepáčte, ale momentálne nemáme žiadne zásoby. Skúste budúci týždeň."}
+{OBJ_STABLES_VMSG}, {The head groom approaches you and speaks, "You already have a fine horse."}, {Hlavný koniar pristúpil k tebe a prehovoril: "Tvoj kôň je dostatočne odpočinutý."}
+{OBJ_IDOL_VMSG}, {You've found an ancient and weathered stone idol. It is supposed to grant luck or happiness to visitors, but since the stars are already shining upon you, it does nothing.}, {Objavil si prastarú a zvetranú modlu. Návštevníkom poskytuje a vylepšuje šťastie, ale pokiaľ sa už na teba šťastena usmieva, nemože ti viac pomôcť.}
+{OBJ_FOUNTAIN_VMSG}, {You drink from the enchanted fountain, but nothing happens.}, {Napil si sa zo zakliatej fontány, ale nič sa nestalo.}
+{OBJ_TEMPLE_VMSG}, {It doesn't help to pray twice before a battle.}, {Modliť sa pred bitkou dvakrát nepomáha.}
+{OBJ_SWORDINTHESTONE_VMSG}, {This sword is stuck in the stone! No use trying to get it out!}, {Meč je pevne zaseknutý v kameni. Nedarí sa ti ho vytiahnuť!}
+{OBJ_FORT_VMSG}, {I have already taught you everything I could. I don't want to waste my time on you, so get out!}, {Naučil som ťa už všetko čo som vedel. Nechcem s tebou viac strácať čas, tak odíď!}
+{OBJ_BLACKSMITH_VMSG}, {You approach a forge... You walk inside and see a blacksmith at work. He examines your shield, and says: "The shield doesn't need to be repaired. I have done everything I could."}, {Priblížil si sa k vyhni... Vstúpil si dovnútra a zbadal kováča pri práci. Vyskúšal tvoj štít a povedal: "Tvoj štít nepotrebuje opravu. Už som urobil všetko čo som mohol."}
+{OBJ_STONEHENGE_VMSG}, {You've found a group of Druids worshipping at one of their strange stone edifices. Silently, the Druids turn you away, indicating they have nothing new to teach you.}, {Objavil si skupinku druidov, ktorí vykonávali svoj tajomný obrad v jednej zo svojich zvláštnych stavieb. Druidi ťa v tichosti odohnali naznačujúc, že namajú nič nové, čo by ťa mohli naučiť.}
+{OBJ_PROPHETSSTATUE_VMSG}, {You touch the statue, but nothing happens. You reach out your hand and touch it for the second time, and the statue suddenly starts to speak: "I have given you my magical power, but you still keep annoying me!? Go away!"},{Dotkol si sa sochy, ale nič sa nestalo. Odtiahol si ruku, dotkol si sa druhý krát a socha konečne prehovorila: "Už som ti dala svoju magickú moc a ty ma stále otravuješ!? Choď preč!"}
+{OBJ_ARENA_VMSG}, {The Arena guards prevent you from entering. "You've already beaten our best. Begone from here."},{Stráž pred Arénou ti nedovolila vstúpiť: "Už si raz bol našim šampiónom. Odíď odtiaľto."}
+{OBJ_LIBRARY_VMSG}, {Recognizing you, the caretaker refuses to admit you. "The Library of Enlightenment," he says, "may be visited but once".},{Vrátnik ťa spoznal a odmietol ťa prijať. "Knižnica osvietenia," povedal, "môže byť navštívená len raz."}
+{OBJ_OBELISK_VMSG}, {You have already been to this obelisk.}, {Tento obelisk si už navštívil.}
+{OBJ_MAGICSPRING_VMSG}, {The magic spring only regenerates once a week, and someone has already been here this week.}, {Magický prameň sa regeneruje len raz za týždeň a niekto tu už bol pred tebou.}
+{OBJ_GARDENOFREVELATION_VMSG},{You enter the garden, and the monk, recognizing you, says, "My child, the blessing of knowledge comes but once in a person's lifetime."},{Vstúpil si do záhrady a mních, ktorý ťa spoznal, prehovoril:"Dieťa moje, osvietenie prichádza iba raz za život."}
+{OBJ_TENT_VMSG},{The caretaker of this Keymaster's Tent recognizes you as you approach. "I have already sent word that you be allowed to pass," he says. "Begone."},{Opatrovník tohoto Stanu Hraničiarov ťa pri príchode spoznal a povedal: "Už som ti poslal správu, že máš oprávnenie na prechod."}
+
+{OBJ_SHRINE_NOWISDOM},{Unfortunately, you do not have the wisdom to understand the spell and are unable to learn it.},{Bohužiaľ nemáš dostatok Znalostí, aby si dokázal pochopiť a naučiť sa toto kúzlo.}
+
+{OBJ_WITCHHUT_MSG1},{An ancient witch living in a strange hut welcomes you, teaching you %s for her own inscrutable purposes.},{Prastará Bosorka žijúca v zvláštnej chalupe ťa privítala a z tebe neznámych dôvodov ťa naučila umenie %s.}
+{OBJ_WITCHHUT_MSG2},{You approach the strange hut and observe a witch inside studying an ancient tome on %s. As you approach, she turns and speaks. "You already know that which I would teach you. I can help you no further."},{Vstúpil si do zvláštnej chalupy a vnútri si objavil Bosorku študujúcu prastarú knihu o umení %s. Ako si postupoval ďalej, otočila sa a prehovorila: "Ty už ovládaš všetko, čo by som ťa mohla naučiť. Nemôžem ti viac pomôcť."}
+{OBJ_WITCHHUT_MSG3},{You approach the strange hut and observe a witch inside studying an ancient tome on %s. As you approach, she turns and focuses her one glass eye on you. "HA!" she screeches, "I would not presume to try to teach new tricks to someone so clearly as wise as you." You leave, but can't quite shake the feeling that you have just been insulted.},{Vstúpil si do zvláštnej chalupy a vnútri si objavil Bosorku študujúcu prastarú knihu o umení %s. Ako si postupoval ďalej, otočila sa a uprela na teba svoje sklenené oko. "HA!" zvolala, "Nedovolím si učiť nové triky niekoho tak očividne vzdelaného ako ty." Odišiel si, ale stále sa nemôžeš zbaviť pocitu, že si bol uhranutý.}
+
+{OBJ_DWELL_RECR_QUEST},{Would you like to recruit %s?},{Chceš najať armádu %s?}
+{OBJ_DWELL_RECR_MSG},{%d %s join your army.},{%d %s sa pridáva k tvojej armáde.}
+{OBJ_DWELL_EMPTY},{There are no %s here to recruit.},{Nie sú tu žiadne jednotky %s k najatiu.}
+
+{OBJ_TREASURY_VISITED},{You have found what was once a %s, but it has been deserted for some time.},{Našiel si, čo vyzerá ako %s. Zdá sa to tu opustené.}
+{OBJ_TREASURY_DISCOVER},{Having defeated the guards, you discover:},{Po zneškodnení strážcov si objavil:}
+
+{OBJ_TELEPORT_ONEWAY_ENT},{One-Way (entrance)},{Jednosmerka (vchod)}
+{OBJ_TELEPORT_ONEWAY_EXT},{One-Way (exit)},{Jednosmerka (východ)}
+{OBJ_TELEPORT_TWOWAY},{Two-Way},{Obojsmerný}
+{OBJ_TELEPORT_EXIT_MSG},{This structure is obviously a travel gate, but it no longer appears to be functioning.},{Táto konštrukcia ja očividne teleport, ale nevyzerá funkčne.}
+
+<-- Ownerables (title + msg) -->
+{OBJ_SCOUTTOWER}, {Scout Tower}, {Rozhľadňa}
+{OBJ_OBSERVATIONTOWER}, {Observation Tower}, {Vyhliadková veža}
+
+{OBJ_SCOUTTOWER_MSG}, {From the scouting tower, you are able to see distant lands.}, {Z rozhľadne si schpný zahliadnuť vzdialené zeme.}
+{OBJ_OBSERVATIONTOWER_MSG}, {From the observation tower, you are able to see distant lands. All your heroes get a +1 movement point bonus.}, {Z vyhliadkovej veže si schpný zahliadnuť vzdialené zeme. Všetci tvoji hrdinovia dostanú ako bonus 1 krok navyše.}
+
+<-- Mines (title + msg) -->
+{MINE_GOLD}, {Gold Mine}, {Zlatá baňa}
+{MINE_ORE}, {Ore Pit}, {Kameňolom}
+{MINE_WOOD}, {Wood Sawmill}, {Píla}
+{MINE_MERCURY}, {Alchemist's Lab}, {Laboratórium alchymistu}
+{MINE_GEMS}, {Gems Mine}, {Baňa na drahokamy}
+{MINE_CRYSTAL}, {Crystal Mine}, {Baňa na kryštály}
+{MINE_SULFUR}, {Sulfur Mine}, {Sírna baňa}
+
+{MINE_GOLD_MSG}, {You gain control of a Gold Mine. It will provide you with 1000 gold per day.}, {Získal si kontrolu nad Zlatou baňou. Každý deň sa tu vyťaží 1000 zlata.}
+{MINE_ORE_MSG}, {You gain control of an Ore Pit. It will provide you with two units of ore per day.}, {Získal si kontrolu nad Kameňolomom. Každý deň ťa bude zásobovať dvoma kameňmi.}
+{MINE_WOOD_MSG}, {You gain control of a Wood Sawmill. It will provide you with two units of wood per day.}, {Získal si kontrolu nad Pílou. Každý deň ťa bude zásobovať dvoma drevami.}
+{MINE_MERCURY_MSG}, {You gain control of an Alchemist's Lab. It will provide you with one unit of mercury per day.}, {Získal si kontrolu nad Alchymistickým laboratóriom. Každý deň ťa bude zásobovať 1 ortuťou.}
+{MINE_GEMS_MSG}, {You gain control of a Gems Mine . It will provide you with one unit of gems per day.}, {Získal si kontrolu nad baňou na Drahokamy. Každý deň ťa bude zásobovať 1 drahokamom.}
+{MINE_CRYSTAL_MSG}, {You gain control of a Crystal Mine . It will provide you with one unit of crystal per day.}, {Získal si kontrolu nad baňou na Kryštály. Každý deň ťa bude zásobovať 1 kryštálom.}
+{MINE_SULFUR_MSG}, {You gain control of a Sulfur Mine . It will provide you with one unit of sulfur per day.}, {Získal si kontrolu nad Sírnou baňou. Každý deň ťa bude zásobovať 1 sírou.}
+
+<-- Other -->
+{OBJ_CITY_GATE}, {City Gate}, {Mestská brána}
+
+
+<-- Visitables cnst state -->
+{OBJ_VISITED}, {visited},{navštívené}
+{OBJ_NOTVISITED}, {not visited},{nenavštívené}
+
+<-- Heroes -->
+{HERO_TYPE_KNIGHT},{Knight},{Rytier}
+{HERO_TYPE_BARBARIAN},{Barbarian},{Barbar}
+{HERO_TYPE_WIZARD},{Wizard},{Čarodejník}
+{HERO_TYPE_WARLOCK},{Warlock},{Temný pán}
+{HERO_TYPE_SORCERESS},{Sorceress},{Kúzelníčka}
+{HERO_TYPE_NECROMANCER},{Necromancer},{Nekromancer}
+
+{HERO_NAME_DIMITRY}, {Dimitry},{Dimitry}
+{HERO_NAME_AMBROSE}, {Ambrose},{Ambrose}
+{HERO_NAME_LORDKILBURN}, {Lord Kilburn},{Lord Kilburn}
+{HERO_NAME_GVENNETH}, {Gvenneth},{Gvenneth}
+{HERO_NAME_SIRGALLANTH}, {Sir Gallanth},{Sir Gallanth}
+{HERO_NAME_FINEOUS}, {Fineous},{Fineous}
+
+{HERO_NAME_THUNDAX}, {Thundax},{Thundax}
+{HERO_NAME_GROTTEKVARNEN}, {Grottekvarnen},{Grottekvarnen}
+{HERO_NAME_YOG}, {Yog},{Yog}
+{HERO_NAME_JACLYN}, {Jaclyn},{Jaclyn}
+{HERO_NAME_KRAG}, {Krag},{Krag}
+{HERO_NAME_TYRO}, {Tyro},{Tyro}
+
+{HERO_NAME_GALLATIN}, {Gallatin},{Gallatin}
+{HERO_NAME_IONA}, {Iona},{Iona}
+{HERO_NAME_BAROK}, {Barok},{Barok}
+{HERO_NAME_FALAGAR}, {Falagar},{Falagar}
+{HERO_NAME_CRODO}, {Crodo},{Crodo}
+{HERO_NAME_MYRINI}, {Myrini},{Myrini}
+
+{HERO_NAME_SABBAT}, {Sabbat},{Sabbat}
+{HERO_NAME_AGAR}, {Agar},{Agar}
+{HERO_NAME_VESPER}, {Vesper},{Vesper}
+{HERO_NAME_KASTORE}, {Kastore},{Kastore}
+{HERO_NAME_ALAMAR}, {Alamar},{Alamar}
+{HERO_NAME_SARAKIN}, {Sarakin},{Sarakin}
+
+{HERO_NAME_ARIEL}, {Ariel},{Ariel}
+{HERO_NAME_GEM}, {Gem},{Gem}
+{HERO_NAME_CARLAWN}, {Carlawn},{Carlawn}
+{HERO_NAME_TROYAN}, {Troyan},{Troyan}
+{HERO_NAME_ASTRA}, {Astra},{Astra}
+{HERO_NAME_REBECCA}, {Rebecca},{Rebecca}
+
+{HERO_NAME_UROF}, {Urof},{Urof}
+{HERO_NAME_KHASAM}, {Khasam},{Khasam}
+{HERO_NAME_ROXANA}, {Roxana},{Roxana}
+{HERO_NAME_CHARITY}, {Charity},{Charity}
+{HERO_NAME_RANLOO}, {Ranloo},{Ranloo}
+{HERO_NAME_SANDRO}, {Sandro},{Sandro}
+
+<-- Castle types -->
+{CASTLE_TYPE_RANDOM},{Random},{Náhodne}
+{CASTLE_TYPE_CITADEL},{Citadel},{Citadela}
+{CASTLE_TYPE_STRONGHOLD},{Stronghold},{Pevnosť}
+{CASTLE_TYPE_TOWER},{Tower},{Veža}
+{CASTLE_TYPE_DUNGEON},{Dungeon},{Podzemie}
+{CASTLE_TYPE_FORTRESS},{Fortress},{Opevnenie}
+{CASTLE_TYPE_NECROPOLIS},{Necropolis},{Nekropola}
+
+<-- Castle sizes -->
+{CASTLE_SIZE_SMALL},{Small},{Malý}
+{CASTLE_SIZE_MEDIUM},{Medium},{Stredný}
+{CASTLE_SIZE_LARGE},{Large},{Veľký}
+
+<------------------------------------->
+<-- Titles for castle constructions -->
+<------------------------------------->
+
+<-- Citadel dwellings -->
+{DWEL_CITD_L1},{Peasants' Hut},{Sedliacky dom}
+{DWEL_CITD_L2},{Archers' Tower},{Lukostrelecká veža}
+{DWEL_CITD_L3},{Guardhouse},{Strážnica}
+{DWEL_CITD_L4},{Barracks},{Kasáreň}
+{DWEL_CITD_L5},{Jousting Arena},{Aréna}
+{DWEL_CITD_L6},{Cathedral},{Katedrála}
+
+<-- Stronghold dwellings -->
+{DWEL_STRH_L1},{Goblin Barracks},{Barák škriatkov}
+{DWEL_STRH_L2},{Orc Tower},{Veža orkov}
+{DWEL_STRH_L3},{Wolf Den},{Vlčia nora}
+{DWEL_STRH_L4},{Ogre fort},{Prýbytok ľudožrútov}
+{DWEL_STRH_L5},{Troll Bridge},{Trolí most}
+{DWEL_STRH_L6},{Cyclops Cave},{Jaskyňa kyklopov}
+
+<-- Tower dwellings -->
+{DWEL_TOWR_L1},{Halflings' Hut},{Hobitín}
+{DWEL_TOWR_L2},{Boar Pen},{Chliev}
+{DWEL_TOWR_L3},{Golem Factory},{Továreň na golemov}
+{DWEL_TOWR_L4},{Cliff Nest},{Hniezo na útese}
+{DWEL_TOWR_L5},{Mage Tower},{Veža mágov}
+{DWEL_TOWR_L6},{Cloud Castle},{Oblačný zámok}
+
+<-- Dungeon dwellings -->
+{DWEL_DUNG_L1},{Centaurs' Cave},{Jaskyňa kentaurov}
+{DWEL_DUNG_L2},{Crypt},{Krypta}
+{DWEL_DUNG_L3},{Griffin Tower},{Gryfinia veža}
+{DWEL_DUNG_L4},{Labyrinth},{Labyrint}
+{DWEL_DUNG_L5},{Hydra Pond},{Bažina}
+{DWEL_DUNG_L6},{Dragon Cave},{Dračia jaskyňa}
+
+<-- Fortress dwellings -->
+{DWEL_FORT_L1},{Treehouse},{Stromový príbytok}
+{DWEL_FORT_L2},{Dwarf Cottage},{Trpaslíčia chalupa}
+{DWEL_FORT_L3},{Homestead},{Farma}
+{DWEL_FORT_L4},{Stonehenge},{Stonehenge}
+{DWEL_FORT_L5},{Unicorn Glade},{Výbeh jednorožcov}
+{DWEL_FORT_L6},{Red Tower},{Červená veža}
+
+<-- Necropolis dwellings -->
+{DWEL_NECR_L1},{Excavation},{Jama}
+{DWEL_NECR_L2},{Graveyard},{Cintorín}
+{DWEL_NECR_L3},{Pyramid},{Pyramída}
+{DWEL_NECR_L4},{Mansion},{Zámoček}
+{DWEL_NECR_L5},{Mausoleum},{Mauzóleum}
+{DWEL_NECR_L6},{Laboratory},{Laboratórium}
+
+<-- Common castle contructions -->
+{CTLCNST_COMMON_MGUILD1},{Mage Guild 1},{Spolok mágov 1}
+{CTLCNST_COMMON_MGUILD2},{Mage Guild 2},{Spolok mágov 2}
+{CTLCNST_COMMON_MGUILD3},{Mage Guild 3},{Spolok mágov 3}
+{CTLCNST_COMMON_MGUILD4},{Mage Guild 4},{Spolok mágov 4}
+{CTLCNST_COMMON_MGUILD5},{Mage Guild 5},{Spolok mágov 5}
+{CTLCNST_COMMON_MNODE},{Magic Node},{Magický uzol}
+{CTLCNST_COMMON_TAVERN},{Tavern},{Hostinec}
+{CTLCNST_COMMON_MARKET},{Marketplace},{Tržnica}
+{CTLCNST_COMMON_TOWNHALL},{Town Hall},{Radnica}
+{CTLCNST_COMMON_CITYHALL},{City Hall},{Magistrát}
+{CTLCNST_COMMON_OREMINE},{Ore Mine},{Kameňolom}
+{CTLCNST_COMMON_SAWMILL},{Sawmill},{Píla}
+{CTLCNST_COMMON_ALCHLAB}, {Alchemist's Lab}, {Laboratórium alchymistu}
+{CTLCNST_COMMON_GEMSMINE}, {Gems Mine}, {Baňa na drahokamy}
+{CTLCNST_COMMON_CRYSTALMINE}, {Crystal Mine}, {Baňa na kryštály}
+{CTLCNST_COMMON_SULFURMINE}, {Sulfur Mine}, {Sírna baňa}
+{CTLCNST_COMMON_MOAT},{Moat},{Priekopa}
+{CTLCNST_COMMON_MTURRET},{Main Turret},{Hlavná veža}
+{CTLCNST_COMMON_LTURRET},{Left Turret},{Ľavá veža}
+{CTLCNST_COMMON_RTURRET},{Right Turret},{Pravá veža}
+
+{CTLCNST_SHOOTINGRANGE},{Shooting Range},{Strelnica}
+{CTLCNST_MESSHALL},{Mess Hall},{Modlitebňa}
+{CTLCNST_OAKWOOD},{Oak Wood},{Dub}
+{CTLCNST_WATERFALL},{Waterfall},{Vodopád}
+{CTLCNST_MINERSGUILD},{Miners' Guild},{Cech baníkov}
+{CTLCNST_UNEARTHEDGRAVES},{Unearthed Graves},{Vykopané Hroby}
+
+{CTLCNST_OBSERVPOST},{Lookout Tower},{Vyhliadková veža}
+{CTLCNST_FORTIFICATION},{Fortificaions},{Opevnenie}
+{CTLCNST_HALLOFVALHALLA},{Hall of Valhalla},{Hala Valhaly}
+{CTLCNST_ADOBE},{Adobe},{Chatrč}
+{CTLCNST_WALLOFKNOWLEDGE},{Wall of Knowledge},{Hradba Vedomostí}
+{CTLCNST_LIBRARY},{Library},{Knižnica}
+{CTLCNST_ALTAR},{Altar},{Oltár}
+{CTLCNST_MANAVORTEX},{Mana Vortex},{Vír many}
+{CTLCNST_TREASURY},{Treasury},{Pokladnica}
+{CTLCNST_MYSTICPOUND},{Mystic Pond},{Magický rybník}
+{CTLCNST_NECRAMPLIFIER},{Necromancy Amplifier},{Zosilovač nekromancie}
+{CTLCNST_COVEROFDARKNESS},{Cover of Darkness},{Príkrov temnôt}
+
+
+<------------------------------------------>
+<-- Description for castle constructions -->
+<------------------------------------------>
+{CTLCNST_DWELLINGS_DESC},{The %s allows you to recruit %s.},{%s umožňuje najímanie %s.}
+{CTLCNST_COMMON_MGUILD_DESC},{Entering the Mage Guild will allow a visiting hero to learn the spells kept within.},{Vstupom do Spolku mágov umožníš hrdinovi naučiť sa kúzla, ktoré sú tam strážené (závisí na hrdinovych schopnostiach).}
+{CTLCNST_COMMON_MNODE_DESC},{Restores 1 mana point each day for all friendly heroes.},{Vštkým spriateleným hrdinom regeneruje 1 extra manu denne.}
+{CTLCNST_COMMON_TAVERN_DESC},{The Tavern allows you hire Heroes and increases morale for troops defending the city.},{V hostinci možeš najímať hrdinov. Hostinec zároveň zvyšuje morálku jednotiek brániacich mesto.}
+{CTLCNST_COMMON_MARKET_DESC},{Within the Marketplace, you can buy and sell resources (exchange rates increase with each Marketplace you own).},{Na tržnici možeš obchodovať so svojimi zdrojmi (výmenný kurz závisí na počte tržníc, ktoré vlastníš).}
+{CTLCNST_COMMON_TOWNHALL_DESC},{The Town Hall increases your kingdom revenue by 500 gold per day},{Radnica zvyšuje výnosy kráľovstva o 500 zlata denne.}
+{CTLCNST_COMMON_CITYHALL_DESC},{The City Hall increases your kingdom revenue by 1500 gold per day},{Magistrát zvyšuje výnosy kráľovstva o 1500 zlata denne.}
+{CTLCNST_COMMON_OREMINE_DESC},{The Ore Mine provides you with an additional +1 ore each day.},{Kameňolom poskytuje kráľovstvu 1 kameň denne.}
+{CTLCNST_COMMON_SAWMILL_DESC},{The Sawmill provides you with an additional +1 wood each day.},{Píla ti poskytuje každý deň 1 jednotku dreva.}
+{CTLCNST_COMMON_ALCHLAB_DESC}, {The Alchemist's Lab provides you with an additional +1 mercury each day.}, {Alchymistické laboratórium ťa každý deň zásobuje 1 jednotkou ortuti.}
+{CTLCNST_COMMON_GEMSMINE_DESC}, {The Gems Mine provides you with an additional +1 gems each day.}, {Baňa na Drahokamy ťa každý deň zásobuje 1 drahokamom.}
+{CTLCNST_COMMON_CRYSTALMINE_DESC}, {The Crystal Mine provides you with an additional +1 crystal each day.}, {Baňa na Kryštály ťa každý deň zásobuje 1 kryštálom.}
+{CTLCNST_COMMON_SULFURMINE_DESC}, {The Sulfur Mine provides you with an additional +1 sulfur each day.}, {Sírna baňa ťa každý deň zásobuje 1 sírou.}
+
+{CTLCNST_COMMON_MOAT_DESC},{The Moat slows attacking units. Any unit entering the moat must end its turn there and becomes more vulnerable to attack.},{Priekopa spomaľuje útočiace jednotky. Ktorákoľvek jednotka, ktorá do priekopy vstúpi, ukončí svoj postup a stane sa zraniteľnejšou voči útoku.}
+{CTLCNST_COMMON_MTURRET_DESC},{The Main Turret provides extra firepower during castle combat.},{Hlavná veža poskytuje extra palebnú silu pri obliehaní.}
+{CTLCNST_COMMON_LTURRET_DESC},{The Left Turret provides extra firepower during castle combat.},{Ľavá veža poskytuje extra palebnú silu pri obliehaní.}
+{CTLCNST_COMMON_RTURRET_DESC},{The Right Turret provides extra firepower during castle combat.},{Pravá veža poskytuje extra palebnú silu pri obliehaní.}
+
+{CTLCNST_DWELL_ENC_DESC},{The %s increases %s production by %d per week.},{%s zvyšuje prírastok %s o %d týždenne.}
+
+{CTLCNST_OBSERVPOST_DESC},{The Lookout Tower extends the visible distance around your city, and all you heroes receive +5 travel points bonus.},{Vyhliadková veža zvýši rozhľad v okolí mesta a všetci tvoji hrdinovia získajú 5 krokov na cestovanie ako bonus.}
+{CTLCNST_FORTIFICATION_DESC},{Fortifications improve the durability of castle walls during a siege.},{Opevnenie vylepší oddolnosť hradných múrov počas obliehania.}
+{CTLCNST_HALLOFVALHALLA_DESC},{The Hall of Valhalla increases the Attack skill of any visiting hero by +1.},{Hala Valhaly zvýši každému návštevníkovi schopnosť Útoku o 1.}
+{CTLCNST_WALLOFKNOWLEDGE_DESC},{The Wall of Knowledge increases the Knowledge of any visiting hero by +1.},{Hradba Vedomostí zvýši Vedomosti každého návštevníka o 1.}
+{CTLCNST_LIBRARY_DESC},{The Library randomly changes some of the spells in your magic guild at the beginning of each month.},{Knižnica na začiatku každého mesiaca náhodne mení niektoré kúzla v Spolku mágov.}
+{CTLCNST_ALTAR_DESC},{The Altar increases your kingdom revenue by 1000 gold per day},{Oltár zvýši výnosy tvojho kráľovstva o 1000 zlata denne.}
+{CTLCNST_MANAVORTEX_DESC},{The Mana Vortex temporarily doubles spell points for visiting hero.},{Vír many dočasne zdvojnásobí množstvo many na čarovanie hrdinovi, ktorý mesto navštívi.}
+{CTLCNST_TREASURY_DESC},{The Treasury adds 10% interest on any gold you have at the start of each week.},{Pokladnica pridá každý týždeň 10% zlata k množstvu, ktoré máš na začiatku týždňa.}
+{CTLCNST_MYSTICPOUND_DESC},{The Mystic Pond produces a small random number of resources each week.},{Magický rybník každý týždeň náhodne produkuje malé množstvo zdrojov.}
+{CTLCNST_NECRAMPLIFIER_DESC},{The Necromancy Amplifier increases the Necromancy skill of all heroes you control (with Necromancy skill) by 10%.},{Zosilovač nekromancie zvyšuje umenie nekromancie všetkých tvojich hrdinov (ovládajúcich toto umenie) o 10%.}
+{CTLCNST_COVEROFDARKNESS_DESC},{The Cover of Darkness covers your city with a permanent shroud to all other players.},{Príkrov temnôt kryje tvoje mesto pred pohľadmi ostatných hráčov.}
+
+{CTLCNST_MYSTICPOUND_NPROD},{The pond has not produced anything yet.},{Rybník ešte nič nevyplavil.}
+{CTLCNST_MYSTICPOUND_PROD},{The pond produced %s this week.},{Rybník tento týždeň vyplavil %s.}
+
+<-------------------------->
+<-- Titles for Artifacts -->
+<-------------------------->
+{ART_SILVERSWORD}, {Silver Sword}, {Strieborný meč}
+{ART_PEASANTSSICKLE},{Peasant's Sickle},{Sedliacky kosák}
+{ART_PLATE}, {Knight's Breastplate}, {Rytierske brnenie}
+{ART_DRAGONSHIELD}, {Dragon Shield}, {Dračí štít}
+{ART_MONKSRING}, {Monk's Ring}, {Prsteň mnícha}
+{ART_WITCHSBROOCH}, {Witch's Brooch of Magic}, {Brož čarodejnice}
+{ART_MINORSCROLLOFKNOWLEDGE},{Minor Scroll of Knowledge},{Malý zvitok Vedomostí}
+{ART_PARCHMENTSCROLL},{Parchment Scroll},{Pergamen}
+{ART_PENDANTOFWISDOM},{Pendant of Wisdom},{Prívesok múdrosti}
+{ART_MEDAL}, {Medal of Honor}, {Vyznamenanie}
+{ART_MEDALOFDISTINCTION}, {Medal of Distinction}, {Medaila hrdinstva}
+{ART_LUCKYDICE}, {Lucky Dice}, {Šťastná kocka}
+{ART_CLOVER}, {Clover of Luck}, {Štvorlístok}
+{ART_SILVERBIRDOFLUCK}, {Silver Bird Of Luck}, {Strieborný vták šťasteny}
+{ART_LONGBOW}, {Long Bow}, {Dlhý luk}
+{ART_NECROMANCERSRING}, {Necromancer's Ring}, {Prsteň nekromancera}
+{ART_TELESCOPE}, {Telescope}, {Teleskop}
+{ART_PROTECTIVECLOAKAIR}, {Protective Cloak of Air}, {Plášť ochrany pred vzduchom}
+{ART_PROTECTIVECLOAKEARTH}, {Protective Cloak of Earth}, {Plášť ochrany pred zemou}
+{ART_PROTECTIVECLOAKFIRE}, {Protective Cloak of Fire}, {Plášť ochrany pred ohňom}
+{ART_PROTECTIVECLOAKWATER}, {Protective Cloak of Water}, {Plášť ochrany pred vodou}
+{ART_JAROFMANA}, {Jar of Mana}, {Pohár many}
+
+{ART_POWERAXE}, {Power Axe}, {Mohutná sekera}
+{ART_HELM}, {Warrior's Helmet}, {Helma bojovníka}
+{ART_CASTERSBRACELET}, {Caster's Bracelet of Magic}, {Magický náramok}
+{ART_SCROLLOFENLIGHTENMENT},{Scroll of Enlightenment}, {Zvitok osvietenia}
+{ART_SPIKEDHELM}, {Spiked Helm}, {Špicatá helma}
+{ART_RING}, {Sage's Ring}, {Prsteň mudrca}
+{ART_WHITEPEARLNECKLACE}, {White Pearl Necklace}, {Náhrdelník z bielych perál}
+{ART_GOLDENBIRDOFLUCK}, {Golden Bird of Luck}, {Zlatý vták šťasteny}
+{ART_CARTOFORE}, {Endless Cart of Ore}, {Nekonečný vozík kameňa}
+{ART_CORDOFWOOD}, {Endless Cord of Wood}, {Nekonečný náklad dreva}
+{ART_RINGOFLIFE}, {Ring of Life}, {Prsteň života}
+{ART_PENDANTOFLIFE}, {Pendant of Life}, {Prívesok života}
+{ART_ELFSLONGBOW}, {Elf's Longbow}, {Elfí luk}
+{ART_VAMPIRESCOWL}, {Vampire's Cowl}, {Rúcho vampíra}
+{ART_BOOTS}, {Traveler's Boots}, {Obuv cestovateľa}
+{ART_DIPLOMATSQUILL}, {Diplomat's Quill}, {Brko diplomata}
+{ART_PROTECTIVECLOAK}, {Cloak of Resistance}, {Plášť oddolnosti}
+{ART_CLOCKOFSWIFTNESS}, {Clock of Swiftness}, {Hodiny rýchlosti}
+
+{ART_SWORD}, {Enchanted Sword}, {Vylepšený meč}
+{ART_ARMOROFMIGHT}, {Armor of Might}, {Brnenie moci}
+{ART_RINGOFPOWER}, {Ring of Power}, {Prsteň sily}
+{ART_TOMEOFKNOWLEDGE},{Tome of Knowledge},{Kniha Vedomostí}
+{ART_ANCIENTBROADSWORD}, {Ancient Broadsword}, {Starodávny široký meč}
+{ART_SHIELD}, {Dwarf's Shield}, {Trpaslíči štít}
+{ART_PALADINSSHIELD}, {Paladin's Shield}, {Štít paladina}
+{ART_STAFF}, {Staff of Wizardy}, {Kúzelnícka palička}
+{ART_SUPSCROLL}, {Major Scroll of Knowledge}, {Veľký zvitok Vedomosti}
+{ART_BOOKOFWISDOM}, {Book of Wisdom}, {Kniha Múdrosti}
+{ART_ECLIPSE}, {Eclipse}, {Eklipsa}
+{ART_SNAKEBRACELET}, {Snake Bracelet}, {Hadí náramok}
+{ART_BLACKPEARLNECKLACE}, {Black Pearl Necklace}, {Náhrdelník z čiernych perál}
+{ART_PENDANTOFOMNISCIENCE},{Pendant of Omniscience},{Vševedov prívesok}
+{ART_RINGOFPERPETUITY},{Ring of Perpetuity},{Prsteň večnosti}
+{ART_CROSSBOW},{Crossbow},{Kuša}
+{ART_NECROMANCERSSWORD},{Necromancer's Sword},{Meč nekromancera}
+{ART_PURSEOFGOLD}, {Endless Purse of Gold}, {Bezodná zlatá pokladnica}
+{ART_BAGOFGOLD}, {Endless Bag of Gold}, {Bezodný mešec zlata}
+{ART_AMULETOFWEALTH}, {Amulet of Wealth}, {Amulet bohatstva}
+{ART_VIALOFMERCURY}, {Endless Vial of Mercury}, {Bezodná ampulka ortuti}
+{ART_POUCHOFGEMS}, {Endless Pouch of Gems}, {Bezodné vrecko drahokamov}
+{ART_SULFURRING}, {Sulfur Ring}, {Prsteň síry}
+{ART_CRYSTALROSE}, {Crystal Rose}, {Kryštálová ruža}
+{ART_NOMADBOOTS}, {Nomad Boots}, {Kočovnícka obuv}
+
+{ART_LONGSWORD}, {Long Sword}, {Dlhý meč}
+{ART_HEROSSHIELD}, {Hero's Shield}, {Štít hrdinu}
+{ART_PRECURSORSHELMET}, {Precursor's Helmet}, {Helma následníka}
+{ART_WIZARDSHAT}, {Wizard's Hat}, {Kúzelníkov klobúk}
+{ART_SWORDBREAKER}, {Swordbreaker}, {Mečolam}
+{ART_WARLOCKSNECKLACE}, {Warlock's Necklace}, {Náhrdelník temného pána}
+{ART_SPHEREOFNEGATION}, {Sphere of Negation}, {Sféra negácie}
+{ART_SORCERERSWAND}, {Sorcerer's Wand}, {Bosorácka palička}
+{ART_SHAKLESOFWAR}, {Shackles of War}, {Putá vojny}
+{ART_ULTIMATE}, {Conqueror's Crown}, {Koruna dobyvateľa}
+
+{ART_THROWINGAXE},{Throwing Axe},{!_NOT_TRANSLATED_!}
+{ART_GOBLINSSHIELD},{Goblin's Shield},{!_NOT_TRANSLATED_!}
+{ART_CASTERSPENDANT},{Caster's Pendant},{!_NOT_TRANSLATED_!}
+{ART_SWORDOFCURSED},{Sword of the Cursed},{!_NOT_TRANSLATED_!}
+
+<-------------------------------->
+<-- Descriptions for Artifacts -->
+<-------------------------------->
+{ART_SILVERSWORD_DESC}, {Increases your Attack skill by 1.}, {Zvýši Útok hrdinu o 1.}
+{ART_PEASANTSSICKLE_DESC}, {Increases your Attack skill by 1.}, {Zvýši Útok hrdinu o 1.}
+{ART_PLATE_DESC}, {Increases your Defense skill by 1.}, {Zvýši hrdinovu schopnosť Obrany o 1.}
+{ART_DRAGONSHIELD_DESC}, {Increases your Defense skill by 1.}, {Zvýši hrdinovu schopnosť Obrany o 1.}
+{ART_MONKSRING_DESC}, {Increases your Spell Power by 1.}, {Pridá 1 bod k Magickej sile hrdinu.}
+{ART_WITCHSBROOCH_DESC}, {Increases your Spell Power by 1.}, {Pridá 1 bod k Magickej sile hrdinu.}
+{ART_MINORSCROLLOFKNOWLEDGE_DESC},{Increases your Knowledge by 1.}, {Zvýši hrdinove Vedomosti o 1 bod.}
+{ART_PARCHMENTSCROLL_DESC},{Increases your Knowledge by 1.}, {Zvýši hrdinove Vedomosti o 1 bod.}
+{ART_PENDANTOFWISDOM_DESC},{Increases your Knowledge by 1.}, {Zvýši hrdinove Vedomosti o 1 bod.}
+{ART_MEDAL_DESC}, {Increases your Morale by 1.}, {Zvyšuje morálku jednotiek v boji o 1.}
+{ART_MEDALOFDISTINCTION_DESC}, {Increases your Morale by 1.}, {Zvyšuje morálku jednotiek v boji o 1.}
+{ART_LUCKYDICE_DESC}, {Increases your Luck by 1.}, {Zvyšuje šťastie jednotiek v boji o 1.}
+{ART_CLOVER_DESC}, {Increases your Luck by 1.}, {Zvyšuje šťastie jednotiek v boji o 1.}
+{ART_SILVERBIRDOFLUCK_DESC}, {Increases your Luck by 1.}, {Zvyšuje šťastie jednotiek v boji o 1.}
+{ART_LONGBOW_DESC}, {Increases your Archery skill by 5%.}, {Zvyšuje umenie Lukostreľby o 5%.}
+{ART_NECROMANCERSRING_DESC}, {Increases your Necromancy skill by 5%.}, {Zvyšuje umenie Nekromancie o 5%.}
+{ART_TELESCOPE_DESC}, {Allows your hero to see 1 square further into the shroud.},{Umožňuje tvojmu hrdinovi vidieť o jedno pole ďalej do temnôt.}
+{ART_PROTECTIVECLOAKAIR_DESC}, {Reduces damage by 30% received from Air spells.},{Znižuje poškodenie tvojich jednotiek spôsobené Vzdušnými kúzlami o 30%.}
+{ART_PROTECTIVECLOAKEARTH_DESC}, {Reduces damage by 30% received from Earth spells.},{Znižuje poškodenie tvojich jednotiek spôsobené Zemskými kúzlami o 30%.}
+{ART_PROTECTIVECLOAKFIRE_DESC}, {Reduces damage by 30% received from Fire spells.},{Znižuje poškodenie tvojich jednotiek spôsobené Ohnivými kúzlami o 30%.}
+{ART_PROTECTIVECLOAKWATER_DESC}, {Reduces damage by 30% received from Water spells.},{Znižuje poškodenie tvojich jednotiek spôsobené Vodnými kúzlami o 30%.}
+{ART_JAROFMANA_DESC}, {Recovers 2 extra spell points per day.}, {Denne regeneruje hrdinovi o 2 body na čarovanie viac.}
+
+{ART_POWERAXE_DESC}, {Increases your Attack skill by 2.},{!_NOT_TRANSLATED_!}
+{ART_HELM_DESC}, {Increases your Defense skill by 2.}, {Zvýši hrdinovu schopnosť Obrany o 2.}
+{ART_CASTERSBRACELET_DESC}, {Increases your Spell Power by 2.}, {Pridá 2 body k Magickej sile hrdinu.}
+{ART_SCROLLOFENLIGHTENMENT_DESC},{Increases your Knowledge by 2.}, {Zvýši hrdinove Vedomosti o 2 body.}
+{ART_SPIKEDHELM_DESC}, {Increases your Attack and Defense skills by 1.}, {Zvýši hrdinov Útok a Obranu o 1.}
+{ART_RING_DESC}, {Increases your Spell Power and Knowledge by 1.}, {Pridá 1 bod k Magickej sile a Vedomostiam hrdinu.}
+{ART_WHITEPEARLNECKLACE_DESC}, {Increases your Spell Power and Knowledge by 1.}, {Pridá 1 bod k Magickej sile a Vedomostiam hrdinu.}
+{ART_GOLDENBIRDOFLUCK_DESC}, {Increases your Luck by 2.}, {Zvyšuje šťastie jednotiek v boji o 2.}
+{ART_CARTOFORE_DESC}, {Provides you with an additional +1 Ore per day.}, {Každý deň pridá k tvojej produkcii 1 kameň navyše.}
+{ART_CORDOFWOOD_DESC}, {Provides you with an additional +1 wood per day.}, {Každý deň pridá k tvojej produkcii 1 drevo navyše.}
+{ART_RINGOFLIFE_DESC}, {Increases the health of all your units by 1.}, {Zvyšuje zdravie všetkých jednotiek o 1.}
+{ART_PENDANTOFLIFE_DESC}, {Increases the health of all your units by 2.}, {Zvyšuje zdravie všetkých jednotiek o 2.}
+{ART_ELFSLONGBOW_DESC}, {Increases your Archery skill by 10%.}, {Zvyšuje umenie Lukostreľby o 10%.}
+{ART_VAMPIRESCOWL_DESC}, {Increases your Necromancy skill by 10%.}, {Zvyšuje umenie Nekromancie o 10%.}
+{ART_BOOTS_DESC}, {Increases your movement over land by 20 points.}, { Zvyšuje tvoju pohyblivosť po krajine o 20 krokov.}
+{ART_DIPLOMATSQUILL_DESC}, {Reduces the cost of surrendering by 20%.},{Znižuje cenu Vykúpenia z boja o 20%.}
+{ART_PROTECTIVECLOAK_DESC}, {Increases your Magic Resistance by 10%.}, {Zvyšuje tvoju Oddolnosť voči mágii o 10%.}
+{ART_CLOCKOFSWIFTNESS_DESC}, {Increases the combat speed of all your units by 1.}, {Zvyšuje rýchlosť všetkých tvojich jednotiek v boji o 1.}
+
+{ART_SWORD_DESC}, {Increases your Attack skill by 3.}, {Zvýši Útok hrdinu o 3.}
+{ART_ARMOROFMIGHT_DESC}, {Increases your Defense skill by 3.}, {Zvýši hrdinovu schopnosť Obrany o 3.}
+{ART_RINGOFPOWER_DESC}, {Increases your Spell Power by 3.}, {Pridá 3 body k Magickej sile hrdinu.}
+{ART_TOMEOFKNOWLEDGE_DESC},{Increases your Knowledge by 3.}, {Zvýši hrdinove Vedomosti o 3 body.}
+{ART_ANCIENTBROADSWORD_DESC}, {Increases your Attack skill by 4.}, {Zvýši Útok hrdinu o 4.}
+{ART_SHIELD_DESC}, {Increases your Defense skill by 4.}, {Zvýši Obranu o 4.}
+{ART_PALADINSSHIELD_DESC}, {Increases your Defense skill by 4.}, {Zvýši Obranu o 4.}
+{ART_STAFF_DESC}, {Increases your Spell Power by 4.}, {Pridá 4 body k Magickej sile hrdinu.}
+{ART_SUPSCROLL_DESC}, {Increases your Knowledge by 4.}, {Pridá 4 body k Magickej sile hrdinu.}
+{ART_BOOKOFWISDOM_DESC}, {Increases your Knowledge by 4.}, {Zvýši Vedomosti o 4 body.}
+{ART_ECLIPSE_DESC}, {Increases your Attack and Defense skills by 2.}, {Pridá 2 body k Sile a Obrane.}
+{ART_SNAKEBRACELET_DESC}, {Increases your Spell Power and Knowledge by 2.}, {Pridá 2 body k Magickej sile a Vedomostiam.}
+{ART_BLACKPEARLNECKLACE_DESC}, {Increases your Spell Power and Knowledge by 2.}, {Pridá 2 body k Magickej sile a Vedomostiam.}
+{ART_PENDANTOFOMNISCIENCE_DESC}, {Increases your Attack skill, Defense skill, Spell Power, and Knowledge by 1.}, {Zvyšuje všetky primárne vlastnosti hrdinu o 1.}
+{ART_RINGOFPERPETUITY_DESC}, {Increases the health of all your units by 3.}, {Zvyšuje zdravie všetkých jednotiek o 3.}
+{ART_CROSSBOW_DESC}, {Increases your Archery skill by 15%.}, {Zvyšuje umenie Lukostreľby o 15%.}
+{ART_NECROMANCERSSWORD_DESC}, {Increases your Necromancy skill by 15%.}, {Zvyšuje umenie Nekromancie o 15%.}
+{ART_PURSEOFGOLD_DESC}, {Increases your income by 500 gold per day.}, {Zvýši tvoje príjmy o 500 zlata denne.}
+{ART_BAGOFGOLD_DESC}, {Increases your income by 750 gold per day.}, {Zvýši tvoje príjmy o 750 zlata denne.}
+{ART_AMULETOFWEALTH_DESC}, {Increases your income by 1000 gold per day.}, {Zvýši tvoje príjmy o 1000 zlata denne.}
+{ART_VIALOFMERCURY_DESC}, {Provides you with an additional +1 Mercury per day.}, {Každý deň ťa zásobuje 1 ortuťou navyše.}
+{ART_POUCHOFGEMS_DESC}, {Provides you with an additional +1 Gems per day.}, {Každý deň ťa zásobuje 1 drahokamom navyše.}
+{ART_SULFURRING_DESC}, {Provides you with an additional +1 Sulfur per day.}, {Každý deň ťa zásobuje 1 sírou navyše.}
+{ART_CRYSTALROSE_DESC}, {Provides you with an additional +1 Crystal per day.}, {Každý deň ťa zásobuje 1 kryštálom navyše.}
+{ART_NOMADBOOTS_DESC}, {Increases your movement over land by 30 points.}, {Zvyšuje tvoju pohyblivosť po krajine o 30 krokov.}
+
+{ART_LONGSWORD_DESC}, {Increases your Attack skill by 6.}, {Zvýši Útok o 6.}
+{ART_HEROSSHIELD_DESC}, {Increases your Defense skill by 6.}, {Zvýši Obranu o 6.}
+{ART_PRECURSORSHELMET_DESC}, {Increases your Spell Power by 6.}, {Pridá 6 bodov k Magickej sile hrdinu.}
+{ART_WIZARDSHAT_DESC}, {Increases your Knowledge by 6.}, {Zvýši Vedomosti o 6 bodov.}
+{ART_SWORDBREAKER_DESC}, {Increases your Attack and Defense skills by 3.}, {Zvýši hrdinov Útok a Obranu o 3.}
+{ART_WARLOCKSNECKLACE_DESC}, {Increases your Spell Power and Knowledge by 3.}, {Zvýši tvoju Magickú silu a Vedomosti o 3.}
+{ART_SORCERERSWAND_DESC}, {Increases your Attack skill, Defense skill, Spell Power, and Knowledge by 2.}, {Zvyšuje tvoje primárne vlastnosti o 2.}
+{ART_SHAKLESOFWAR_DESC}, {Neither you nor your opponent may retreat or surrender.}, {Ty, ani tvoj protivník nemôžete utiecť z boja ani sa vykúpiť.}
+{ART_SPHEREOFNEGATION_DESC}, {Prevents all spell casting in combat.}, {Znemožňuje akékoľvek čarovanie počas boja.}
+
+{ART_ULTIMATE_DESC},{Each hero type receives their special bonuses...}, {Každý typ hrdinu získa svoje špeciálne bonusy...}
+{ART_ULTIMATE_DESC_01},{Increases your income by 5000 gold per day. Increases your hero's Attack skill, Defense skill, Spell Power, and Knowledge by +4. Increases your hero's movement points over land by +10%. Increases the combat speed of all your units by +2.}, {Zvýši tvoje príjmy o 5000 zlata za deň. Pridá 4 body ku všetkým primárnym vlastnostiam tvojho hrdinu. Hrdina získa o 10% viac krokov pri cestovaní krajinou. Rýchlosť všetkých jednotiek v boji sa zvýši o 2.}
+{ART_ULTIMATE_DESC_02},{Increases your income by 5000 gold per day. Increases your hero's Attack skill, Defense skill, Spell Power, and Knowledge by +4. Endows a hero's troops with 50% magic resistance. Allows your troops shoot through any obstacle or at any range without penalty.}, {Zvýši tvoje príjmy o 5000 zlata za deň. Pridá 4 body k všetkým primárnym vlastnostiam tvojho hrdinu. Hrdinove jednotky získavajú 50% odolnosť voči mágii a strelecké jednotky získavajú schopnosť streľby bez penále na akúkoľvek vzdialenosť a cez akékoľvek prekážky.}
+{ART_ULTIMATE_DESC_03},{Increases your income by 5000 gold per day. Increases your hero's Attack skill and Defense skill +4, Spell Power and Knowledge by +6. Increases effectiveness of resurrect and summon spells by 50%. }, {Zvýši tvoje príjmy o 5000 zlata za deň. Pridá 4 body k hrdinovmu Útoku a Obrane a 6 bodov k Magickej sile a Vedomostiam. Zvýši účinok všetkých oživovacích a vyvolávacích kúziel o 50%.}
+{ART_ULTIMATE_DESC_04},{Increases your income by 5000 gold per day. Increases your hero's Attack skill and Defense skill +4, Spell Power and Knowledge by +6. Regenerates all spell points each day.}, {Zvýši tvoje príjmy o 5000 zlata za deň. Pridá 4 body k hrdinovmu Útoku a Obrane a 6 bodov k Magickej sile a Vedomostiam. Každý deň doplní body na čarovanie.}
+{ART_ULTIMATE_DESC_05},{Increases your income by 5000 gold per day. Increases your hero's Attack skill and Defense skill +4, Spell Power and Knowledge by +6. Increases damage from all destructive spells by 50%.}, {Zvýši tvoje príjmy o 5000 zlata za deň. Pridá 4 body k hrdinovmu Útoku a Obrane a 6 bodov k Magickej sile a Vedomostiam. Zvýši účinok všetkých deštruktívnych kúziel o 50%.}
+{ART_ULTIMATE_DESC_06},{Increases your income by 5000 gold per day. Increases your hero's Attack skill, Defense skill, Spell Power, and Knowledge by +4. Increases your Necromancy skill by 15%. Resurrects battlefield dead as Mummies.}, {Zvýši tvoje príjmy o 5000 zlata za deň. Pridá 4 body k všetkým primárnym vlastnostiam tvojho hrdinu. Hrdinovi zvyši umenie Nekromanice o 15%. Mŕtvych na bojisku oživí ako Múmie.}
+
+{ART_THROWINGAXE_DESC},{Increases your Attack skill by 3.},{!_NOT_TRANSLATED_!}
+{ART_GOBLINSSHIELD_DESC}{Increases your Defense skill by 4.},{!_NOT_TRANSLATED_!}
+{ART_CASTERSPENDANT_DESC},{Increases your Spell Power by 2.},{!_NOT_TRANSLATED_!}
+{ART_SWORDOFCURSED_DESC},{Covers your hero with a permanent shroud to all other players.},{!_NOT_TRANSLATED_!}
+
+<--------------->
+<-- Creatures -->
+<--------------->
+{QUANT_FEW},{Few},{Málo}
+{QUANT_SEVERAL},{Several},{Niekoľko}
+{QUANT_PACK},{Pack},{Skupinka}
+{QUANT_LOTS},{Lots},{Veľa}
+{QUANT_HORDE},{Horde},{Horda}
+{QUANT_THRONG},{Throng},{Dav}
+{QUANT_SWARM},{Swarm},{Húf}
+{QUANT_LEGION},{Legion},{Légia}
+
+{QUANT_FULL_FEW},{a Few},{Málo}
+{QUANT_FULL_SEVERAL},{Several},{Niekoľko}
+{QUANT_FULL_PACK},{a Pack of},{Skupinka}
+{QUANT_FULL_LOTS},{Lots of},{Veľa}
+{QUANT_FULL_HORDE},{a Horde of},{Horda}
+{QUANT_FULL_THRONG},{a Throng of},{Dav}
+{QUANT_FULL_SWARM},{a Swarm of},{Húf}
+{QUANT_FULL_LEGION},{a Legion of},{Légia}
+
+<---------------------------------------------------------------------->
+<-- Creatures (F1: singular, F2: plural, F3: plural + genitive case) -->
+<---------------------------------------------------------------------->
+{CREATURE_PEASANT_F1},{Peasant},{Sedliak}
+{CREATURE_PEASANT_F2},{Peasants},{Sedliaci}
+{CREATURE_PEASANT_F3},{Peasants},{Sedliakov}
+
+{CREATURE_ARCHER_F1},{Archer},{Lučištník}
+{CREATURE_ARCHER_F2},{Archers},{Lučištníci}
+{CREATURE_ARCHER_F3},{Archers},{Lučištníkov}
+
+{CREATURE_PIKEMAN_F1},{Pikeman},{Kopijník}
+{CREATURE_PIKEMAN_F2},{Pikemen},{Kopijníci}
+{CREATURE_PIKEMAN_F3},{Pikemen},{Kopijníkov}
+
+{CREATURE_SWORDSMAN_F1},{Swordsman},{Šermiar}
+{CREATURE_SWORDSMAN_F2},{Swordsmen},{Šermiari}
+{CREATURE_SWORDSMAN_F3},{Swordsmen},{Šermiarov}
+
+{CREATURE_CAVALRY_F1},{Cavalry},{Kavaléria}
+{CREATURE_CAVALRY_F2},{Cavalries},{Kavalérie}
+{CREATURE_CAVALRY_F3},{Cavalries},{Kavalérií}
+
+{CREATURE_PALADIN_F1},{Paladin},{Paladin}
+{CREATURE_PALADIN_F2},{Paladins},{Paladíni}
+{CREATURE_PALADIN_F3},{Paladins},{Paladínov}
+
+{CREATURE_GOBLIN_F1},{Goblin},{Škriatok}
+{CREATURE_GOBLIN_F2},{Goblins},{Škriatkovia}
+{CREATURE_GOBLIN_F3},{Goblins},{Škriatkov}
+
+{CREATURE_ORC_F1},{Orc},{Ork}
+{CREATURE_ORC_F2},{Orcs},{Orkovia}
+{CREATURE_ORC_F3},{Orcs},{Orkov}
+
+{CREATURE_WOLF_F1},{Wolf},{Vlk}
+{CREATURE_WOLF_F2},{Wolves},{Vlci}
+{CREATURE_WOLF_F3},{Wolves},{Vlkov}
+
+{CREATURE_OGRE_F1},{Ogre},{Ľudožrút}
+{CREATURE_OGRE_F2},{Ogres},{Ľudožrúti}
+{CREATURE_OGRE_F3},{Ogres},{Ľudožrútov}
+
+{CREATURE_TROLL_F1},{Troll},{Trol}
+{CREATURE_TROLL_F2},{Trolls},{Trolovia}
+{CREATURE_TROLL_F3},{Trolls},{Trolov}
+
+{CREATURE_CYCLOP_F1},{Cyclops},{Kyklop}
+{CREATURE_CYCLOP_F2},{Cyclopes},{Kyklopi}
+{CREATURE_CYCLOP_F3},{Cyclopes},{Kyklopov}
+
+{CREATURE_HALFLING_F1},{Halfling},{Hobit}
+{CREATURE_HALFLING_F2},{Halflings},{Hobiti}
+{CREATURE_HALFLING_F3},{Halflings},{Hobitov}
+
+{CREATURE_BOAR_F1},{Boar},{Diviak}
+{CREATURE_BOAR_F2},{Boars},{Diviaci}
+{CREATURE_BOAR_F3},{Boars},{Diviakov}
+
+{CREATURE_GOLEM_F1},{Golem},{Golem}
+{CREATURE_GOLEM_F2},{Golems},{Golemy}
+{CREATURE_GOLEM_F3},{Golems},{Golemov}
+
+{CREATURE_ROC_F1},{Roc},{Orol}
+{CREATURE_ROC_F2},{Rocs},{Orly}
+{CREATURE_ROC_F3},{Rocs},{Orlov}
+
+{CREATURE_MAGE_F1},{Mage},{Mág}
+{CREATURE_MAGE_F2},{Mages},{Mágovia}
+{CREATURE_MAGE_F3},{Mages},{Mágov}
+
+{CREATURE_TITAN_F1},{Titan},{Titan}
+{CREATURE_TITAN_F2},{Titans},{Titani}
+{CREATURE_TITAN_F3},{Titans},{Titanov}
+
+{CREATURE_CENTAUR_F1},{Centaur},{Kentaur}
+{CREATURE_CENTAUR_F2},{Centaurs},{Kentaurovia}
+{CREATURE_CENTAUR_F3},{Centaurs},{Kentaurov}
+
+{CREATURE_GARGOYLE_F1},{Gargoyle},{Gargoyl}
+{CREATURE_GARGOYLE_F2},{Gargoyles},{Gargoyly}
+{CREATURE_GARGOYLE_F3},{Gargoyles},{Gargoylov}
+
+{CREATURE_GRIFFIN_F1},{Griffin},{Gryfin}
+{CREATURE_GRIFFIN_F2},{Griffins},{Gryfiny}
+{CREATURE_GRIFFIN_F3},{Griffins},{Gryfinov}
+
+{CREATURE_MINOTAUR_F1},{Minotaur},{Minotaur}
+{CREATURE_MINOTAUR_F2},{Minotaurs},{Minotauri}
+{CREATURE_MINOTAUR_F3},{Minotaurs},{Minotaurov}
+
+{CREATURE_HYDRA_F1},{Hydra},{Hydra}
+{CREATURE_HYDRA_F2},{Hydras},{Hydry}
+{CREATURE_HYDRA_F3},{Hydras},{Hydier}
+
+{CREATURE_BLACKDRAGON_F1},{Black Dragon},{Čierny drak}
+{CREATURE_BLACKDRAGON_F2},{Black Dragons},{Čierni draci}
+{CREATURE_BLACKDRAGON_F3},{Black Dragons},{Čiernych drakov}
+
+{CREATURE_SPRITE_F1},{Sprite},{Víla}
+{CREATURE_SPRITE_F2},{Sprites},{Víly}
+{CREATURE_SPRITE_F3},{Sprites},{Víl}
+
+{CREATURE_DWARF_F1},{Dwarf},{Trpaslík}
+{CREATURE_DWARF_F2},{Dwarves},{Trpaslíci}
+{CREATURE_DWARF_F3},{Dwarves},{Trpaslíkov}
+
+{CREATURE_ELF_F1},{Elf},{Elf}
+{CREATURE_ELF_F2},{Elves},{Elfovia}
+{CREATURE_ELF_F3},{Elves},{Elfov}
+
+{CREATURE_DRUID_F1},{Druid},{Druid}
+{CREATURE_DRUID_F2},{Druids},{Druidi}
+{CREATURE_DRUID_F3},{Druids},{Druidov}
+
+{CREATURE_UNICORN_F1},{Unicorn},{Jednorožec}
+{CREATURE_UNICORN_F2},{Unicorns},{Jednorožci}
+{CREATURE_UNICORN_F3},{Unicorns},{Jednorožcov}
+
+{CREATURE_PHOENIX_F1},{Phoenix},{Fénix}
+{CREATURE_PHOENIX_F2},{Phoenix},{Fénixi}
+{CREATURE_PHOENIX_F3},{Phoenix},{Fénixov}
+
+{CREATURE_SKELETON_F1},{Skeleton},{Kostlivec}
+{CREATURE_SKELETON_F2},{Skeletons},{Kostlivci}
+{CREATURE_SKELETON_F3},{Skeletons},{Kostlivcov}
+
+{CREATURE_ZOMBIE_F1},{Zombie},{Zombík}
+{CREATURE_ZOMBIE_F2},{Zombies},{Zombíci}
+{CREATURE_ZOMBIE_F3},{Zombies},{Zombíkov}
+
+{CREATURE_MUMMY_F1},{Mummy},{Múmia}
+{CREATURE_MUMMY_F2},{Mummies},{Múmie}
+{CREATURE_MUMMY_F3},{Mummies},{Múmií}
+
+{CREATURE_VAMPIRE_F1},{Vampire},{Vampír}
+{CREATURE_VAMPIRE_F2},{Vampires},{Vampíri}
+{CREATURE_VAMPIRE_F3},{Vampires},{Vampírov}
+
+{CREATURE_LICH_F1},{Lich},{Lič}
+{CREATURE_LICH_F2},{Liches},{Liče}
+{CREATURE_LICH_F3},{Liches},{Ličov}
+
+{CREATURE_BONEDRAGON_F1},{Bone Dragon},{Kostený drak}
+{CREATURE_BONEDRAGON_F2},{Bone Dragons},{Kostení draci}
+{CREATURE_BONEDRAGON_F3},{Bone Dragons},{Kostených drakov}
+
+{CREATURE_ROGUE_F1},{Rogue},{Lúpežník}
+{CREATURE_ROGUE_F2},{Rogues},{Lúpežníci}
+{CREATURE_ROGUE_F3},{Rogues},{Lúpežníkov}
+
+{CREATURE_NOMAD_F1},{Nomad},{Nomád}
+{CREATURE_NOMAD_F2},{Nomads},{Nomádi}
+{CREATURE_NOMAD_F3},{Nomads},{Nomádov}
+
+{CREATURE_GHOST_F1},{Ghost},{Duch}
+{CREATURE_GHOST_F2},{Ghosts},{Duchovia}
+{CREATURE_GHOST_F3},{Ghosts},{Duchov}
+
+{CREATURE_GENIE_F1},{Genie},{Džin}
+{CREATURE_GENIE_F2},{Genies},{Džinovia}
+{CREATURE_GENIE_F3},{Genies},{Džinov}
+
+{CREATURE_MEDUSA_F1},{Medusa},{Medúza}
+{CREATURE_MEDUSA_F2},{Medusas},{Medúzy}
+{CREATURE_MEDUSA_F3},{Medusas},{Medúz}
+
+{CREATURE_EARTHELEMENTAL_F1},{Earth Elemental},{Zemský elementál}
+{CREATURE_EARTHELEMENTAL_F2},{Earth Elementals},{Zemskí elementáli}
+{CREATURE_EARTHELEMENTAL_F3},{Earth Elementals},{Zemských elementálov}
+
+{CREATURE_AIRELEMENTAL_F1},{Air Elemental},{Vzdušný elementál}
+{CREATURE_AIRELEMENTAL_F2},{Air Elementals},{Vzdušní elementáli}
+{CREATURE_AIRELEMENTAL_F3},{Air Elementals},{Vzdušných elementálov}
+
+{CREATURE_FIREELEMENTAL_F1},{Fire Elemental},{Ohnivý elementál}
+{CREATURE_FIREELEMENTAL_F2},{Fire Elementals},{Ohniví elementáli}
+{CREATURE_FIREELEMENTAL_F3},{Fire Elementals},{Ohnivých elementálov}
+
+{CREATURE_WATERELEMENTAL_F1},{Water Elemental},{Vodný elementál}
+{CREATURE_WATERELEMENTAL_F2},{Water Elementals},{Vodní elementáli}
+{CREATURE_WATERELEMENTAL_F3},{Water Elementals},{Vodných elementálov}
+
+<------------------------------------>
+<-- Other combat and assault units -->
+<------------------------------------>
+{COMBAT_UNIT_MOAT},{Moat},{Priekopa}
+{COMBAT_UNIT_WALL},{Wall},{Hradba}
+{COMBAT_UNIT_TURRET},{Turret},{Veža}
+{COMBAT_UNIT_BRIDGE},{Bridge},{Most}
+{COMBAT_UNIT_CATAPULT},{Catapult},{Katapult}
+
+<----------------------->
+<-- Perks description -->
+<----------------------->
+{CPERK_DOUBLESHOT},{Gets off two shots in each ranged attack},{Strieľa dvakrát}
+{CPERK_DOUBLEATTACK},{Delivers two blows per attack},{Útočí dvakrát}
+{CPERK_NOMELEEPENALTY},{Suffers no penalty for hand-to-hand attacks},{Pri boji zblízka útočí bez penále}
+{CPERK_NONRETALATTACK},{No enemy retaliation},{Nepriateľ neopätuje útok}
+{CPERK_RETALTOALL},{Counterstrikes an unlimited number of attackers},{Neobmedzený počet odvetných útokov}
+{CPERK_TWOHEXATTACK},{Two hex attack},{Útočí na 2 políčka bojiska}
+{CPERK_ADJACENTATTACK},{Attacks all adjacent enemy troops},{Útočí na všetky okolostojace jednotky}
+{CPERK_LICHSHOOT},{Attacks at range with a death cloud, which always causes damage in the target hex and also attacks all non-undead creatures in adjacent hexes},{Na diaľku útočí Mŕtvolným oblakom, ktorý zasiahne cieľové pole a poškodí aj okolostojace živé jednotky}
+{CPERK_UNDEAD},{Undead creature},{Nemŕtve stvorenie}
+{CPERK_LIFELESS},{Lifeless creature},{Neživý}
+{CPERK_REGENERATES},{Regenerates hit points each round in combat},{V boji na začiatku každého kola doplní svoje životy}
+{CPERK_JOUSTING},{Deals extra impact damage (+5% per hex traveled to creature attacked) when charging into battle},{Spôsobí extra nárazové poškodenie (+5% za každé políčko bojiska prejdené k nepriateľskej jednotke)}
+{CPERK_AIRMAGICIMM},{Immune to Air magic spells},{Odolnosť voči Vzdušným kúzlam}
+{CPERK_EARTHMAGICIMM},{Immune to Earth magic spells},{Odolnosť voči Zemským kúzlam}
+{CPERK_FIREMAGICIMM},{Immune to Fire magic spells},{Odolnosť voči Ohnivým kúzlam}
+{CPERK_WATERMAGICIMM},{Immune to Water magic spells},{Odolnosť voči Vodným kúzlam}
+{CPERK_40PROCRESIST},{Has 40% resistance to magic which gives them a chance to ignore the effects of hostile spell attacks},{40% pravdepodobnosť, že jednotka oddolá nepriatelskému kúzlu}
+{CPERK_QUARTERDMG},{Takes only 25% damage from spell attacks},{Útok kúzlami má účinok iba 25%}
+{CPERK_GHOST},{Killed units become Ghosts},{Zabité jednotky sa premenia na duchov}
+{CPERK_DOHALF},{Has a 10% chance of destroying half of the target group},{10% šanca na zničenie polovice nepriateľskej jednotky}
+{CPERK_DRAINLIFES},{Resurrects members of their own troops by replenishing health equal to the amount of damage they inflict on others},{Oživia členov vlastnej jednotky vysatím takého množstva života z nepriateľa, koľko mu spôsobia poškodenie}
+
+<------------------------------------------------------->
+<-- Castle names (16 names for 6 castles = 96 titles) -->
+<------------------------------------------------------->
+{CASTLE_NAME_01},{Castellatus},{Castellatus}
+{CASTLE_NAME_02},{Starkmauer},{Starkmauer}
+{CASTLE_NAME_03},{Kanan},{Kanan}
+{CASTLE_NAME_04},{Linderhoff},{Linderhoff}
+{CASTLE_NAME_05},{Whitemoon},{Whitemoon}
+{CASTLE_NAME_06},{Yaroslavl},{Yaroslavl}
+{CASTLE_NAME_07},{Middleheim},{Middleheim}
+{CASTLE_NAME_08},{Brettonia},{Brettonia}
+{CASTLE_NAME_09},{Alexandretta},{Alexandretta}
+{CASTLE_NAME_10},{Whitestone},{Whitestone}
+{CASTLE_NAME_11},{Claxton},{Claxton}
+{CASTLE_NAME_12},{Armitage},{Armitage}
+{CASTLE_NAME_13},{Shinnon},{Shinnon}
+{CASTLE_NAME_14},{Gateway},{Gateway}
+{CASTLE_NAME_15},{Dunwall},{Dunwall}
+{CASTLE_NAME_16},{Kildare},{Kildare}
+
+{CASTLE_NAME_17},{Kragg},{Kragg}
+{CASTLE_NAME_18},{Jimstadt},{Jimstadt}
+{CASTLE_NAME_19},{Hartgrim},{Hartgrim}
+{CASTLE_NAME_20},{Sandflash},{Sandflash}
+{CASTLE_NAME_21},{Morganheim},{Morganheim}
+{CASTLE_NAME_22},{Cragmoor},{Cragmoor}
+{CASTLE_NAME_23},{Dragonspire},{Dragonspire}
+{CASTLE_NAME_24},{Battlement},{Battlement}
+{CASTLE_NAME_25},{Bocc},{Bocc}
+{CASTLE_NAME_26},{Slau},{Slau}
+{CASTLE_NAME_27},{Tormina},{Tormina}
+{CASTLE_NAME_28},{Dolere},{Dolere}
+{CASTLE_NAME_29},{Rockwarren},{Rockwarren}
+{CASTLE_NAME_30},{Strongglen},{Strongglen}
+{CASTLE_NAME_31},{Kruber},{Kruber}
+{CASTLE_NAME_32},{Rovener},{Rovener}
+
+{CASTLE_NAME_33},{Tutanberg},{Tutanberg}
+{CASTLE_NAME_34},{Stronggale},{Stronggale}
+{CASTLE_NAME_35},{Corona},{Corona}
+{CASTLE_NAME_36},{Silverwing},{Silverwing}
+{CASTLE_NAME_37},{Facture},{Facture}
+{CASTLE_NAME_38},{Cloudfire},{Cloudfire}
+{CASTLE_NAME_39},{Cloudspire},{Cloudspire}
+{CASTLE_NAME_40},{Equinox},{Equinox}
+{CASTLE_NAME_41},{Athenaeum},{Athenaeum}
+{CASTLE_NAME_42},{Valtara},{Valtara}
+{CASTLE_NAME_43},{Tirith},{Tirith}
+{CASTLE_NAME_44},{Fallen Star},{Fallen Star}
+{CASTLE_NAME_45},{Mystos},{Mystos}
+{CASTLE_NAME_46},{Ayer},{Ayer}
+{CASTLE_NAME_47},{Silverspire},{Silverspire}
+{CASTLE_NAME_48},{Manufactury},{Manufactury}
+
+{CASTLE_NAME_49},{Veks},{Veks}
+{CASTLE_NAME_50},{Sorrow Crown},{Sorrow Crown}
+{CASTLE_NAME_51},{Chillwater},{Chillwater}
+{CASTLE_NAME_52},{Deepshadow},{Deepshadow}
+{CASTLE_NAME_53},{Darkhold},{Darkhold}
+{CASTLE_NAME_54},{Blindroot},{Blindroot}
+{CASTLE_NAME_55},{Shadowden},{Shadowden}
+{CASTLE_NAME_56},{Scar},{Scar}
+{CASTLE_NAME_57},{Malev},{Malev}
+{CASTLE_NAME_58},{Castigare},{Castigare}
+{CASTLE_NAME_59},{Dukered},{Dukered}
+{CASTLE_NAME_60},{Shade},{Shade}
+{CASTLE_NAME_61},{Evernight},{Evernight}
+{CASTLE_NAME_62},{Darkburrow},{Darkburrow}
+{CASTLE_NAME_63},{Lost Hold},{Lost Hold}
+{CASTLE_NAME_64},{Coldshadow},{Coldshadow}
+
+{CASTLE_NAME_65},{Starmino},{Starmino}
+{CASTLE_NAME_66},{Grigorov},{Grigorov}
+{CASTLE_NAME_67},{Sigman},{Sigman}
+{CASTLE_NAME_68},{Still Water},{Still Water}
+{CASTLE_NAME_69},{Elfwind},{Elfwind}
+{CASTLE_NAME_70},{Sebian},{Sebian}
+{CASTLE_NAME_71},{Ceiliedgh},{Ceiliedgh}
+{CASTLE_NAME_72},{Gladeroot},{Gladeroot}
+{CASTLE_NAME_73},{Avalon},{Avalon}
+{CASTLE_NAME_74},{Rainhaven},{Rainhaven}
+{CASTLE_NAME_75},{Strongglen},{Strongglen}
+{CASTLE_NAME_76},{Marishen},{Marishen}
+{CASTLE_NAME_77},{Bath'iere},{Bath'iere}
+{CASTLE_NAME_78},{Green Falls},{Green Falls}
+{CASTLE_NAME_79},{Emerald Moor},{Emerald Moor}
+{CASTLE_NAME_80},{Wild Willow},{Wild Willow}
+
+{CASTLE_NAME_81},{Haunt's Wind},{Haunt's Wind}
+{CASTLE_NAME_82},{Cessacioun},{Cessacioun}
+{CASTLE_NAME_83},{Agony},{Agony}
+{CASTLE_NAME_84},{Victorash},{Victorash}
+{CASTLE_NAME_85},{Terminus},{Terminus}
+{CASTLE_NAME_86},{Blackquarter},{Blackquarter}
+{CASTLE_NAME_87},{Sandro},{Sandro}
+{CASTLE_NAME_88},{Grave Raven},{Grave Raven}
+{CASTLE_NAME_89},{Dark Cloud},{Dark Cloud}
+{CASTLE_NAME_90},{Coldsoul},{Coldsoul}
+{CASTLE_NAME_91},{Coldreign},{Coldreign}
+{CASTLE_NAME_92},{Dark Eternal},{Dark Eternal}
+{CASTLE_NAME_93},{Ghostwind},{Ghostwind}
+{CASTLE_NAME_94},{Blight},{Blight}
+{CASTLE_NAME_95},{Shady Sands},{Shady Sands}
+{CASTLE_NAME_96},{Wolfengrott},{Wolfengrott}
+
+<----------------------->
+<-- Magic spell names -->
+<----------------------->
+{SPNAME_MAGICARROW},{Magic Arrow},{Magický šíp}
+{SPNAME_PROTEARTH},{Protection from Earth},{Ochrana od Zeme}
+{SPNAME_HASTE},{Haste},{Zrýchlenie}
+{SPNAME_SHIELD},{Shield},{Štít}
+{SPNAME_DISRAY},{Disrupting Ray},{Lúč narušenia}
+{SPNAME_LIGHTNINGBOLT},{Lightning Bolt},{Blesk}
+{SPNAME_PRECISION},{Precision},{Presnosť}
+{SPNAME_AIRSHIELD},{Air Shield},{Vzdušný štít}
+{SPNAME_HOLYWORD},{Holy Word},{Sväté slovo}
+{SPNAME_COUNTERSTRIKE},{Counterstrike},{Protiútok}
+{SPNAME_RESURRECT},{Resurrect},{Vzkriesenie}
+{SPNAME_AIRELEMENTAL},{Air Elemental},{Vzdušný elementál}
+
+{SPNAME_PROTAIR},{Protection from Air},{Ochrana od Vzduchu}
+{SPNAME_SLOW},{Slow},{Spomalenie}
+{SPNAME_STONESKIN},{Stone Skin},{Kamenná koža}
+{SPNAME_VISIONS},{Visions},{Vízia}
+{SPNAME_EARTHQUAKE},{Earthquake},{Zemetrasenie}
+{SPNAME_SORROW},{Sorrow},{Žiaľ}
+{SPNAME_METEORSHOWER},{Meteor Shower},{Dážď meteorov}
+{SPNAME_TOWNPORTAL},{Town Portal},{Mestský portál}
+{SPNAME_IMPLOSION},{Implosion},{Implózia}
+{SPNAME_EARTHELEMENTAL},{Earth Elemental},{Zemský elementál}
+
+{SPNAME_BLOODLUST},{Bloodlust},{Chuť krvi}
+{SPNAME_PROTWATER},{Protection from Water},{Ochrana od Vody}
+{SPNAME_CURSE},{Curse},{Prekliatie}
+{SPNAME_BLIND},{Blind},{Slepota}
+{SPNAME_WEAKNESS},{Weakness},{Slabosť}
+{SPNAME_DEATHRIPPLE},{Death Ripple},{Vlna smrti}
+{SPNAME_FIREBALL},{Fireball},{Ohnivá guľa}
+{SPNAME_MISFORTUNE},{Misfortune},{Nešťastie}
+{SPNAME_ANIMATEDEAD},{Animate Dead},{Oživenie mŕtvych}
+{SPNAME_FIREBLAST},{Fireblast},{Výbuch}
+{SPNAME_ARMAGEDDON},{Armageddon},{Armagedon}
+{SPNAME_FIREELEMENTAL},{Fire Elemental},{Ohnivý elementál}
+
+{SPNAME_BLESS},{Bless},{Požehnanie}
+{SPNAME_PROTFIRE},{Protection from Fire},{Ochrana od Ohňa}
+{SPNAME_DISPEL},{Dispel},{Odčarovanie}
+{SPNAME_CURE},{Cure},{Liečba}
+{SPNAME_COLDRAY},{Cold Ray},{Ľadový lúč}
+{SPNAME_FORTUNE},{Fortune},{Šťastena}
+{SPNAME_MIRTH},{Mirth},{Radosť}
+{SPNAME_COLDRING},{Cold Ring},{Ľadové koleso}
+{SPNAME_ANTIMAGIC},{Anti-Magic},{Anti-mágia}
+{SPNAME_PRAYER},{Prayer},{Modlitby}
+{SPNAME_WATERELEMENTAL},{Water Elemental},{Vodný elementál}
+
+{SPNAME_SUMMONSPRITES},{Summon Sprites},{Privolanie víl}
+
+<------------------------------>
+<-- Magic spell descriptions -->
+<------------------------------>
+{SPDESC_MAGICARROW_NON},{Causes a bolt of magical energy to strike the selected unit (Power*10).},{Zvolená jednotka bude zasiahnutá prúdom magickej energie (Magická sila*10).}
+{SPDESC_MAGICARROW_BAS},{Causes a bolt of magical energy to strike the selected unit (Power*10).},{Zvolená jednotka bude zasiahnutá prúdom magickej energie (Magická sila*10).}
+{SPDESC_MAGICARROW_ADV},{Causes a bolt of magical energy to strike the selected unit (Power*12).},{Zvolená jednotka bude zasiahnutá prúdom magickej energie (Magická sila*12).}
+{SPDESC_MAGICARROW_EXP},{Causes a bolt of magical energy to strike the selected unit (Power*15).},{Zvolená jednotka bude zasiahnutá prúdom magickej energie (Magická sila*15).}
+
+{SPDESC_PROTEARTH_NON},{Protects the selected unit, reducing damage by 30% received from Earth spells.},{Chráni zvolenú spriatelenú jednotku, znižujúc poškodenie od Zemských kúziel o 30%.}
+{SPDESC_PROTEARTH_BAS},{Protects the selected unit, reducing damage by 30% received from Earth spells.},{Chráni zvolenú spriatelenú jednotku, znižujúc poškodenie od Zemských kúziel o 30%.}
+{SPDESC_PROTEARTH_ADV},{Protects the selected unit, reducing damage by 50% received from Earth spells.},{Chráni zvolenú spriatelenú jednotku, znižujúc poškodenie od Zemských kúziel o 50%.}
+{SPDESC_PROTEARTH_EXP},{Protects all friendly units, reducing damage by 50% received from Earth spells.},{Chráni všetky spriatelené jednotky, znižujúc poškodenie od Zemských kúziel o 30%.}
+
+{SPDESC_HASTE_NON},{Increases the speed of the selected unit by 3.},{Zvýši rýchlosť zvolenej spriatelenej jednotky o 3.}
+{SPDESC_HASTE_BAS},{Increases the speed of the selected unit by 3.},{Zvýši rýchlosť zvolenej spriatelenej jednotky o 3.}
+{SPDESC_HASTE_ADV},{Increases the speed of the selected unit by 5.},{Zvýši rýchlosť zvolenej spriatelenej jednotky o 5.}
+{SPDESC_HASTE_EXP},{Increases the speed of all friendly units by 5.},{Zvýši rýchlosť všetkých spriatelených jednotiek o 5.}
+
+{SPDESC_SHIELD_NON},{Shields a selected unit, reducing the amount of damage by 15% received from hand-to-hand attacks.},{Ochráni zvolenú spriatelenú jednotku, znížiac tak poškodenie pri boji zblízka o 15%.}
+{SPDESC_SHIELD_BAS},{Shields a selected unit, reducing the amount of damage by 15% received from hand-to-hand attacks.},{Ochráni zvolenú spriatelenú jednotku, znížiac tak poškodenie pri boji zblízka o 15%.}
+{SPDESC_SHIELD_ADV},{Shields a selected unit, reducing the amount of damage by 30% received from hand-to-hand attacks.},{Ochráni zvolenú spriatelenú jednotku, znížiac tak poškodenie pri boji zblízka o 30%.}
+{SPDESC_SHIELD_EXP},{Shields all friendly units, reducing the amount of damage by 30% received from hand-to-hand attacks.},{Ochráni všetky spriatelené jednotky, znížiac tak poškodenie pri boji zblízka o 30%.}
+
+{SPDESC_DISRAY_NON},{Reduces the selected enemy unit's defense strength by 3. A single enemy may be targeted multiple times by this spell.},{Zredukuje obranu nepriateľskej jednotky o 3. Jednotka može byť týmto kúzlom začarovaná aj viacnásobne.}
+{SPDESC_DISRAY_BAS},{Reduces the selected enemy unit's defense strength by 3. A single enemy may be targeted multiple times by this spell.},{Zredukuje obranu nepriateľskej jednotky o 3. Jednotka može byť týmto kúzlom začarovaná aj viacnásobne.}
+{SPDESC_DISRAY_ADV},{Reduces the selected enemy unit's defense strength by 4. A single enemy may be targeted multiple times by this spell.},{Zredukuje obranu nepriateľskej jednotky o 4. Jednotka može byť týmto kúzlom začarovaná aj viacnásobne.}
+{SPDESC_DISRAY_EXP},{Reduces the selected enemy unit's defense strength by 5. A single enemy may be targeted multiple times by this spell.},{Zredukuje obranu nepriateľskej jednotky o 5. Jednotka može byť týmto kúzlom začarovaná aj viacnásobne.}
+
+{SPDESC_LIGHTNINGBOLT_NON},{Causes a bolt of lightning to strike the selected unit (Power*25).},{Zvolenú nepriateľskú jednotku zasiahne blesk (Magická sila*25).}
+{SPDESC_LIGHTNINGBOLT_BAS},{Causes a bolt of lightning to strike the selected unit (Power*25).},{Zvolenú nepriateľskú jednotku zasiahne blesk (Magická sila*25).}
+{SPDESC_LIGHTNINGBOLT_ADV},{Causes a bolt of lightning to strike the selected unit (Power*27).},{Zvolenú nepriateľskú jednotku zasiahne blesk (Magická sila*27).}
+{SPDESC_LIGHTNINGBOLT_EXP},{Causes a bolt of lightning to strike the selected unit (Power*30).},{Zvolenú nepriateľskú jednotku zasiahne blesk (Magická sila*30).}
+
+{SPDESC_PRECISION_NON},{Increases the ranged attack damage inflicted by the selected unit by 3.},{Zvýši poškodenie spôsobené zvolenou spriatelenou streleckou jednotkou o 3.}
+{SPDESC_PRECISION_BAS},{Increases the ranged attack damage inflicted by the selected unit by 3.},{Zvýši poškodenie spôsobené zvolenou spriatelenou streleckou jednotkou o 3.}
+{SPDESC_PRECISION_ADV},{Increases the ranged attack damage inflicted by the selected unit by 5.},{Zvýši poškodenie spôsobené zvolenou spriatelenou streleckou jednotkou o 5.}
+{SPDESC_PRECISION_EXP},{Increases the ranged attack damage inflicted by all friendly units by 5.},{Zvýši poškodenie spôsobené všetkými spriatelenými streleckými jednotkami o 5.}
+
+{SPDESC_AIRSHIELD_NON},{Shields a selected unit, reducing the amount of damage by 25% received from ranged attacks.},{Zaštíti zvolenú spriatelenú jednotku. Zníži poškodenie spôsobené streleckými útokmi o 25%.}
+{SPDESC_AIRSHIELD_BAS},{Shields a selected unit, reducing the amount of damage by 25% received from ranged attacks.},{Zaštíti zvolenú spriatelenú jednotku. Zníži poškodenie spôsobené streleckými útokmi o 25%.}
+{SPDESC_AIRSHIELD_ADV},{Shields a selected unit, reducing the amount of damage by 50% received from ranged attacks.},{Zaštíti zvolenú spriatelenú jednotku. Zníži poškodenie spôsobené streleckými útokmi o 50%.}
+{SPDESC_AIRSHIELD_EXP},{Shields all friendly units, reducing the amount of damage by 50% received from ranged attacks.},{Zaštíti všetky spriatelené jednotky. Zníži poškodenie spôsobené streleckými útokmi o 50%.}
+
+{SPDESC_HOLYWORD_NON},{Attempts to destroy any undead creatures on the battlefield (Power*10).},{Spôsobí poškodenie všetkým nemŕtvym na bojisku (Magická sila*10).}
+{SPDESC_HOLYWORD_BAS},{Attempts to destroy any undead creatures on the battlefield (Power*10).},{Spôsobí poškodenie všetkým nemŕtvym na bojisku (Magická sila*10).}
+{SPDESC_HOLYWORD_ADV},{Attempts to destroy any undead creatures on the battlefield (Power*12).},{Spôsobí poškodenie všetkým nemŕtvym na bojisku (Magická sila*12).}
+{SPDESC_HOLYWORD_EXP},{Attempts to destroy any undead creatures on the battlefield (Power*15).},{Spôsobí poškodenie všetkým nemŕtvym na bojisku (Magická sila*15).}
+
+{SPDESC_COUNTERSTRIKE_NON},{The selected unit will retaliate against one additional attack each round.},{Zvolená jednotka bude každé kolo opätovať jeden útok navyše.}
+{SPDESC_COUNTERSTRIKE_BAS},{The selected unit will retaliate against one additional attack each round.},{Zvolená jednotka bude každé kolo opätovať jeden útok navyše.}
+{SPDESC_COUNTERSTRIKE_ADV},{The selected unit will retaliate against two additional attacks each round.},{Zvolená jednotka bude každé kolo opätovať dva útoky navyše.}
+{SPDESC_COUNTERSTRIKE_EXP},{The selected unit will retaliate against three additional attacks each round.},{Zvolená jednotka bude každé kolo opätovať tri útoky navyše.}
+
+{SPDESC_RESURRECT_NON},{Resurrects units in the selected group by restoring permanently a fixed number of hit points to the target (Power*40).},{Oživí zvolené jednotky a permanentne im obnoví fixný počet zdravia (Magická sila*40).}
+{SPDESC_RESURRECT_BAS},{Resurrects units in the selected group by restoring permanently a fixed number of hit points to the target (Power*40).},{Oživí zvolené jednotky a permanentne im obnoví fixný počet zdravia (Magická sila*40).}
+{SPDESC_RESURRECT_ADV},{Resurrects units in the selected group by restoring permanently a fixed number of hit points to the target (Power*45).},{Oživí zvolené jednotky a permanentne im obnoví fixný počet zdravia (Magická sila*45).}
+{SPDESC_RESURRECT_EXP},{Resurrects units in the selected group by restoring permanently a fixed number of hit points to the target (Power*50).},{Oživí zvolené jednotky a permanentne im obnoví fixný počet zdravia (Magická sila*50).}
+
+{SPDESC_AIRELEMENTAL_NON},{Allows you to summon Air Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Vzdušných elementálov (Magická Sila*3). Po začarovaní, nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_AIRELEMENTAL_BAS},{Allows you to summon Air Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Vzdušných elementálov (Magická Sila*3). Po začarovaní, nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_AIRELEMENTAL_ADV},{Allows you to summon Air Elementals (Power*4). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Vzdušných elementálov (Magická Sila*4). Po začarovaní, nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_AIRELEMENTAL_EXP},{Allows you to summon Air Elementals (Power*5). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Vzdušných elementálov (Magická Sila*5). Po začarovaní, nemožu byť viac vyvolaní elementáli iného typu.}
+
+{SPDESC_PROTAIR_NON},{Protects the selected unit, reducing damage by 30% received from Air spells.},{Chráni zvolenú spriatelenú jednotku znižujúc poškodenie od Vzdušných kúziel o 30%.}
+{SPDESC_PROTAIR_BAS},{Protects the selected unit, reducing damage by 30% received from Air spells.},{Chráni zvolenú spriatelenú jednotku znižujúc poškodenie od Vzdušných kúziel o 30%.}
+{SPDESC_PROTAIR_ADV},{Protects the selected unit, reducing damage by 50% received from Air spells.},{Chráni zvolenú spriatelenú jednotku znižujúc poškodenie od Vzdušných kúziel o 50%.}
+{SPDESC_PROTAIR_EXP},{Protects all friendly units, reducing damage by 50% received from Air spells.},{Chráni všetky spriatelené jednotky znižujúc poškodenie od Vzdušných kúziel o 50%.}
+
+{SPDESC_SLOW_NON},{Reduces the speed of the selected enemy unit by 3.},{Zníži rýchlosť zvolenej nepriateľskej jednotky o 3.}
+{SPDESC_SLOW_BAS},{Reduces the speed of the selected enemy unit by 3.},{Zníži rýchlosť zvolenej nepriateľskej jednotky o 3.}
+{SPDESC_SLOW_ADV},{Reduces the speed of the selected enemy unit by 6.},{Zníži rýchlosť zvolenej nepriateľskej jednotky o 6.}
+{SPDESC_SLOW_EXP},{Reduces the speed of all enemy units by 6.},{Zníži rýchlosť všetkých nepriateľských jednotiek o 6.}
+
+{SPDESC_STONESKIN_NON},{Increases the selected unit's defense strength by 3.},{Vybranej spriatelenej jednotke zvýši silu pri obrane o 3.}
+{SPDESC_STONESKIN_BAS},{Increases the selected unit's defense strength by 3.},{Vybranej spriatelenej jednotke zvýši silu pri obrane o 3.}
+{SPDESC_STONESKIN_ADV},{Increases the selected unit's defense strength by 6.},{Vybranej spriatelenej jednotke zvýši silu pri obrane o 6.}
+{SPDESC_STONESKIN_EXP},{Increases the defense strength of all friendly units by 6.},{Všetkým spriateleným jednotkám zvýši silu pri obrane o 6.}
+
+{SPDESC_VISIONS_NON},{Gives you exact numbers of wandering monsters and tells you if they would be willing to join your hero. Allows you to view a nearby enemy hero's primary skill statistics, creature type and quantity, as if the hero was part of your kingdom, as well as a nearby town's statistics, garrison creatures and quantity.},{Odhalí presné počty potulných monštier a prezradí, či sa k tebe pridajú. Taktiež odhalí primárne vlastnosti blízkeho nepriateľského hrdinu, typ a počty jeho armád ako aj štatistiky, typ a počet armád blízkeho nepriateľského mesta.}
+{SPDESC_VISIONS_BAS},{Gives you exact numbers of wandering monsters and tells you if they would be willing to join your hero. Allows you to view a nearby enemy hero's primary skill statistics, creature type and quantity, as if the hero was part of your kingdom, as well as a nearby town's statistics, garrison creatures and quantity.},{Odhalí presné počty potulných monštier a prezradí, či sa k tebe pridajú. Taktiež odhalí primárne vlastnosti blízkeho nepriateľského hrdinu, typ a počty jeho armád ako aj štatistiky, typ a počet armád blízkeho nepriateľského mesta.}
+{SPDESC_VISIONS_ADV},{Gives you exact numbers of wandering monsters and tells you if they would be willing to join your hero. Allows you to view a nearby enemy hero's primary skill statistics, creature type and quantity, as if the hero was part of your kingdom, as well as a nearby town's statistics, garrison creatures and quantity.},{Odhalí presné počty potulných monštier a prezradí, či sa k tebe pridajú. Taktiež odhalí primárne vlastnosti blízkeho nepriateľského hrdinu, typ a počty jeho armád ako aj štatistiky, typ a počet armád blízkeho nepriateľského mesta.}
+{SPDESC_VISIONS_EXP},{Gives you exact numbers of wandering monsters and tells you if they would be willing to join your hero. Allows you to view a nearby enemy hero's primary skill statistics, creature type and quantity, as if the hero was part of your kingdom, as well as a nearby town's statistics, garrison creatures and quantity.},{Odhalí presné počty potulných monštier a prezradí, či sa k tebe pridajú. Taktiež odhalí primárne vlastnosti blízkeho nepriateľského hrdinu, typ a počty jeho armád ako aj štatistiky, typ a počet armád blízkeho nepriateľského mesta.}
+
+{SPDESC_EARTHQUAKE_NON},{Randomly damages two sections of castle wall in combat.},{Pri dobývaní hradu náhodne poškodí hradný múr na dvoch miestach.}
+{SPDESC_EARTHQUAKE_BAS},{Randomly damages two sections of castle wall in combat.},{Pri dobývaní hradu náhodne poškodí hradný múr na dvoch miestach.}
+{SPDESC_EARTHQUAKE_ADV},{Randomly damages three sections of castle wall in combat.},{Pri dobývaní hradu náhodne poškodí hradný múr na troch miestach.}
+{SPDESC_EARTHQUAKE_EXP},{Randomly damages four sections of castle wall in combat.},{Pri dobývaní hradu náhodne poškodí hradný múr na štyroch miestach.}
+
+{SPDESC_SORROW_NON},{Reduces the morale of the selected enemy unit by 1.},{Zníži morálku zvolenej nepriateľskej jednotky o 1.}
+{SPDESC_SORROW_BAS},{Reduces the morale of the selected enemy unit by 1.},{Zníži morálku zvolenej nepriateľskej jednotky o 1.}
+{SPDESC_SORROW_ADV},{Reduces the morale of the selected enemy unit by 2.},{Zníži morálku zvolenej nepriateľskej jednotky o 2.}
+{SPDESC_SORROW_EXP},{Reduces the morale of all enemy units by 2.},{Zníži morálku všetkých nepriateľských jednotiek o 2.}
+
+{SPDESC_METEORSHOWER_NON},{Causes a meteor shower to rain down on the selected target and any adjacent units (Power*25).},{Spôsobí dážď meteorov, ktoré padnú na zvolený cieľ a akékoľvek jednotky stojace vedľa (Magická sila*25).}
+{SPDESC_METEORSHOWER_BAS},{Causes a meteor shower to rain down on the selected target and any adjacent units (Power*25).},{Spôsobí dážď meteorov, ktoré padnú na zvolený cieľ a akékoľvek jednotky stojace vedľa (Magická sila*25).}
+{SPDESC_METEORSHOWER_ADV},{Causes a meteor shower to rain down on the selected target and any adjacent units (Power*27).},{Spôsobí dážď meteorov, ktoré padnú na zvolený cieľ a akékoľvek jednotky stojace vedľa (Magická sila*27).}
+{SPDESC_METEORSHOWER_EXP},{Causes a meteor shower to rain down on the selected target and any adjacent units (Power*30).},{Spôsobí dážď meteorov, ktoré padnú na zvolený cieľ a akékoľvek jednotky stojace vedľa (Magická sila*30).}
+
+{SPDESC_TOWNPORTAL_NON},{Teleports your hero to the nearest friendly town. The town must be unoccupied.},{Teleportuje hrdinu do najbližšieho spriateleného mesta, ktoré nie je obsadené.}
+{SPDESC_TOWNPORTAL_BAS},{Teleports your hero to the nearest friendly town. The town must be unoccupied.},{Teleportuje hrdinu do najbližšieho spriateleného mesta, ktoré nie je obsadené.}
+{SPDESC_TOWNPORTAL_ADV},{Teleports your hero to any friendly town. The town must be unoccupied.},{Teleportuje hrdinu do akéhokoľvek spriateleného mesta, ktoré nie je obsadené.}
+{SPDESC_TOWNPORTAL_EXP},{Teleports your hero to any friendly town. The town must be unoccupied.},{Teleportuje hrdinu do akéhokoľvek spriateleného mesta, ktoré nie je obsadené.}
+
+{SPDESC_IMPLOSION_NON},{Inflicts massive damage to a selected enemy unit (Power*70).},{Spôsobí masívne poškodenie zvolenej nepriateľskej jednotke (Magická sila*70).}
+{SPDESC_IMPLOSION_BAS},{Inflicts massive damage to a selected enemy unit (Power*70).},{Spôsobí masívne poškodenie zvolenej nepriateľskej jednotke (Magická sila*70).}
+{SPDESC_IMPLOSION_ADV},{Inflicts massive damage to a selected enemy unit (Power*75).},{Spôsobí masívne poškodenie zvolenej nepriateľskej jednotke (Magická sila*75).}
+{SPDESC_IMPLOSION_EXP},{Inflicts massive damage to a selected enemy unit (Power*80).},{Spôsobí masívne poškodenie zvolenej nepriateľskej jednotke (Magická sila*80).}
+
+{SPDESC_EARTHELEMENTAL_NON},{Allows you to summon Earth Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Zemských elementálov (Magická Sila*3). Po začarovaní, nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_EARTHELEMENTAL_BAS},{Allows you to summon Earth Elemental (Power*3). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Zemských elementálov (Magická Sila*3). Po začarovaní, nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_EARTHELEMENTAL_ADV},{Allows you to summon Earth Elemental (Power*4). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Zemských elementálov (Magická Sila*4). Po začarovaní, nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_EARTHELEMENTAL_EXP},{Allows you to summon Earth Elemental (Power*5). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Zemských elementálov (Magická Sila*5). Po začarovaní, nemožu byť viac vyvolaní elementáli iného typu.}
+
+{SPDESC_BLOODLUST_NON},{Increases the hand-to-hand damage inflicted by the selected unit by 3.},{Zvolená spriatelená jednotka bude v boji zblízka spôsobovať poškodenie väčšie o 3 body.}
+{SPDESC_BLOODLUST_BAS},{Increases the hand-to-hand damage inflicted by the selected unit by 3.},{Zvolená spriatelená jednotka bude v boji zblízka spôsobovať poškodenie väčšie o 3 body.}
+{SPDESC_BLOODLUST_ADV},{Increases the hand-to-hand damage inflicted by the selected unit by 6.},{Zvolená spriatelená jednotka bude v boji zblízka spôsobovať poškodenie väčšie o 6 bodov.}
+{SPDESC_BLOODLUST_EXP},{Increases the hand-to-hand damage inflicted by all friendly units by 6.},{Vštky spriatelené jednotky budú v boji zblízka spôsobovať poškodenie väčšie o 6 bodov.}
+
+{SPDESC_PROTWATER_NON},{Protects the selected unit, reducing damage by 30% received from Water spells.},{Chráni zvolenú spriatelenú jednotku znižujúc poškodenie od Vodných kúziel o 30%.}
+{SPDESC_PROTWATER_BAS},{Protects the selected unit, reducing damage by 30% received from Water spells.},{Chráni zvolenú spriatelenú jednotku znižujúc poškodenie od Vodných kúziel o 30%.}
+{SPDESC_PROTWATER_ADV},{Protects the selected unit, reducing damage by 60% received from Water spells.},{Chráni zvolenú spriatelenú jednotku znižujúc poškodenie od Vodných kúziel o 60%.}
+{SPDESC_PROTWATER_EXP},{Protects all friendly units, reducing damage by 60% received from Water spells.},{Chráni všetky spriatelené jednotky znižujúc poškodenie od Vodných kúziel o 60%.}
+
+{SPDESC_CURSE_NON},{Causes the selected enemy unit to inflict minimum damage in combat.},{Zvolená nepriateľská jednotka bude v boji spôsobovať minimálne poškodenie.}
+{SPDESC_CURSE_BAS},{Causes the selected enemy unit to inflict minimum damage in combat.},{Zvolená nepriateľská jednotka bude v boji spôsobovať minimálne poškodenie.}
+{SPDESC_CURSE_ADV},{Causes the selected enemy unit to inflict minimum damage in combat.},{Zvolená nepriateľská jednotka bude v boji spôsobovať minimálne poškodenie.}
+{SPDESC_CURSE_EXP},{Causes all enemy units to inflict minimum damage in combat.},{Všetky nepriateľské jednotky budú v boji spôsobovať minimálne poškodenie.}
+
+{SPDESC_BLIND_NON},{Blinds a creature so that it cannot move and causes it to counterattack at half its normal attack strength. Blindness persists until the unit is attacked or dispelled.},{Oslepí zvolenú jednotku, takže sa nemože pohnúť a útok opätuje len polovičnou silou. Slepota trvá, kým na jednotku niekto zaútočí, alebo je odčarovaná.}
+{SPDESC_BLIND_BAS},{Blinds a creature so that it cannot move and causes it to counterattack at half its normal attack strength. Blindness persists until the unit is attacked or dispelled.},{Oslepí zvolenú jednotku, takže sa nemože pohnúť a útok opätuje len polovičnou silou. Slepota trvá, kým na jednotku niekto zaútočí, alebo je odčarovaná.}
+{SPDESC_BLIND_ADV},{Blinds a creature so that it cannot move and causes it to counterattack at one-quarter normal attack strength. Blindness persists until the unit is attacked or dispelled.},{Oslepí zvolenú jednotku, takže sa nemože pohnúť a útok opätuje len štvrtinovou silou. Slepota trvá, kým na jednotku niekto zaútočí, alebo je odčarovaná.}
+{SPDESC_BLIND_EXP},{Blinds a creature so that it cannot move or counterattack. Blindness persists until the unit is attacked or dispelled.},{Oslepí zvolenú jednotku, takže sa nemože pohnúť ani opätovať útok. Slepota trvá, kým na jednotku niekto zaútočí, alebo je odčarovaná.}
+
+{SPDESC_WEAKNESS_NON},{Reduces the selected enemy unit's attack strength by 3.},{Zníži útočnú silu zvolenej nepriatelskej jednotky o 3.}
+{SPDESC_WEAKNESS_BAS},{Reduces the selected enemy unit's attack strength by 3.},{Zníži útočnú silu zvolenej nepriatelskej jednotky o 3.}
+{SPDESC_WEAKNESS_ADV},{Reduces the selected enemy unit's attack strength by 6.},{Zníži útočnú silu zvolenej nepriatelskej jednotky o 6.}
+{SPDESC_WEAKNESS_EXP},{Reduces attack strength of all enemy units by 6.},{Zníži útočnú silu všetkých nepriateľských jednotiek o 6.}
+
+{SPDESC_DEATHRIPPLE_NON},{Sends a ripple of death across the battlefield which damages all non-undead units (Power*5).},{Cez bojisko vyšle vlnu smrti, ktorá poškodí všetky nie-nemŕtve jednotky (Magická sila*5).}
+{SPDESC_DEATHRIPPLE_BAS},{Sends a ripple of death across the battlefield which damages all non-undead units (Power*5).},{Cez bojisko vyšle vlnu smrti, ktorá poškodí všetky nie-nemŕtve jednotky (Magická sila*5).}
+{SPDESC_DEATHRIPPLE_ADV},{Sends a ripple of death across the battlefield which damages all non-undead units (Power*7).},{Cez bojisko vyšle vlnu smrti, ktorá poškodí všetky nie-nemŕtve jednotky (Magická sila*7).}
+{SPDESC_DEATHRIPPLE_EXP},{Sends a ripple of death across the battlefield which damages all non-undead units (Power*10).},{Cez bojisko vyšle vlnu smrti, ktorá poškodí všetky nie-nemŕtve jednotky (Magická sila*10).}
+
+{SPDESC_FIREBALL_NON},{Causes the selected target to burst into flames, inflicting fire damage to the target and any adjacent units (Power*15).},{Spôsobí vznietenie cieľovej jednotky a uštedrí ohnivé poškodenie jej, ako aj akýmkoľvek pri nej stojacim jednotkám (Magická sila*15).}
+{SPDESC_FIREBALL_BAS},{Causes the selected target to burst into flames, inflicting fire damage to the target and any adjacent units (Power*15).},{Spôsobí vznietenie cieľovej jednotky a uštedrí ohnivé poškodenie jej, ako aj akýmkoľvek pri nej stojacim jednotkám (Magická sila*15).}
+{SPDESC_FIREBALL_ADV},{Causes the selected target to burst into flames, inflicting fire damage to the target and any adjacent units (Power*17).},{Spôsobí vznietenie cieľovej jednotky a uštedrí ohnivé poškodenie jej, ako aj akýmkoľvek pri nej stojacim jednotkám (Magická sila*17).}
+{SPDESC_FIREBALL_EXP},{Causes the selected target to burst into flames, inflicting fire damage to the target and any adjacent units (Power*20).},{Spôsobí vznietenie cieľovej jednotky a uštedrí ohnivé poškodenie jej, ako aj akýmkoľvek pri nej stojacim jednotkám (Magická sila*20).}
+
+{SPDESC_MISFORTUNE_NON},{Reduces the luck of the selected enemy unit by 1.},{ Zníži šťastie zvolenej nepriateľskej jednotky o 1.}
+{SPDESC_MISFORTUNE_BAS},{Reduces the luck of the selected enemy unit by 1.},{ Zníži šťastie zvolenej nepriateľskej jednotky o 1.}
+{SPDESC_MISFORTUNE_ADV},{Reduces the luck of the selected enemy unit by 2.},{ Zníži šťastie zvolenej nepriateľskej jednotky o 2.}
+{SPDESC_MISFORTUNE_EXP},{Reduces the luck of all enemy units by 2.},{Zníži šťastie vštkých nepriateľských jednotiek o 2.}
+
+{SPDESC_ANIMATEDEAD_NON},{Re-animates any destroyed undead in the selected group by restoring a fixed number of hit points to the target (Power*40).},{Oživí akéhokoľvek nemŕtveho vo zvolenej jednotke. Cieľovej jednotke obnoví fixný počet života (Magická sila*40).}
+{SPDESC_ANIMATEDEAD_BAS},{Re-animates any destroyed undead in the selected group by restoring a fixed number of hit points to the target (Power*40).},{Oživí akéhokoľvek nemŕtveho vo zvolenej jednotke. Cieľovej jednotke obnoví fixný počet života (Magická sila*40).}
+{SPDESC_ANIMATEDEAD_ADV},{Re-animates any destroyed undead in the selected group by restoring a fixed number of hit points to the target (Power*45).},{Oživí akéhokoľvek nemŕtveho vo zvolenej jednotke. Cieľovej jednotke obnoví fixný počet života (Magická sila*45).}
+{SPDESC_ANIMATEDEAD_EXP},{Re-animates any destroyed undead in the selected group by restoring a fixed number of hit points to the target (Power*50).},{Oživí akéhokoľvek nemŕtveho vo zvolenej jednotke. Cieľovej jednotke obnoví fixný počet života (Magická sila*50).}
+
+{SPDESC_FIREBLAST_NON},{Causes a huge blast of fire to strike the selected target (Power*15). Don't be near this when it goes off!},{Spôsobí obrovský ohnivý výbuch na zvolenom mieste (Magická sila*15). Keď to vybuchne, radšej sa nepribližuj!}
+{SPDESC_FIREBLAST_BAS},{Causes a huge blast of fire to strike the selected target (Power*15). Don't be near this when it goes off!},{Spôsobí obrovský ohnivý výbuch na zvolenom mieste (Magická sila*15). Keď to vybuchne, radšej sa nepribližuj!}
+{SPDESC_FIREBLAST_ADV},{Causes a huge blast of fire to strike the selected target (Power*17). Don't be near this when it goes off!},{Spôsobí obrovský ohnivý výbuch na zvolenom mieste (Magická sila*17). Keď to vybuchne, radšej sa nepribližuj!}
+{SPDESC_FIREBLAST_EXP},{Causes a huge blast of fire to strike the selected target (Power*20). Don't be near this when it goes off!},{Spôsobí obrovský ohnivý výbuch na zvolenom mieste (Magická sila*20). Keď to vybuchne, radšej sa nepribližuj!}
+
+{SPDESC_ARMAGEDDON_NON},{Rains fire down upon the battlefield, damaging all units (Power*40).},{Na bojisko sa znesie ohnivý dážď, ktorý poškodí všetky jednotky (Magická Sila*40).}
+{SPDESC_ARMAGEDDON_BAS},{Rains fire down upon the battlefield, damaging all units (Power*40).},{Na bojisko sa znesie ohnivý dážď, ktorý poškodí všetky jednotky (Magická Sila*40).}
+{SPDESC_ARMAGEDDON_ADV},{Rains fire down upon the battlefield, damaging all units (Power*45).},{Na bojisko sa znesie ohnivý dážď, ktorý poškodí všetky jednotky (Magická Sila*45).}
+{SPDESC_ARMAGEDDON_EXP},{Rains fire down upon the battlefield, damaging all units (Power*50).},{Na bojisko sa znesie ohnivý dážď, ktorý poškodí všetky jednotky (Magická Sila*50).}
+
+{SPDESC_FIREELEMENTAL_NON},{Allows you to summon Fire Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Ohnivých elementálov (Magická Sila*3). Po začarovaní nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_FIREELEMENTAL_BAS},{Allows you to summon Fire Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Ohnivých elementálov (Magická Sila*3). Po začarovaní nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_FIREELEMENTAL_ADV},{Allows you to summon Fire Elementals (Power*4). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Ohnivých elementálov (Magická Sila*4). Po začarovaní nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_FIREELEMENTAL_EXP},{Allows you to summon Fire Elementals (Power*5). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Ohnivých elementálov (Magická Sila*5). Po začarovaní nemožu byť viac vyvolaní elementáli iného typu.}
+
+{SPDESC_BLESS_NON},{Causes the selected unit to inflict maximum damage in combat.},{Vybraná spriatelená jednotka bude v boji spôsobovať maximále poškodenie.}
+{SPDESC_BLESS_BAS},{Causes the selected unit to inflict maximum damage in combat.},{Vybraná spriatelená jednotka bude v boji spôsobovať maximále poškodenie.}
+{SPDESC_BLESS_ADV},{Causes the selected unit to inflict maximum damage in combat.},{Vybraná spriatelená jednotka bude v boji spôsobovať maximále poškodenie.}
+{SPDESC_BLESS_EXP},{Causes all friendly units to inflict maximum damage in combat.},{Všetky spriatelené jednotky budú v boji spôsobovať maximále poškodenie.}
+
+{SPDESC_PROTFIRE_NON},{Protects the selected unit, reducing damage by 30% received from Fire spells.},{Chráni vybranú spriatelenú jednotku znižujúc poškodenie od Ohnivých kúziel o 30%.}
+{SPDESC_PROTFIRE_BAS},{Protects the selected unit, reducing damage by 30% received from Fire spells.},{Chráni vybranú spriatelenú jednotku znižujúc poškodenie od Ohnivých kúziel o 30%.}
+{SPDESC_PROTFIRE_ADV},{Protects the selected unit, reducing damage by 50% received from Fire spells.},{Chráni vybranú spriatelenú jednotku znižujúc poškodenie od Ohnivých kúziel o 50%.}
+{SPDESC_PROTFIRE_EXP},{Protects all friendly units, reducing damage by 50% received from Fire spells.},{Chráni všetky spriatelené jednotky znižujúc poškodenie od Ohnivých kúziel o 50%.}
+
+{SPDESC_DISPEL_NON},{Removes all spell effects from the selected friendly unit.},{Odstráni všetky účinky kúziel zo zvolenej spritelenej jednotky na bojisku.}
+{SPDESC_DISPEL_BAS},{Removes all spell effects from the selected friendly unit.},{Odstráni všetky účinky kúziel zo zvolenej spritelenej jednotky na bojisku.}
+{SPDESC_DISPEL_ADV},{Removes all spell effects from the selected friendly or hostile unit.},{Odstráni všetky účinky kúziel zo zvolenej spritelenej alebo nepriateľskej jednotky na bojisku.}
+{SPDESC_DISPEL_EXP},{Removes all spell effects from all units on the battlefield.},{Odstráni všetky účinky kúziel zo vštkých jednotiek na bojisku.}
+
+{SPDESC_CURE_NON},{Removes all negative spell effects and heals a small number of hit points on the selected unit (Power*5).},{Odstráni všetky negatívne kúzla a vylieči malé množstvo života všetkých spriatelených jednotiek (Magická Sila*5).}
+{SPDESC_CURE_BAS},{Removes all negative spell effects and heals a small number of hit points on the selected unit (Power*5).},{Odstráni všetky negatívne kúzla a vylieči malé množstvo života všetkých spriatelených jednotiek (Magická Sila*5).}
+{SPDESC_CURE_ADV},{Removes all negative spell effects and heals a small number of hit points on the selected unit (Power*7).},{Odstráni všetky negatívne kúzla a vylieči malé množstvo života všetkých spriatelených jednotiek (Magická Sila*7).}
+{SPDESC_CURE_EXP},{Removes all negative spell effects and heals a small number of hit points on all friendly units (Power*7).},{Odstráni všetky negatívne kúzla a vylieči malé množstvo života všetkých spriatelených jednotiek (Magická Sila*7).}
+
+{SPDESC_COLDRAY_NON},{Drains the body heat from the selected enemy unit (Power*20).},{Vysaje telesné teplo zo zvolenej nepriateľskej jednotky (Magická Sila*20).}
+{SPDESC_COLDRAY_BAS},{Drains the body heat from the selected enemy unit (Power*20).},{Vysaje telesné teplo zo zvolenej nepriateľskej jednotky (Magická Sila*20).}
+{SPDESC_COLDRAY_ADV},{Drains the body heat from the selected enemy unit (Power*22).},{Vysaje telesné teplo zo zvolenej nepriateľskej jednotky (Magická Sila*22).}
+{SPDESC_COLDRAY_EXP},{Drains the body heat from the selected enemy unit (Power*25).},{Vysaje telesné teplo zo zvolenej nepriateľskej jednotky (Magická Sila*25).}
+
+{SPDESC_FORTUNE_NON},{Increases the selected unit's luck by 1.},{Zvýši šťastie zvolenej jednotky o 1.}
+{SPDESC_FORTUNE_BAS},{Increases the selected unit's luck by 1.},{Zvýši šťastie zvolenej jednotky o 1.}
+{SPDESC_FORTUNE_ADV},{Increases the selected unit's luck by 2.},{Zvýši šťastie zvolenej jednotky o 2.}
+{SPDESC_FORTUNE_EXP},{Increases luck of all friendly units by 2.},{Zvýši šťastie zvolenej jednotky o 2.}
+
+{SPDESC_MIRTH_NON},{Increases the selected unit's morale by 1.},{Zvýši morálku všetkých spriatelených jednotiek o 1.}
+{SPDESC_MIRTH_BAS},{Increases the selected unit's morale by 1.},{Zvýši morálku všetkých spriatelených jednotiek o 1.}
+{SPDESC_MIRTH_ADV},{Increases the selected unit's morale by 2.},{Zvýši morálku všetkých spriatelených jednotiek o 2.}
+{SPDESC_MIRTH_EXP},{Increases morale of all friendly units by 2.},{Zvýši morálku všetkých spriatelených jednotiek o 2.}
+
+{SPDESC_COLDRING_NON},{Drains the body heat of any units adjacent to the target location, without inflicting damage on the target (Power*10).},{Vysaje telesné teplo z jednotiek stojacich v okolí cieľovej lokality bez toho, aby poškodilo cieľovú lokalitu (Magická Sila*10).}
+{SPDESC_COLDRING_BAS},{Drains the body heat of any units adjacent to the target location, without inflicting damage on the target (Power*10).},{Vysaje telesné teplo z jednotiek stojacich v okolí cieľovej lokality bez toho, aby poškodilo cieľovú lokalitu (Magická Sila*10).}
+{SPDESC_COLDRING_ADV},{Drains the body heat of any units adjacent to the target location, without inflicting damage on the target (Power*12).},{Vysaje telesné teplo z jednotiek stojacich v okolí cieľovej lokality bez toho, aby poškodilo cieľovú lokalitu (Magická Sila*12).}
+{SPDESC_COLDRING_EXP},{Drains the body heat of any units adjacent to the target location, without inflicting damage on the target (Power*15).},{Vysaje telesné teplo z jednotiek stojacich v okolí cieľovej lokality bez toho, aby poškodilo cieľovú lokalitu (Magická Sila*15).}
+
+{SPDESC_ANTIMAGIC_NON},{Protects the selected unit from all 1-3 level spells.},{Ochráni zvolenú jednotku pred akýmkoľvek kúzlom 1.-3. úrovne.}
+{SPDESC_ANTIMAGIC_BAS},{Protects the selected unit from all 1-3 level spells.},{Ochráni zvolenú jednotku pred akýmkoľvek kúzlom 1.-3. úrovne.}
+{SPDESC_ANTIMAGIC_ADV},{Protects the selected unit from all 1-4 level spells.},{Ochráni zvolenú jednotku pred akýmkoľvek kúzlom 1.-4. úrovne.}
+{SPDESC_ANTIMAGIC_EXP},{Protects the selected unit from all spells.},{Ochráni zvolenú jednotku pred akýmkoľvek kúzlom.}
+
+{SPDESC_PRAYER_NON},{Bestows a bonus to the attack strength, defense strength and speed of the selected unit by 2.},{Zväčší silu obrany, útoku a rýchlosti všetkých spriatelených jednotiek o 2.}
+{SPDESC_PRAYER_BAS},{Bestows a bonus to the attack strength, defense strength and speed of the selected unit by 2.},{Zväčší silu obrany, útoku a rýchlosti všetkých spriatelených jednotiek o 2.}
+{SPDESC_PRAYER_ADV},{Bestows a bonus to the attack strength, defense strength and speed of the selected unit by 4.},{Zväčší silu obrany, útoku a rýchlosti všetkých spriatelených jednotiek o 4.}
+{SPDESC_PRAYER_EXP},{Bestows a bonus to the attack strength, defense strength and speed of all friendly units by 4.},{Zväčší silu obrany, útoku a rýchlosti všetkých spriatelených jednotiek o 4.}
+
+{SPDESC_WATERELEMENTAL_NON},{Allows you to summon Water Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Vodných elementálov (Magická Sila *3). Po začarovaní nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_WATERELEMENTAL_BAS},{Allows you to summon Water Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Vodných elementálov (Magická Sila *3). Po začarovaní nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_WATERELEMENTAL_ADV},{Allows you to summon Water Elementals (Power*4). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Vodných elementálov (Magická Sila *4). Po začarovaní nemožu byť viac vyvolaní elementáli iného typu.}
+{SPDESC_WATERELEMENTAL_EXP},{Allows you to summon Water Elementals (Power*5). Once cast, no other elemental types may be summoned.},{Umožňuje vyvolať Vodných elementálov (Magická Sila *5). Po začarovaní nemožu byť viac vyvolaní elementáli iného typu.}
+
+{SPDESC_SUMMONSPRITES_NON},{Allows you to summon Sprites (Power*5).},{Umožňuje ti privolať Víly na pomoc (Magická Sila *5).}
+{SPDESC_SUMMONSPRITES_BAS},{Allows you to summon Sprites (Power*5).},{Umožňuje ti privolať Víly na pomoc (Magická Sila *5).} 
+{SPDESC_SUMMONSPRITES_ADV},{Allows you to summon Sprites (Power*7).},{Umožňuje ti privolať Víly na pomoc (Magická Sila *7).} 
+{SPDESC_SUMMONSPRITES_EXP},{Allows you to summon Sprites (Power*10).},{Umožňuje ti privolať Víly na pomoc (Magická Sila *10).}
+
+<-------------------------->
+<-- Random tavern rumors -->
+<-------------------------->
+{TAVERN_RUMOR_FOREWORD},{After a generous tip, the barkeep whispers:},{Po veľkorysom sprepitnom, barman zašeptal:}
+{TAVERN_RUMOR_01},{A wise man once said, "Don't share your wisdom with anybody."},{Mudrc raz povedal: "S nikým sa nedeľ o svoje vedomosti..."}
+{TAVERN_RUMOR_02},{Blood is thicker than water.},{Krv nie je voda...}
+{TAVERN_RUMOR_03},{To thine own self be true.},{Neodvracaj sa od svojej podstaty...}
+{TAVERN_RUMOR_04},{Find the Grail - it is more powerful than you can imagine.},{Nájdi Grál. Je oveľa silnejší, ako si dokážeš predstaviť...}
+{TAVERN_RUMOR_05},{Always protect your missile troops in combat.},{Vždy sa snaž ochrániť svoje strelecké jednotky...}
+{TAVERN_RUMOR_06},{Sometimes the best way to avoid defeat is by avoiding combat!},{Niekedy je najlepší spôsob ako sa vyhnúť porážke, vyhnúť sa samotnému boju!}
+{TAVERN_RUMOR_07},{Attack where your enemy is weak.},{Zaútoč na slabiny svojho nepriateľa...}
+{TAVERN_RUMOR_08},{Did you ever hear the one about the frog who dreamed of being a king... and then became one?},{Počul si o žabe, čo snívala o tom, že sa stane králom...A či sa tak nestalo?}
+{TAVERN_RUMOR_09},{Today is yesterday's tomorrow.},{Dnes je včerajší zajtrajšok...}
+{TAVERN_RUMOR_10},{When travelling across the desert, seek out an oasis, for it will speed your journey.},{Pri púti cez púšť hľadaj oázu. Urýchli to tvoju púť...}
+{TAVERN_RUMOR_11},{There is safety in numbers, especially if those numbers are in the thousands!},{V množstve je sila. Špeciálne, ak sa množstvo počíta na tisíce...}
+{TAVERN_RUMOR_12},{Remember that the black dragon is immune to all spells.},{Pamätaj, Čierny Drak je oddolný voči všetkým kúzlam.}
+{TAVERN_RUMOR_13},{Fight Fire with Protection from Fire.},{Bojuj proti ohňu s "Ochranou od Ohňa"}
+{TAVERN_RUMOR_14},{Paladins are the most powerful creatures of the Citadel.},{Paldin je najsilnejším stvorením Citadely}
+{TAVERN_RUMOR_15},{Cyclopes are the most powerful creatures of the Stronghold.},{Kyklop je najsilnejším stvorením Pevnosti}
+{TAVERN_RUMOR_16},{Titans are the most powerful creatures of the Tower.},{Titan je najsilnejším stvorením Veže...}
+{TAVERN_RUMOR_17},{Black Dragons are the most powerful creatures of the Dungeon.},{Čierny Draci sú najsilnejším stvorením Podzemia...}
+{TAVERN_RUMOR_18},{Phoenix are the most powerful creatures of the Fortress.},{Fénix je najsilnejším stvorením Opevnenia...}
+{TAVERN_RUMOR_19},{Bone Dragons are the most powerful creatures of the Necropolis.},{Kostení Draci sú najsilnejším stvorením Nekropoly...}
+{TAVERN_RUMOR_20},{Hey, I'm all out of rumors, because people like YOU don't come here enough to share them with me!},{Hej! Nemám žiadne nové zvesti, pretože ľudia ako TY sem nechodia moc často aby ich so mnou zdieľali!}
+{TAVERN_RUMOR_21},{Let your Cavaliers run their enemies through. You will like the results. Farther is better.},{Nechaj svoju Kavalériu prebehnúť cez šíky nepriateľov. Čím ďalej, tým lepšie. Výsledok sa ti bude isto páčiť...}
+{TAVERN_RUMOR_22},{I once saw a Dwarf resist a spell cast upon him.},{Videl som raz trpaslíka oddolať kúzlu naňho vyčarenému...}
+{TAVERN_RUMOR_23},{On the battlefield, the troop who strikes first, wins most often.},{Na bojisku najčastejšie vyhrá jednotka, ktorá zaútočí skôr...}
+{TAVERN_RUMOR_24},{On the battlefield, speed is life, life is speed.},{Na bojisku rýchlosť znamená prežitie...}
+{TAVERN_RUMOR_25},{I have seen dying Vampires reborn in the blood of fallen enemies.},{Videl som znovuzrodenie Vampírov z krvi padlých nepriateľov...}
+{TAVERN_RUMOR_26},{It is impossible to retaliate in the face of a Vampire's fearsome assault.},{Je nemožé brániť sa proti hrôzostrašnému útoku Vampíra...}
+{TAVERN_RUMOR_27},{A Lich's attack shreds the living while leaving the dead unscathed.},{Útok Ličov ublíži živým, zatiaľ čo mŕtvych nezraní...}
+{TAVERN_RUMOR_28},{On the battlefield, Bone Dragons strike fear into the hearts of their enemies.},{Kostení draci na bojisku zasejú strach do sŕdc svojich nepriateľov...}
+{TAVERN_RUMOR_29},{Golems do not have a mind of their own.},{Golemovia nemajú predstavu o svojej existencii...}
+{TAVERN_RUMOR_30},{Golems are animated through magic means unknown to most men.},{Golemov stvorila mágia neznáma pre väčšinu ľudí...}
+{TAVERN_RUMOR_31},{Because of their animated nature, Golems endure the punishment of spells longer than most.},{Vďaka svojej podstate stvorenia, Golemovia oddolajú účinku kúziel lepšie ako iní...}
+{TAVERN_RUMOR_32},{Titans will strike Black Dragons with more ferocity than any other enemy.},{Útok Titana proti Čiernemu Drakovi je oveľa zúrivejší ako proti inému nepriateľovi...}
+{TAVERN_RUMOR_33},{Many fear the petrifying attack of the Medusa. You should fear more their golden arrows.},{Mnohí sa obávajú útoku medúzy, po ktorom skamenieš. Mali by si sa viac báť ich zlatých šípov...}
+{TAVERN_RUMOR_34},{Even against overwhelming odds, the Minotaur revels in the bloodlust of combat.},{Minotaur prahne po krvi aj keď stojí oproti ohromnej presile...}
+{TAVERN_RUMOR_35},{Not a spell in the world could harm the Black Dragon.},{Žiadne kúzlo na svete nemôže ublížiť Čiernemu Drakovi...}
+{TAVERN_RUMOR_36},{When in battle, it is said Black Dragons seek out Titans.},{Traduje sa, že v bitke Čierny Draci vyhľadávajú Titanov...}
+{TAVERN_RUMOR_37},{It is impossible to retaliate in the onslaught of the many headed Hydra.},{Brániť sa proti útoku mnohohlavej Hydry je nemožné...}
+{TAVERN_RUMOR_38},{Some believe each Necropolis builds a "Necromancy Amplifier" to help its heroes raise the dead.},{Niektorí veria, že každá Nekropola buduje "Zosilovač nekromancie" na pomoc hrdinom pri kriesení mŕtvych...}
+{TAVERN_RUMOR_39},{Heroes visiting the Hall of Valhalla in a Stronghold become better warriors.},{Hrdinovia, ktorí navštívia Halu Valhally v Pevnosti sa stanú lepšími bojovníkmi...}

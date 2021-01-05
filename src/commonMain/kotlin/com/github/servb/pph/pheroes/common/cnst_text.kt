@@ -8,7 +8,6 @@ import com.github.servb.pph.util.helpertype.UniqueValueEnum
  * Do not modify this file -- YOUR CHANGES WILL BE ERASED!
  */
 
-// TODO: support other langs (#18)
 val LANG_DATA: List<String> = listOf(
         "",
         "+",
