@@ -19,7 +19,7 @@ private val menuBtnText = ushortArrayOf(
     RGB16(239, 198, 31), RGB16(242, 198, 23), RGB16(224, 198, 16), RGB16(247, 199, 0), RGB16(248, 200, 0)
 )  // todo: check size == 15
 
-private class iLangMenuDlg : iDialog, IViewCmdHandler {
+class iLangMenuDlg : iDialog, IViewCmdHandler {
 
     class iLangMenuBtn : iButton {
 
@@ -100,13 +100,6 @@ private class iLangMenuDlg : iDialog, IViewCmdHandler {
         }
     }
 
-    override fun OnPlace(rect: RectangleInt) {
-//        rect.y += 40
-    }
-
-    override fun OnCompose() {
-    }
-
     override fun GetDialogMetrics(): SizeInt {
         return SizeInt(150, Language.values().size * (DEF_BTN_HEIGHT + 2) + 12)
     }
@@ -118,21 +111,5 @@ private class iLangMenuDlg : iDialog, IViewCmdHandler {
     companion object {
 
         const val BTN_DIST = 5
-    }
-}
-
-
-class iLangView : iChildGameView(false, CHILD_VIEW.UNDEFINED) {
-
-    suspend fun Start() {
-        val mdlg = iLangMenuDlg(gApp.ViewMgr())
-        val res = mdlg.DoModal()
-        val languageId = res - 100
-        val language = Language.values()[languageId]
-        gTextMgr.SetLanguage(language)
-    }
-
-    override fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
-        pView.GetUID()  // strange no behavior in sources
     }
 }

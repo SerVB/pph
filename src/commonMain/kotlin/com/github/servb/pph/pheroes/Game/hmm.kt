@@ -101,6 +101,12 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
 //        return -1;
 //    }
 
+    val mdlg = iLangMenuDlg(gApp.ViewMgr())
+    val res = mdlg.DoModal()
+    val languageId = res - 100
+    val language = Language.values()[languageId]
+    gTextMgr.SetLanguage(language)
+
     if (!gGame.Init()) {
         TODO("return -1")
     }

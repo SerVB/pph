@@ -32,8 +32,7 @@ abstract class iChildGameView : iTopmostView, IViewCmdHandler {
         HERO(4),
         MEET(5),
         MINIMAP(6),
-        LANGUAGE_SELECTOR(7),
-        COUNT(8),
+        COUNT(7),
     }
 
     private val m_parentView: CHILD_VIEW
@@ -93,9 +92,6 @@ class Game : IGame {
 
     suspend fun Init(): Boolean {
         check(!m_bInited)
-
-        ShowView(iChildGameView.CHILD_VIEW.LANGUAGE_SELECTOR)
-        (m_pChildView[iChildGameView.CHILD_VIEW.LANGUAGE_SELECTOR.v] as iLangView).Start()
 
 //        if (!LoadResouses(m_itemMgr)) return false  // todo
 
@@ -202,10 +198,6 @@ class Game : IGame {
             iChildGameView.CHILD_VIEW.HERO -> TODO()
             iChildGameView.CHILD_VIEW.MEET -> TODO()
             iChildGameView.CHILD_VIEW.MINIMAP -> TODO()
-            iChildGameView.CHILD_VIEW.LANGUAGE_SELECTOR -> {
-                check(m_pChildView[cv.v] == null)
-                m_pChildView[cv.v] = iLangView()
-            }
         }
 
         m_pChildView[cv.v]!!.OnActivate(true)
