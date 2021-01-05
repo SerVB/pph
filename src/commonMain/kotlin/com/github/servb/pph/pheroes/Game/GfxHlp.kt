@@ -28,6 +28,17 @@ val gradBtnText = ushortArrayOf(
 
 val defGrad = iGradient(IDibPixelPointer(gradBtnText, 0), 13)
 
+val dlgfc_hdr: iTextComposer.IFontConfig =
+    iTextComposer.FontConfig(iTextComposer.FontSize.LARGE, IiDibFont.ComposeProps(RGB16(255, 180, 64)))
+val dlgfc_topic: iTextComposer.IFontConfig =
+    iTextComposer.FontConfig(iTextComposer.FontSize.MEDIUM, IiDibFont.ComposeProps(RGB16(255, 255, 0)))
+val dlgfc_plain: iTextComposer.IFontConfig =
+    iTextComposer.FontConfig(iTextComposer.FontSize.MEDIUM, IiDibFont.ComposeProps(RGB16(210, 210, 220)))
+val dlgfc_stopic: iTextComposer.IFontConfig =
+    iTextComposer.FontConfig(iTextComposer.FontSize.SMALL, IiDibFont.ComposeProps(RGB16(255, 255, 0)))
+val dlgfc_splain: iTextComposer.IFontConfig =
+    iTextComposer.FontConfig(iTextComposer.FontSize.SMALL, IiDibFont.ComposeProps(RGB16(210, 210, 220)))
+
 val btnfc_normal: iTextComposer.IFontConfig = iTextComposer.FontConfig(
     iTextComposer.FontSize.MEDIUM,
     IiDibFont.ComposeProps(defGrad, cColor.Black.pixel, IiDibFont.Decor.Border)

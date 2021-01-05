@@ -1,9 +1,6 @@
 package com.github.servb.pph.pheroes.Game
 
-import com.github.servb.pph.gxlib.IDibPixelIPointer
-import com.github.servb.pph.gxlib.IiDib
-import com.github.servb.pph.gxlib.copyTo
-import com.github.servb.pph.gxlib.iDib
+import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.util.ISizeInt
 import com.github.servb.pph.util.SizeT
 import com.soywiz.korim.bitmap.Bitmap32
@@ -58,8 +55,6 @@ class iCreditsComposer {
     private var m_bEnd: Boolean = false
     private var m_scrPos: Int = 0
     private var m_bShowCredits: Boolean
-    private var t: Double by Delegates.notNull()
-    private var dt: Double by Delegates.notNull()
 
     constructor() {
         m_bShowCredits = false
@@ -72,8 +67,6 @@ class iCreditsComposer {
         m_logo = resourcesVfs["pheroes/bin/Resources/hmm/GFX/Pix/title_hmm.png"].readBitmap().toBMP32()
 
         m_pos = 0
-        t = 0.0
-        dt = 0.03  // adjust this if too fast or slow...
     }
 
     fun Compose(surface: iDib) {
@@ -86,17 +79,43 @@ class iCreditsComposer {
             m_back.CopyRectToDibXY(surface, IRectangleInt(0, 720 - xval, 320, 240), PointInt())
         }
 
-        t += dt
-
         //Compose credits
         ++m_scrPos
-        val composed: SizeT = 0
+        var composed: SizeT = 0
         if (m_bShowCredits) {
-            // todo: port code of text drawing
+            val pixpos = m_scrPos
+            var spos = 70 + (13 - pixpos % 14)
+            var cline = pixpos / 14 - 10
+
+            val crtext = creditsText  // todo: use item manager (as in sources)
+            repeat(10) {
+                val fc = iTextComposer.FontConfig(dlgfc_plain)
+                fc.cmpProps.decor = IiDibFont.Decor.Border
+                fc.cmpProps.alpha = when {
+                    spos < 120 -> ((spos - 70) * 255 / 50).toUByte()
+                    spos > 160 -> ((210 - spos) * 255 / 50).toUByte()
+                    else -> 255u
+                }
+
+                if (cline in crtext.indices) {
+                    gTextComposer.TextOut(
+                        fc,
+                        surface,
+                        PointInt(),
+                        crtext[cline],
+                        IRectangleInt(0, spos, 320, 14),
+                        Alignment.AlignTop
+                    )
+                    ++composed
+                }
+
+                spos += 14
+                ++cline
+            }
         }
 
         if (composed == 0) {
-            m_bEnd
+            m_bEnd = true
         }
 
         // compose 'Heroes' logo directly on surface  // todo: won't work on other resolutions

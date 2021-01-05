@@ -144,7 +144,8 @@ class iMenuView private constructor() : iChildGameView(false, CHILD_VIEW.UNDEFIN
                     // todo
                 }
                 103 -> {
-                    // todo
+                    StartCredits()
+                    break
                 }
                 104 -> {
                     gGame.Quit()
