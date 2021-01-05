@@ -11,6 +11,8 @@ import com.soywiz.korge.view.Stage
 import com.soywiz.korma.geom.ISizeInt
 import com.soywiz.korma.geom.SizeInt
 
+internal expect fun closeWindow()
+
 // todo: not needed until screen suspension is implemented
 //interface iDispMsgHnd {
 //    fun msg_Suspend()
@@ -93,8 +95,7 @@ class iWindow {
     }
 
     fun Destroy() {
-//        DestroyWindow(m_hWnd)
-        TODO("window.Destroy requested")
+        closeWindow()
     }
 
     private fun OnMessage(uMsg: WindowMessage) {
