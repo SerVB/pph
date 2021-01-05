@@ -83,11 +83,11 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
 
         val rc = RectangleInt(GetDialogMetrics().asRectangle())
         rc.height = DEF_BTN_HEIGHT + 2
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_NEWGAME, 100u, ViewState.Visible or ViewState.Enabled))
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_NEWGAME, 100u, ViewState.Visible.v))
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_LOADGAME, 101u, ViewState.Visible or ViewState.Enabled))
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_LOADGAME, 101u, ViewState.Visible.v))
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_HIGHSCORE, 102u, ViewState.Visible or ViewState.Enabled))
+        AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_HIGHSCORE, 102u, ViewState.Visible.v))
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
         AddChild(iMainMenuBtn(m_pMgr, this, rc, TRID_MENU_CREDITS, 103u, ViewState.Visible or ViewState.Enabled))
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
