@@ -69,6 +69,7 @@ There are some screencasts of what's working:
 
 * [Progress bar](https://youtu.be/gDINi7vj29k).
 * [Main menu](https://youtu.be/jZVkJDCNsCQ).
+* [Language selector and credits](https://youtu.be/2puY83JPWbw).
 
 ### Practices
 
