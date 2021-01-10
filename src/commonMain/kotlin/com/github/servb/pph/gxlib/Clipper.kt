@@ -6,8 +6,6 @@ import com.github.servb.pph.util.ISizeInt
 import com.github.servb.pph.util.Mutable
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.github.servb.pph.util.helpertype.or
-import com.github.servb.pph.util.x2
-import com.github.servb.pph.util.y2
 import com.soywiz.korma.geom.*
 import com.soywiz.korma.math.clamp
 
