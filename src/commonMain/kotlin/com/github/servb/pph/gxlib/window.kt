@@ -8,10 +8,9 @@ import com.soywiz.korge.input.MouseEvents
 import com.soywiz.korge.input.keys
 import com.soywiz.korge.input.mouse
 import com.soywiz.korge.view.Stage
+import com.soywiz.korgw.GameWindow
 import com.soywiz.korma.geom.ISizeInt
 import com.soywiz.korma.geom.SizeInt
-
-internal expect fun closeWindow()
 
 // todo: not needed until screen suspension is implemented
 //interface iDispMsgHnd {
@@ -35,6 +34,7 @@ class iWindow {
     private var m_bTrack: Boolean
     private var m_bActive: Boolean
     private lateinit var m_pOwner: iGXApp
+    private lateinit var window: GameWindow
 
     constructor() {
         m_bActive = false
@@ -86,6 +86,7 @@ class iWindow {
         m_pOwner = pApp
         // todo: check for multiple instanses (existed in sources), or can uncomment mutex in main function
         stage.WndProc()
+        window = stage.gameWindow
 
         m_Size.setTo(siz)
         // todo: do we need switch to full screen?
@@ -95,7 +96,7 @@ class iWindow {
     }
 
     fun Destroy() {
-        closeWindow()
+        window.close()
     }
 
     private fun OnMessage(uMsg: WindowMessage) {
