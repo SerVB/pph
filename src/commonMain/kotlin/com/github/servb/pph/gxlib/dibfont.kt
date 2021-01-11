@@ -58,9 +58,24 @@ interface IiDibFont {
 
         constructor(
             _faceColor: IDibPixel,
-            _borderColor: IDibPixel = cColor.Black.pixel,
-            _decor: Decor = Decor.Shadow,
-            _alpha: UByte = 255u
+        ) : this(_faceColor, cColor.Black.pixel)
+
+        constructor(
+            _faceColor: IDibPixel,
+            _borderColor: IDibPixel,
+        ) : this(_faceColor, _borderColor, Decor.Shadow)
+
+        constructor(
+            _faceColor: IDibPixel,
+            _borderColor: IDibPixel,
+            _decor: Decor,
+        ) : this(_faceColor, _borderColor, _decor, 255u)
+
+        constructor(
+            _faceColor: IDibPixel,
+            _borderColor: IDibPixel,/* = cColor.Black.pixel*/
+            _decor: Decor,/* = Decor.Shadow*/
+            _alpha: UByte,/* = 255u*/
         ) {
             faceColor = _faceColor
             borderColor = _borderColor
@@ -72,9 +87,24 @@ interface IiDibFont {
 
         constructor(
             _gradient: iGradient,
-            _borderColor: IDibPixel = cColor.Black.pixel,
-            _decor: Decor = Decor.Shadow,
-            _alpha: UByte = 255u
+        ) : this(_gradient, cColor.Black.pixel)
+
+        constructor(
+            _gradient: iGradient,
+            _borderColor: IDibPixel,
+        ) : this(_gradient, _borderColor, Decor.Shadow)
+
+        constructor(
+            _gradient: iGradient,
+            _borderColor: IDibPixel,
+            _decor: Decor,
+        ) : this(_gradient, _borderColor, _decor, 255u)
+
+        constructor(
+            _gradient: iGradient,
+            _borderColor: IDibPixel,/* = cColor.Black.pixel*/
+            _decor: Decor,/* = Decor.Shadow*/
+            _alpha: UByte,/* = 255u*/
         ) {
             gradient = _gradient
             borderColor = _borderColor
