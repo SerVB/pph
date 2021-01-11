@@ -58,18 +58,18 @@ interface IiDibFont {
 
         constructor(
             _faceColor: IDibPixel,
-        ) : this(_faceColor, cColor.Black.pixel)
+        ) : this(_faceColor, cColor.Black.pixel)  // todo: remove after KT-44180
 
         constructor(
             _faceColor: IDibPixel,
             _borderColor: IDibPixel,
-        ) : this(_faceColor, _borderColor, Decor.Shadow)
+        ) : this(_faceColor, _borderColor, Decor.Shadow)  // todo: remove after KT-44180
 
         constructor(
             _faceColor: IDibPixel,
             _borderColor: IDibPixel,
             _decor: Decor,
-        ) : this(_faceColor, _borderColor, _decor, 255u)
+        ) : this(_faceColor, _borderColor, _decor, 255u)  // todo: remove after KT-44180
 
         constructor(
             _faceColor: IDibPixel,
@@ -87,18 +87,18 @@ interface IiDibFont {
 
         constructor(
             _gradient: iGradient,
-        ) : this(_gradient, cColor.Black.pixel)
+        ) : this(_gradient, cColor.Black.pixel)  // todo: remove after KT-44180
 
         constructor(
             _gradient: iGradient,
             _borderColor: IDibPixel,
-        ) : this(_gradient, _borderColor, Decor.Shadow)
+        ) : this(_gradient, _borderColor, Decor.Shadow)  // todo: remove after KT-44180
 
         constructor(
             _gradient: iGradient,
             _borderColor: IDibPixel,
             _decor: Decor,
-        ) : this(_gradient, _borderColor, _decor, 255u)
+        ) : this(_gradient, _borderColor, _decor, 255u)  // todo: remove after KT-44180
 
         constructor(
             _gradient: iGradient,
