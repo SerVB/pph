@@ -1,0 +1,1780 @@
+s<-- Common GUI -->
+{VOID}, {}, {}
+{PLUS}, {+}, {+}
+{MINUS}, {-}, {-}
+{OK}, {Ok}, {Ok}
+{CANCEL}, {Cancel}, {Anuluj}
+{YES},{Yes}, {Tak}
+{NO},{No}, {Nie}	
+{NA},{n/a}, {n/a}
+{CLOSE},{Close}, {Zamknij}
+{HELP},{Help}, {Pomoc}
+{CAST},{Cast}, {Czaruj}
+{INFO}, {Info},{Info}
+{MAP_SIZE},{Map size}, {Rozmiar mapy}
+{MAP_VERSION},{Map version}, {Wersja mapy}
+{MAP_AUTHOR},{Author}, {Autor}
+{CREAT_DISMISS},{Dismiss}, {Zwolnij}
+{BTN_BUILD},{Build}, {Buduj}
+{BTN_RECRUIT},{Recruit}, {Rekrutuj}
+{REQUIRES},{Requires:}, {Wymagania:}
+{COST},{Cost:}, {Koszt:}
+{GUARD},{Guard:}, {Straż:}
+{VISITED},{Visited}, {Odwiedzone}
+{NOT_VISITED},{Not Visited}, {Nie odwiedzone}
+{OWNEDBY},{Owned}, {Należeć}
+{NONE},{None}, {Nic}
+{SPLIT},{Split}, {Podział}
+{TRADE},{Trade}, {Handel}
+{SURRENDER},{Surrender}, {Poddaj się}
+{RETREAT},{Retreat}, {Uciekaj}
+{LOAD},{Load}, {Wczytaj}
+{SAVE},{Save}, {Zapisz}
+{EMPTY},{<...>},{<...>}
+{LOAD_DLG_HDR},{Load a Saved Game:},{Wczytaj grę:}
+{SAVE_DLG_HDR},{Save the Current Game:}, {Zapisz}
+{SELECT_SCENARIO_DLG_HDR},{Select a Scenario to Play:},{Wybierz scenariusz:}
+{VICTORY},{Victory},{Zwycięstwo}
+{DEFEAT},{Defeat},{Porażka}
+{MAP_NAME},{Map Name},{Nazwa mapy}
+{AUTO_COMBAT},{Auto Combat},{Auto}
+{KINGDOM_OVERVIEW},{Kingdom Overview},{Podgląd królestwa}
+{PUZZLE_MAP},{Puzzle Map},{Mapa puzzle}
+{SYSTEM_MENU},{System Menu}, {Menu główne}
+{DAILY_INCOME},{Daily Income:},{Dzienne dochody}
+
+{UNCHARTED_TERRITORY},{Uncharted Territory}, {Niezbadany teren}
+{UNOCCUPIED},{Unoccupied},{Nie zajęty}
+{NO_TAVERN},{No Tavern},{Brak tawerny}
+{SELECT_DESTINATION},{Select a Destination},{Wybierz cel podróży}
+{GROWTH},{Growth},{Przyrost}
+{AVAILABLE},{Available},{Dostępny}
+{COST_PER_TROOP},{Cost per Troop},{Cena za oddział}
+{RECRUIT},{Recruit},{Rekrutuj}
+{TOTAL_COST},{Total cost},{Całkowity koszt}
+{MANA},{Mana},{Punkty magii}
+{LEVEL},{Level},{Poziom}
+{EXPERIENCE},{Experience},{Doświadczenie}
+{TRAVELPTS},{Travel Points},{Zasięg ruchu}
+{LEAVE_GUARDS},{Leave Guards},{Zostaw strażników}
+
+{SAVED_AT},{Saved at},{Data zapisu}
+{GAME_DATE},{Game Date},{Data w grze}
+{KINGDOM_RESOURCES},{Kingdom Resources},{Zasoby Królestwa}
+{AVAILABLE_FOR_TRADE},{Available for Trade},{Wymiana możliwa}
+
+{ART_GUARDED_BY},{Through a clearing you see an ancient artifact. Unfortunately, it's guarded by:},{Za polaną widzisz starożytny artefakt. Niestety jest on strzeżony przez:} 
+{OBJ_GUARDED_BY},{Much to your dismay, the %s is guarded by:},{Z przerażeniem stwierdzasz, że %s jest strzeżony przez:}
+{FIGHT_GUARD_QUESTION},{Do you wish to fight the guards?},{Chcesz zaatakować strażników?}
+
+<-- Settings -->
+{SFX_VOLUME},{Sound},{Dźwięki}
+{OFF},{Off},{Wył}
+{HARDWARE_KEYS},{Key Map},{Klawiatura}
+{HARDWARE_KEYS_SETTINGS},{Key Map Settings},{Ustawienia klawiatury}
+
+{HKEY_PRESS_KEY},{Press the key you want to assign...},{Naciśnij klawisz, który chcesz przypisać}
+
+{HKEY_NAME_NONE},{- N/A -},{- N/A -}
+{HKEY_NAME_ENTER},{Start},{Start}
+{HKEY_NAME_UP},{Up},{Góra}
+{HKEY_NAME_DOWN},{Down},{Dół}
+{HKEY_NAME_LEFT},{Left},{Lewo}
+{HKEY_NAME_RIGHT},{Right},{Prawo}
+{HKEY_NAME_VKA},{Button #1},{Przycisk #1}
+{HKEY_NAME_VKB},{Button #2},{Przycisk #2}
+{HKEY_NAME_VKC},{Button #3},{Przycisk #3}
+
+{HKEY_ACT_HELPMODE},{Help Mode},{Tryb pomocy}
+{HKEY_ACT_HANDMODE},{Hand Mode},{Orientacja ekranu}
+{HKEY_ACT_SURVEYMAP},{Survey Map},{Podgląd mapy}
+{HKEY_ACT_MINIMIZE},{Minimize},{Minimalizuj}
+{HKEY_ACT_SCREENSHOT},{Make Screenshot},{Zrzut ekranu}
+
+{CFGENTRY_ENDTURN},{Show Hero Reminder},{Pokazuj przypominanie}
+{CFGENTRY_MAPGRID},{Show Map Grid},{Nanieś siatkę na mapę}
+{CFGENTRY_COMBATGRID},{Show combat grid},{Nanieś siatkę na pole bitwy}
+{CFGENTRY_QUICKCOMBAT},{Quick Combat},{Szybka walka}
+{CFGENTRY_PATHMODE},{Show Travel Points},{Pokazuj zasięg ruchu}
+{CFGENTRY_SURVMAPFILT},{Smoothed Survey Map},{Wygładź mapę}
+{CFGENTRY_SURVMAPSCALE},{4x Survey Map Scale},{4x skala podglądu mapy} 
+{CFGENTRY_LHANDER},{Left Hand Mode},{Tryb leworęczny}
+
+{CFGENTRY_SFXVOL},{Sound Volume},{Głośność dźwięków}
+{CFGENTRY_DISPGAMMA},{Display Gamma},{Gamma}
+{CFGENTRY_MAPSCROLLSPEED},{Map Scroll},{Przewijanie mapy}
+{CFGENTRY_HEROSPEED},{Hero Speed},{Szybkość bohatera}
+{CFGENTRY_COMBATSPEED},{Combat Speed},{Szybkość walki}
+
+{CFG_SPEED_VSLOW},{Very Slow},{Bardzo wolno}
+{CFG_SPEED_SLOW},{Slow},{Wolno}
+{CFG_SPEED_NORMAL},{Normal},{Normalnie}
+{CFG_SPEED_FAST},{Fast},{Szybko}
+{CFG_SPEED_VFAST},{Very Fast},{Bardzo Szybko}
+
+<-- Date and time formating -->
+{MONTH_JAN},{Jan},{Sty}
+{MONTH_FEB},{Feb},{Lut}
+{MONTH_MAR},{Mar},{Mar}
+{MONTH_APR},{Apr},{Kwi}
+{MONTH_MAY},{May},{Maj}
+{MONTH_JUN},{Jun},{Cze}
+{MONTH_JUL},{Jul},{Lip}
+{MONTH_AUG},{Aug},{Sie}
+{MONTH_SEP},{Sep},{Wrz}
+{MONTH_OCT},{Oct},{Paź}
+{MONTH_NOV},{Nov},{Lis}
+{MONTH_DEC},{Dec},{Gru}
+
+<-- Messages -->
+{CONFIRM_RELOAD},{Your current game will be lost. Are you sure you want to load another game?},{Aktualna gra nie zostanie zapisana. Czy na pewno chcesz wczytać inną grę?}
+{CONFIRM_QUIT},{Are you sure you want to quit?},{Czy na pewno chcesz opuścić grę?}
+{CONFIRM_EXITMM},{Your current game will be lost. Are you sure you want to exit to main menu?},{Aktualna gra nie zostanie zapisana. Czy na pewno chcesz wyjść do menu?}
+{CONFIRM_OVERWRITE},{The selected slot already used. Overwrite?},{Czy chcesz nadpisać istniejącą grę?}
+
+{MSG_NOTIMPL},{Sorry - this feature is not available in the current version.},{Ta opcja jest niedostępna w obecnej wersji gry.}
+{MSG_YOUVEWON},{You've won!},{Wygrałeś!}
+{MSG_REACHLEVEL},{has gained a level %d},{zdobywa %d poziom }
+{MSG_HEROSELECTED},{#FFFF%s #S0#FDDD(%s level %d)},{#FFFF%s #S0#FDDD(%s poziom %d)}
+{MSG_BLDNODEPS},{All prerequisites for this building have been met},{Wszystkie wymagania dla tego budynku zostały spełnione}
+{MSG_CNSTALREADYBUILT},{Already built},{Wybudowano}
+{MSG_QDISMISS},{Are you sure you want to dismiss this army?},{Czy jesteś pewny, że chcesz zwolnić ten oddział?}
+{MSG_HDISMISS},{Are you sure you want to dismiss this Hero?},{Czy jesteś pewny, że chcesz zwolnić tego Bohatera?}
+{CREAT_JOIN_MESSAGE},{A group of %s with a desire for greater glory wish to join you. Do you accept?},{Grupa %s chce przyłączyć się do twojej armii, aby zasmakować wesołego życia żołnierza. Czy zgadzasz się na to?}
+{CREAT_ESCAPE_MESSAGE},{The %s, awed by the power of your forces, begin to scatter. Do you wish to pursue and engage them?}, {%s widząc potęgę twojej armii uciekają w popłochu. Czy chcesz dogonić wroga i zaatakować go?}
+{SECSKILL_CHOOSE_MESSAGE},{Your hero may learn either secondary skill:}, {Twój bohater może nauczyć się dodatkowej zdolności:}
+{SECSKILL_LEARN_MESSAGE},{Your hero has learned:},{Twój bohater nauczył się:}
+{CHOOSE_QUESTION},{Which do you choose?},{Co wybierasz}
+{MAKE_ROOM_MESSAGE},{Make room for the %s in your army.},{Zrób miejsce dla %s w swojej armii}
+{SURRENDER_STATES},{%s states:},{Państwa}
+{SURRENDER_CONDITION},{I will accept your surrender and grant you and your army safe passage for the price of %d gold.},{Przyjmę twoją kapitulację i pozwolę odejść wraz z wojskiem jeżeli zapłacisz mi %d złota.}
+{MSG_EXP_TO_NEXT_LEVEL},{You need %d experience points to reach the next level.},{Do następnego poziomu brakuje ci jeszcze %d punktów doświadczenia.}
+{MSG_VICTORY},{Congratulations! All your enemies have been defeated! Victory is yours!},{Gratulacje! Wszyscy wrogowie zostali pokonani! Zwyciężyłeś!}
+{MSG_DEFEAT},{All your forces have been defeated, and you are banished from this land!},{Wszystkie twoje jednostki zostały pokonane, a ciebie skazano na wygnanie!}
+{MSG_PLAYER_VANQUISHED},{%s Player has been Vanquished!},{%s gracz został pokonany!}
+{MSG_NO_ROOM},{There is no room in the garrison for this troop.},{Nie ma miejsca na ten oddział w garnizonie.}
+{MSG_END_TURN},{Are you sure you want to end your turn?},{Jesteś pewny, że chcesz zakończyć turę?}
+{MSG_MARKET_DEF},{Please inspect our fine wares. If you feel like offering a trade, click on the items you wish to trade.},{Proszę, obejrzyjcie nasze towary. Jeżeli jesteś zainteresowany, wybierz przedmiot który chcesz wymienić.}
+{MSG_MARKET_OFFER},{I can offer you:},{Mogę ci zaoferować:}
+{MSG_MARKET_SFORS},{%s   for   %s},{%s   za   %s}
+{MSG_ALREADY_FOUR_HEROES},{You already have four heroes.},{Posiadasz już czterech bohaterów}
+{MSG_NO_HERO_TO_RECRUIT},{There are no heroes in this Tavern to recruit. Come back next week.},{W tawernie nie ma bohaterów. Wróć w przyszłym tygodniu.}
+{MSG_SPELL_AFFECT_NO_ONE},{That spell will affect no one!},{To zaklęcie nie zadziała na nikogo!}
+{MSG_SPELL_NOT_ENOUGH_MANA},{Not enogh mana to cast the spell.},{Za mało magicznej energii, aby użyć zaklęcia.}
+{MSG_SPELL_REQUIRES_SKILL},{This spell requires %s skill at %s level.},{To zaklęcie wymaga umiejętności %s na %s poziomie.}
+{MSG_SPELL_DOES_DAMAGE},{Does %d points of damage.},{Zadaje %d punktów obrażeń.}
+{MSG_GUARDS_POPUP_JOIN},{The creatures are willing to join us!},{Stworzenia chcą sie dołączyć!}
+{MSG_GUARDS_POPUP_FLEE},{These weak creatures will surely flee before us.},{Stworzenia, z pewnością uciekną w popłochu}
+{MSG_GUARDS_POPUP_ATTACK},{I fear these creatures are in the mood for a fight.},{Obawiam się że te stworzenia są w nastroju do walki}
+{NO_SPELL_SELECTED},{No spell selected},{Nie wybrano zaklęcia}
+{MSG_TIRED_TO_CAST},{Your hero is too tired to cast this spell today. Try again tomorrow.},{Twój bohater jest zbyt zmęczony, aby użyć tego zaklęcia dzisiaj. Spróbuj ponownie jutro.}
+{MSG_ARTREQ_LVL_SKILL},{Required Level %d hero with %s skill.},{Wymaga Bohatera poziomu %d, z umiejętnością %s}
+{MSG_ARTREQ_LVL},{Required Level %d hero.},{Wymaga bohatera poziomu %d}
+{MSG_ARTREQ_SKILL},{Required hero with %s skill.},{Wymaga bohatera z umiejętnością %s}
+{MSG_PLAYER_TURN},{%s player's turn.},{Ruch %s gracza.}
+{MSG_PLAYER_UNDER_ATTACK},{%s player is under attack!},{%s gracz jest atakowany!}
+{MSG_MAPEVENT_ATTACK},{You should have known better - you have been attacked!}{Powinieneś to przewidzieć - zostałeś zaatakowany}
+
+{MSG_DIG_TRY_TOMORROW},{Digging for artifacts requires an entire day, try again tomorrow.},{Poszukiwania artefaktu wymagają całego dnia, spróbuj jutro.}
+{MSG_DIG_TRY_ON_CLEAR_LAND},{Try searching on clear ground.},{Spróbuj poszukać na mniej kamienistym terenie.}
+{MSG_DIG_FOUND},{Congratulations! After spending many hours digging here, your hero has uncovered the Conqueror's Crown.},{Gratulacje! Po spędzeniu wielu godzin na kopaniu twój bohater znalazł Koronę Zdobywcy}
+{MSG_DIG_NOTHING},{Nothing here. Where could it be?},{Nic nie znajdujesz. Gdzie to może być?}
+
+{INFO_MINERALS},{There are seven resources in Pocket Heroes used to build and improve castles, purchase troops and recruit Heroes. Gold is the most common and is required for virtually everything. Wood and Ore are used for most buildings. Gems, Mercury, Sulfur and Crystal are rare magical resources used for the most powerful creatures and buildings.},{W PocketHeroes jest siedem surowców, które możesz użyć do rozbudowy zamków, zakupu oddziałów, lub rekrutacji bohaterów. Złoto jest najbardziej potrzebnie. Jest wymagane praktycznie do wszystkiego. Drewno i ruda używane są do budowania większości budynków. Klejnoty, kryształy, siarka i rtęć są rzadkimi magicznymi zasobami, używanymi do tworzenia najpotężniejszych stworzeń i budowli.}
+{INFO_EXPERIENCE},{Experience allows your Heroes to advance levels, increasing their primary and secondary skills.},{Doświadczenie pozwala twoim Bohaterom awansować na kolejny poziom, zwiększając ich główne i poboczne umiejętności.}
+{INFO_MANA},{Spell Points are required to cast spells. Your Hero's maximum spell point level is 10 times your Knowledge Skill. Certain events and structures may temporarily increase your maximum spell point level.},{Punkty magii są wymagane aby używać zaklęć. Maksymalna ilość twoich punktów magii jest 10 razy większa niż twoja wiedza. Niektóre zdarzenia i budynki mogą czasowo powiększać ilość twoich punktów magii.}
+{INFO_TRAVELPTS},{Travel Points determine how far your Hero can move each day. The distance is determined by the type of terrain, roads, and the level of your Logistics and Pathfinding skills. Special locations, events and artifacts can also increase the number of Travel Points.},{Zasięg ruchu określa jak daleko twój bohater może się przemieścić każdego dnia. Ta odległość zależy od typu terenu, dróg i poziomu umiejętności: Logistyki i Znajdowania dróg. Specjalne miejsca, zdarzenia i artefakty mogą dodatkowo zwiększyć zasięg ruchu.}
+{INFO_ATTACK},{Attack skill is a bonus added to the base attack skill of any troops your Hero commands, allowing them to inflict more damage in combat.},{Atak jest bonusem dodawanym do siły ataku każdej jednostki twojego bohatera, co pozwala im zadawać większe obrażenia podczas walki.}
+{INFO_DEFENCE},{Defense skill is a bonus added to the base defense skill of any troops your Hero commands, allowing them to resist more damage in combat.},{Obrona jest bonusem dodawanym do zdolności obrony każdej jednostki twojego bohatera, co pozwala im zmniejszyć ilość otrzymywanych obrażeń podczas walki.}
+{INFO_POWER},{Spell power determines the duration or strength of a spell.},{Moc określa siłę rzucanych zaklęć.}
+{INFO_KNOWLEDGE},{Knowledge determines you Hero's number of Spell Points. Under normal circumstances, a Hero is limited to 10 spell points per level of Knowledge.},{Wiedza określa ilość punktów magii twojego bohatera. W normalnych okolicznościach, ilość punktów magii posiadanych przez bohatera jest 10 razy większa niż poziom jego wiedzy.} 
+{INFO_GOOD_LUCK},{Good luck allows your troops to inflict double damage in combat.},{Dużo szczęścia pozwala oddziałowi zadawać podwójną ilość obrażeń.}
+{INFO_NEUT_LUCK},{With neutral luck your troops' attacks will be unmodified.},{Neutralne szczęście nie wpływa na ataki twoich oddziałów.}
+{INFO_BAD_LUCK},{Bad luck reduces affected troops' damage by half.},{Zbyt mała ilość szczęścia zmniejsza siłę ataku twoich oddziałów o połowę.}
+{INFO_GOOD_MORALE},{Good morale may result in extra attacks for affected troops.},{Dobre morale pozwala twoim jednostką na dwukrotny ruch.}
+{INFO_NEUT_MORALE},{Neutral morale eliminates the potential for troops to freeze in combat or be endowed with extra attacks},{Neutralne morale eliminuje prawdopodobieństwo, że jednostki bohatera odrętwieją, lub dostaną podwójny ruch.}
+{INFO_BAD_MORALE},{Bad morale may cause your troops to freeze in combat.},{Słabe morale może spowodować, że jednostki bohatera odrętwieją ze strachu.}
+
+<-- Week and month -->
+{MSG_NEWWEEK},{New Week},{Nowy tydzień}
+{MSG_NEWMONTH},{New Month},{Nowy miesiąc}
+{MSG_MONTHOF},{Astrologers Proclaim Month of the %s.},{Astrologowie ogłaszają miesiąc %s.}
+{MSG_MONTHOFPLAGUE},{Astrologers Proclaim Month of the PLAGUE!},{Astrologowie ogłaszają miesiąc plagi!}
+{MSG_WEEKOF},{Astrologers Proclaim Week of the %s.},{Astrologowie ogłaszają tydzień %s.}
+{MSG_DWINCPOP},{All Dwellings Increase in Population.},{Populacja królestwa zwiększa się.}
+{MSG_DWHALFPOP},{All Populations are Halved.},{Populacja królestwa maleje.}
+{MSG_DOUBLEPOP},{%s Population Doubles!},{Populacja %s dubluje się!}
+{MSG_PLUSPOP},{%s growth +5.},{Ilość %s wzrasta +5}
+
+{WEEKN_01},{Squirrel},{Wiewiórki}
+{WEEKN_02},{Rabbit},{Królika}
+{WEEKN_03},{Gopher}{Świstaka}
+{WEEKN_04},{Badger},{Borsuka}
+{WEEKN_05},{Rat},{Szczura}
+{WEEKN_06},{Eagle},{Orła}
+{WEEKN_07},{Weasel},{Łasicy}
+{WEEKN_08},{Raven},{Króka}
+{WEEKN_09},{Mongoose},{Mangusty}
+{WEEKN_10},{Dog},{Psa}
+{WEEKN_11},{Aardvark},{Mrówkojada}
+{WEEKN_12},{Lizard},{Jaszczurki}
+{WEEKN_13},{Tortoise},{Żółwia}
+{WEEKN_14},{Hedgehog},{Jeża}
+{WEEKN_15},{Condor},{Kondora}
+
+{MONTHN_01},{Grasshopper},{Konika Polnego}
+{MONTHN_02},{Ant},{Mrówki},
+{MONTHN_03},{Ladybug},{Biedronki}
+{MONTHN_04},{Spider},{Pająka}
+{MONTHN_05},{Butterfly},{Motyla}
+{MONTHN_06},{Bumblebee},{Trzmiela}
+{MONTHN_07},{Locust},{Szarańczy}
+{MONTHN_08},{Earthworm},{Dżdżownicy}
+{MONTHN_09},{Hornet},{Szerszenia}
+{MONTHN_10},{Beetle},{Żuka}
+
+<-- Battle -->
+{BAT_CASUALTIES},{Battlefild Casualties},{Ofiary bitwy}
+{BAT_ATTACKER},{Attacker},{Atakujący}
+{BAT_DEFENDER},{Defender},{Obrońca}
+{COMBAT_LOG},{Combat Log},{Dziennik walki}
+
+{MSG_GOOD_MORALE},{High morale enables the %s to attack again.},{Wysokie morale pozwla %s na ponowny ruch.}
+{MSG_BAD_MORALE},{Low morale causes the %s to freeze in panic.},{Niskie morale powoduje, że %s drętwieją ze strachu.}
+{MSG_GOOD_LUCK},{Good luck shines on the %s},{Szczęście przyświeca %s}
+{MSG_BAD_LUCK},{Bad luck descends on the %s},{Nieszczęście spływa na %s}
+{MSG_BAT_NEXTROUND},{Round %d},{Runda %d}
+
+{MSG_BAT_ATTACK},{Attack %s},{Atak %s}
+{MSG_BAT_SHOOT},{Shoot %s},{Strzał в %s}
+{MSG_BAT_DAMAGE1},{ (%d damage)},{ (%d obrażeń)}
+{MSG_BAT_DAMAGE2},{ (%d-%d damage)},{ (%d-%d obrażeń)}
+
+{MSG_BAT_DODAMAGE},{The %s do %d damage.},{%s zadają %d obrażeń.}
+{MSG_BAT_PERISH},{%d %s perish.},{Ginie %d %s.}
+{MSG_BAT_WAIT},{The %s pause and wait for a better time to act.},{%s czekają na lepszą okazję do ataku.}
+{MSG_BAT_DEFEND},{The %s take a defensive stance and gain +%d defense skill.},{%s bronią się i dostają +%d do umiejętności obrony.}
+{MSG_BAT_TURRET_DODAMAGE},{The turret does %d damage.},{Wieża zadaje %d obrażeń.}
+{MSG_BAT_MOAT_DODAMAGE},{The moat does %d damage.},{Fosa zadaje %d obrażeń.}
+{MSG_BAT_HALF},{%s destroy half the enemy troops!},{%s niszczy połowę oddziałów przeciwnika!}
+
+{MSG_BAT_CAST_SPELL},{Cast %s.},{Rzuć zaklęcie "%s".}
+{MSG_BAT_CAST_SPELL_TO},{Cast %s to %s.},{Rzuć zaklęcie "%s" na %s.}
+{MSG_BAT_CASTS_SPELL},{%s casts %s.},{%s rzuca zaklęcie "%s".}
+{MSG_BAT_CASTS_SPELL_TO},{%s casts %s to %s.},{%s rzuca zaklęcie "%s" nа %s.}
+
+{MSG_CAP_ART},{You have captured an enemy artifact!},{Przejmujesz artefakty przeciwnika!}
+{MSG_CAP_ARTS},{You have captured %d enemy artifacts!},{Przejmujesz %d artefaktów przeciwnika!}
+{MSG_BAT_VICTORY},{A Glorious Victory!},{Chwalebne zwycięstwo!}
+{MSG_BAT_ENEMY_FLEES},{The Enemy has Fled!},{Przeciwnik uciekł!}
+{MSG_BAT_ENEMY_SURREND},{The Enemy has Surrendered!},{Przeciwnik się poddał!}
+{MSG_BAT_RECEXP},{For valor in combat, %s receives %d experience.},{Za męstwo podczas walki, %s otrzymuje %d punktów doświadczenia.}
+
+{MSG_BAT_HERO_DEFEAT},{Your forces suffer a bitter defeat, and %s abandons your cause.},{Twoje oddziały zostały pokonane, %s opuszcza cię.}
+{MSG_BAT_FORCES_DEFEAT},{Your forces suffer a bitter defeat.},{Twoje oddziały zostały pokonane.}
+{MSG_BAT_FLEES},{The cowardly %s flees from battle.},{%s tchórzliwie ucieka z pola bitwy.}
+{MSG_BAT_SURREND},{%s surrenders to the enemy and departs in shame.},{%s poddaje się i opuszcza pole bitwy w niesławie.}
+
+{MSG_BAT_NEGSPHERE},{%s wields the Sphere of Negation, an ancient artifact which prevents magic spells from being cast.},{%s dzierży Kulę Negacji, starożytny artefakt, który uniemożliwia rzucanie zaklęć podczas walki.}
+{MSG_BAT_SHOFWAR},{%s wields the Shackles of War. You can not retreat or surrender!},{%s dzierży Kajdany Wojny. Nie możesz się poddać ani uciec!}
+
+{MSG_NOTENOUGHGOLD},{You don't have enough gold!},{Nie masz wystarczająco dużo złota!}
+
+{MSG_RISE_SKELETONS},{Practicing the dark arts of necromancy, you are able to raise %d of the enemy's dead to return under your service as Skeletons.},{Praktykując mroczne sztuki nekromancji, jesteś w stanie przywrócić do życia %d poległych przeciwników pod twoją służbę jako szkielety.}
+
+<-- Map size -->
+{MAPSIZ_SMALL},{Small},{Mała}
+{MAPSIZ_MEDIUM},{Medium},{Średnia}
+{MAPSIZ_LARGE},{Large},{Duża}
+{MAPSIZ_EXTRALARGE},{Extra Large},{Bardzo duża}
+
+{SHORT_MAPSIZ_SMALL},{S},{S}
+{SHORT_MAPSIZ_MEDIUM},{M},{M}
+{SHORT_MAPSIZ_LARGE},{L},{L}
+{SHORT_MAPSIZ_EXTRALARGE},{XL},{XL}
+
+<-- Hall of Fame -->
+{HOF_RANK},{Rank},{Ranga}
+{HOF_LAND},{Land},{Mapa}
+{HOF_DATE},{Date},{Data}
+{HOF_DAYS},{Days},{Dzień}
+{HOF_SCORE},{Score},{Punkty}
+
+<-- Game difficulty -->
+{DIFFICULTY_LEVEL},{Difficulty Level},{Poziom trudności}
+{DIFF_EASY},{Easy},{Łatwy}
+{DIFF_NORMAL},{Normal},{Normalny}
+{DIFF_HARD},{Hard},{Trudny}
+{DIFF_EXPERT},{Expert},{Ekspert}
+{DIFF_IMPOSSIBLE},{Impossible},{Niemożliwy}
+
+<-- Menus -->
+{MENU_NEWGAME},{Start New Game},{Nowa gra}
+{MENU_LOADGAME},{Load Saved Game},{Wczytaj grę}
+{MENU_SAVEGAME},{Save game},{Zapisz grę}
+{MENU_HIGHSCORE},{Hall of Fame},{Najlepsze wyniki}
+{MENU_CREDITS},{Credits},{O Autorach}
+{MENU_GAMESETTINGS},{Game Settings},{Ustawienia}
+{MENU_EXITTOMAINMENU},{Exit to Main Menu},{Wyjście do menu}
+{MENU_EXITGAME},{Quit},{Wyjście z gry}
+{MENU_RETURNTOGAME},{Return to Game},{Powrót do gry}
+
+<-- Thieves guild information -->
+{THGUILD_NUMOFTOWNS},{Number of Towns},{Ilość miast}
+{THGUILD_NUMOFHEROES},{Number of Heroes},{Ilość bohaterów}
+{THGUILD_RESOURCES},{Resources},{Zasoby}
+{THGUILD_OBELISKS},{Obelisks Found},{Znalezione obeliski}
+{THGUILD_ARTIFACTS},{Artifacts},{Аrtefakty}
+{THGUILD_ARMYSTRENGTH},{Army Strength},{Siła armii}
+{THGUILD_INCOME},{Income},{Przychody}
+
+<-- Surfaces -->
+{SURF_WATER},{Water},{Woda}
+{SURF_SAND},{Beach},{Plaża}
+{SURF_DIRT},{Dirt},{Błoto}
+{SURF_GRASS},{Grass},{Trawa}
+{SURF_SWAMP},{Swamp},{Bagna}
+{SURF_LAVA},{Lava},{Lawa}
+{SURF_WASTELAND},{Wasteland},{Nieużytki}
+{SURF_DESERT},{Desert},{Pustynia}
+{SURF_SNOW},{Snow},{Śnieg}
+{SURF_NDESERT},{Desert},{Pustynia}
+{SURF_COAST},{Coast},{Wybrzeże}
+
+
+<-- Players -->
+{PLAYER},{player},{Gracz}
+{PLAYER_D},{player},{Gracz}
+{PLAYER_RED},{Red},{Czerwony}
+{PLAYER_GREEN},{Green},{Zielony}
+{PLAYER_BLUE},{Blue},{Niebieski}
+{PLAYER_CYAN},{Cyan},{Cyjanowy}
+{PLAYER_MAGENTA},{Purple},{Fioletowy}
+{PLAYER_YELLOW},{Yellow},{Żółty}
+{PLAYER_RED_D},{Red},{Czerwony}
+{PLAYER_GREEN_D},{Green},{Zielony}
+{PLAYER_BLUE_D},{Blue},{Niebieski}
+{PLAYER_CYAN_D},{Cyan},{Cyjanowy}
+{PLAYER_MAGENTA_D},{Purple},{Fioletowy}
+{PLAYER_YELLOW_D},{Yellow},{Żółty}
+
+{PT_UNDEFINED},{Undefined},{Niezdefiniowany}
+{PT_HUMAN},{Human},{Człowiek}
+{PT_Computer},{Computer},{Komputer}
+
+{PTM_HUMAN_ONLY},{Human only},{Tylko człowiek}
+{PTM_COMPUTER_ONLY},{Computer only},{Tylko komputer}
+{PTM_HUMAN_OR_COMPUTER},{Human or Computer},{Człowiek lub komputer}
+
+<-- Date metrics -->
+{DATE},{Date},{Data}
+{MONTH},{Month},{Miesiąc}
+{WEEK},{Week},{Tydzień}
+{DAY},{Day},{Dzień}
+{MONTH_S},{M},{M}
+{WEEK_S},{W},{T}
+{DAY_S},{D},{D}
+
+<-- Common skills -->
+{SKILL_ATTACK_S},{Attack},{Atak}
+{SKILL_DEFENCE_S},{Defense},{Obrona}
+{SKILL_SPOWER_S},{Sp. power},{Moc}
+{SKILL_KNOWLEDGE_S},{Knowl.},{Wiedza}
+{SKILL_SHOTS_S},{Shots},{Strzały}
+{SKILL_DAMAGE_S},{Damage},{Obrażenia}
+{SKILL_HEALTH_S},{Health},{Życie}
+{SKILL_SPEED_S},{Speed},{Szybkość}
+{SKILL_QUANT_S},{Quant.},{Ilość}
+{SKILL_MORALE_S},{Morale},{Morale}
+{SKILL_LUCK_S},{Luck},{Szczęście}
+
+{SKILL_ATTACK},{Attack Skill},{Atak}
+{SKILL_DEFENCE},{Defense Skill},{Obrona}
+{SKILL_SPOWER},{Spell Power},{Moc}
+{SKILL_KNOWLEDGE},{Knowledge},{Wiedza}
+{SKILL_SHOTS},{Shots},{Strzały}
+{SKILL_DAMAGE},{Damage},{Obrażenia}
+{SKILL_HEALTH},{Health},{Życie}
+{SKILL_SPEED},{Speed},{Szybkość}
+{SKILL_QUANT},{Quantity},{Ilość}
+{SKILL_MORALE},{Morale},{Morale}
+{SKILL_LUCK},{Luck},{Szczęście}
+
+<-- Hero Skills -->
+{HSKILL_ESTATES},{Estates},{Finanse}
+{HSKILL_LEADERSHIP},{Leadership},{Dowodzenie}
+{HSKILL_LUCK},{Luck},{Szczęście}
+{HSKILL_DIPLOMACY},{Diplomacy},{Dyplomacja}
+{HSKILL_AIRMAGIC},{Air Magic},{Magia powietrza}
+{HSKILL_EARTHMAGIC},{Earth Magic},{Magia ziemi}
+{HSKILL_FIREMAGIC},{Fire Magic},{Magia ognia}
+{HSKILL_WATERMAGIC},{Water Magic},{Magia wody}
+{HSKILL_WISDOM},{Wisdom},{Mądrość}
+{HSKILL_NECROMANCY},{Necromancy},{Nekromancja}
+{HSKILL_MYSTICISM},{Mysticism},{Mistycyzm}
+{HSKILL_INTELLIGENCE},{Intelligence},{Inteligencja}
+{HSKILL_RESISTANCE},{Resistance},{Odporność}
+{HSKILL_SORCERY},{Sorcery},{Talent Magiczny}
+{HSKILL_LEARNING},{Learning},{Uczenie}
+{HSKILL_SCOUTING},{Scouting},{Zwiad}
+{HSKILL_LOGISTICS},{Logistics},{Logistyka}
+{HSKILL_PATHFINDING},{Pathfinding},{Znajdowanie dróg}
+{HSKILL_ARCHERY},{Archery},{Łucznictwo}
+{HSKILL_BALLISTICS},{Ballistics},{Balistyka}
+{HSKILL_OFFENCE},{Offense},{Ofensywa}
+{HSKILL_ARMORER},{Armorer},{Płatnerstwo}
+
+{HSKILL_ESTATES_BAS_DESC},{Hero contributes 250 gold per day to your cause.},{Bohater dostarcza 250 sztuk zlota dziennie dla twojego krolestwa.}
+{HSKILL_ESTATES_ADV_DESC},{Hero contributes 500 gold per day to your cause.},{Bohater dostarcza 500 sztuk zlota dziennie dla twojego krolestwa.}
+{HSKILL_ESTATES_EXP_DESC},{Hero contributes 1000 gold per day to your cause.},{Bohater dostarcza 1000 sztuk zlota dziennie dla twojego krolestwa.}
+
+{HSKILL_LEADERSHIP_BAS_DESC},{Increases your Hero's troops' morale by 1.},{Zwiększa morale oddziałów twojego bohatera o 1.}
+{HSKILL_LEADERSHIP_ADV_DESC},{Increases your Hero's troops' morale by 2.},{Zwiększa morale oddziałów twojego bohatera o 2.}
+{HSKILL_LEADERSHIP_EXP_DESC},{Increases your Hero's troops' morale by 3.},{Zwiększa morale oddziałów twojego bohatera o 3.}
+
+{HSKILL_LUCK_BAS_DESC},{Increases your Hero's luck by 1.},{Zwiększa szczęście twojego bohatera o 1.}
+{HSKILL_LUCK_ADV_DESC},{Increases your Hero's luck by 2.},{Zwiększa szczęście twojego bohatera o 2.}
+{HSKILL_LUCK_EXP_DESC},{Increases your Hero's luck by 3.},{Zwiększa szczęście twojego bohatera o 3.}
+
+{HSKILL_DIPLOMACY_BAS_DESC},{Allows you to negotiate with monsters who are weaker than your group and reduces the cost of surrendering by 20%.},{Pozwala na negocjacje z potworami słabszymi niż twoja grupa i redukuje koszt poddania sie o 20%.}
+{HSKILL_DIPLOMACY_ADV_DESC},{Allows you to negotiate with monsters who are weaker than your group and reduces the cost of surrendering by 40%.},{Pozwala na negocjacje z potworami słabszymi niż twoja grupa i redukuje koszt poddania sie o 30%.}
+{HSKILL_DIPLOMACY_EXP_DESC},{Allows you to negotiate with monsters who are weaker than your group and reduces the cost of surrendering by 60%.},{Pozwala na negocjacje z potworami słabszymi niż twoja grupa i redukuje koszt poddania sie o 60%.}
+
+{HSKILL_AIRMAGIC_BAS_DESC},{Basic Air Magic allows your Hero to cast Air spells at reduced cost.},{Magia powietrza na poziomie podstawowym pozwala twojemu bohaterowi rzucać czary powietrza zmniejszając ich koszt.}
+{HSKILL_AIRMAGIC_ADV_DESC},{Advanced Air Magic allows your Hero to cast Air spells at reduced cost and increased effectiveness.},{Magia powietrza na poziomie zaawansowanym pozwala twojemu bohaterowi rzucać czary powietrza zmniejszając ich koszt przy zwiększonej efektywności.}
+{HSKILL_AIRMAGIC_EXP_DESC},{Expert Air Magic allows your Hero to cast Air spells at reduced cost and maximum effectiveness.},{Magia powietrza na poziomie eksperta pozwala twojemu bohaterowi rzucać czary powietrza zmniejszając ich koszt przy maksymalnej efektywności.}
+
+{HSKILL_EARTHMAGIC_BAS_DESC},{Basic Earth Magic allows your Hero to cast Earth spells at reduced cost.},{Magia ziemi na poziomie podstawowym pozwala twojemu bohaterowi rzucać czary ziemi zmniejszając ich koszt.}
+{HSKILL_EARTHMAGIC_ADV_DESC},{Advanced Earth Magic allows your Hero to cast Earth spells at reduced cost and increased effectiveness.},{Magia ziemi na poziomie zaawansowanym pozwala twojemu bohaterowi rzucać czary ziemi zmniejszając ich koszt przy zwiększonej efektywności.}
+{HSKILL_EARTHMAGIC_EXP_DESC},{Expert Earth Magic allows your Hero to cast Earth spells at reduced cost and maximum effectiveness.},{Magia ziemi na poziomie eksperta pozwala twojemu bohaterowi rzucać czary ziemi zmniejszając ich koszt przy maksymalnej efektywności.}
+
+{HSKILL_FIREMAGIC_BAS_DESC},{Basic Fire Magic allows your Hero to cast Fire spells at reduced cost.},{Magia ognia na poziomie podstawowym pozwala twojemu bohaterowi rzucać czary ognia zmniejszając ich koszt.}
+{HSKILL_FIREMAGIC_ADV_DESC},{Advanced Fire Magic allows your Hero to cast Fire spells at reduced cost and increased effectiveness.},{Magia ognia na poziomie zaawansowanym pozwala twojemu bohaterowi rzucać czary ognia zmniejszając ich koszt przy zwiększonej efektywności.}
+{HSKILL_FIREMAGIC_EXP_DESC},{Expert Fire Magic allows your Hero to cast Fire spells at reduced cost and maximum effectiveness.},{Magia ognia na poziomie eksperta pozwala twojemu bohaterowi rzucać czary ognia zmniejszając ich koszt przy maksymalnej efektywności.}
+
+{HSKILL_WATERMAGIC_BAS_DESC},{Basic Water Magic allows your Hero to cast Water spells at reduced cost.},{Magia wody na poziomie podstawowym pozwala twojemu bohaterowi rzucać czary wody zmniejszając ich koszt.}
+{HSKILL_WATERMAGIC_ADV_DESC},{Advanced Water Magic allows your Hero to cast Water spells at reduced cost and increased effectiveness.},{Magia wody na poziomie zaawansowanym pozwala twojemu bohaterowi rzucać czary wody zmniejszając ich koszt przy zwiększonej efektywności.}
+{HSKILL_WATERMAGIC_EXP_DESC},{Expert Water Magic allows your Hero to cast Water spells at reduced cost and maximum effectiveness.},{Magia wody na poziomie eksperta pozwala twojemu bohaterowi rzucać czary wody zmniejszając ich koszt przy maksymalnej efektywności.}
+
+{HSKILL_WISDOM_BAS_DESC},{Allows your Hero to learn Third level spells.},{Pozwala twoim bohaterom na naukę zaklęć trzeciego stopnia.}
+{HSKILL_WISDOM_ADV_DESC},{Allows your Hero to learn Fourth level spells.},{Pozwala twoim bohaterom na naukę zaklęć czwartego stopnia.}
+{HSKILL_WISDOM_EXP_DESC},{Allows your Hero to learn Fifth level spells.},{Pozwala twoim bohaterom na naukę zaklęć piątego stopnia.}
+
+{HSKILL_NECROMANCY_BAS_DESC},{Allows 10% of the creatures killed in combat to be brought back from the dead as Skeletons.},{Pozwala na przywrócenie 10% poległych stworzeń w postaci Szkieletów.}
+{HSKILL_NECROMANCY_ADV_DESC},{Allows 20% of the creatures killed in combat to be brought back from the dead as Skeletons.},{Pozwala na przywrócenie 20% poległych stworzeń w postaci Szkieletów.}
+{HSKILL_NECROMANCY_EXP_DESC},{Allows 30% of the creatures killed in combat to be brought back from the dead as Skeletons.},{Pozwala na przywrócenie 30% poległych stworzeń w postaci Szkieletów.}
+
+{HSKILL_MYSTICISM_BAS_DESC},{Allows your Hero to regenerate 2 spell points per day.},{Pozwala twojemu bohaterowi na odnowienie 2 punktów magii w ciągu dnia.}
+{HSKILL_MYSTICISM_ADV_DESC},{Allows your Hero to regenerate 4 spell points per day.},{Pozwala twojemu bohaterowi na odnowienie 4 punktów magii w ciągu dnia.}
+{HSKILL_MYSTICISM_EXP_DESC},{Allows your Hero to regenerate 6 spell points per day.},{Pozwala twojemu bohaterowi na odnowienie 6 punktów magii w ciągu dnia.}
+
+{HSKILL_INTELLIGENCE_BAS_DESC},{Increases a Hero's normal maximum spell points by 25%.},{Zwiększa podstawową ilość punktów magii 25%.}
+{HSKILL_INTELLIGENCE_ADV_DESC},{Increases a Hero's normal maximum spell points by 50%.},{Zwiększa podstawową ilość punktów magii 50%.}
+{HSKILL_INTELLIGENCE_EXP_DESC},{Doubles a Hero's normal maximum spell points.},{Podwaja podstawową ilość punktów magii.}
+
+{HSKILL_RESISTANCE_BAS_DESC},{Endows a Hero's troops with 5% magic resistance.},{Dodaje jednostkom bohatera 5% odporności na magię.}
+{HSKILL_RESISTANCE_ADV_DESC},{Endows a Hero's troops with 10% magic resistance.},{Dodaje jednostkom bohatera 10% odporności na magię.}
+{HSKILL_RESISTANCE_EXP_DESC},{Endows a Hero's troops with 20% magic resistance.},{Dodaje jednostkom bohatera 20% odporności na magię.}
+
+{HSKILL_SORCERY_BAS_DESC},{Causes a Hero's spells to inflict an additional 5% damage in combat.},{Powoduje zwiększenie obrażeń zadawanych przez czary bohatera o 5%.}
+{HSKILL_SORCERY_ADV_DESC},{Causes a Hero's spells to inflict an additional 10% damage in combat.},{Powoduje zwiększenie obrażeń zadawanych przez czary bohatera o 10%.}
+{HSKILL_SORCERY_EXP_DESC},{Causes a Hero's spells to inflict an additional 15% damage in combat.},{Powoduje zwiększenie obrażeń zadawanych przez czary bohatera o 15%.}
+
+{HSKILL_LEARNING_BAS_DESC},{Increases a Hero's earned experience by 5%.},{Zwiększa otrzymywane przez bohatera doświadczenie o 5%.}
+{HSKILL_LEARNING_ADV_DESC},{Increases a Hero's earned experience by 10%.},{Zwiększa otrzymywane przez bohatera doświadczenie o 10%.}
+{HSKILL_LEARNING_EXP_DESC},{Increases a Hero's earned experience by 15%.},{Zwiększa otrzymywane przez bohatera doświadczenie o 15%.}
+
+{HSKILL_SCOUTING_BAS_DESC},{Allows your Hero to see 2 squares further into the shroud.},{Zwiększa zasięg widzenia bohatera o 2 pola.}
+{HSKILL_SCOUTING_ADV_DESC},{Allows your Hero to see 4 squares further into the shroud.},{Zwiększa zasięg widzenia bohatera o 4 pola.}
+{HSKILL_SCOUTING_EXP_DESC},{Allows your Hero to see 6 squares further into the shroud.},{Zwiększa zasięg widzenia bohatera o 6 pól.}
+
+{HSKILL_LOGISTICS_BAS_DESC},{Increases your Hero's movement points over land by 10%.},{Zwiększa ilość punktów ruchu bohatera na lądzie o 10%.}
+{HSKILL_LOGISTICS_ADV_DESC},{Increases your Hero's movement points over land by 20%.},{Zwiększa ilość punktów ruchu bohatera na lądzie o 20%.}
+{HSKILL_LOGISTICS_EXP_DESC},{Increases your Hero's movement points over land by 30%.},{Zwiększa ilość punktów ruchu bohatera na lądzie o 30%.}
+
+{HSKILL_PATHFINDING_BAS_DESC},{Reduces the movement penalty for rough terrain by 25%.},{Zmniejsza ograniczenie ruchu na trudnym terenie o 25%.}
+{HSKILL_PATHFINDING_ADV_DESC},{Reduces the movement penalty for rough terrain by 50%.},{Zmniejsza ograniczenie ruchu na trudnym terenie o 50%.}
+{HSKILL_PATHFINDING_EXP_DESC},{Reduces the movement penalty for rough terrain by 75%.},{Zmniejsza ograniczenie ruchu na trudnym terenie o 75%.}
+
+{HSKILL_ARCHERY_BAS_DESC},{Increases ranged attack damage by 10%.},{Zwiększa obrażenia ataków na odległość o 10%}
+{HSKILL_ARCHERY_ADV_DESC},{Increases ranged attack damage by 25%.},{Zwiększa obrażenia ataków na odległość o 25%}
+{HSKILL_ARCHERY_EXP_DESC},{Increases ranged attack damage by 50%.},{Zwiększa obrażenia ataków na odległość o 50%}
+
+{HSKILL_BALLISTICS_BAS_DESC},{Allows one aimed shot with increased damage.},{Pozwala na jeden wycelowany strzał o zwiększonej mocy.}
+{HSKILL_BALLISTICS_ADV_DESC},{Allows two aimed shots with increased damage.},{Pozwala na dwa wycelowane strzały o zwiększonej mocy.}
+{HSKILL_BALLISTICS_EXP_DESC},{Allows two aimed shots with maximum damage.},{Pozwala na dwa wycelowane strzały o maksymalnej mocy.}
+
+{HSKILL_OFFENCE_BAS_DESC},{Increases hand-to-hand attack damage by 10%.},{Zwiększa obrażenia walki wręcz o 10%.}
+{HSKILL_OFFENCE_ADV_DESC},{Increases hand-to-hand attack damage by 20%.},{Zwiększa obrażenia walki wręcz o 20%.}
+{HSKILL_OFFENCE_EXP_DESC},{Increases hand-to-hand attack damage by 30%.},{Zwiększa obrażenia walki wręcz o 30%.}
+
+{HSKILL_ARMORER_BAS_DESC},{Reduces all damage inflicted against the Hero's troops by 5%.},{Redukuje wszystkie obrażenia skierowane przeciw oddziałom bohatera o 5%.}
+{HSKILL_ARMORER_ADV_DESC},{Reduces all damage inflicted against the Hero's troops by 10%.},{Redukuje wszystkie obrażenia skierowane przeciw oddziałom bohatera o 10%.}
+{HSKILL_ARMORER_EXP_DESC},{Reduces all damage inflicted against the Hero's troops by 15%.},{Redukuje wszystkie obrażenia skierowane przeciw oddziałom bohatera o 15%.}
+
+
+{HSKILL_LEVEL_BASIC},{Basic},{Podstawowy}
+{HSKILL_LEVEL_ADVANCED},{Advanced},{Zaawansowany}
+{HSKILL_LEVEL_EXPERT},{Expert},{Ekspert}
+
+<-- Minerals -->
+{MINERAL_GOLD},{Gold},{Złoto}
+{MINERAL_ORE},{Ore},{Ruda}
+{MINERAL_WOOD},{Wood},{Drewno}
+{MINERAL_MERCURY},{Mercury},{Rtęć}
+{MINERAL_GEM},{Gem},{Klejnot}
+{MINERAL_CRYSTAL},{Crystal},{Kryształ}
+{MINERAL_SULFUR},{Sulfur},{Siarka}
+
+<-- Resources (title+msg) -->
+{MAPRES_RAND_MINERAL},{Random Resource},{Losowy surowiec}
+{MAPRES_GOLD},{Heap of Gold},{Stos złota}
+{MAPRES_ORE},{Heap of Ore},{Stos rudy}
+{MAPRES_WOOD},{Cord of Wood},{Stos drewna}
+{MAPRES_MERCURY},{Bottle of Mercury},{Butelka rtęci}
+{MAPRES_GEM},{Heap of Gems},{Stos klejnotów}
+{MAPRES_CRYSTAL},{Heap of Crystals},{Stos kryształów}
+{MAPRES_SULFUR},{Heap of Sulfur},{Stos siarki}
+{MAPRES_MANACRYSTAL},{Mana Crystal},{Kryształ many}
+{MAPRES_CAMPFIRE},{Campfire},{Ognisko}
+{MAPRES_CHEST},{Treasure Chest},{Skrzynia ze skarbami}
+{MAPRES_LAMP},{Lamp},{Lampa}
+{MAPRES_SPELLSCROLL},{Spell Scroll},{Zwój z zaklęciem}
+{MAPRES_ARTIFACT},{Artifact},{Artefakt}
+{MAPRES_KEYGUARD},{Guard},{Strażnik Bramy}
+
+{MAPRES_KEYGUARD_OK_MSG},{As you reign in your horse, a guard steps up to you and says, "Welcome. I have received word of your arrival. Do you wish to pass at this time?"},{Podczas gdy zbliżasz się na swym koniu, podchodzi do Ciebie strażnik i mówi, "Witaj. Otrzymałem wiadomość o twoim przybyciu. Czy chcesz teraz przejść?"}
+{MAPRES_KEYGUARD_NOPASS_MSG},{"No one told me of your coming," says the Border Guard. "I cannot let you pass. Perhaps you should first seek a Keymaster's Tent."},{"Nikt nie powiadomił mnie o twoim przyjeździe," mówi strażnik. "Nie mogę Cię przepuścić. Może powinieneś wpierw odszukać Namiot Klucznika?"}
+
+{MAPRES_CHEST_MSG},{After scouting the area you stumble upon a hidden treasure cache. You may take the gold or distribute it to the peasants for experience.},{Po przeszukaniu obszaru natknąłeś się na ukrytą skrzynię skarbów. Możesz zatrzymać złoto lub rozdać je wieśniakom wzamian za punkty doświadczenia.}
+{MAPRES_SPELL_SCROLL_MSG},{You find a spell scroll inscribed with the %s spell.},{Znajdujesz zwój z zaklęciem %s.}
+
+{MAP_EVENT},{Event},{Wydarzenie}
+
+<-- Random guards -->
+{RAND_GUARD},{Random},{Losowy}
+{RAND_GUARD1},{Random (Level 1)},{Losowy (Poziom 1)}
+{RAND_GUARD2},{Random (Level 2)},{Losowy (Poziom 2)}
+{RAND_GUARD3},{Random (Level 3)},{Losowy (Poziom 3)}
+{RAND_GUARD4},{Random (Level 4)},{Losowy (Poziom 4)}
+{RAND_GUARD5},{Random (Level 5)},{Losowy (Poziom 5)}
+{RAND_GUARD6},{Random (Level 6)},{Losowy (Poziom 6)}
+
+<-- Random artifacts -->
+{RAND_ARTIFACT},{Random},{Losowy}
+{RAND_ARTIFACT1},{Random (Level 1)},{Losowy (Poziom 1)}
+{RAND_ARTIFACT2},{Random (Level 2)},{Losowy (Poziom 2)}
+{RAND_ARTIFACT3},{Random (Level 3)},{Losowy (Poziom 3)}
+{RAND_ARTIFACT4},{Random (Level 4)},{Losowy (Poziom 4)}
+
+<-- Decorations -->
+{OBJ_HOLE}, {Hole}, {Dziura}
+{OBJ_CRACK}, {Crack}, {Peknięcie}
+{OBJ_FLOWERS}, {Flowers}, {Kwiaty}
+{OBJ_ROCK}, {Rock}, {Kamień}
+{OBJ_STUMB}, {Stump}, {Pniak}
+{OBJ_LOG}, {Log}, {Kłoda}
+{OBJ_CACTUS}, {Cactus}, {Kaktus}
+{OBJ_BUSH},{Bush},{Krzak}
+{OBJ_TREES},{Trees},{Dęby}
+{OBJ_PALMTREE}, {Palm Tree}, {Palma}
+{OBJ_PINETREE}, {Pine Tree}, {Świerki}
+{OBJ_OAKTREE}, {Oak Tree}, {Dąb}
+{OBJ_DEADTREE}, {Dead Tree}, {Martwe drzewo}
+{OBJ_VOLCANO}, {Volcano}, {Wulkan}
+{OBJ_MOUNTAIN}, {Mountain}, {Góra}
+{OBJ_LAKE}, {Lake}, {Jezioro}
+
+<-- Path elements -->
+{OBJ_WALL}, {Wall}, {Mur}
+{OBJ_ROAD_DIRT}, {Dirt Road}, {Piaszczysta droga}
+{OBJ_ROAD_STONE}, {Stone Road}, {Kamienista droga}
+{OBJ_ROAD_SNOW}, {Stone Road}, {Zaśnieżona droga}
+
+<-- Visitables (title + msg + visited msg) -->
+{OBJ_LIGHTSTONE}, {Light Stone}, {Kamień światła}
+{OBJ_WOODENSIGN}, {Wooden Sign}, {Drewniana Tabliczka}
+{OBJ_WATCHTOWER}, {Watch Tower}, {Wieża obserwacyjna}
+{OBJ_MEDUSATEMPLE}, {Medusa Temple}, {Świątynia Meduzy}
+{OBJ_ROGUEWAGON}, {Rogue Wagon}, {Wóz bandytów}
+{OBJ_DESERTTENT}, {Desert Tent}, {Pustynny namiot}
+{OBJ_HAUNTEDHOUSE}, {Haunted House}, {Nawiedzony dom}
+{OBJ_STONEWELL}, {Stone Well}, {Kamienna studnia}
+{OBJ_GAZEBO}, {Gazebo}, {Altanka}
+{OBJ_TREEOFKNOWLEDGE},{Tree of Knowledge},{Drzewo wiedzy}
+{OBJ_WINDMILL},{Windmill},{Młyn}
+{OBJ_SHRINE1},{Shrine of First Circle},{Kaplica Pierwszego Kręgu}
+{OBJ_SHRINE2},{Shrine of Second Circle},{Kaplica Drugiego Kręgu}
+{OBJ_SHRINE3},{Shrine of Third Circle},{Kaplica Trzeciego Kręgu}
+{OBJ_STABLES}, {Stables}, {Stajnie}
+{OBJ_IDOL}, {Idol}, {Bożek}
+{OBJ_FOUNTAIN}, {Fountain}, {Fontanna}
+{OBJ_TEMPLE}, {Temple}, {Świątynia}
+{OBJ_SWORDINTHESTONE}, {Sword in the Stone}, {Miecz w skale}
+{OBJ_FORT}, {Fort}, {Fort}
+{OBJ_BLACKSMITH}, {Forge}, {Kuźnia}
+{OBJ_STONEHENGE}, {Stonehenge}, {Kamienny krąg}
+{OBJ_PROPHETSSTATUE}, {Prophet Statue}, {Statua Przepowiedni}
+{OBJ_ARENA},{Arena},{Arena}
+{OBJ_LIBRARY},{Library},{Biblioteka}
+{OBJ_OBELISK}, {Obelisk}, {Obelisk}
+{OBJ_MAGICSPRING}, {Magic Spring}, {Magiczne Źródło}
+{OBJ_GARDENOFREVELATION},{Garden of Knowledge},{Ogród Wiedzy}
+{OBJ_WITCHHUT},{Witch Hut},{Chata wiedźmy}
+{OBJ_SHIPWRECK},{Shipwreck},{Wrak statku}
+{OBJ_ICECAVE},{Ice Cave},{Lodowa jaskinia}
+{OBJ_PYRAMID},{Pyramid},{Piramida}
+{OBJ_TEMPLEOFINTI},{Temple of Inti},{Świątynia Inti}
+{OBJ_OGRESTREASURY},{Ogre's Treasury},{Skarbnica Ogrów}
+{OBJ_MAGESTREASURY},{Mage's Treasury},{Skarbnica Magów}
+{OBJ_HYDRASTREASURY},{Hydras' Treasury},{Skarbnica Hydr}
+{OBJ_MEDUSASTREASURY},{Medusa's Treasury},{Skarbnica Meduz}
+{OBJ_GARGOYLESTREASURY},{Gargoyle's Treasury},{Skarbnica Gargulców}
+{OBJ_DRUIDSTREASURY},{Druids' Treasury},{Skarbnica Druidów}
+{OBJ_TENT},{Keymaster's Tent},{Namiot Klucznika}
+
+{OBJ_STONEWELL_MSG}, {A drink from the well has restored your spell points.}, {Pijąc ze studni odnowiłeś punkty magii.}
+{OBJ_GAZEBO_MSG}, {An old Knight appears on the steps of the gazebo. "My liege, I will teach you all that I know to aid you in your travels."}, {Stary rycerz pojawia się na schodach altanki. "Mój uczniu, nauczę cię wszystkiego co wiem, aby pomóc tobie w dalszych podróżach."}
+{OBJ_TREEOFKNOWLEDGE_MSG},{Upon your approach, the tree opens its eyes in delight. "Ahh, an adventurer! Allow me to teach you a little of what I have learned over the ages."},{Gdy się zbliżasz, drzewo otwiera oczy w zadowoleniu. "Ahh, podróżnik! Pozwól nauczyć cię troche tego czego nauczyłem się przez wieki."}
+{OBJ_WINDMILL_MSG},{The keeper of the mill announces: "Milord, I have been working very hard to provide you with these resources, come back next week for more."},{Właściciel młyna oświadcza ci: "Panie, ciężko pracowałem aby wspomóc cię tymi surowcami, przyjdź w następnym tygodniu po więcej."}
+{OBJ_SHRINE1_MSG},{You come across a small shrine attended by a group of novice acolytes. In exchange for your protection, they agree to teach you a simple spell - },{Natknęłeś się na małą kaplicę, do której uczęszczają początkujący akolici. W zamian za twoją ochronę, zgadzaja się nauczyć ciebie prostego zaklęcia - }
+{OBJ_SHRINE2_MSG},{You come across an ornate shrine attended by a group of rotund friars. In exchange for your protection, they agree to teach you a spell - },{Natykasz się na ozdobioną kaplicę, do której uczęszczają pulchni mnisi. W zamian za twoją ochronę, zgadzają się nauczyć ciebie zaklęcia - }
+{OBJ_SHRINE3_MSG},{You come across a lavish shrine attended by a group of high priests. In exchange for your protection, they agree to teach you a sophisticated spell - },{Natykasz się na bogato zdobioną kaplicę, do której uczęszczają wysocy zakonnici. W zamian za twoja ochronę, zgadzają się nauczyć ciebie zaawansowanego zaklęcia - }
+{OBJ_STABLES_MSG}, {As you approach the stables, the head groom appears, leading a fine looking war horse. "This steed will help speed you in your travels. Alas, his endurance will wane with heavy riding, and you must return for a fresh mount week."}, {Gdy zbliżasz się do stajni, pojawia się główny stajenny, prowadząc pięknego konia wojennego. "Ten rumak pozwoli ci przyspieszyć podczas twoich podróży. Niestety, ciężkie podróże zmniejszą jego wytrzymałość, więc musisz powrócić po świeżego wierzchowca na początku następnego tygodnia."}
+{OBJ_IDOL_MSG}, {You've found an ancient and weathered stone idol. Kissing it is supposed to bring luck or happiness, so you do. The stone is very cold to the touch.}, {Znalazłeś starego i zwietrzałego, kamiennego bożka. Całowanie go powinno przynieść ci szczęście oraz radość, tak więc czynisz. Kamień jest bardzo zimny w dotyku.}
+{OBJ_FOUNTAIN_MSG}, {As you drink the sweet water, you gain luck for your next battle.}, {Pijąc słodką wodę, zyskujesz szczęście na następną bitwę.}
+{OBJ_TEMPLE_MSG}, {A visit and a prayer at the temple raises the morale of your troops.}, {Wizyta i modlitwa w świątyni zwiększa morale twoich oddziałów.}
+{OBJ_SWORDINTHESTONE_MSG}, {You have spent several hours trying to get the sword out of the stone, but it hasn't moved an inch... But don't get upset: your army had a good rest while you were having a good exercise!}, {Spędziłes kilka godzin na próbie wyciągnięcia miecza z kamienia, ale on nie poruszył się nawet o cal... Ale nie złość się: twoja armia miała dobry odpoczynek gdy ty miałeś dobre ćwiczenie!}
+{OBJ_FORT_MSG}, {During the hour spent in the fort, the master shows you new defense technique.}, {Podczas godziny spędzonej w forcie, mistrz pokazał ci nową technikę obrony.}
+{OBJ_BLACKSMITH_MSG}, {You approach a forge... You walk inside and see a blacksmith at work. He puts the hammer away and says: "I can repair your armor."}, {Zbliżasz się do kuźni... Wchodzisz do środka i widzisz kowala przy pracy. Kowal odkłada swój młot i mówi: "Mogę naprawić twoją zbroję."}
+{OBJ_STONEHENGE_MSG}, {You've found a group of Druids worshipping at one of their strange stone edifices. Silently, they teach you new ways to cast spells.}, {Znalazłeś grupę druidów odprawiających rytuał w jednej ze swoich kamiennych budowli. W ciszy, uczą cię nowych sposobów rzucania czarów.}
+{OBJ_PROPHETSSTATUE_MSG}, {You touch the prophet statue and feel that you become more powerful.}, {Dotykasz statuę przepowiedni i czujesz, że stajesz się potężniejszy.}
+{OBJ_ARENA_MSG}, {You enter the arena and face a pack of vicious lions. You handily defeat them, to the wild cheers of the crowd. Impressed by your skill, the aged trainer of gladiators agrees to train you in Attack and Defense skills.},{Wchodzisz na arenę i mierzysz się ze stadem lwów. Pokonujesz je bez problemów, co powoduje dzikie okrzyki na widowni. Zaimponowany twoimi umiejętnościami, leciwy trener gladiatorów zgadza się aby wytrenować cię w Ataku i Obronie.}
+{OBJ_LIBRARY_MSG}, {The caretaker admits you into the Library of Enlightenment. You are able to learn much in the short time you spend here.},{Dozorca wpuszcza cię do Biblioteki Oświecenia. Jesteś w stanie dużo się nauczyć w krótkim czasie przebywając tam.}
+{OBJ_OBELISK_MSG}, {You come upon an obelisk made from a type of stone you have never seen before. Staring at it intensely, the smooth surface suddenly changes to an inscription. The inscription is a piece of a lost ancient map. Quickly you copy down the odd markings and the inscription vanishes as abruptly as it had appeared.}, {Podchodzisz do obeliska zrobionego z typu kamienia, którego wczesniej nie widziałeś. Zaczynasz się intensywnie w niego wpatrywać. Gładka powieszchnia nagle zmienia się w inskrypcję. Jest ona kawałkiem starożytnej, zaginionej mapy. Szybko spisujesz dziwne znaki i inskrypcja znika tak szybko jak się pojawiła.}
+{OBJ_MAGICSPRING_MSG}, {A drink from the spring fills your blood with magic! You have twice your normal spell points in reserve.}, {Łyk ze źródła napełnia twoją krew magią! Masz dwa razy więcej punktów magii w zapasie.}
+{OBJ_GARDENOFREVELATION_MSG},{A monk sitting in the center of a garden invites you to meditate with him. You do and, after a short time, you feel enlightened.},{Kapłan siedzący pośrodku ogrodu zaprasza cię do wspólnej medytacji. Medytujesz i po chwili czujesz się oświecony.}
+{OBJ_TENT_MSG},{The caretaker of this Keymaster's Tent seems happy to see you. "Ah, finally someone worthy," he says. "I shall send word immediately to the Border Guard that you be allowed to pass."},{Strażnik Namiotu Klucznika wygląda na szczęśliwego widząc ciebie. "Ah, w końcu ktoś godzien," mówi. "Natychmiast wyślę wiadomość do Strażnika Granicznego, aby Cię przepuścił."}
+
+{OBJ_STONEWELL_VMSG}, {A second drink at the well in one week will not help you.}, {Drugi łyk ze studni w tym samym tygodniu nie pomoże ci.}
+{OBJ_GAZEBO_VMSG}, {An old Knight appears on the steps of the gazebo. "I am sorry, my liege, I have taught you all I can."}, {Stary rycerz pojawia się na schodach altanki. "Przepraszam cię, mój uczniu, lecz nauczyłem cię już wszystkiego co umiem."}
+{OBJ_TREEOFKNOWLEDGE_VMSG},{Upon your approach, the tree opens its eyes in delight. "It is good to see you, my student. I hope my teachings have helped you."},{Gdy się zbliżasz, drzewo otwiera oczy w zadowoleniu. "Miło cię widzieć, mój uczniu. Mam nadzieję, że moje nauki ci pomogły."}
+{OBJ_WINDMILL_VMSG},{The keeper of the mill announces: "Milord, I am sorry, there are no resources currently available. Please try again next week."},{Właściciel młyna oświadcza ci: "Panie, przepraszam, że nie ma dostępnych surowców. Proszę wrócić w następnym tygodniu."}
+{OBJ_STABLES_VMSG}, {The head groom approaches you and speaks, "You already have a fine horse."}, {Główny stajenny zbliża się do ciebie i mówi, "Już masz dobrego konia."}
+{OBJ_IDOL_VMSG}, {You've found an ancient and weathered stone idol. It is supposed to grant luck or happiness to visitors, but since the stars are already shining upon you, it does nothing.}, {Znalazłeś starożytnego i zwietrzałego, kamiennego bożka. Powinien on zesłać szczęście oraz radość odwiedzającym, ale z racji że gwiazdy już świecą nad tobą, nie robi nic.}
+{OBJ_FOUNTAIN_VMSG}, {You drink from the enchanted fountain, but nothing happens.}, {Pijesz z zaczarowanej fontanny ale nic się nie dzieje.}
+{OBJ_TEMPLE_VMSG}, {It doesn't help to pray twice before a battle.}, {Podwójna modlitwa nie pomaga przed bitwą.}
+{OBJ_SWORDINTHESTONE_VMSG}, {This sword is stuck in the stone! No use trying to get it out!}, {Ten miecz utknął w skale! Nie ma sensu wyciągać go!}
+{OBJ_FORT_VMSG}, {I have already taught you everything I could. I don't want to waste my time on you, so get out!}, {Nauczyłem cię już wszystkiego co mogłem! Nie chcę marnować mojego czasu na tobie, więc idź stąd!}
+{OBJ_BLACKSMITH_VMSG}, {You approach a forge... You walk inside and see a blacksmith at work. He examines your shield, and says: "The shield doesn't need to be repaired. I have done everything I could."}, {Zbliżasz się do kuźni... Wchodzisz do środka i widzisz kowala przy pracy. Bada twoją tarczę i mówi: "Tarcza nie wymaga naprawy. Zrobiłem wszystko co mogłem."}
+{OBJ_STONEHENGE_VMSG}, {You've found a group of Druids worshipping at one of their strange stone edifices. Silently, the Druids turn you away, indicating they have nothing new to teach you.}, {Znalazłeś grupę druidów odprawiających rytuał w jednej ze swoich kamiennych budowli. Odprawiają cię w ciszy, dając do zrozumienia, że nie mogą cię niczego nauczyć.}
+{OBJ_PROPHETSSTATUE_VMSG}, {You touch the statue, but nothing happens. You reach out your hand and touch it for the second time, and the statue suddenly starts to speak: "I have given you my magical power, but you still keep annoying me!? Go away!"},{Dotykasz statuły, ale nic się nie dzieje. Wyciągasz rękę aby dotknąć poraz drugi ale nagle statuła zaczyna mówić: "Dałam ci już magiczną moc, a ty nadal mnie denerwujesz!? Odejdź!}
+{OBJ_ARENA_VMSG}, {The Arena guards prevent you from entering. "You've already beaten our best. Begone from here."},{Strażnicy areny nie pozwalają Ci wejść. "Już pokonałeś naszych najlepszych. Odejdź stąd!"}
+{OBJ_LIBRARY_VMSG}, {Recognizing you, the caretaker refuses to admit you. "The Library of Enlightenment," he says, "may be visited but once".},{Rozpoznając cię, strażnik odmawia tobie przejścia. "Biblioteka oświecenia," mówi, "może być odwiedzona tylko raz."}
+{OBJ_OBELISK_VMSG}, {You have already been to this obelisk.}, {Już odwiedziłeś ten obelisk.}
+{OBJ_MAGICSPRING_VMSG}, {The magic spring only regenerates once a week, and someone has already been here this week.}, {Magiczne źródło regeneruje się tylko raz na tydzień i ktoś już był tutaj w tym tygodniu.}
+{OBJ_GARDENOFREVELATION_VMSG},{You enter the garden, and the monk, recognizing you, says, "My child, the blessing of knowledge comes but once in a person's lifetime."},{Wchodzisz do ogrodu. Kapłan rozpoznając cię, mówi: "Moje dziecko, łaska wiedzy przychodzi tylko raz w życiu danej osoby."}
+{OBJ_TENT_VMSG},{The caretaker of this Keymaster's Tent recognizes you as you approach. "I have already sent word that you be allowed to pass," he says. "Begone."},{Strażnik Namiotu Klucznika rozpoznaje cię gdy się zbliżasz. "Już posłałem wiadomość, aby cię przepuszczono," mówi. "Odejdź."}
+
+{OBJ_SHRINE_NOWISDOM},{Unfortunately, you do not have the wisdom to understand the spell and are unable to learn it.},{Niestety, nie masz wystarczającej wiedzy aby zrozumieć czar i nie możesz się go nauczyć.}
+
+{OBJ_WITCHHUT_MSG1},{An ancient witch living in a strange hut welcomes you, teaching you %s for her own inscrutable purposes.},{Stara wiedźma żyjąca w dziwnej chacie wita cię, ucząc %s z jej niejasnych pobudek.}
+{OBJ_WITCHHUT_MSG2},{You approach the strange hut and observe a witch inside studying an ancient tome on %s. As you approach, she turns and speaks. "You already know that which I would teach you. I can help you no further."},{Zbliżasz się do dziwnej chaty i obserwujesz w środku wiedźmę studiującą starożytną księgę o %s. Gdy podchodzisz jeszcze bliżej, wiedźma odwraca się i mówi: "Już znasz to, czego mogłabym cię nauczyć. Nie mogę ci pomóc."}
+{OBJ_WITCHHUT_MSG3},{You approach the strange hut and observe a witch inside studying an ancient tome on %s. As you approach, she turns and focuses her one glass eye on you. "HA!" she screeches, "I would not presume to try to teach new tricks to someone so clearly as wise as you." You leave, but can't quite shake the feeling that you have just been insulted.},{Zbliżasz się do dziwnej chaty i obserwujesz w środku wiedźmę studiującą starożytną księgę o %s. Gdy się zbliżasz, wiedźma odwraca się i skupia swoje jedno szklane oko na tobie: "Ha!" zaskrzeczała, "Nie ośmieliła bym się uczyć nowych sztuczek kogoś tak mądrego jak ty." Odchodzisz, ale nie możesz pozbyć się odczucia, że własnie zostałeś obrażony.}
+
+{OBJ_DWELL_RECR_QUEST},{Would you like to recruit %s?},{Czy chciałbyś nająć %s?}
+{OBJ_DWELL_RECR_MSG},{%d %s join your army.},{%d %s przyłącza się do twojej armii}
+{OBJ_DWELL_EMPTY},{There are no %s here to recruit.},{Nie ma tutaj %s do zrekrutowania.}
+
+{OBJ_TREASURY_VISITED},{You have found what was once a %s, but it has been deserted for some time.},{Znalazłeś coś co kiedyś było %s, ale zostało opuszczone jakiś czas temu.}
+{OBJ_TREASURY_DISCOVER},{Having defeated the guards, you discover:},{Pokonując strażników, znajdujesz:}
+
+{OBJ_TELEPORT_ONEWAY_ENT},{One-Way (entrance)},{Jednostronny (wejście)}
+{OBJ_TELEPORT_ONEWAY_EXT},{One-Way (exit)},{Jednostronny (wyjście)}
+{OBJ_TELEPORT_TWOWAY},{Two-Way},{Dwustronny}
+{OBJ_TELEPORT_EXIT_MSG},{This structure is obviously a travel gate, but it no longer appears to be functioning.},{Ta budowla to jak najbardziej teleport, ale wygląda na to, że jest nieczynny.}
+
+<-- Ownerables (title + msg) -->
+{OBJ_SCOUTTOWER}, {Scout Tower}, {Wieża Zwiadowcza}
+{OBJ_OBSERVATIONTOWER}, {Observation Tower}, {Wieża Obserwacyjna}
+
+{OBJ_SCOUTTOWER_MSG}, {From the scouting tower, you are able to see distant lands.}, {Z wieży zwiadowczej jesteś w stanie zobaczyć odległe ziemie.}
+{OBJ_OBSERVATIONTOWER_MSG}, {From the observation tower, you are able to see distant lands. All your heroes get a +1 movement point bonus.}, {Z wieży obserwacyjnej jesteś w stanie zobaczyć odległe ziemie. Wszyscy twoi bohaterowie dostają bonusowy punkt ruchu.}
+
+<-- Mines (title + msg) -->
+{MINE_GOLD}, {Gold Mine}, {Kopalnia Złota}
+{MINE_ORE}, {Ore Pit}, {Kamieniołomy}
+{MINE_WOOD}, {Wood Sawmill}, {Tartak}
+{MINE_MERCURY}, {Alchemist's Lab}, {Laboratorium}
+{MINE_GEMS}, {Gems Mine}, {Kopalnia Klejnotów} 
+{MINE_CRYSTAL}, {Crystal Mine}, {Kopalnia Kryształów}
+{MINE_SULFUR}, {Sulfur Mine}, {Kopalnia siarki}
+
+{MINE_GOLD_MSG}, {You gain control of a Gold Mine. It will provide you with 1000 gold per day.}, {Zyskujesz kontrole nad Kopalnią Złota. Dostarcza ona dziennie 1000 sztuk złota.}
+{MINE_ORE_MSG}, {You gain control of an Ore Pit. It will provide you with two units of ore per day.}, {Zyskujes kontrolę nad Kopalnią Rudy. Dostarcza ona dziennie 2 jednostki rudy.}
+{MINE_WOOD_MSG}, {You gain control of a Wood Sawmill. It will provide you with two units of wood per day.}, {Zyskujesz kontrolę nad Tartakiem. Dostarcza on dziennie 2 jednostki drewna.}
+{MINE_MERCURY_MSG}, {You gain control of an Alchemist's Lab. It will provide you with one unit of mercury per day.}, {Zyskujesz kontrolę nad Laboratorium. Dostarcza ono dziennie 1 jednostkę rtęci.}
+{MINE_GEMS_MSG}, {You gain control of a Gems Mine . It will provide you with one unit of gems per day.}, {Zyskujesz kontrolę nad Kopalnią Klejnotów. Dostarcza ona dziennie 1 jednostkę Klejnotów.}
+{MINE_CRYSTAL_MSG}, {You gain control of a Crystal Mine . It will provide you with one unit of crystal per day.}, {Zyskujesz kontrolę nad Kopalnią Kryształów. Dostarcza ona dziennie 1 jednostkę kryształów.}
+{MINE_SULFUR_MSG}, {You gain control of a Sulfur Mine . It will provide you with one unit of sulfur per day.}, {Zyskujesz kontrolę nad Kopalnią Siarki. Dostarcza ona dziennie 1 jednostkę siarki.}
+
+<-- Other -->
+{OBJ_CITY_GATE}, {City Gate}, {Brama Miasta}
+
+
+<-- Visitables cnst state -->
+{OBJ_VISITED}, {visited}, {odwiedzone}
+{OBJ_NOTVISITED}, {not visited}, {nie odwiedzone}
+
+<-- Heroes -->
+{HERO_TYPE_KNIGHT},{Knight}, {Rycerz}
+{HERO_TYPE_BARBARIAN},{Barbarian}, {Barbarzyńca}
+{HERO_TYPE_WIZARD},{Wizard}, {Mag}
+{HERO_TYPE_WARLOCK},{Warlock}, {Czarnoksiężnik}
+{HERO_TYPE_SORCERESS},{Sorceress}, {Czarodziejka}
+{HERO_TYPE_NECROMANCER},{Necromancer}, {Nekromanta}
+
+{HERO_NAME_DIMITRY}, {Dimitry}, {Dimitry}
+{HERO_NAME_AMBROSE}, {Ambrose}, {Ambrose}
+{HERO_NAME_LORDKILBURN}, {Lord Kilburn}, {Lord Kilburn}
+{HERO_NAME_GVENNETH}, {Gvenneth}, {Gvenneth}
+{HERO_NAME_SIRGALLANTH}, {Sir Gallanth}, {Sir Gallanth}
+{HERO_NAME_FINEOUS}, {Fineous}, {Fineous}
+
+{HERO_NAME_THUNDAX}, {Thundax}, {Thundax}
+{HERO_NAME_GROTTEKVARNEN}, {Grottekvarnen}, {Grottekvarnen}
+{HERO_NAME_YOG}, {Yog}, {Yog}
+{HERO_NAME_JACLYN}, {Jaclyn}, {Jaclyn}
+{HERO_NAME_KRAG}, {Krag}, {Krag}
+{HERO_NAME_TYRO}, {Tyro}, {Tyro}
+
+{HERO_NAME_GALLATIN}, {Gallatin}, {Gallatin}
+{HERO_NAME_IONA}, {Iona}, {Iona}
+{HERO_NAME_BAROK}, {Barok}, {Barok}
+{HERO_NAME_FALAGAR}, {Falagar}, {Falagar}
+{HERO_NAME_CRODO}, {Crodo}, {Crodo}
+{HERO_NAME_MYRINI}, {Myrini}, {Myrini}
+
+{HERO_NAME_SABBAT}, {Sabbat}, {Sabbat}
+{HERO_NAME_AGAR}, {Agar}, {Agar}
+{HERO_NAME_VESPER}, {Vesper}, {Vesper}
+{HERO_NAME_KASTORE}, {Kastore}, {Kastore}
+{HERO_NAME_ALAMAR}, {Alamar}, {Alamar}
+{HERO_NAME_SARAKIN}, {Sarakin}, {Sarakin}
+
+{HERO_NAME_ARIEL}, {Ariel}, {Ariel}
+{HERO_NAME_GEM}, {Gem}, {Gem}
+{HERO_NAME_CARLAWN}, {Carlawn}, {Carlawn}
+{HERO_NAME_TROYAN}, {Troyan}, {Troyan}
+{HERO_NAME_ASTRA}, {Astra}, {Astra}
+{HERO_NAME_REBECCA}, {Rebecca}, {Rebecca}
+
+{HERO_NAME_UROF}, {Urof}, {Urof}
+{HERO_NAME_KHASAM}, {Khasam}, {Khasam}
+{HERO_NAME_ROXANA}, {Roxana}, {Roxana}
+{HERO_NAME_CHARITY}, {Charity}, {Charity}
+{HERO_NAME_RANLOO}, {Ranloo}, {Ranloo}
+{HERO_NAME_SANDRO}, {Sandro}, {Sandro}
+
+<-- Castle types -->
+{CASTLE_TYPE_RANDOM},{Random}, {Losowy}
+{CASTLE_TYPE_CITADEL},{Citadel}, {Zamek}
+{CASTLE_TYPE_STRONGHOLD},{Stronghold}, {Twierdza}
+{CASTLE_TYPE_TOWER},{Tower}, {Forteca}
+{CASTLE_TYPE_DUNGEON},{Dungeon}, {Lochy}
+{CASTLE_TYPE_FORTRESS},{Fortress}, {Cytadela}
+{CASTLE_TYPE_NECROPOLIS},{Necropolis}, {Nekropolis}
+
+<-- Castle sizes -->
+{CASTLE_SIZE_SMALL},{Small}, {Mały}
+{CASTLE_SIZE_MEDIUM},{Medium}, {Średni}
+{CASTLE_SIZE_LARGE},{Large}, {Duży}
+
+<------------------------------------->
+<-- Titles for castle constructions -->
+<------------------------------------->
+
+<-- Citadel dwellings -->
+{DWEL_CITD_L1},{Peasants' Hut}, {Chata Chłopów}
+{DWEL_CITD_L2},{Archers' Tower}, {Wieża łucznicza}
+{DWEL_CITD_L3},{Guardhouse}, {Strażnica}
+{DWEL_CITD_L4},{Barracks}, {Koszary}
+{DWEL_CITD_L5},{Jousting Arena}, {Arena Walk}
+{DWEL_CITD_L6},{Cathedral}, {Katedra}
+
+<-- Stronghold dwellings -->
+{DWEL_STRH_L1},{Goblin Barracks}, {Baraki Goblinów}
+{DWEL_STRH_L2},{Orc Tower}, {Wieża Orków}
+{DWEL_STRH_L3},{Wolf Den}, {Wilcze Legowisko}
+{DWEL_STRH_L4},{Ogre fort}, {Fort Ogrów}
+{DWEL_STRH_L5},{Troll Bridge}}, {Most Trolli}
+{DWEL_STRH_L6},{Cyclops Cave}, {Jaskinia Cyklopów}
+
+<-- Tower dwellings -->
+{DWEL_TOWR_L1},{Halflings' Hut}, {Chata Nizołków}
+{DWEL_TOWR_L2},{Boar Pen}, {Zagroda Dzików}
+{DWEL_TOWR_L3},{Golem Factory}, {Fabryka Golemów}
+{DWEL_TOWR_L4},{Cliff Nest}, {Gniazdo Na Urwisku}
+{DWEL_TOWR_L5},{Mage Tower}, {Wieża Magów}
+{DWEL_TOWR_L6},{Cloud Castle}, {Podniebny Zamek}
+
+<-- Dungeon dwellings -->
+{DWEL_DUNG_L1},{Centaurs' Cave}, {Jaskinia Centaurów}
+{DWEL_DUNG_L2},{Crypt}, {Krypta}
+{DWEL_DUNG_L3},{Griffin Tower}, {Wieża Gryfów}
+{DWEL_DUNG_L4},{Labyrinth}, {Labirynt}
+{DWEL_DUNG_L5},{Hydra Pond}, {Staw Hydry}
+{DWEL_DUNG_L6},{Dragon Cave}, {Jaskinia Smoków}
+
+<-- Fortress dwellings -->
+{DWEL_FORT_L1},{Treehouse}, {Dom na drzewie}
+{DWEL_FORT_L2},{Dwarf Cottage}, {Chata Krasnoludów}
+{DWEL_FORT_L3},{Homestead}, {Domostwo}
+{DWEL_FORT_L4},{Stonehenge}, {Kamienny krąg}
+{DWEL_FORT_L5},{Unicorn Glade}, {Polana Jednorożców}
+{DWEL_FORT_L6},{Red Tower}, {Czerwona Wieża}
+
+<-- Necropolis dwellings -->
+{DWEL_NECR_L1},{Excavation}, {Wykopaliska}
+{DWEL_NECR_L2},{Graveyard}, {Cmentarz}
+{DWEL_NECR_L3},{Pyramid}, {Piramida}
+{DWEL_NECR_L4},{Mansion}, {Dwór}
+{DWEL_NECR_L5},{Mausoleum}, {Mauzoleum}
+{DWEL_NECR_L6},{Laboratory}, {Laboratorium}
+
+<-- Common castle contructions -->
+{CTLCNST_COMMON_MGUILD1},{Mage Guild 1}, {Gildia Magów Poziom 1}
+{CTLCNST_COMMON_MGUILD2},{Mage Guild 2}, {Gildia Magów Poziom 2}
+{CTLCNST_COMMON_MGUILD3},{Mage Guild 3}, {Gildia Magów Poziom 3}
+{CTLCNST_COMMON_MGUILD4},{Mage Guild 4}, {Gildia Magów Poziom 4}
+{CTLCNST_COMMON_MGUILD5},{Mage Guild 5}, {Gildia Magów Poziom 5}
+{CTLCNST_COMMON_MNODE},{Magic Node}, {Magiczny Węzęł}
+{CTLCNST_COMMON_TAVERN},{Tavern}, {Tawerna}
+{CTLCNST_COMMON_MARKET},{Marketplace}, {Targowisko}
+{CTLCNST_COMMON_TOWNHALL},{Town Hall}, {Dom Rady Miasta}
+{CTLCNST_COMMON_CITYHALL},{City Hall}, {Ratusz}
+{CTLCNST_COMMON_OREMINE},{Ore Mine}, {Kopalnia Rudy}
+{CTLCNST_COMMON_SAWMILL},{Sawmill}, {Tartak}
+{CTLCNST_COMMON_ALCHLAB}, {Alchemist's Lab}, {Laboratorium}
+{CTLCNST_COMMON_GEMSMINE}, {Gems Mine}, {Kopalnia Klejnotów}
+{CTLCNST_COMMON_CRYSTALMINE}, {Crystal Mine}, {Kopalnia Kryształów}
+{CTLCNST_COMMON_SULFURMINE}, {Sulfur Mine}, {Kopalnia Siarki}
+{CTLCNST_COMMON_MOAT},{Moat}, {Fosa}
+{CTLCNST_COMMON_MTURRET},{Main Turret}, {Główna wieża}
+{CTLCNST_COMMON_LTURRET},{Left Turret}, {Lewa wieża}
+{CTLCNST_COMMON_RTURRET},{Right Turret}, {Prawa wieża}
+
+{CTLCNST_SHOOTINGRANGE},{Shooting Range}, {Strzelnica}
+{CTLCNST_MESSHALL},{Mess Hall}, {Hala Chaosu}
+{CTLCNST_OAKWOOD},{Oak Wood}, {Dębowy Las}
+{CTLCNST_WATERFALL},{Waterfall}, {Wodospad}
+{CTLCNST_MINERSGUILD},{Miners' Guild}, {Gilidia górników}
+{CTLCNST_UNEARTHEDGRAVES},{Unearthed Graves}, {Rozkopane groby}
+
+{CTLCNST_OBSERVPOST},{Lookout Tower}, {Wieża strażnicza}
+{CTLCNST_FORTIFICATION},{Fortificaions}, {Fortyfikacje}
+{CTLCNST_HALLOFVALHALLA},{Hall of Valhalla}, {Hala Valhalli}
+{CTLCNST_ADOBE},{Adobe}, {Lepianka}
+{CTLCNST_WALLOFKNOWLEDGE},{Wall of Knowledge}, {Ściana wiedzy}
+{CTLCNST_LIBRARY},{Library}, {Biblioteka}
+{CTLCNST_ALTAR},{Altar}, {Ołtarz}
+{CTLCNST_MANAVORTEX},{Mana Vortex}, {Wir Many}
+{CTLCNST_TREASURY},{Treasury}, {Skarbnica}
+{CTLCNST_MYSTICPOUND},{Mystic Pond}, {Magiczny Staw}
+{CTLCNST_NECRAMPLIFIER},{Necromancy Amplifier}, {Wzmacniacz Nekromancji}
+{CTLCNST_COVEROFDARKNESS},{Cover of Darkness}, {Całun ciemności}
+
+
+<------------------------------------------>
+<-- Description for castle constructions -->
+<------------------------------------------>
+{CTLCNST_DWELLINGS_DESC},{The %s allows you to recruit %s.}, {%s pozwala rekrutować %s.}
+{CTLCNST_COMMON_MGUILD_DESC},{Entering the Mage Guild will allow a visiting hero to learn the spells kept within.}, {Wejście do Gildii Magów umożliwi bohaterowi nauczenie się czarów, które się w niej znajdują.}
+{CTLCNST_COMMON_MNODE_DESC},{Restores 1 mana point each day for all friendly heroes.}, {Przywraca 1 pkt. many dziennie wszystkim Twoim bohaterom.}
+{CTLCNST_COMMON_TAVERN_DESC},{The Tavern allows you hire Heroes and increases morale for troops defending the city.}, {Tawerna pozwala rekrutować bohaterów i podnosi morale rycerzy broniących miasto.}
+{CTLCNST_COMMON_MARKET_DESC},{Within the Marketplace, you can buy and sell resources (exchange rates increase with each Marketplace you own).}, {Na Targowisku możesz sprzedawać i kupować zasoby.}
+{CTLCNST_COMMON_TOWNHALL_DESC},{The Town Hall increases your kingdom revenue by 500 gold per day}, {Dom Rady Miasta dostarcza 500 złota dziennie.}
+{CTLCNST_COMMON_CITYHALL_DESC},{The City Hall increases your kingdom revenue by 1500 gold per day}, {Ratusz dostarcza 1500 złota dziennie.}
+{CTLCNST_COMMON_OREMINE_DESC},{The Ore Mine provides you with an additional +1 ore each day.}, {Kopalnia Rudy dostarcza dziennie 1 jednostkę rudy.}
+{CTLCNST_COMMON_SAWMILL_DESC},{The Sawmill provides you with an additional +1 wood each day.}, {Tartak dostarcza dziennie 1 jednostkę drewna.}
+{CTLCNST_COMMON_ALCHLAB_DESC}, {The Alchemist's Lab provides you with an additional +1 mercury each day.}, {Laboratorium dostarcza dziennie 1 jednostkę rtęci.}
+{CTLCNST_COMMON_GEMSMINE_DESC}, {The Gems Mine provides you with an additional +1 gems each day.}, {Kopalnia Klejnotów dostarcza dziennie 1 jednostkę Klejnotów.}
+{CTLCNST_COMMON_CRYSTALMINE_DESC}, {The Crystal Mine provides you with an additional +1 crystal each day.}, {Kopalnia Kryształów dostarcza dziennie 1 jednostkę kryształów.}
+{CTLCNST_COMMON_SULFURMINE_DESC}, {The Sulfur Mine provides you with an additional +1 sulfur each day.}, {Kopalnia Siarki dostarcza dziennie 1 jednostkę siarki.}
+
+{CTLCNST_COMMON_MOAT_DESC},{The Moat slows attacking units. Any unit entering the moat must end its turn there and becomes more vulnerable to attack.}, {Fosa spowalnia atakujące jednostki. Każda jednostka która wejdzie w fose kończy turę i jest bardziej podatna na atak.}
+{CTLCNST_COMMON_MTURRET_DESC},{The Main Turret provides extra firepower during castle combat.}, {Podczas oblężenia zamku wieża zapewnia dodatkową siłę ognia.}
+{CTLCNST_COMMON_LTURRET_DESC},{The Left Turret provides extra firepower during castle combat.}, {Podczas oblężenia zamku wieża zapewnia dodatkową siłę ognia.}
+{CTLCNST_COMMON_RTURRET_DESC},{The Right Turret provides extra firepower during castle combat.}, {Podczas oblężenia zamku wieża zapewnia dodatkową siłę ognia.}
+
+{CTLCNST_DWELL_ENC_DESC},{The %s increases %s production by %d per week.}, {%s zwieksza produkcje %s o %d na tydzien.}
+
+{CTLCNST_OBSERVPOST_DESC},{The Lookout Tower extends the visible distance around your city, and all you heroes receive +5 travel points bonus.}, {Wieża Strażnicza zwiększa zasięg widzenia wokół miasta, oraz wszyscy Twoich bohaterowie zyskują 5 pkt ruchu.}
+{CTLCNST_FORTIFICATION_DESC},{Fortifications improve the durability of castle walls during a siege.}, {Fortyfikacje wzmacniają mury zamku podczas oblężenia.}
+{CTLCNST_HALLOFVALHALLA_DESC},{The Hall of Valhalla increases the Attack skill of any visiting hero by +1.}, {Hala Valhalli zwiększa Atak odwiedzającego ją bohatera o 1pkt.}
+{CTLCNST_WALLOFKNOWLEDGE_DESC},{The Wall of Knowledge increases the Knowledge of any visiting hero by +1.}, {Sciana Wiedzy zwiększa Wiedzę odwiedzającego ją bohatera o 1 pkt.}
+{CTLCNST_LIBRARY_DESC},{The Library randomly changes some of the spells in your magic guild at the beginning of each month.}, {Biblioteka na początku miesiąca losowo zmienia niektóre z zaklęć w Twojej Gildii Magów.}
+{CTLCNST_ALTAR_DESC},{The Altar increases your kingdom revenue by 1000 gold per day}, {Ołtarz zwiększa dochód królestwa o 1000 złotych dziennie.}
+{CTLCNST_MANAVORTEX_DESC},{The Mana Vortex temporarily doubles spell points for visiting hero.}, {Wir Many czasowo podwaja Punkty Magii odwiedzającego bohatera.}
+{CTLCNST_TREASURY_DESC},{The Treasury adds 10% interest on any gold you have at the start of each week.}, {Skarbiec na początku tygodnia dodaje 10% do aktualnej kwoty Twojego złota.}
+{CTLCNST_MYSTICPOUND_DESC},{The Mystic Pond produces a small random number of resources each week.}, {Magiczny Staw produkuje niewielką liczbę zasobów każdego tygodnia.}
+{CTLCNST_NECRAMPLIFIER_DESC},{The Necromancy Amplifier increases the Necromancy skill of all heroes you control (with Necromancy skill) by 10%.}, {Wieża Nekromanty zwiększa zdolność Nekromancji wszystkim Twoim bohaterom (Ci którzy posiadają tę zdolność) o 10%.}
+{CTLCNST_COVEROFDARKNESS_DESC},{The Cover of Darkness covers your city with a permanent shroud to all other players.}, {Całun Ciemności zakrywa obszar wokół Twojego miasta przed Twoimi wrogami.}
+
+{CTLCNST_MYSTICPOUND_NPROD},{The pond has not produced anything yet.}, {Staw jeszcze nic nie wyprodukował.}
+{CTLCNST_MYSTICPOUND_PROD},{The pond produced %s this week.}, {Staw wyprodukował %s tego tygodnia.}
+
+<-------------------------->
+<-- Titles for Artifacts -->
+<-------------------------->
+{ART_SILVERSWORD}, {Silver Sword}, {Srebrny Miecz}
+{ART_PEASANTSSICKLE},{Peasant's Sickle}, {Sierp Chłopa}
+{ART_PLATE}, {Knight's Breastplate}, {Napierśnik Rycerza}
+{ART_DRAGONSHIELD}, {Dragon Shield}, {Tarcza Smoka}
+{ART_MONKSRING}, {Monk's Ring}, {Pierścień Mnicha}
+{ART_WITCHSBROOCH}, {Witch's Brooch of Magic}, {Broszka Magi Wiedźmy}
+{ART_MINORSCROLLOFKNOWLEDGE},{Minor Scroll of Knowledge}, {Mniejszy Zwój Wiedzy}
+{ART_PARCHMENTSCROLL},{Parchment Scroll}, {Pergaminowy Zwój}
+{ART_PENDANTOFWISDOM},{Pendant of Wisdom}, {Pendant Wiedzy}
+{ART_MEDAL}, {Medal of Honor}, {Medal Honoru} 
+{ART_MEDALOFDISTINCTION}, {Medal of Distinction}, {Medal Godności}
+{ART_LUCKYDICE}, {Lucky Dice}, {Kostki szczęścia}
+{ART_CLOVER}, {Clover of Luck}, {Koniczynka Szczęscia}
+{ART_SILVERBIRDOFLUCK}, {Silver Bird Of Luck}, {Srebny Ptak Szczęscia}
+{ART_LONGBOW}, {Long Bow}, {Długi Łuk}
+{ART_NECROMANCERSRING}, {Necromancer's Ring}, {Pierścien Nekromanty}
+{ART_TELESCOPE}, {Telescope}, {Teleskop}
+{ART_PROTECTIVECLOAKAIR}, {Protective Cloak of Air}, {Płaszcz ochorony powietrzem}
+{ART_PROTECTIVECLOAKEARTH}, {Protective Cloak of Earth}, {Płaszcz ochorny przed ziemią}
+{ART_PROTECTIVECLOAKFIRE}, {Protective Cloak of Fire}, {Płaszcz ochrony przed ogniem}
+{ART_PROTECTIVECLOAKWATER}, {Protective Cloak of Water}, {Płaszcz ochrony przed wodą}
+{ART_JAROFMANA}, {Jar of Mana}, {Słój Many}
+
+{ART_POWERAXE}, {Power Axe}, {Topór Mocy}
+{ART_HELM}, {Warrior's Helmet}, {Hełm Wojownika}
+{ART_CASTERSBRACELET}, {Caster's Bracelet of Magic}, {Brazoletka Magii Castera}
+{ART_SCROLLOFENLIGHTENMENT},{Scroll of Enlightenment}, {Zwój oświecenia}
+{ART_SPIKEDHELM}, {Spiked Helm}, {Hełm z kolcami}
+{ART_RING}, {Sage's Ring}, {Pierścień Mędrca}
+{ART_WHITEPEARLNECKLACE}, {White Pearl Necklace}, {Naszyjnik z białą perłą} 
+{ART_GOLDENBIRDOFLUCK}, {Golden Bird of Luck}, {Złoty Ptak Szczęscia}
+{ART_CARTOFORE}, {Endless Cart of Ore}, {Samonapełniający się wóz kamienia}
+{ART_CORDOFWOOD}, {Endless Cord of Wood}, {Samonapełniający się powóz drewna}
+{ART_RINGOFLIFE}, {Ring of Life}, {Pierścień życia}
+{ART_PENDANTOFLIFE}, {Pendant of Life}, {Wisiorek Życia}
+{ART_ELFSLONGBOW}, {Elf's Longbow}, {Elfi Długi Łuk}
+{ART_VAMPIRESCOWL}, {Vampire's Cowl}, {Kaptur Wampira}
+{ART_BOOTS}, {Traveler's Boots}, {Buty Podróżnika}
+{ART_DIPLOMATSQUILL}, {Diplomat's Quill}, {Pióro Dyplomaty}
+{ART_PROTECTIVECLOAK}, {Cloak of Resistance}, {Płaszcz Wytrzymałości}
+{ART_CLOCKOFSWIFTNESS}, {Clock of Swiftness}, {Płaszcz szybkości}
+
+{ART_SWORD}, {Enchanted Sword}, {Zaczarowany Miecz}
+{ART_ARMOROFMIGHT}, {Armor of Might}, {Zbroja Mocy}
+{ART_RINGOFPOWER}, {Ring of Power}, {Pierścień Mocy}
+{ART_TOMEOFKNOWLEDGE},{Tome of Knowledge}, {Księga Wiedzy}
+{ART_ANCIENTBROADSWORD}, {Ancient Broadsword}, {Starożytny Szeroki Miecz}
+{ART_SHIELD}, {Dwarf's Shield}, {Tarcza Krasnoluda}
+{ART_PALADINSSHIELD}, {Paladin's Shield}, {Tarcza Palladyna}
+{ART_STAFF}, {Staff of Wizardy}, {Laska Czarów}
+{ART_SUPSCROLL}, {Major Scroll of Knowledge}, {Mniejszy zwój wiedzy}
+{ART_BOOKOFWISDOM}, {Book of Wisdom}, {Księga Mądrości}
+{ART_ECLIPSE}, {Eclipse}, {Elipsa}
+{ART_SNAKEBRACELET}, {Snake Bracelet}, {Branzoletka Węża}
+{ART_BLACKPEARLNECKLACE}, {Black Pearl Necklace}, {Czarna Perła}
+{ART_PENDANTOFOMNISCIENCE},{Pendant of Omniscience}, {Wisiorek Omniscience}
+{ART_RINGOFPERPETUITY},{Ring of Perpetuity}, {Pierścień Wieczności}
+{ART_CROSSBOW},{Crossbow}, {Łuk}
+{ART_NECROMANCERSSWORD},{Necromancer's Sword}, {Miecz Nekromanty}
+{ART_PURSEOFGOLD}, {Endless Purse of Gold}, {Bezdenna torebka złota}
+{ART_BAGOFGOLD}, {Endless Bag of Gold}, {Bezdenna torba złota}
+{ART_AMULETOFWEALTH}, {Amulet of Wealth}, {Amulet zamożności}
+{ART_VIALOFMERCURY}, {Endless Vial of Mercury}, {Samonapełniająca się Fiolka Rtęci}
+{ART_POUCHOFGEMS}, {Endless Pouch of Gems}, {Bezdenna torba klejnotów}
+{ART_SULFURRING}, {Sulfur Ring}, {Siarkowy Pierścień}
+{ART_CRYSTALROSE}, {Crystal Rose}, {Kryształowa Róża}
+{ART_NOMADBOOTS}, {Nomad Boots}, {Buty Nomada}
+
+{ART_LONGSWORD}, {Long Sword}, {Długi miecz}
+{ART_HEROSSHIELD}, {Hero's Shield}, {Tarcza Bohatera}
+{ART_PRECURSORSHELMET}, {Precursor's Helmet}, {Hełm Prekursora}
+{ART_WIZARDSHAT}, {Wizard's Hat}, {Kapelusz Czarodzieja}
+{ART_SWORDBREAKER}, {Swordbreaker}, {Łamacz mieczy}
+{ART_WARLOCKSNECKLACE}, {Warlock's Necklace}, {Naszyjnik Czarnoksiężnika}
+{ART_SPHEREOFNEGATION}, {Sphere of Negation}, {Kula Negacji}
+{ART_SORCERERSWAND}, {Sorcerer's Wand}, {Różdżka Czarodzieja}
+{ART_SHAKLESOFWAR}, {Shackles of War}, {Kajdany Wojny}
+{ART_ULTIMATE}, {Conqueror's Crown}, {Korona Zdobywcy}
+
+{ART_THROWINGAXE},{Throwing Axe},{!_NOT_TRANSLATED_!}
+{ART_GOBLINSSHIELD},{Goblin's Shield},{!_NOT_TRANSLATED_!}
+{ART_CASTERSPENDANT},{Caster's Pendant},{!_NOT_TRANSLATED_!}
+{ART_SWORDOFCURSED},{Sword of the Cursed},{!_NOT_TRANSLATED_!}
+
+<-------------------------------->
+<-- Descriptions for Artifacts -->
+<-------------------------------->
+{ART_SILVERSWORD_DESC}, {Increases your Attack skill by 1.}, {Zwiększa Atak o 1.}
+{ART_PEASANTSSICKLE_DESC}, {Increases your Attack skill by 1.} {Zwiększa Atak o 1.}
+{ART_PLATE_DESC}, {Increases your Defense skill by 1.}, {Zwiększa obronę o 1.}
+{ART_DRAGONSHIELD_DESC}, {Increases your Defense skill by 1.}, {Zwiększa obronę o 1.}
+{ART_MONKSRING_DESC}, {Increases your Spell Power by 1.}, {Zwiększa moc o 1.}
+{ART_WITCHSBROOCH_DESC}, {Increases your Spell Power by 1.}, {Zwiększa moc o 1.}
+{ART_MINORSCROLLOFKNOWLEDGE_DESC},{Increases your Knowledge by 1.}, {Zwiększa wiedzę o 1.}
+{ART_PARCHMENTSCROLL_DESC},{Increases your Knowledge by 1.}, {Zwiększa wiedzę o 1.}
+{ART_PENDANTOFWISDOM_DESC},{Increases your Knowledge by 1.}, {Zwiększa wiedzę o 1.}
+{ART_MEDAL_DESC}, {Increases your Morale by 1.}, {Zwiększa Morale o 1.}
+{ART_MEDALOFDISTINCTION_DESC}, {Increases your Morale by 1.}, {Zwiększa Morale o 1.}
+{ART_LUCKYDICE_DESC}, {Increases your Luck by 1.}, {Zwiększa szczęście o 1.}
+{ART_CLOVER_DESC}, {Increases your Luck by 1.}, {Zwiększa szczęście o 1.}
+{ART_SILVERBIRDOFLUCK_DESC}, {Increases your Luck by 1.}, {Zwiększa szczęście o 1.}
+{ART_LONGBOW_DESC}, {Increases your Archery skill by 5%.}, {Zwiększa zdolności łucznicze o 5%.}
+{ART_NECROMANCERSRING_DESC}, {Increases your Necromancy skill by 5%.}, {Zwiększa zdolnoś Nekromancji o 5%.}
+{ART_TELESCOPE_DESC}, {Allows your hero to see 1 square further into the shroud.}, {Zasięg widzenia zwiększa sie o 1 pole.} 
+{ART_PROTECTIVECLOAKAIR_DESC}, {Reduces damage by 30% received from Air spells.}, {Redukuje obrażenia od zaklęć magii powietrza o 30%.}
+{ART_PROTECTIVECLOAKEARTH_DESC}, {Reduces damage by 30% received from Earth spells.}, {Redukuje obrażenia od zaklęć magii ziemi o 30%.}
+{ART_PROTECTIVECLOAKFIRE_DESC}, {Reduces damage by 30% received from Fire spells.}, {Redukuje obrażenia od zaklęć magii ognia o 30%.}
+{ART_PROTECTIVECLOAKWATER_DESC}, {Reduces damage by 30% received from Water spells.}, {Redukuje obrażenia od zaklęć magii wody o 30%.}
+{ART_JAROFMANA_DESC}, {Recovers 2 extra spell points per day.}, {Regeneruje dodatkowo 2 punkty many dziennie.}
+
+{ART_POWERAXE_DESC}, {Increases your Attack skill by 2.},{!_NOT_TRANSLATED_!}
+{ART_HELM_DESC}, {Increases your Defense skill by 2.}, {Zwiększa Obrone o 2 pkt.}
+{ART_CASTERSBRACELET_DESC}, {Increases your Spell Power by 2.}, {Zwiększa Moc o 2 pkt.}
+{ART_SCROLLOFENLIGHTENMENT_DESC},{Increases your Knowledge by 2.}, {Zwiększa wiedzę o 2 pkt.}
+{ART_SPIKEDHELM_DESC}, {Increases your Attack and Defense skills by 1.}, {Zwiększa Atak i Obronę o 1 pkt.}
+{ART_RING_DESC}, {Increases your Spell Power and Knowledge by 1.}, {Zwiększa Moc i Wiedzę o 1 pkt.}
+{ART_WHITEPEARLNECKLACE_DESC}, {Increases your Spell Power and Knowledge by 1.}, {Zwiększa Moc i Wiedzę o 1 pkt.}
+{ART_GOLDENBIRDOFLUCK_DESC}, {Increases your Luck by 2.}, {Zwiększa szczęście o 2 pkt.}
+{ART_CARTOFORE_DESC}, {Provides you with an additional +1 Ore per day.}, {Dostarcza dodatkową 1 jednostkę rudy dziennie.}
+{ART_CORDOFWOOD_DESC}, {Provides you with an additional +1 wood per day.}, {Dostarcza dodatkową 1 jednostkę drewna dziennie.}
+{ART_RINGOFLIFE_DESC}, {Increases the health of all your units by 1.}, {Każda Twoja jednostka otrzymuje 1 pkt. do życia.}
+{ART_PENDANTOFLIFE_DESC}, {Increases the health of all your units by 2.}, {Każda Twoja jednostka otrzymuje 2 pkt. do życia.}
+{ART_ELFSLONGBOW_DESC}, {Increases your Archery skill by 10%.}, {Zwiększa zdolności łucznicze o 10%.}
+{ART_VAMPIRESCOWL_DESC}, {Increases your Necromancy skill by 10%.}, {Zwiększa zdolność Nekromancji o 10%.}
+{ART_BOOTS_DESC}, {Increases your movement over land by 20 points.}, {Zwiększa ruch bohatera o 20 pkt.}
+{ART_DIPLOMATSQUILL_DESC}, {Reduces the cost of surrendering by 20%.}, {Zmniejsza koszt poddania się o 20%.}
+{ART_PROTECTIVECLOAK_DESC}, {Increases your Magic Resistance by 10%.}, {Zwiększa odporność magię o 10%.}
+{ART_CLOCKOFSWIFTNESS_DESC}, {Increases the combat speed of all your units by 1.}, {Zwiększa szybkość Twoich jednostek o 1 pkt.}
+
+{ART_SWORD_DESC}, {Increases your Attack skill by 3.}, {Zwiększa twoją umiejętność Ataku o 3.}
+{ART_ARMOROFMIGHT_DESC}, {Increases your Defense skill by 3.}, {Zwiększa twoją umiejętność Obrony o 3.}
+{ART_RINGOFPOWER_DESC}, {Increases your Spell Power by 3.}, {Zwiększa twoją Moc o 3.}
+{ART_TOMEOFKNOWLEDGE_DESC},{Increases your Knowledge by 3.}, {Zwiększa twoją wiedze o 3.}
+{ART_ANCIENTBROADSWORD_DESC}, {Increases your Attack skill by 4.}, {Zwiększa twoją umiejętność Ataku o 4.}
+{ART_SHIELD_DESC}, {Increases your Defense skill by 4.}, {Zwiększa twoją umiejętność Obrony o 4.}
+{ART_PALADINSSHIELD_DESC}, {Increases your Defense skill by 4.}, {Zwiększa twoją umiejętność Obrony o 4.}
+{ART_STAFF_DESC}, {Increases your Spell Power by 4.}, {Zwiększa twoją Moc o 4.}
+{ART_SUPSCROLL_DESC}, {Increases your Knowledge by 4.}, {Zwiększa twoją Wiedze o 4.}
+{ART_BOOKOFWISDOM_DESC}, {Increases your Knowledge by 4.}, {Zwiększa twoją wiedze o 4.}
+{ART_ECLIPSE_DESC}, {Increases your Attack and Defense skills by 2.}, {Zwiększa twoje umiejętności Ataku i Obrony o 2.}
+{ART_SNAKEBRACELET_DESC}, {Increases your Spell Power and Knowledge by 2.}, {Zwiększa twoją Moc i Wiedze o 2.}
+{ART_BLACKPEARLNECKLACE_DESC}, {Increases your Spell Power and Knowledge by 2.}, {Zwiększa twoją Moc i Wiedze o 2.}
+{ART_PENDANTOFOMNISCIENCE_DESC}, {Increases your Attack skill, Defense skill, Spell Power, and Knowledge by 1.}, {Zwiększa twoje umiejętności Ataku, Obrony, Moc oraz Wiedze o 1.}
+{ART_RINGOFPERPETUITY_DESC}, {Increases the health of all your units by 3.}, {Zwiększa zdrowie wszystkich przyjaznych jednostek o 3.}
+{ART_CROSSBOW_DESC}, {Increases your Archery skill by 15%.}, {Zwiększa twoją umiejętność Łucznictwa o 15%.}
+{ART_NECROMANCERSSWORD_DESC}, {Increases your Necromancy skill by 15%.}, {Zwiększa twoją umiejętność Nekromancji o 15%.}
+{ART_PURSEOFGOLD_DESC}, {Increases your income by 500 gold per day.}, {Zwiększa twój dochód o 500 złota na dzień.}
+{ART_BAGOFGOLD_DESC}, {Increases your income by 750 gold per day.}, {Zwiększa twój dochód o 750 złota na dzień.}
+{ART_AMULETOFWEALTH_DESC}, {Increases your income by 1000 gold per day.}, {Zwiększa twój dochód o 1000 złota na dzień.}
+{ART_VIALOFMERCURY_DESC}, {Provides you with an additional +1 Mercury per day.}, {Dostarcza dodatkowe +1 Rtęci na dzień.}
+{ART_POUCHOFGEMS_DESC}, {Provides you with an additional +1 Gems per day.}, {Dostarcza dodatkowe +1 Klejnotów na dzień.}
+{ART_SULFURRING_DESC}, {Provides you with an additional +1 Sulfur per day.}, {Dostarcza dodatkowe +1 Siarki na dzień.}
+{ART_CRYSTALROSE_DESC}, {Provides you with an additional +1 Crystal per day.}, {Dostarcza dodatkowe +1 Kryształu na dzień.}
+{ART_NOMADBOOTS_DESC}, {Increases your movement over land by 30 points.}, {Zwiększa twoją liczbe punktów ruchu na lądzie o 30.}
+
+{ART_LONGSWORD_DESC}, {Increases your Attack skill by 6.}, {Zwiększa twoją umiejętność Ataku o 6.}
+{ART_HEROSSHIELD_DESC}, {Increases your Defense skill by 6.}, {Zwiększa twoją umiejętność Obrony o 6}
+{ART_PRECURSORSHELMET_DESC}, {Increases your Spell Power by 6.}, {Zwiększa twoją Moc o 6.}
+{ART_WIZARDSHAT_DESC}, {Increases your Knowledge by 6.}, {Zwiększa twoją Wiedze o 6}
+{ART_SWORDBREAKER_DESC}, {Increases your Attack and Defense skills by 3.}, {Zwiększa twoje umiejętności Ataku i Obrony o 3.}
+{ART_WARLOCKSNECKLACE_DESC}, {Increases your Spell Power and Knowledge by 3.}, {Zwiększa twoją Wiedze i Moc o 3.}
+{ART_SORCERERSWAND_DESC}, {Increases your Attack skill, Defense skill, Spell Power, and Knowledge by 2.}, {Zwiększa twoje umiejętności Ataku, Obrony, Moc oraz Wiedze o 2.}
+{ART_SHAKLESOFWAR_DESC}, {Neither you nor your opponent may retreat or surrender.}, {Ani ty, ani twój przeciwnik nie może się poddać, ani uciec z walki.}
+{ART_SPHEREOFNEGATION_DESC}, {Prevents all spell casting in combat.}, {Uniemożliwia rzucanie wszelkich czarów w walce.}
+
+{ART_ULTIMATE_DESC},{Each hero type receives their special bonuses...}, {Każdy typ bohatera otrzymuje właściwe sobie premie specjalne...}
+{ART_ULTIMATE_DESC_01},{Increases your income by 5000 gold per day. Increases your hero's Attack skill, Defense skill, Spell Power, and Knowledge by +4. Increases your hero's movement points over land by +10%. Increases the combat speed of all your units by +2.}, {Zwiększa twój dochód o 5000 złota na dzień. Zwiększa umiejętności Ataku, Obrony, Moc oraz Wiedze twojego bohatera o +4. Zwiększa ilość punktów ruchu na lądzie twojego bohatera o +10%. Zwiększa szybkość w walce wszystkich twoich jednostek o +2.}
+{ART_ULTIMATE_DESC_02},{Increases your income by 5000 gold per day. Increases your hero's Attack skill, Defense skill, Spell Power, and Knowledge by +4. Endows a hero's troops with 50% magic resistance. Allows your troops shoot through any obstacle or at any range without penalty.}, {Zwiększa twój dochód o 5000 złota na dzień. Zwiększa umiejętności Ataku, Obrony, Moc oraz Wiedze twojego bohatera o +4. Obdarza wszystkie oddziały bohatera 50% odpornością na magie. Pozwala twoim oddziałom strzelać bez kar za odległość lub przeszkody stojące na drodze.}
+{ART_ULTIMATE_DESC_03},{Increases your income by 5000 gold per day. Increases your hero's Attack skill and Defense skill +4, Spell Power and Knowledge by +6. Increases effectiveness of resurrect and summon spells by 50%. }, {Zwiększa twój dochód o 5000 złota na dzień. Zwiększa umiejętność Ataku i Obrony twojego bohatera o +4 oraz Moc i Wiedze o +6. Zwiększa efektywność Wskrzeszenia i czarów przywołań o 50%}
+{ART_ULTIMATE_DESC_04},{Increases your income by 5000 gold per day. Increases your hero's Attack skill and Defense skill +4, Spell Power and Knowledge by +6. Regenerates all spell points each day.}, {Zwiększa twój dochód o 5000 złota na dzień. Zwiększa umiejętność Ataku i Obrony twojego bohatera o +4 oraz Moc i Wiedze o +6. Codziennie regeneruje wszystkie punkty magii.}
+{ART_ULTIMATE_DESC_05},{Increases your income by 5000 gold per day. Increases your hero's Attack skill and Defense skill +4, Spell Power and Knowledge by +6. Increases damage from all destructive spells by 50%.}, {Zwiększa twój dochód o 5000 złota na dzień. Zwiększa umiejętność Ataku i Obrony twojego bohatera o +4 oraz Moc i Wiedze o +6. Zwiększa skuteczność wszstkich czarów niszczących o 50%}
+{ART_ULTIMATE_DESC_06},{Increases your income by 5000 gold per day. Increases your hero's Attack skill, Defense skill, Spell Power, and Knowledge by +4. Increases your Necromancy skill by 15%. Resurrects battlefield dead as Mummies.}, {Zwiększa twój dochód o 5000 złota na dzień. Zwiększa umiejętności Ataku, Obrony, Moc oraz Wiedze twojego bohatera o +4. Zwiększa umiejętność Nekromancji twojego bohatera o 15%. Wskrzesza poległych w bitwie jako Mumie}
+
+{ART_THROWINGAXE_DESC},{Increases your Attack skill by 3.},{!_NOT_TRANSLATED_!}
+{ART_GOBLINSSHIELD_DESC}{Increases your Defense skill by 4.},{!_NOT_TRANSLATED_!}
+{ART_CASTERSPENDANT_DESC},{Increases your Spell Power by 2.},{!_NOT_TRANSLATED_!}
+{ART_SWORDOFCURSED_DESC},{Covers your hero with a permanent shroud to all other players.},{!_NOT_TRANSLATED_!}
+
+<--------------->
+<-- Creatures -->
+<--------------->
+{QUANT_FEW},{Few},{Pare}
+{QUANT_SEVERAL},{Several},{Mało}
+{QUANT_PACK},{Pack},{Banda}
+{QUANT_LOTS},{Lots},{Dużo}
+{QUANT_HORDE},{Horde},{Horda}
+{QUANT_THRONG},{Throng},{Tłum}
+{QUANT_SWARM},{Swarm},{Mnóstwo}
+{QUANT_LEGION},{Legion},{Legion}
+
+{QUANT_FULL_FEW},{a Few},{Pare}
+{QUANT_FULL_SEVERAL},{Several},{Mało}
+{QUANT_FULL_PACK},{a Pack of},{Banda}
+{QUANT_FULL_LOTS},{Lots of},{Dużo}
+{QUANT_FULL_HORDE},{a Horde of},{Horda}
+{QUANT_FULL_THRONG},{a Throng of},{Tłum}
+{QUANT_FULL_SWARM},{a Swarm of},{Mnóstwo}
+{QUANT_FULL_LEGION},{a Legion of},{Legion}
+
+<---------------------------------------------------------------------->
+<-- Creatures (F1: singular, F2: plural, F3: plural + genitive case) -->
+<---------------------------------------------------------------------->
+{CREATURE_PEASANT_F1},{Peasant},{Chłop}
+{CREATURE_PEASANT_F2},{Peasants},{Chłopi}
+{CREATURE_PEASANT_F3},{Peasants},{Chłopow}
+
+{CREATURE_ARCHER_F1},{Archer},{Łucznik}
+{CREATURE_ARCHER_F2},{Archers},{Łucznicy}
+{CREATURE_ARCHER_F3},{Archers},{Łuczników}
+
+{CREATURE_PIKEMAN_F1},{Pikeman},{Pikinier}
+{CREATURE_PIKEMAN_F2},{Pikemen},{Pikinierzy}
+{CREATURE_PIKEMAN_F3},{Pikemen},{Pikinierów}
+
+{CREATURE_SWORDSMAN_F1},{Swordsman},{Zbrojny}
+{CREATURE_SWORDSMAN_F2},{Swordsmen},{Zbrojni}
+{CREATURE_SWORDSMAN_F3},{Swordsmen},{Zbrojnych}
+
+{CREATURE_CAVALRY_F1},{Cavalry},{Kawaleria}
+{CREATURE_CAVALRY_F2},{Cavalries},{Kawalerii}
+{CREATURE_CAVALRY_F3},{Cavalries},{Kawalerzystów}
+
+{CREATURE_PALADIN_F1},{Paladin},{Paladyn}
+{CREATURE_PALADIN_F2},{Paladins},{Paladyni}
+{CREATURE_PALADIN_F3},{Paladins},{Paladynów}
+
+{CREATURE_GOBLIN_F1},{Goblin},{Goblin}
+{CREATURE_GOBLIN_F2},{Goblins},{Gobliny}
+{CREATURE_GOBLIN_F3},{Goblins},{Gobliny}
+
+{CREATURE_ORC_F1},{Orc},{Ork}
+{CREATURE_ORC_F2},{Orcs},{Orkowie}
+{CREATURE_ORC_F3},{Orcs},{Orków}
+
+{CREATURE_WOLF_F1},{Wolf},{Wilk}
+{CREATURE_WOLF_F2},{Wolves},{Wilki}
+{CREATURE_WOLF_F3},{Wolves},{Wilki}
+
+{CREATURE_OGRE_F1},{Ogre},{Ogr}
+{CREATURE_OGRE_F2},{Ogres},{Ogry}
+{CREATURE_OGRE_F3},{Ogres},{Ogry}
+
+{CREATURE_TROLL_F1},{Troll},{Troll}
+{CREATURE_TROLL_F2},{Trolls},{Trolle}
+{CREATURE_TROLL_F3},{Trolls},{Trolle}
+
+{CREATURE_CYCLOP_F1},{Cyclops},{Cyklop}
+{CREATURE_CYCLOP_F2},{Cyclopes},{Cyklopi}
+{CREATURE_CYCLOP_F3},{Cyclopes},{Cyklopów}
+
+{CREATURE_HALFLING_F1},{Halfling},{Niziołek}
+{CREATURE_HALFLING_F2},{Halflings},{Niziołki}
+{CREATURE_HALFLING_F3},{Halflings},{Niziołki}
+
+{CREATURE_BOAR_F1},{Boar},{Dzik}
+{CREATURE_BOAR_F2},{Boars},{Dziki}
+{CREATURE_BOAR_F3},{Boars},{Dziki}
+
+{CREATURE_GOLEM_F1},{Golem},{Golem}
+{CREATURE_GOLEM_F2},{Golems},{Golemy}
+{CREATURE_GOLEM_F3},{Golems},{Golemy}
+
+{CREATURE_ROC_F1},{Roc},{Roki}
+{CREATURE_ROC_F2},{Rocs},{Roki}
+{CREATURE_ROC_F3},{Rocs},{Roki}
+
+{CREATURE_MAGE_F1},{Mage},{Mag}
+{CREATURE_MAGE_F2},{Mages},{Magowie}
+{CREATURE_MAGE_F3},{Mages},{Magów}
+
+{CREATURE_TITAN_F1},{Titan},{Tytan}
+{CREATURE_TITAN_F2},{Titans},{Tytani}
+{CREATURE_TITAN_F3},{Titans},{Tytanów}
+
+{CREATURE_CENTAUR_F1},{Centaur},{Centaur}
+{CREATURE_CENTAUR_F2},{Centaurs},{Centaury}
+{CREATURE_CENTAUR_F3},{Centaurs},{Centaury}
+
+{CREATURE_GARGOYLE_F1},{Gargoyle},{Gargulec}
+{CREATURE_GARGOYLE_F2},{Gargoyles},{Gargulce}
+{CREATURE_GARGOYLE_F3},{Gargoyles},{Gargulce}
+
+{CREATURE_GRIFFIN_F1},{Griffin},{Gryf}
+{CREATURE_GRIFFIN_F2},{Griffins},{Gryfy}
+{CREATURE_GRIFFIN_F3},{Griffins},{Gryfy}
+
+{CREATURE_MINOTAUR_F1},{Minotaur},{Minotaur}
+{CREATURE_MINOTAUR_F2},{Minotaurs},{Minotaury}
+{CREATURE_MINOTAUR_F3},{Minotaurs},{Minotaury}
+
+{CREATURE_HYDRA_F1},{Hydra},{Hydra}
+{CREATURE_HYDRA_F2},{Hydras},{Hydry}
+{CREATURE_HYDRA_F3},{Hydras},{Hydry}
+
+{CREATURE_BLACKDRAGON_F1},{Black Dragon},{Czarny Smok}
+{CREATURE_BLACKDRAGON_F2},{Black Dragons},{Czarnych Smoków}
+{CREATURE_BLACKDRAGON_F3},{Black Dragons},{Czarne Smoki}
+
+{CREATURE_SPRITE_F1},{Sprite},{Nimfa}
+{CREATURE_SPRITE_F2},{Sprites},{Nimf}
+{CREATURE_SPRITE_F3},{Sprites},{Nimfy}
+
+{CREATURE_DWARF_F1},{Dwarf},{Krasnolud}
+{CREATURE_DWARF_F2},{Dwarves},{Krasnoludów}
+{CREATURE_DWARF_F3},{Dwarves},{Krasnoludy}
+
+{CREATURE_ELF_F1},{Elf},{Elf}
+{CREATURE_ELF_F2},{Elves},{Elfów}
+{CREATURE_ELF_F3},{Elves},{Elfy}
+
+{CREATURE_DRUID_F1},{Druid},{Druid}
+{CREATURE_DRUID_F2},{Druids},{Druidzi}
+{CREATURE_DRUID_F3},{Druids},{Druidów}
+
+{CREATURE_UNICORN_F1},{Unicorn},{Jednorożec}
+{CREATURE_UNICORN_F2},{Unicorns},{Jednorożców}
+{CREATURE_UNICORN_F3},{Unicorns},{Jednorożce}
+
+{CREATURE_PHOENIX_F1},{Phoenix},{Feniks}
+{CREATURE_PHOENIX_F2},{Phoenix},{Feniksy}
+{CREATURE_PHOENIX_F3},{Phoenix},{Feniksy}
+
+{CREATURE_SKELETON_F1},{Skeleton},{Szkielet}
+{CREATURE_SKELETON_F2},{Skeletons},{Szkielety}
+{CREATURE_SKELETON_F3},{Skeletons},{Szkielety}
+
+{CREATURE_ZOMBIE_F1},{Zombie},{Zombi}
+{CREATURE_ZOMBIE_F2},{Zombies},{Zombi}
+{CREATURE_ZOMBIE_F3},{Zombies},{Zombich}
+
+{CREATURE_MUMMY_F1},{Mummy},{Mumia}
+{CREATURE_MUMMY_F2},{Mummies},{Mumie}
+{CREATURE_MUMMY_F3},{Mummies},{Mumie}
+
+{CREATURE_VAMPIRE_F1},{Vampire},{Wampir}
+{CREATURE_VAMPIRE_F2},{Vampires},{Wampiry}
+{CREATURE_VAMPIRE_F3},{Vampires},{Wampiry}
+
+{CREATURE_LICH_F1},{Lich},{Lisz}
+{CREATURE_LICH_F2},{Liches},{Lisze}
+{CREATURE_LICH_F3},{Liches},{Lisze}
+
+{CREATURE_BONEDRAGON_F1},{Bone Dragon},{Kosciany Smok}
+{CREATURE_BONEDRAGON_F2},{Bone Dragons},{Kosciane Smoki}
+{CREATURE_BONEDRAGON_F3},{Bone Dragons},{Kocianye Smoki}
+
+{CREATURE_ROGUE_F1},{Rogue},{Bandyta}
+{CREATURE_ROGUE_F2},{Rogues},{Bandyci}
+{CREATURE_ROGUE_F3},{Rogues},{Bandytow}
+
+{CREATURE_NOMAD_F1},{Nomad},{Nomad}
+{CREATURE_NOMAD_F2},{Nomads},{Nomadowie}
+{CREATURE_NOMAD_F3},{Nomads},{Nomadow}
+
+{CREATURE_GHOST_F1},{Ghost},{Duch}
+{CREATURE_GHOST_F2},{Ghosts},{Duchy}
+{CREATURE_GHOST_F3},{Ghosts},{Duchy}
+
+{CREATURE_GENIE_F1},{Genie},{Dżin}
+{CREATURE_GENIE_F2},{Genies},{Dżiny}
+{CREATURE_GENIE_F3},{Genies},{Dżiny}
+
+{CREATURE_MEDUSA_F1},{Medusa},{Meduza}
+{CREATURE_MEDUSA_F2},{Medusas},{Meduzy}
+{CREATURE_MEDUSA_F3},{Medusas},{Meduzy}
+
+{CREATURE_EARTHELEMENTAL_F1},{Earth Elemental},{Zywiolak Ziemi}
+{CREATURE_EARTHELEMENTAL_F2},{Earth Elementals},{Zywiolaki Ziemi}
+{CREATURE_EARTHELEMENTAL_F3},{Earth Elementals},{Zywiolaki Ziemi}
+
+{CREATURE_AIRELEMENTAL_F1},{Air Elemental},{Zywiolak Powietrza}
+{CREATURE_AIRELEMENTAL_F2},{Air Elementals},{Zywiolaki Powietrza}
+{CREATURE_AIRELEMENTAL_F3},{Air Elementals},{Zywiolaki Powietrza}
+
+{CREATURE_FIREELEMENTAL_F1},{Fire Elemental},{Zywiolak Ognia}
+{CREATURE_FIREELEMENTAL_F2},{Fire Elementals},{Zywiolaki Ognia}
+{CREATURE_FIREELEMENTAL_F3},{Fire Elementals},{Zywiolaki Ognia}
+
+{CREATURE_WATERELEMENTAL_F1},{Water Elemental},{Zywiolak Wody}
+{CREATURE_WATERELEMENTAL_F2},{Water Elementals},{Zywiolaki Wody}
+{CREATURE_WATERELEMENTAL_F3},{Water Elementals},{Zywiolaki Wody}
+
+<------------------------------------>
+<-- Other combat and assault units -->
+<------------------------------------>
+{COMBAT_UNIT_MOAT},{Moat},{Fosa}
+{COMBAT_UNIT_WALL},{Wall},{Mur}
+{COMBAT_UNIT_TURRET},{Turret},{Wieża}
+{COMBAT_UNIT_BRIDGE},{Bridge},{Most}
+{COMBAT_UNIT_CATAPULT},{Catapult},{Katapulta}
+
+<----------------------->
+<-- Perks description -->
+<----------------------->
+{CPERK_DOUBLESHOT},{Gets off two shots in each ranged attack},{Oddaje dwa strzały w każdym ataku na odległość.}
+{CPERK_DOUBLEATTACK},{Delivers two blows per attack},{Uderza dwukrotnie w każdym ataku.}
+{CPERK_NOMELEEPENALTY},{Suffers no penalty for hand-to-hand attacks},{Nie otrzymuje żadnych w walce wręcz.}
+{CPERK_NONRETALATTACK},{No enemy retaliation},{Przeciwnik nie kontratakuje.}
+{CPERK_RETALTOALL},{Counterstrikes an unlimited number of attackers},{Kontratakuje nieograniczoną ilość razy.}
+{CPERK_TWOHEXATTACK},{Two hex attack},{Atak na dwa sąsiednie pola.}
+{CPERK_ADJACENTATTACK},{Attacks all adjacent enemy troops},{Atakuje wszystkie pobliskie jednostki wroga.}
+{CPERK_LICHSHOOT},{Attacks at range with a death cloud, which always causes damage in the target hex and also attacks all non-undead creatures in adjacent hexes},{Atak dystansowy za pomocą chmury śmierci, która zadaje obrażenia we wskazanym polu oraz atakuje wszystkie żywe jednostki znajdujące się na polach przyległych.}
+{CPERK_UNDEAD},{Undead creature},{Nieumarły stwór.}
+{CPERK_LIFELESS},{Lifeless creature},{Nieżywe stworzenie.}
+{CPERK_REGENERATES},{Regenerates hit points each round in combat},{Regeneruje punkty życia w każdej rundzie walki.}
+{CPERK_JOUSTING},{Deals extra impact damage (+5% per hex traveled to creature attacked) when charging into battle},{Zadaje dodatkowe obrażenia od udeżenia (+5% za każde przebyte pole do celu) w walce.}
+{CPERK_AIRMAGICIMM},{Immune to Air magic spells},{Odporność na zaklęcia magii powietrza.}
+{CPERK_EARTHMAGICIMM},{Immune to Earth magic spells},{Odporność na zaklęcia magii ziemi.}
+{CPERK_FIREMAGICIMM},{Immune to Fire magic spells},{Odporność na zaklęcia magii ognia.}
+{CPERK_WATERMAGICIMM},{Immune to Water magic spells},{Odporność na zaklęcia magii wody.}
+{CPERK_40PROCRESIST},{Has 40% resistance to magic which gives them a chance to ignore the effects of hostile spell attacks},{Posiada 40% odporności na magię, dzięki czemu ma szansę zignorować efekty wrogiego zaklęcia.}
+{CPERK_QUARTERDMG},{Takes only 25% damage from spell attacks},{Otrzymuje tylko 25% obrażeń od zaklęć.}
+{CPERK_GHOST},{Killed units become Ghosts},{Zabite jednostki stają się duchami.}
+{CPERK_DOHALF},{Has a 10% chance of destroying half of the target group},{Ma 10% szanse że zniszczy połowe wybranego odzdziału wroga.}
+{CPERK_DRAINLIFES},{Resurrects members of their own troops by replenishing health equal to the amount of damage they inflict on others},{Wskrzesza członków własnego odzdziału poprzez uleczenie tylu punktów życia, ile zadał obrażeń wrogim jednostkom.}
+
+<------------------------------------------------------->
+<-- Castle names (16 names for 6 castles = 96 titles) -->
+<------------------------------------------------------->
+{CASTLE_NAME_01},{Castellatus},{Castellatus}
+{CASTLE_NAME_02},{Starkmauer},{Starkmauer}
+{CASTLE_NAME_03},{Kanan},{Kanan}
+{CASTLE_NAME_04},{Linderhoff},{Linderhoff}
+{CASTLE_NAME_05},{Whitemoon},{Whitemoon}
+{CASTLE_NAME_06},{Yaroslavl},{Yaroslavl}
+{CASTLE_NAME_07},{Middleheim},{Middleheim}
+{CASTLE_NAME_08},{Brettonia},{Brettonia}
+{CASTLE_NAME_09},{Alexandretta},{Alexandretta}
+{CASTLE_NAME_10},{Whitestone},{Whitestone}
+{CASTLE_NAME_11},{Claxton},{Claxton}
+{CASTLE_NAME_12},{Armitage},{Armitage}
+{CASTLE_NAME_13},{Shinnon},{Shinnon}
+{CASTLE_NAME_14},{Gateway},{Gateway}
+{CASTLE_NAME_15},{Dunwall},{Dunwall}
+{CASTLE_NAME_16},{Kildare},{Kildare}
+
+{CASTLE_NAME_17},{Kragg},{Kragg}
+{CASTLE_NAME_18},{Jimstadt},{Jimstadt}
+{CASTLE_NAME_19},{Hartgrim},{Hartgrim}
+{CASTLE_NAME_20},{Sandflash},{Sandflash}
+{CASTLE_NAME_21},{Morganheim},{Morganheim}
+{CASTLE_NAME_22},{Cragmoor},{Cragmoor}
+{CASTLE_NAME_23},{Dragonspire},{Dragonspire}
+{CASTLE_NAME_24},{Battlement},{Battlement}
+{CASTLE_NAME_25},{Bocc},{Bocc}
+{CASTLE_NAME_26},{Slau},{Slau}
+{CASTLE_NAME_27},{Tormina},{Tormina}
+{CASTLE_NAME_28},{Dolere},{Dolere}
+{CASTLE_NAME_29},{Rockwarren},{Rockwarren}
+{CASTLE_NAME_30},{Strongglen},{Strongglen}
+{CASTLE_NAME_31},{Kruber},{Kruber}
+{CASTLE_NAME_32},{Rovener},{Rovener}
+
+{CASTLE_NAME_33},{Tutanberg},{Tutanberg}
+{CASTLE_NAME_34},{Stronggale},{Stronggale}
+{CASTLE_NAME_35},{Corona},{Corona}
+{CASTLE_NAME_36},{Silverwing},{Silverwing}
+{CASTLE_NAME_37},{Facture},{Facture}
+{CASTLE_NAME_38},{Cloudfire},{Cloudfire}
+{CASTLE_NAME_39},{Cloudspire},{Cloudspire}
+{CASTLE_NAME_40},{Equinox},{Equinox}
+{CASTLE_NAME_41},{Athenaeum},{Athenaeum}
+{CASTLE_NAME_42},{Valtara},{Valtara}
+{CASTLE_NAME_43},{Tirith},{Tirith}
+{CASTLE_NAME_44},{Fallen Star},{Fallen Star}
+{CASTLE_NAME_45},{Mystos},{Mystos}
+{CASTLE_NAME_46},{Ayer},{Ayer}
+{CASTLE_NAME_47},{Silverspire},{Silverspire}
+{CASTLE_NAME_48},{Manufactury},{Manufactury}
+
+{CASTLE_NAME_49},{Veks},{Veks}
+{CASTLE_NAME_50},{Sorrow Crown},{Sorrow Crown}
+{CASTLE_NAME_51},{Chillwater},{Chillwater}
+{CASTLE_NAME_52},{Deepshadow},{Deepshadow}
+{CASTLE_NAME_53},{Darkhold},{Darkhold}
+{CASTLE_NAME_54},{Blindroot},{Blindroot}
+{CASTLE_NAME_55},{Shadowden},{Shadowden}
+{CASTLE_NAME_56},{Scar},{Scar}
+{CASTLE_NAME_57},{Malev},{Malev}
+{CASTLE_NAME_58},{Castigare},{Castigare}
+{CASTLE_NAME_59},{Dukered},{Dukered}
+{CASTLE_NAME_60},{Shade},{Shade}
+{CASTLE_NAME_61},{Evernight},{Evernight}
+{CASTLE_NAME_62},{Darkburrow},{Darkburrow}
+{CASTLE_NAME_63},{Lost Hold},{Lost Hold}
+{CASTLE_NAME_64},{Coldshadow},{Coldshadow}
+
+{CASTLE_NAME_65},{Starmino},{Starmino}
+{CASTLE_NAME_66},{Grigorov},{Grigorov}
+{CASTLE_NAME_67},{Sigman},{Sigman}
+{CASTLE_NAME_68},{Still Water},{Still Water}
+{CASTLE_NAME_69},{Elfwind},{Elfwind}
+{CASTLE_NAME_70},{Sebian},{Sebian}
+{CASTLE_NAME_71},{Ceiliedgh},{Ceiliedgh}
+{CASTLE_NAME_72},{Gladeroot},{Gladeroot}
+{CASTLE_NAME_73},{Avalon},{Avalon}
+{CASTLE_NAME_74},{Rainhaven},{Rainhaven}
+{CASTLE_NAME_75},{Strongglen},{Strongglen}
+{CASTLE_NAME_76},{Marishen},{Marishen}
+{CASTLE_NAME_77},{Bath'iere},{Bath'iere}
+{CASTLE_NAME_78},{Green Falls},{Green Falls}
+{CASTLE_NAME_79},{Emerald Moor},{Emerald Moor}
+{CASTLE_NAME_80},{Wild Willow},{Wild Willow}
+
+{CASTLE_NAME_81},{Haunt's Wind},{Haunt's Wind}
+{CASTLE_NAME_82},{Cessacioun},{Cessacioun}
+{CASTLE_NAME_83},{Agony},{Agony}
+{CASTLE_NAME_84},{Victorash},{Victorash}
+{CASTLE_NAME_85},{Terminus},{Terminus}
+{CASTLE_NAME_86},{Blackquarter},{Blackquarter}
+{CASTLE_NAME_87},{Sandro},{Sandro}
+{CASTLE_NAME_88},{Grave Raven},{Grave Raven}
+{CASTLE_NAME_89},{Dark Cloud},{Dark Cloud}
+{CASTLE_NAME_90},{Coldsoul},{Coldsoul}
+{CASTLE_NAME_91},{Coldreign},{Coldreign}
+{CASTLE_NAME_92},{Dark Eternal},{Dark Eternal}
+{CASTLE_NAME_93},{Ghostwind},{Ghostwind}
+{CASTLE_NAME_94},{Blight},{Blight}
+{CASTLE_NAME_95},{Shady Sands},{Shady Sands}
+{CASTLE_NAME_96},{Wolfengrott},{Wolfengrott}
+
+<----------------------->
+<-- Magic spell names -->
+<----------------------->
+{SPNAME_MAGICARROW},{Magic Arrow},{Magiczna Strzała}
+{SPNAME_PROTEARTH},{Protection from Earth},{Ochrona przed ziemią}
+{SPNAME_HASTE},{Haste},{Przyśpieszenie}
+{SPNAME_SHIELD},{Shield},{Tarcza}
+{SPNAME_DISRAY},{Disrupting Ray},{Promień Osłabienia}
+{SPNAME_LIGHTNINGBOLT},{Lightning Bolt},{Błyskawica}
+{SPNAME_PRECISION},{Precision},{Precyzja}
+{SPNAME_AIRSHIELD},{Air Shield},{Tarcza powietrzna}
+{SPNAME_HOLYWORD},{Holy Word},{Święte Słowo}
+{SPNAME_COUNTERSTRIKE},{Counterstrike},{Kontratak}
+{SPNAME_RESURRECT},{Resurrect},{Wskrzeszenie}
+{SPNAME_AIRELEMENTAL},{Air Elemental},{Żywiołak Powietrza}
+
+{SPNAME_PROTAIR},{Protection from Air},{Ochrona przed powietrzem}
+{SPNAME_SLOW},{Slow},{Spowolnienie}
+{SPNAME_STONESKIN},{Stone Skin},{Kamienna Skóra}
+{SPNAME_VISIONS},{Visions},{Wizje}
+{SPNAME_EARTHQUAKE},{Earthquake},{Trzęsienie Ziemi}
+{SPNAME_SORROW},{Sorrow},{Smutek}
+{SPNAME_METEORSHOWER},{Meteor Shower},{Deszcz Meteorów}
+{SPNAME_TOWNPORTAL},{Town Portal},{Miejski Portal}
+{SPNAME_IMPLOSION},{Implosion},{Implozja}
+{SPNAME_EARTHELEMENTAL},{Earth Elemental},{Żywiołak Ziemi}
+
+{SPNAME_BLOODLUST},{Bloodlust},{Rządza Krwi}
+{SPNAME_PROTWATER},{Protection from Water},{Ochrona przed wodą}
+{SPNAME_CURSE},{Curse},{Klątwa}
+{SPNAME_BLIND},{Blind},{Oślepienie}
+{SPNAME_WEAKNESS},{Weakness},{Osłabienie}
+{SPNAME_DEATHRIPPLE},{Death Ripple},{Fala Śmierci}
+{SPNAME_FIREBALL},{Fireball},{Kula Ognia}
+{SPNAME_MISFORTUNE},{Misfortune},{Nieszczęście}
+{SPNAME_ANIMATEDEAD},{Animate Dead},{Ożywienie Nieumarłych}
+{SPNAME_FIREBLAST},{Fireblast},{Wybuch Ognia}
+{SPNAME_ARMAGEDDON},{Armageddon},{Armagedon}
+{SPNAME_FIREELEMENTAL},{Fire Elemental},{Żywiołak Ognia}
+
+{SPNAME_BLESS},{Bless},{Błogosławieństwo}
+{SPNAME_PROTFIRE},{Protection from Fire},{Ochrona przed ogniem}
+{SPNAME_DISPEL},{Dispel},{Rozproszenie zaklęć}
+{SPNAME_CURE},{Cure},{Leczenie}
+{SPNAME_COLDRAY},{Cold Ray},{Lodowy promień}
+{SPNAME_FORTUNE},{Fortune},{Szczęście}
+{SPNAME_MIRTH},{Mirth},{Radość}
+{SPNAME_COLDRING},{Cold Ring},{Pierścień Zimna}
+{SPNAME_ANTIMAGIC},{Anti-Magic},{Anty-Magia}
+{SPNAME_PRAYER},{Prayer},{Modlitwa}
+{SPNAME_WATERELEMENTAL},{Water Elemental},{Żywiołak Wody}
+
+{SPNAME_SUMMONSPRITES},{Summon Sprites},{Przyzywanie nimf}
+
+<------------------------------>
+<-- Magic spell descriptions -->
+<------------------------------>
+{SPDESC_MAGICARROW_NON},{Causes a bolt of magical energy to strike the selected unit (Power*10).},{Powoduje wystrzelenie pocisku magicznej energii we wskazaną jednostkę (Moc*10).}
+{SPDESC_MAGICARROW_BAS},{Causes a bolt of magical energy to strike the selected unit (Power*10).},{Powoduje wystrzelenie pocisku magicznej energii we wskazaną jednostkę (Moc*10).}
+{SPDESC_MAGICARROW_ADV},{Causes a bolt of magical energy to strike the selected unit (Power*12).},{Powoduje wystrzelenie pocisku magicznej energii we wskazaną jednostkę (Moc*12).}
+{SPDESC_MAGICARROW_EXP},{Causes a bolt of magical energy to strike the selected unit (Power*15).},{Powoduje wystrzelenie pocisku magicznej energii we wskazaną jednostkę (Moc*15).}
+
+{SPDESC_PROTEARTH_NON},{Protects the selected unit, reducing damage by 30% received from Earth spells.},{Chroni wybraną jednostkę, redukując o 30% obrażenia otrzymywane od magii ziemi.}
+{SPDESC_PROTEARTH_BAS},{Protects the selected unit, reducing damage by 30% received from Earth spells.},{Chroni wybraną jednostkę, redukując o 30% obrażenia otrzymywane od magii ziemi.}
+{SPDESC_PROTEARTH_ADV},{Protects the selected unit, reducing damage by 50% received from Earth spells.},{Chroni wybraną jednostkę, redukując o 50% obrażenia otrzymywane od magii ziemi.}
+{SPDESC_PROTEARTH_EXP},{Protects all friendly units, reducing damage by 50% received from Earth spells.},{Chroni wszystkie przyjazne jednostki, redukując o 50% obrażenia od magii ziemi.}
+
+{SPDESC_HASTE_NON},{Increases the speed of the selected unit by 3.},{Zwiększa prędkość wybranej jednostki o 3.}
+{SPDESC_HASTE_BAS},{Increases the speed of the selected unit by 3.},{Zwiększa prędkość wybranej jednostki o 3.}
+{SPDESC_HASTE_ADV},{Increases the speed of the selected unit by 5.},{Zwiększa prędkość wybranej jednostki o 5.}
+{SPDESC_HASTE_EXP},{Increases the speed of all friendly units by 5.},{Zwiększa prędkość wszystkich przyjaznych jednostek o 5.}
+
+{SPDESC_SHIELD_NON},{Shields a selected unit, reducing the amount of damage by 15% received from hand-to-hand attacks.},{Chroni wybraną jednostkę,redukując ilość obrażeń o 15% otrzymywanych w walce wręcz.}
+{SPDESC_SHIELD_BAS},{Shields a selected unit, reducing the amount of damage by 15% received from hand-to-hand attacks.},{Chroni wybraną jednostkę,redukując ilość obrażeń o 15% otrzymywanych w walce wręcz.}
+{SPDESC_SHIELD_ADV},{Shields a selected unit, reducing the amount of damage by 30% received from hand-to-hand attacks.},{Chroni wybraną jednostkę,redukując ilość obrażeń o 30% otrzymywanych w walce wręcz.}
+{SPDESC_SHIELD_EXP},{Shields all friendly units, reducing the amount of damage by 30% received from hand-to-hand attacks.},{Chroni wszystkie przyjazne jednostki,redukując ilość obrażeń o 30% otrzymywanych w walce wręcz.}
+
+{SPDESC_DISRAY_NON},{Reduces the selected enemy unit's defense strength by 3. A single enemy may be targeted multiple times by this spell.},{Zmniejsza obronę wybranej jednostki przeciwnika o 3.Pojedynczy wróg może być trafiany wielokrotnie tym czarem.}
+{SPDESC_DISRAY_BAS},{Reduces the selected enemy unit's defense strength by 3. A single enemy may be targeted multiple times by this spell.},{Zmniejsza obronę wybranej jednostki przeciwnika o 3.Pojedynczy wróg może być trafiany wielokrotnie tym czarem.}
+{SPDESC_DISRAY_ADV},{Reduces the selected enemy unit's defense strength by 4. A single enemy may be targeted multiple times by this spell.},{Zmniejsza obronę wybranej jednostki przeciwnika o 4.Pojedynczy wróg może być trafiany wielokrotnie tym czarem.}
+{SPDESC_DISRAY_EXP},{Reduces the selected enemy unit's defense strength by 5. A single enemy may be targeted multiple times by this spell.},{Zmniejsza obronę wybranej jednostki przeciwnika o 5.Pojedynczy wróg może być trafiany wielokrotnie tym czarem.}
+
+{SPDESC_LIGHTNINGBOLT_NON},{Causes a bolt of lightning to strike the selected unit (Power*25).},{Powoduje wystrzelenie błyskawicy we wskazaną jednostkę (Moc*25).}
+{SPDESC_LIGHTNINGBOLT_BAS},{Causes a bolt of lightning to strike the selected unit (Power*25).},{Powoduje wystrzelenie błyskawicy we wskazaną jednostkę (Moc*25).}
+{SPDESC_LIGHTNINGBOLT_ADV},{Causes a bolt of lightning to strike the selected unit (Power*27).},{Powoduje wystrzelenie błyskawicy we wskazaną jednostkę (Moc*27).}
+{SPDESC_LIGHTNINGBOLT_EXP},{Causes a bolt of lightning to strike the selected unit (Power*30).},{Powoduje wystrzelenie błyskawicy we wskazaną jednostkę (Moc*30).}
+
+{SPDESC_PRECISION_NON},{Increases the ranged attack damage inflicted by the selected unit by 3.},{Zwiększa obrażenia dystansowe zadawne przez wybraną jednostkę o 3.}
+{SPDESC_PRECISION_BAS},{Increases the ranged attack damage inflicted by the selected unit by 3.},{Zwiększa obrażenia dystansowe zadawne przez wybraną jednostkę o 3.}
+{SPDESC_PRECISION_ADV},{Increases the ranged attack damage inflicted by the selected unit by 5.},{Zwiększa obrażenia dystansowe zadawne przez wybraną jednostkę o 5.}
+{SPDESC_PRECISION_EXP},{Increases the ranged attack damage inflicted by all friendly units by 5.},{Zwiększa obrażenia dystansowe zadawne przez wszystkie przyjazne jednostki o 5.}
+
+{SPDESC_AIRSHIELD_NON},{Shields a selected unit, reducing the amount of damage by 25% received from ranged attacks.},{Chroni wybraną jednostkę,redukując ilość obrażeń o 25% otrzymywanych w walce dystansowej.}
+{SPDESC_AIRSHIELD_BAS},{Shields a selected unit, reducing the amount of damage by 25% received from ranged attacks.},{Chroni wybraną jednostkę,redukując ilość obrażeń o 25% otrzymywanych w walce dystansowej.}
+{SPDESC_AIRSHIELD_ADV},{Shields a selected unit, reducing the amount of damage by 50% received from ranged attacks.},{Chroni wybraną jednostkę,redukując ilość obrażeń o 50% otrzymywanych w walce dystansowej.}
+{SPDESC_AIRSHIELD_EXP},{Shields all friendly units, reducing the amount of damage by 50% received from ranged attacks.},{Chroni wszystkie przyjazne jednostki,redukując ilość obrażeń o 50% otrzymywanych w walce dystansowej.}
+
+{SPDESC_HOLYWORD_NON},{Attempts to destroy any undead creatures on the battlefield (Power*10).},{Próbuje zniszczyć wszystkich nieumarłych na polu bitwy(Moc*10).}
+{SPDESC_HOLYWORD_BAS},{Attempts to destroy any undead creatures on the battlefield (Power*10).},{Próbuje zniszczyć wszystkich nieumarłych na polu bitwy(Moc*10).}
+{SPDESC_HOLYWORD_ADV},{Attempts to destroy any undead creatures on the battlefield (Power*12).},{Próbuje zniszczyć wszystkich nieumarłych na polu bitwy(Moc*12).}
+{SPDESC_HOLYWORD_EXP},{Attempts to destroy any undead creatures on the battlefield (Power*15).},{Próbuje zniszczyć wszystkich nieumarłych na polu bitwy(Moc*15).}
+
+{SPDESC_COUNTERSTRIKE_NON},{The selected unit will retaliate against one additional attack each round.},{Wybrana jednostka zada jeden dodatkowy atak w każdej rundzie.}
+{SPDESC_COUNTERSTRIKE_BAS},{The selected unit will retaliate against one additional attack each round.},{Wybrana jednostka zada jeden dodatkowy atak w każdej rundzie.}
+{SPDESC_COUNTERSTRIKE_ADV},{The selected unit will retaliate against two additional attacks each round.},{Wybrana jednostka zada dwa dodatkowe ataki w każdej rundzie.}
+{SPDESC_COUNTERSTRIKE_EXP},{The selected unit will retaliate against three additional attacks each round.},{Wybrana jednostka zada trzy dodatkowe ataki w każdej rundzie.}
+
+{SPDESC_RESURRECT_NON},{Resurrects units in the selected group by restoring permanently a fixed number of hit points to the target (Power*40).},{Wskrzesza jednostki w wybranej grupie odnawiając permanentnie ustaloną liczbę punktów życia celowi(Moc*40)}
+{SPDESC_RESURRECT_BAS},{Resurrects units in the selected group by restoring permanently a fixed number of hit points to the target (Power*40).},{Wskrzesza jednostki w wybranej grupie odnawiając permanentnie ustaloną liczbę punktów życia celowi(Moc*40).}
+{SPDESC_RESURRECT_ADV},{Resurrects units in the selected group by restoring permanently a fixed number of hit points to the target (Power*45).},{Wskrzesza jednostki w wybranej grupie odnawiając permanentnie ustaloną liczbę punktów życia celowi(Moc*45).}
+{SPDESC_RESURRECT_EXP},{Resurrects units in the selected group by restoring permanently a fixed number of hit points to the target (Power*50).},{Wskrzesza jednostki w wybranej grupie odnawiając permanentnie ustaloną liczbę punktów życia celowi(Moc*50).}
+
+{SPDESC_AIRELEMENTAL_NON},{Allows you to summon Air Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Powietrza(Moc*3).Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_AIRELEMENTAL_BAS},{Allows you to summon Air Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Powietrza(Moc*3).Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_AIRELEMENTAL_ADV},{Allows you to summon Air Elementals (Power*4). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Powietrza(Moc*4).Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_AIRELEMENTAL_EXP},{Allows you to summon Air Elementals (Power*5). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Powietrza(Moc*5).Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+
+{SPDESC_PROTAIR_NON},{Protects the selected unit, reducing damage by 30% received from Air spells.},{Chroni wybraną jednostkę,redukując o 30% obrażenia otrzymywane od magii powietrza.}
+{SPDESC_PROTAIR_BAS},{Protects the selected unit, reducing damage by 30% received from Air spells.},{Chroni wybraną jednostkę,redukując o 30% obrażenia otrzymywane od magii powietrza.}
+{SPDESC_PROTAIR_ADV},{Protects the selected unit, reducing damage by 50% received from Air spells.},{Chroni wybraną jednostkę,redukując o 50% obrażenia otrzymywane od magii powietrza.}
+{SPDESC_PROTAIR_EXP},{Protects all friendly units, reducing damage by 50% received from Air spells.},{Chroni wszystkie przyjazne jednostki,redukując o 50% obrażenia od magii powietrza.}
+
+{SPDESC_SLOW_NON},{Reduces the speed of the selected enemy unit by 3.},{Zmniejsza prędkość wybranej jednostki o 3.}
+{SPDESC_SLOW_BAS},{Reduces the speed of the selected enemy unit by 3.},{Zmniejsza prędkość wybranej jednostki o 3.}
+{SPDESC_SLOW_ADV},{Reduces the speed of the selected enemy unit by 6.},{Zmniejsza prędkość wybranej jednostki o 6.}
+{SPDESC_SLOW_EXP},{Reduces the speed of all enemy units by 6.},{Zmniejsza prędkość wszystkich wrogich jednostek o 6.}
+
+{SPDESC_STONESKIN_NON},{Increases the selected unit's defense strength by 3.},{Zwiększa obronę wybranej jednostki o 3.}
+{SPDESC_STONESKIN_BAS},{Increases the selected unit's defense strength by 3.},{Zwiększa obronę wybranej jednostki o 3.}
+{SPDESC_STONESKIN_ADV},{Increases the selected unit's defense strength by 6.},{Zwiększa obronę wybranej jednostki o 6.}
+{SPDESC_STONESKIN_EXP},{Increases the defense strength of all friendly units by 6.},{Zwiększa obronę wszystkich przyjaznych jednostek o 6.}
+
+{SPDESC_VISIONS_NON},{Gives you exact numbers of wandering monsters and tells you if they would be willing to join your hero. Allows you to view a nearby enemy hero's primary skill statistics, creature type and quantity, as if the hero was part of your kingdom, as well as a nearby town's statistics, garrison creatures and quantity.},{Podaje Ci dokładną liczbę potworów i mówi Ci czy chcą się przyłączyć do Twojego bohatera.Pozwala zobaczyć statystyki umiejętności pobliskiego wrogiego bohatera,typ i ilość jego stworzeń,czy należy on do twojego królestwa,podobnie jak statystyki pobliskiego miasta,garnizonu stworzeń w tym mieście i ich typów.}
+{SPDESC_VISIONS_BAS},{Gives you exact numbers of wandering monsters and tells you if they would be willing to join your hero. Allows you to view a nearby enemy hero's primary skill statistics, creature type and quantity, as if the hero was part of your kingdom, as well as a nearby town's statistics, garrison creatures and quantity.},{Podaje Ci dokładną liczbę potworów i mówi Ci czy chcą się przyłączyć do Twojego bohatera.Pozwala zobaczyć statystyki umiejętności pobliskiego wrogiego bohatera,typ i ilość jego stworzeń,czy należy on do twojego królestwa,podobnie jak statystyki pobliskiego miasta,garnizonu stworzeń w tym mieście i ich typów.}
+{SPDESC_VISIONS_ADV},{Gives you exact numbers of wandering monsters and tells you if they would be willing to join your hero. Allows you to view a nearby enemy hero's primary skill statistics, creature type and quantity, as if the hero was part of your kingdom, as well as a nearby town's statistics, garrison creatures and quantity.},{Podaje Ci dokładną liczbę potworów i mówi Ci czy chcą się przyłączyć do Twojego bohatera.Pozwala zobaczyć statystyki umiejętności pobliskiego wrogiego bohatera,typ i ilość jego stworzeń,czy należy on do twojego królestwa,podobnie jak statystyki pobliskiego miasta,garnizonu stworzeń w tym mieście i ich typów.}
+{SPDESC_VISIONS_EXP},{Gives you exact numbers of wandering monsters and tells you if they would be willing to join your hero. Allows you to view a nearby enemy hero's primary skill statistics, creature type and quantity, as if the hero was part of your kingdom, as well as a nearby town's statistics, garrison creatures and quantity.},{Podaje Ci dokładną liczbę potworów i mówi Ci czy chcą się przyłączyć do Twojego bohatera.Pozwala zobaczyć statystyki umiejętności pobliskiego wrogiego bohatera,typ i ilość jego stworzeń,czy należy on do twojego królestwa,podobnie jak statystyki pobliskiego miasta,garnizonu stworzeń w tym mieście i ich typów.}
+
+{SPDESC_EARTHQUAKE_NON},{Randomly damages two sections of castle wall in combat.},{Uszkadza dwie przypadkowe sekcje muru zamkowego podczas walki.}
+{SPDESC_EARTHQUAKE_BAS},{Randomly damages two sections of castle wall in combat.},{Uszkadza dwie przypadkowe sekcje muru zamkowego podczas walki.}
+{SPDESC_EARTHQUAKE_ADV},{Randomly damages three sections of castle wall in combat.},{Uszkadza trzy przypadkowe sekcje muru zamkowego podczas walki.}
+{SPDESC_EARTHQUAKE_EXP},{Randomly damages four sections of castle wall in combat.},{Uszkadza cztery przypadkowe sekcje muru zamkowego podczas walki.}
+
+{SPDESC_SORROW_NON},{Reduces the morale of the selected enemy unit by 1.},{Obniża morale wybranej wrogiej jednostki o 1.}
+{SPDESC_SORROW_BAS},{Reduces the morale of the selected enemy unit by 1.},{Obniża morale wybranej wrogiej jednostki o 1.}
+{SPDESC_SORROW_ADV},{Reduces the morale of the selected enemy unit by 2.},{Obniża morale wybranej wrogiej jednostki o 2.}
+{SPDESC_SORROW_EXP},{Reduces the morale of all enemy units by 2.},{Obniża morale wszystkich wrogich jednostek o 2.}
+
+{SPDESC_METEORSHOWER_NON},{Causes a meteor shower to rain down on the selected target and any adjacent units (Power*25).},{Powoduje opad deszczu meteorów na wskazaną jednostke i wszystkie inne jednostki w pobliżu(Moc*25).}
+{SPDESC_METEORSHOWER_BAS},{Causes a meteor shower to rain down on the selected target and any adjacent units (Power*25).},{Powoduje opad deszczu meteorów na wskazaną jednostke i wszystkie inne jednostki w pobliżu(Moc*25).}
+{SPDESC_METEORSHOWER_ADV},{Causes a meteor shower to rain down on the selected target and any adjacent units (Power*27).},{Powoduje opad deszczu meteorów na wskazaną jednostke i wszystkie inne jednostki w pobliżu(Moc*27).}
+{SPDESC_METEORSHOWER_EXP},{Causes a meteor shower to rain down on the selected target and any adjacent units (Power*30).},{Powoduje opad deszczu meteorów na wskazaną jednostke i wszystkie inne jednostki w pobliżu(Moc*30).}
+
+{SPDESC_TOWNPORTAL_NON},{Teleports your hero to the nearest friendly town. The town must be unoccupied.},{Teleportuje Twojego bohatera do najbliższego przyjaznego miasta.W mieście nie może znajdować się inny bohater.}
+{SPDESC_TOWNPORTAL_BAS},{Teleports your hero to the nearest friendly town. The town must be unoccupied.},{Teleportuje Twojego bohatera do najbliższego przyjaznego miasta.W mieście nie może znajdować się inny bohater.}
+{SPDESC_TOWNPORTAL_ADV},{Teleports your hero to any friendly town. The town must be unoccupied.},{Teleportuje Twojego bohatera do każdego przyjaznego miasta.W mieście nie może znajdować się inny bohater.}
+{SPDESC_TOWNPORTAL_EXP},{Teleports your hero to any friendly town. The town must be unoccupied.},{Teleportuje Twojego bohatera do każdego przyjaznego miasta.W mieście nie może znajdować się inny bohater.}
+
+{SPDESC_IMPLOSION_NON},{Inflicts massive damage to a selected enemy unit (Power*70).},{Zadaje ogromne obrażenia dla wybranej wrogiej jednostki(Moc*70).} 
+{SPDESC_IMPLOSION_BAS},{Inflicts massive damage to a selected enemy unit (Power*70).},{Zadaje ogromne obrażenia dla wybranej wrogiej jednostki(Moc*70).}
+{SPDESC_IMPLOSION_ADV},{Inflicts massive damage to a selected enemy unit (Power*75).},{Zadaje ogromne obrażenia dla wybranej wrogiej jednostki(Moc*75).}
+{SPDESC_IMPLOSION_EXP},{Inflicts massive damage to a selected enemy unit (Power*80).},{Zadaje ogromne obrażenia dla wybranej wrogiej jednostki(Moc*80).}
+
+{SPDESC_EARTHELEMENTAL_NON},{Allows you to summon Earth Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Ziemi(Moc*3).Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_EARTHELEMENTAL_BAS},{Allows you to summon Earth Elemental (Power*3). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Ziemi(Moc*3).Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_EARTHELEMENTAL_ADV},{Allows you to summon Earth Elemental (Power*4). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Ziemi(Moc*4).Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_EARTHELEMENTAL_EXP},{Allows you to summon Earth Elemental (Power*5). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Ziemi(Moc*5).Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+
+{SPDESC_BLOODLUST_NON},{Increases the hand-to-hand damage inflicted by the selected unit by 3.},{Zwiększa obrażenia zadawane w walce wręcz przez wybraną jednostkę o 3.}
+{SPDESC_BLOODLUST_BAS},{Increases the hand-to-hand damage inflicted by the selected unit by 3.},{Zwiększa obrażenia zadawane w walce wręcz przez wybraną jednostkę o 3.}
+{SPDESC_BLOODLUST_ADV},{Increases the hand-to-hand damage inflicted by the selected unit by 6.},{Zwiększa obrażenia zadawane w walce wręcz przez wybraną jednostkę o 6.}
+{SPDESC_BLOODLUST_EXP},{Increases the hand-to-hand damage inflicted by all friendly units by 6.},{Zwiększa obrażenia zadawane w walce wręcz przez wszystkie przyjazne jednostki o 6.}
+
+{SPDESC_PROTWATER_NON},{Protects the selected unit, reducing damage by 30% received from Water spells.},{Chroni wybraną jednostkę,redukując o 30% obrażenia otrzymywane od magii wody.}
+{SPDESC_PROTWATER_BAS},{Protects the selected unit, reducing damage by 30% received from Water spells.},{Chroni wybraną jednostkę,redukując o 30% obrażenia otrzymywane od magii wody.}
+{SPDESC_PROTWATER_ADV},{Protects the selected unit, reducing damage by 60% received from Water spells.},{Chroni wybraną jednostkę,redukując o 60% obrażenia otrzymywane od magii wody.}
+{SPDESC_PROTWATER_EXP},{Protects all friendly units, reducing damage by 60% received from Water spells.},{Chroni wszystkie przyjazne jednostki,redukując o 60% obrażenia otrzymywane od magii wody.}
+
+{SPDESC_CURSE_NON},{Causes the selected enemy unit to inflict minimum damage in combat.},{Powoduje ,że wybrana wroga jednostka zadaje minimalne obrażenia w walce.}
+{SPDESC_CURSE_BAS},{Causes the selected enemy unit to inflict minimum damage in combat.},{Powoduje ,że wybrana wroga jednostka zadaje minimalne obrażenia w walce.}
+{SPDESC_CURSE_ADV},{Causes the selected enemy unit to inflict minimum damage in combat.},{Powoduje ,że wybrana wroga jednostka zadaje minimalne obrażenia w walce.}
+{SPDESC_CURSE_EXP},{Causes all enemy units to inflict minimum damage in combat.},{Powoduje ,że wszystkie wrogie jednostki zadają minimalne obrażenia w walce.}
+
+{SPDESC_BLIND_NON},{Blinds a creature so that it cannot move and causes it to counterattack at half its normal attack strength. Blindness persists until the unit is attacked or dispelled.},{Oślepia stworzenie, przez co nie może się ruszać i zadaje kontratak z połową siły. Ślepota utrzymuje się do momentu, gdy jednostka zostatnie zaatakowna lub odczarowana.}
+{SPDESC_BLIND_BAS},{Blinds a creature so that it cannot move and causes it to counterattack at half its normal attack strength. Blindness persists until the unit is attacked or dispelled.},{Oślepia stworzenie, przez co nie może się ruszać i zadaje kontratak z połową siły. Ślepota utrzymuje się do momentu, gdy jednostka zostatnie zaatakowna lub odczarowana.}
+{SPDESC_BLIND_ADV},{Blinds a creature so that it cannot move and causes it to counterattack at one-quarter normal attack strength. Blindness persists until the unit is attacked or dispelled.},{Oślepia stworzenie, przez co nie może się ruszać i zadaje kontratak z jedną czwartą siły. Ślepota utrzymuje się do momentu, gdy jednostka zostatnie zaatakowna lub odczarowana.}
+{SPDESC_BLIND_EXP},{Blinds a creature so that it cannot move or counterattack. Blindness persists until the unit is attacked or dispelled.},{Oślepia stworzenie, przez co nie może się ruszać i kontratakować. Ślepota utrzymuje się do momentu, gdy jednostka zostatnie zaatakowna lub odczarowana.}
+
+{SPDESC_WEAKNESS_NON},{Reduces the selected enemy unit's attack strength by 3.},{Zmniejsza siłę ataku wybranej wrogiej jednostki o 3.}
+{SPDESC_WEAKNESS_BAS},{Reduces the selected enemy unit's attack strength by 3.},{Zmniejsza siłę ataku wybranej wrogiej jednostki o 3.}
+{SPDESC_WEAKNESS_ADV},{Reduces the selected enemy unit's attack strength by 6.},{Zmniejsza siłę ataku wybranej wrogiej jednostki o 6.}
+{SPDESC_WEAKNESS_EXP},{Reduces attack strength of all enemy units by 6.},{Zmniejsza siłę ataku wszystkich wrogich jednostek o 6.}
+
+{SPDESC_DEATHRIPPLE_NON},{Sends a ripple of death across the battlefield which damages all non-undead units (Power*5).},{Wysyła przez pole bitwy falę śmierci, która uszkadza wszystkie żywe jednostki(Moc*5).}
+{SPDESC_DEATHRIPPLE_BAS},{Sends a ripple of death across the battlefield which damages all non-undead units (Power*5).},{Wysyła przez pole bitwy falę śmierci, która uszkadza wszystkie żywe jednostki(Moc*5).}
+{SPDESC_DEATHRIPPLE_ADV},{Sends a ripple of death across the battlefield which damages all non-undead units (Power*7).},{Wysyła przez pole bitwy falę śmierci, która uszkadza wszystkie żywe jednostki(Moc*7).}
+{SPDESC_DEATHRIPPLE_EXP},{Sends a ripple of death across the battlefield which damages all non-undead units (Power*10).},{Wysyła przez pole bitwy falę śmierci, która uszkadza wszystkie żywe jednostki(Moc*10).}
+
+{SPDESC_FIREBALL_NON},{Causes the selected target to burst into flames, inflicting fire damage to the target and any adjacent units (Power*15).},{Powoduje, że wybrany cel staje w płomieniach,które zadają mu i sąsiadującym jednostkom obrażenia od ognia.(Moc*15).}
+{SPDESC_FIREBALL_BAS},{Causes the selected target to burst into flames, inflicting fire damage to the target and any adjacent units (Power*15).},{Powoduje, że wybrany cel staje w płomieniach,które zadają mu i sąsiadującym jednostkom obrażenia od ognia.(Moc*15).}
+{SPDESC_FIREBALL_ADV},{Causes the selected target to burst into flames, inflicting fire damage to the target and any adjacent units (Power*17).},{Powoduje, że wybrany cel staje w płomieniach,które zadają mu i sąsiadującym jednostkom obrażenia od ognia.(Moc*17).}
+{SPDESC_FIREBALL_EXP},{Causes the selected target to burst into flames, inflicting fire damage to the target and any adjacent units (Power*20).},{Powoduje, że wybrany cel staje w płomieniach,które zadają mu i sąsiadującym jednostkom obrażenia od ognia.(Moc*20).}
+
+{SPDESC_MISFORTUNE_NON},{Reduces the luck of the selected enemy unit by 1.},{Zmniejsza szczęście wybranej wrogiej jednostki o 1.}
+{SPDESC_MISFORTUNE_BAS},{Reduces the luck of the selected enemy unit by 1.},{Zmniejsza szczęście wybranej wrogiej jednostki o 1.}
+{SPDESC_MISFORTUNE_ADV},{Reduces the luck of the selected enemy unit by 2.},{Zmniejsza szczęście wybranej wrogiej jednostki o 2.}
+{SPDESC_MISFORTUNE_EXP},{Reduces the luck of all enemy units by 2.},{Zmniejsza szczęście wszystkich wrogich jednostek o 2.}
+
+{SPDESC_ANIMATEDEAD_NON},{Re-animates any destroyed undead in the selected group by restoring a fixed number of hit points to the target (Power*40).},{Ożywia wszelkich zniszczonych nieumarłych w danej grupie, przywracając określoną liczbę punktów życia celowi(Moc*40).}
+{SPDESC_ANIMATEDEAD_BAS},{Re-animates any destroyed undead in the selected group by restoring a fixed number of hit points to the target (Power*40).},{Ożywia wszelkich zniszczonych nieumarłych w danej grupie, przywracając określoną liczbę punktów życia celowi(Moc*40).}
+{SPDESC_ANIMATEDEAD_ADV},{Re-animates any destroyed undead in the selected group by restoring a fixed number of hit points to the target (Power*45).},{Ożywia wszelkich zniszczonych nieumarłych w danej grupie, przywracając określoną liczbę punktów życia celowi(Moc*45).}
+{SPDESC_ANIMATEDEAD_EXP},{Re-animates any destroyed undead in the selected group by restoring a fixed number of hit points to the target (Power*50).},{Ożywia wszelkich zniszczonych nieumarłych w danej grupie, przywracając określoną liczbę punktów życia celowi(Moc*50).}
+
+{SPDESC_FIREBLAST_NON},{Causes a huge blast of fire to strike the selected target (Power*15). Don't be near this when it goes off!},{Powoduje wielki wybuch ognia na wskazanym celu(Moc*15). Nie bądź blisko kiedy ktoś rzuci ten czar!}
+{SPDESC_FIREBLAST_BAS},{Causes a huge blast of fire to strike the selected target (Power*15). Don't be near this when it goes off!},{Powoduje wielki wybuch ognia na wskazanym celu(Moc*15). Nie bądź blisko kiedy ktoś rzuci ten czar!}
+{SPDESC_FIREBLAST_ADV},{Causes a huge blast of fire to strike the selected target (Power*17). Don't be near this when it goes off!},{Powoduje wielki wybuch ognia na wskazanym celu(Moc*17). Nie bądź blisko kiedy ktoś rzuci ten czar!}
+{SPDESC_FIREBLAST_EXP},{Causes a huge blast of fire to strike the selected target (Power*20). Don't be near this when it goes off!},{Powoduje wielki wybuch ognia na wskazanym celu(Moc*20). Nie bądź blisko kiedy ktoś rzuci ten czar!}
+
+{SPDESC_ARMAGEDDON_NON},{Rains fire down upon the battlefield, damaging all units (Power*40).},{Deszcz ognia spada na pole bitwy zadając rany wszystkim jednostkom(Moc*40).}
+{SPDESC_ARMAGEDDON_BAS},{Rains fire down upon the battlefield, damaging all units (Power*40).},{Deszcz ognia spada na pole bitwy zadając rany wszystkim jednostkom(Moc*40).}
+{SPDESC_ARMAGEDDON_ADV},{Rains fire down upon the battlefield, damaging all units (Power*45).},{Deszcz ognia spada na pole bitwy zadając rany wszystkim jednostkom(Moc*45).}
+{SPDESC_ARMAGEDDON_EXP},{Rains fire down upon the battlefield, damaging all units (Power*50).},{Deszcz ognia spada na pole bitwy zadając rany wszystkim jednostkom(Moc*50).}
+
+{SPDESC_FIREELEMENTAL_NON},{Allows you to summon Fire Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Ognia(Moc*3). Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_FIREELEMENTAL_BAS},{Allows you to summon Fire Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Ognia(Moc*3). Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_FIREELEMENTAL_ADV},{Allows you to summon Fire Elementals (Power*4). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Ognia(Moc*4). Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_FIREELEMENTAL_EXP},{Allows you to summon Fire Elementals (Power*5). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Ognia(Moc*5). Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+
+{SPDESC_BLESS_NON},{Causes the selected unit to inflict maximum damage in combat.},{Powoduje,że wybrana jednostka zadaje maksymalne obrażenia w walce.}
+{SPDESC_BLESS_BAS},{Causes the selected unit to inflict maximum damage in combat.},{Powoduje,że wybrana jednostka zadaje maksymalne obrażenia w walce.}
+{SPDESC_BLESS_ADV},{Causes the selected unit to inflict maximum damage in combat.},{Powoduje,że wybrana jednostka zadaje maksymalne obrażenia w walce.}
+{SPDESC_BLESS_EXP},{Causes all friendly units to inflict maximum damage in combat.},{Powoduje,że wszystkie przyjazne jednostki zadają maksymalne obrażenia w walce.}
+
+{SPDESC_PROTFIRE_NON},{Protects the selected unit, reducing damage by 30% received from Fire spells.},{Chroni wybraną jednostkę, redukując o 30% obrażenia otrzymywane od magii ognia.}
+{SPDESC_PROTFIRE_BAS},{Protects the selected unit, reducing damage by 30% received from Fire spells.},{Chroni wybraną jednostkę, redukując o 30% obrażenia otrzymywane od magii ognia.}
+{SPDESC_PROTFIRE_ADV},{Protects the selected unit, reducing damage by 50% received from Fire spells.},{Chroni wybraną jednostkę, redukując o 50% obrażenia otrzymywane od magii ognia.}
+{SPDESC_PROTFIRE_EXP},{Protects all friendly units, reducing damage by 50% received from Fire spells.},{Chroni wszystkie przyjazne jednostki, redukując o 50% obrażenia otrzymywane od magii ognia.}
+
+{SPDESC_DISPEL_NON},{Removes all spell effects from the selected friendly unit.},{Usuwa wszystkie efekty zaklęć z wybranej przyjaznej jednostki.}
+{SPDESC_DISPEL_BAS},{Removes all spell effects from the selected friendly unit.},{Usuwa wszystkie efekty zaklęć z wybranej przyjaznej jednostki.}
+{SPDESC_DISPEL_ADV},{Removes all spell effects from the selected friendly or hostile unit.},{Usuwa wszystkie efekty zaklęć z wybranej przyjaznej lub wrogiej jednostki.}
+{SPDESC_DISPEL_EXP},{Removes all spell effects from all units on the battlefield.},{Usuwa wszystkie efekty zaklęć z wszystkich jednostek na polu bitwy.}
+
+{SPDESC_CURE_NON},{Removes all negative spell effects and heals a small number of hit points on the selected unit (Power*5).},{Usuwa wszystkie negatywne efekty zaklęć i przywraca małą ilość punktów życia wybranej jednostce(Moc*5).}
+{SPDESC_CURE_BAS},{Removes all negative spell effects and heals a small number of hit points on the selected unit (Power*5).},{Usuwa wszystkie negatywne efekty zaklęć i przywraca małą ilość punktów życia wybranej jednostce(Moc*5).}
+{SPDESC_CURE_ADV},{Removes all negative spell effects and heals a small number of hit points on the selected unit (Power*7).},{Usuwa wszystkie negatywne efekty zaklęć i przywraca małą ilość punktów życia wybranej jednostce(Moc*7).}
+{SPDESC_CURE_EXP},{Removes all negative spell effects and heals a small number of hit points on all friendly units (Power*7).},{Usuwa wszystkie negatywne efekty zaklęć i przywraca małą ilość punktów życia wszystkim przyjaznym jednostkom(Moc*7).}
+
+{SPDESC_COLDRAY_NON},{Drains the body heat from the selected enemy unit (Power*20).},{Wysysa ciepło z ciała z wybranej wrogiej jednostki(Moc*20).}
+{SPDESC_COLDRAY_BAS},{Drains the body heat from the selected enemy unit (Power*20).},{Wysysa ciepło z ciała z wybranej wrogiej jednostki(Moc*20).}
+{SPDESC_COLDRAY_ADV},{Drains the body heat from the selected enemy unit (Power*22).},{Wysysa ciepło z ciała z wybranej wrogiej jednostki(Moc*22).}
+{SPDESC_COLDRAY_EXP},{Drains the body heat from the selected enemy unit (Power*25).},{Wysysa ciepło z ciała z wybranej wrogiej jednostki(Moc*25).}
+
+{SPDESC_FORTUNE_NON},{Increases the selected unit's luck by 1.},{Zwiększa szczęście wybranej jednostki o 1.}
+{SPDESC_FORTUNE_BAS},{Increases the selected unit's luck by 1.},{Zwiększa szczęście wybranej jednostki o 1.}
+{SPDESC_FORTUNE_ADV},{Increases the selected unit's luck by 2.},{Zwiększa szczęście wybranej jednostki o 2.}
+{SPDESC_FORTUNE_EXP},{Increases luck of all friendly units by 2.},{Zwiększa szczęście wszystkim przyjaznym jednostkom o 2.}
+
+{SPDESC_MIRTH_NON},{Increases the selected unit's morale by 1.},{Zwiększa morale wybranej jednostki o 1.}
+{SPDESC_MIRTH_BAS},{Increases the selected unit's morale by 1.},{Zwiększa morale wybranej jednostki o 1.}
+{SPDESC_MIRTH_ADV},{Increases the selected unit's morale by 2.},{Zwiększa morale wybranej jednostki o 2.}
+{SPDESC_MIRTH_EXP},{Increases morale of all friendly units by 2.},{Zwiększa morale wszystkim przyjaznym jednostkom o 2.}
+
+{SPDESC_COLDRING_NON},{Drains the body heat of any units adjacent to the target location, without inflicting damage on the target (Power*10).},{Wysysa ciepło z ciała z wszystkich jednostek sąsiadujących z lokacją celu, opócz samego celu(Moc*10).}
+{SPDESC_COLDRING_BAS},{Drains the body heat of any units adjacent to the target location, without inflicting damage on the target (Power*10).},{Wysysa ciepło z ciała z wszystkich jednostek sąsiadujących z lokacją celu, opócz samego celu(Moc*10).}
+{SPDESC_COLDRING_ADV},{Drains the body heat of any units adjacent to the target location, without inflicting damage on the target (Power*12).},{Wysysa ciepło z ciała z wszystkich jednostek sąsiadujących z lokacją celu, opócz samego celu(Moc*12).}
+{SPDESC_COLDRING_EXP},{Drains the body heat of any units adjacent to the target location, without inflicting damage on the target (Power*15).},{Wysysa ciepło z ciała z wszystkich jednostek sąsiadujących z lokacją celu, opócz samego celu(Moc*15).}
+
+{SPDESC_ANTIMAGIC_NON},{Protects the selected unit from all 1-3 level spells.},{Chroni wybraną jednostkę przed czarami 1-3 poziomu.}
+{SPDESC_ANTIMAGIC_BAS},{Protects the selected unit from all 1-3 level spells.},{Chroni wybraną jednostkę przed czarami 1-3 poziomu.}
+{SPDESC_ANTIMAGIC_ADV},{Protects the selected unit from all 1-4 level spells.},{Chroni wybraną jednostkę przed czarami 1-4 poziomu.}
+{SPDESC_ANTIMAGIC_EXP},{Protects the selected unit from all spells.},{Chroni wybraną jednostkę przed wszystkimi czarami.}
+
+{SPDESC_PRAYER_NON},{Bestows a bonus to the attack strength, defense strength and speed of the selected unit by 2.},{Obdarza wybraną jednostkę premią do ataku,obrony i zwiększa jej szybkość o 2.}
+{SPDESC_PRAYER_BAS},{Bestows a bonus to the attack strength, defense strength and speed of the selected unit by 2.},{Obdarza wybraną jednostkę premią do ataku,obrony i zwiększa jej szybkość o 2.}
+{SPDESC_PRAYER_ADV},{Bestows a bonus to the attack strength, defense strength and speed of the selected unit by 4.},{Obdarza wybraną jednostkę premią do ataku,obrony i zwiększa jej szybkość o 4.}
+{SPDESC_PRAYER_EXP},{Bestows a bonus to the attack strength, defense strength and speed of all friendly units by 4.},{Obdarza wszystkie przyjazne jednostki premią do ataku,obrony i zwiększa ich szybkość o 4.}
+
+{SPDESC_WATERELEMENTAL_NON},{Allows you to summon Water Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Wody(Moc*3). Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_WATERELEMENTAL_BAS},{Allows you to summon Water Elementals (Power*3). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Wody(Moc*3). Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_WATERELEMENTAL_ADV},{Allows you to summon Water Elementals (Power*4). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Wody(Moc*4). Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+{SPDESC_WATERELEMENTAL_EXP},{Allows you to summon Water Elementals (Power*5). Once cast, no other elemental types may be summoned.},{Pozwala na przyzwanie Żwywiołaków Wody(Moc*5). Kiedy to zaklęcie zostanie rzucone nie można przyzwać innych żywiołaków.}
+
+{SPDESC_SUMMONSPRITES_NON},{Allows you to summon Sprites (Power*5).},{Pozwala na przyzwanie Nimf (Moc*5).}
+{SPDESC_SUMMONSPRITES_BAS},{Allows you to summon Sprites (Power*5).},{Pozwala na przyzwanie Nimf (Moc*5).}
+{SPDESC_SUMMONSPRITES_ADV},{Allows you to summon Sprites (Power*7).},{Pozwala na przyzwanie Nimf (Moc*7).}
+{SPDESC_SUMMONSPRITES_EXP},{Allows you to summon Sprites (Power*10).},{Pozwala na przyzwanie Nimf (Moc*10).}
+
+<-------------------------->
+<-- Random tavern rumors -->
+<-------------------------->
+{TAVERN_RUMOR_FOREWORD},{After a generous tip, the barkeep whispers:},{Po hojnym napiwku barman szepce:}
+{TAVERN_RUMOR_01},{A wise man once said, "Don't share your wisdom with anybody."},{Pewien mądry człowiek raz powiedział:"Nie dziel się z nikim swą wiedzą".}
+{TAVERN_RUMOR_02},{Blood is thicker than water.},{Krew jest gęstsza niż woda.}
+{TAVERN_RUMOR_03},{To thine own self be true.},{Nie wyrzekaj się swojej natury.}
+{TAVERN_RUMOR_04},{Find the Grail - it is more powerful than you can imagine.},{Znajdź Grala, jest potężniejszy niż sobie wyobrażasz.}
+{TAVERN_RUMOR_05},{Always protect your missile troops in combat.},{Zawsze ochraniaj swoje jednostki dystansowe w walce.}
+{TAVERN_RUMOR_06},{Sometimes the best way to avoid defeat is by avoiding combat!},{Czasami najlepszym sposobem uniknięcia przegranej jest uniknięcie walki!}
+{TAVERN_RUMOR_07},{Attack where your enemy is weak.},{Atakuj tam, gdzie wróg jest słaby.}
+{TAVERN_RUMOR_08},{Did you ever hear the one about the frog who dreamed of being a king... and then became one?},{Czy kiedykolwiek słyszałeś o żabie, która chciała zostać królem... i nim została?}
+{TAVERN_RUMOR_09},{Today is yesterday's tomorrow.},{Dzisiaj jest wczorajsze jutro.}
+{TAVERN_RUMOR_10},{When travelling across the desert, seek out an oasis, for it will speed your journey.},{Kiedy podróżujesz przez pustynię, szukaj oazy, przyśpieszy ona Twą wędrówkę.}
+{TAVERN_RUMOR_11},{There is safety in numbers, especially if those numbers are in the thousands!},{W liczbach jest bezpieczeństwo, szczególnie w tysiącach!}
+{TAVERN_RUMOR_12},{Remember that the black dragon is immune to all spells.},{Pamiętaj, że Czarny Smok jest odporny na wszystkie czary.}
+{TAVERN_RUMOR_13},{Fight Fire with Protection from Fire.},{Walcz z ogniem ochroną przed ogniem!}
+{TAVERN_RUMOR_14},{Paladins are the most powerful creatures of the Citadel.},{Paladyni są najpotężniejszymi jednostkami Cytadeli.}
+{TAVERN_RUMOR_15},{Cyclopes are the most powerful creatures of the Stronghold.},{Cyklopy są najpotężniejszymi jednostkami Twierdzy.}
+{TAVERN_RUMOR_16},{Titans are the most powerful creatures of the Tower.},{Tytani są najpotężniejszymi jednostkami Wieży.}
+{TAVERN_RUMOR_17},{Black Dragons are the most powerful creatures of the Dungeon.},{Czarne Smoki są najpotężniejszymi jednostkami Lochu.}
+{TAVERN_RUMOR_18},{Phoenix are the most powerful creatures of the Fortress.},{Feniksy są najpotężniejszymi jednostkami Fortecy.}
+{TAVERN_RUMOR_19},{Bone Dragons are the most powerful creatures of the Necropolis.},{Kościane Smoki są najpotężniejszymi jednostkami Nekropolis}
+{TAVERN_RUMOR_20},{Hey, I'm all out of rumors, because people like YOU don't come here enough to share them with me!},{Skończyły mi się plotki, przez to, że tacy ludzie jak TY przychodzą tu i się nimi nie dzielą!}
+{TAVERN_RUMOR_21},{Let your Cavaliers run their enemies through. You will like the results. Farther is better.},{Pozwól swojej Kawalerii przejechać jej wrogów. Spodobają Ci się efekty. Im dalej, tym lepiej.}
+{TAVERN_RUMOR_22},{I once saw a Dwarf resist a spell cast upon him.},{Widziałem raz Krasnoluda, który odparł czar rzucony na niego.}
+{TAVERN_RUMOR_23},{On the battlefield, the troop who strikes first, wins most often.},{Na polu bitwy, najczęściej jednostka, która uderza pierwsza, wygrywa.}
+{TAVERN_RUMOR_24},{On the battlefield, speed is life, life is speed.},{Na polu bitwy, prędkość to życie, a życie to prędkość.}
+{TAVERN_RUMOR_25},{I have seen dying Vampires reborn in the blood of fallen enemies.},{Widziałem umierające Wampiry, które odrodziły się w krwi poległych wrogów.}
+{TAVERN_RUMOR_26},{It is impossible to retaliate in the face of a Vampire's fearsome assault.},{Niemożliwym jest kontratakować, mierząc się z straszliwym szturmem Wampira.}
+{TAVERN_RUMOR_27},{A Lich's attack shreds the living while leaving the dead unscathed.},{Atak Licha dziesiątkuje żywych, zostawiając nieumarłych nietkniętymi.}
+{TAVERN_RUMOR_28},{On the battlefield, Bone Dragons strike fear into the hearts of their enemies.},{Na polu biwy, Kościane Smoki uderzają strachem w serca swoich wrogów.}
+{TAVERN_RUMOR_29},{Golems do not have a mind of their own.},{Golemy nie posiadają własnego umysłu.}
+{TAVERN_RUMOR_30},{Golems are animated through magic means unknown to most men.},{Golemy są tworzone za pomocą magii nie znanej dla większości ludzi.}
+{TAVERN_RUMOR_31},{Because of their animated nature, Golems endure the punishment of spells longer than most.},{Z powodu swej magicznej natury, Golemy znacznie dłużej opierają się działaniu magii niz ktokolwiek inny.}
+{TAVERN_RUMOR_32},{Titans will strike Black Dragons with more ferocity than any other enemy.},{Tytani zaatakują Czarne Smoki z większą zaciekłością niż każdy inny wróg.}
+{TAVERN_RUMOR_33},{Many fear the petrifying attack of the Medusa. You should fear more their golden arrows.},{Wielu obawia się petryfikującego ataku Meduzy. Bardziej powinnieneś się bać ich złotych strzał.}
+{TAVERN_RUMOR_34},{Even against overwhelming odds, the Minotaur revels in the bloodlust of combat.},{Nawet przeciwko przeważającym siłom wroga, Minotaur wpada w Rządzę Krwi.}
+{TAVERN_RUMOR_35},{Not a spell in the world could harm the Black Dragon.},{Żaden czar na świecie nie mógłby zranić Czarnego Smoka.}
+{TAVERN_RUMOR_36},{When in battle, it is said Black Dragons seek out Titans.},{Mówi się, że w trakcie bitwy Czarne Smoki wyszukują Tytanów.}
+{TAVERN_RUMOR_37},{It is impossible to retaliate in the onslaught of the many headed Hydra.},{Niemożliwym jest kontratakować w trakcie rzeźni wielogłowej Hydry.}
+{TAVERN_RUMOR_38},{Some believe each Necropolis builds a "Necromancy Amplifier" to help its heroes raise the dead.},{Niektórzy wierzą, że każda Nekropolia buduje Wzmacniacz Nekromancji, aby pomóc swoim bohaterom ożywiać zmarłych.}
+{TAVERN_RUMOR_39},{Heroes visiting the Hall of Valhalla in a Stronghold become better warriors.},{Bohaterowie odwiedzający Halę Valhalli w Twierdzy zostają lepszymi wojownikami.}
