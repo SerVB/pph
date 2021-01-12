@@ -49,7 +49,7 @@ class iTextManager {
                 try {
                     val trid = TextResId.valueOf(fqn)
                     m_lngData[trid] = text
-                } catch (e: IllegalArgumentException) {
+                } catch (e: Exception) {  // replace with IAE after https://youtrack.jetbrains.com/issue/KT-35116
                     println("Missing $fqn for $language, using English one")
                     // todo: add proper logging and find missing translations via tests
                 }
