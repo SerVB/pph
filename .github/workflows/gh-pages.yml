@@ -30,7 +30,7 @@ jobs:
           path: gh-pages
       - name: Copy distribution to gh-pages
         run: |
-          cp master/build/distributions/* gh-pages
+          cp -r master/build/distributions/* gh-pages
       - name: Commit and push
         run: |
           cd gh-pages
