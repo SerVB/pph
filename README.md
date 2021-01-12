@@ -4,6 +4,10 @@ This project tries to bring good old Palm Heroes/Pocket Heroes back to life. The
 
 ![Screenshots image](pictures/good-old-gif.gif)
 
+## Play online!
+
+It's available at GitHub Pages: <https://servb.github.io/pph/>.
+
 ## Running from sources
 
 To run the game, clone the repo and execute the following command:
