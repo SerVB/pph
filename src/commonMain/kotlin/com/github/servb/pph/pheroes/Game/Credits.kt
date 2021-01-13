@@ -76,7 +76,7 @@ class iCreditsComposer {
 
     suspend fun Init() {
         m_back.Init(ISizeInt(320, 720), IiDib.Type.RGB)
-        resourcesVfs["pheroes/bin/Resources/hmm/GFX/Pix/MenuBack.png"].readBitmap().copyTo(m_back)
+        resourcesVfs["pheroes/bin/Resources/hmm/GFX/Pix/MenuBack.png"].readBitmap().toBMP32().copyTo(m_back)
 
         m_logo = resourcesVfs[selectLogoPath()].readBitmap().toBMP32()
 
