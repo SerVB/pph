@@ -103,7 +103,7 @@ class iTextComposer {
 
         repeat(FontSize.COUNT.v) { nn ->
             val resourcePath = FontSize.values().first { it.v == nn }.resourcePath
-            val bmp = resourcesVfs[resourcePath].readBitmap()
+            val bmp = resourcesVfs[resourcePath].readBitmap().toBMP32()
             val next = iDibFont()
             if (!next.Init(bmp, if (nn == 2) 2 else 0)) {
                 return false
