@@ -1,7 +1,7 @@
 package com.github.servb.pph.pheroes.Game
 
 val creditsText = listOf(
-    "#FFB0SerVB #FFFFproudly presents",
+    "#FFB0SerVB #FFFFand #FFB0contributors #FFFFproudly present",
     "",
     "#FFFFa port (#F0BFhttps://github.com/SerVB/pph#FFFF)",
     "",
