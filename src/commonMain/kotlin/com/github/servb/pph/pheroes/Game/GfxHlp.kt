@@ -1,6 +1,7 @@
 package com.github.servb.pph.pheroes.Game
 
 import com.github.servb.pph.gxlib.*
+import com.github.servb.pph.pheroes.common.common.PlayerId
 import com.github.servb.pph.util.contains
 import com.github.servb.pph.util.helpertype.and
 import com.soywiz.korma.geom.IPointInt
@@ -8,6 +9,7 @@ import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt
 import com.soywiz.korma.math.clamp
 
+const val DLG_FRAME_SIZE = 16
 const val DEF_BTN_HEIGHT = 19
 
 val gradBtnText = ushortArrayOf(
@@ -66,6 +68,10 @@ fun FrameRoundRect(surf: iDib, rect: IRectangleInt, clr: IDibPixel) {
 fun DrawRoundRect(surf: iDib, rect: IRectangleInt, fClr: IDibPixel, bClr: IDibPixel) {
     surf.FillRect(IRectangleInt(rect.x + 1, rect.y + 1, rect.width - 2, rect.height - 2), bClr)
     FrameRoundRect(surf, rect, fClr)
+}
+
+fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDesc: Boolean) {
+//    TODO()
 }
 
 fun GetButtonFont(state: Int): iTextComposer.IFontConfig {

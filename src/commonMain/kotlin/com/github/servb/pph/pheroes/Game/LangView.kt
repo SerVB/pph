@@ -104,7 +104,7 @@ class iLangMenuDlg : iDialog, IViewCmdHandler {
         return SizeInt(150, Language.values().size * (DEF_BTN_HEIGHT + 2) + 12)
     }
 
-    override fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
+    override suspend fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
         EndDialog(pView.GetUID().toInt())
     }
 

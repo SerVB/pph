@@ -126,7 +126,7 @@ abstract class iView : IiView {
         }
     }
 
-    fun MouseDown(pos: IPointInt): Boolean {
+    suspend fun MouseDown(pos: IPointInt): Boolean {
         if (!m_bEnabled) {
             check(m_pParent == null) { "only topmost window can receive messages in disabled state" }
             m_pMgr.SetViewCapture(this)
@@ -154,7 +154,7 @@ abstract class iView : IiView {
         return true
     }
 
-    fun MouseTrack(pos: IPointInt): Boolean {
+    suspend fun MouseTrack(pos: IPointInt): Boolean {
         if (m_bTracking && m_bEnabled) {
             OnMouseTrack(pos)
         }
@@ -164,10 +164,10 @@ abstract class iView : IiView {
     open fun OnTimer(tid: UInt) {}
     open fun OnCompose() {}
     open fun OnRectChanged(rc: IRectangleInt) {}
-    open fun OnMouseDown(pos: IPointInt) {}
-    open fun OnMouseUp(pos: IPointInt) {}
+    open suspend fun OnMouseDown(pos: IPointInt) {}
+    open suspend fun OnMouseUp(pos: IPointInt) {}
     open suspend fun OnMouseClick(pos: IPointInt) {}
-    open fun OnMouseTrack(pos: IPointInt) {}
+    open suspend fun OnMouseTrack(pos: IPointInt) {}
 
     fun SetSize(nsiz: ISizeInt) {
         m_Rect.width = nsiz.width

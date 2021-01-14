@@ -64,4 +64,12 @@ class iTextManager {
             LANG_DATA[resId.v]
         }
     }
+
+    operator fun get(resId: Int): String {
+        return if (m_bHasLngFile) {
+            m_lngData[TextResId.values()[resId]] ?: LANG_DATA[resId]
+        } else {
+            LANG_DATA[resId]
+        }
+    }
 }

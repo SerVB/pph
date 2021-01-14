@@ -2,6 +2,9 @@
 
 package com.github.servb.pph.pheroes.Game
 
+import com.github.servb.pph.gxlib.ReadS32
+import com.github.servb.pph.gxlib.ReadU32
+import com.github.servb.pph.gxlib.Write
 import com.github.servb.pph.gxlib.iKbdKey
 import com.github.servb.pph.util.helpertype.CountValueEnum
 import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
@@ -9,8 +12,6 @@ import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.soywiz.klogger.Logger
 import com.soywiz.kmem.buildByteArray
 import com.soywiz.korio.file.std.localCurrentDirVfs
-import com.soywiz.korio.stream.readS32LE
-import com.soywiz.korio.stream.readU32LE
 import com.soywiz.korma.math.clamp
 import kotlin.properties.Delegates
 
@@ -137,28 +138,28 @@ class iSettings : IiSettings {
             return true
         }
         val stream = pConfigFile.openInputStream()
-        val hdr = stream.readU32LE().toUInt()
+        val hdr = stream.ReadU32()
         if (hdr != CONFIG_FILE_HDR) {
             logger.info { "Config file (${pConfigFile.absolutePath}) has a bad header ($hdr), using defaults" }
             return true
         }
         m_cfgEntries.indices.forEach { nn ->
-            m_cfgEntries[nn] = stream.readS32LE()
+            m_cfgEntries[nn] = stream.ReadS32()
         }
         m_actionKeys.indices.forEach { nn ->
-            m_actionKeys[nn] = stream.readS32LE()
+            m_actionKeys[nn] = stream.ReadS32()
         }
         return true
     }
 
     suspend fun Save() {
         val data = buildByteArray {
-            s32LE(CONFIG_FILE_HDR.toInt())
+            Write(CONFIG_FILE_HDR)
             m_cfgEntries.indices.forEach { nn ->
-                s32LE(m_cfgEntries[nn])
+                Write(m_cfgEntries[nn])
             }
             m_actionKeys.indices.forEach { nn ->
-                s32LE(m_actionKeys[nn])
+                Write(m_actionKeys[nn])
             }
         }
 

@@ -27,7 +27,7 @@ enum class CTRL_CMD_ID {
 
 interface IViewCmdHandler {
 
-    fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int)
+    suspend fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int)
 }
 
 /** Base view-port based control. */
@@ -78,13 +78,13 @@ abstract class iButton : iBaseCtrl {
 
     fun GetButtonState(): Int = m_state or (if (IsEnabled()) 0 else State.Disabled.v)
 
-    override fun OnMouseDown(pos: IPointInt) {
+    override suspend fun OnMouseDown(pos: IPointInt) {
         m_state = m_state or State.Pressed
         OnBtnDown()
         Invalidate()
     }
 
-    override fun OnMouseUp(pos: IPointInt) {
+    override suspend fun OnMouseUp(pos: IPointInt) {
         if (m_state and State.Pressed != 0) {
             m_state = m_state xor State.Pressed
             OnBtnUp()
@@ -107,7 +107,7 @@ abstract class iButton : iBaseCtrl {
         }
     }
 
-    override fun OnMouseTrack(pos: IPointInt) {
+    override suspend fun OnMouseTrack(pos: IPointInt) {
         if (pos in GetScrRect()) {
             if ((m_state and State.Pressed) == 0) {
                 m_state = m_state or State.Pressed
@@ -176,7 +176,7 @@ abstract class iTabbedSwitch : iBaseCtrl {
     fun GetCurrentTab(): Int = m_CurTab
     fun GetFocusedTab(): Int = m_CurFocTab
 
-    override fun OnMouseDown(pos: IPointInt) {
+    override suspend fun OnMouseDown(pos: IPointInt) {
         val tabId = GetTabByPos(pos - GetScrRect().asPoint())
         if (tabId in m_tabStates.indices && m_tabStates[tabId] != 0u) {
             m_FocTab = tabId
@@ -185,7 +185,7 @@ abstract class iTabbedSwitch : iBaseCtrl {
         Invalidate()
     }
 
-    override fun OnMouseUp(pos: IPointInt) {
+    override suspend fun OnMouseUp(pos: IPointInt) {
         val tab = GetTabByPos(pos - GetScrRect().asPoint())
         if (tab == m_FocTab) {
             if (m_CurTab == m_FocTab) {
@@ -204,7 +204,7 @@ abstract class iTabbedSwitch : iBaseCtrl {
         m_CurFocTab = -1
     }
 
-    override fun OnMouseTrack(pos: IPointInt) {
+    override suspend fun OnMouseTrack(pos: IPointInt) {
         val tab = GetTabByPos(pos - GetScrRect().asPoint())
         if (tab != m_CurFocTab) {
             Invalidate()
@@ -372,7 +372,7 @@ abstract class iScrollBar : iBaseCtrl, IViewCmdHandler {
         return true
     }
 
-    fun PageUp(): Boolean {
+    suspend fun PageUp(): Boolean {
         if (SetCurPos(m_curPos - m_pagSiz)) {
             m_pCmdHandler?.iCMDH_ControlCommand(this, CTRL_CMD_ID.SBPAGEUP, m_curPos)
             Invalidate()
@@ -381,7 +381,7 @@ abstract class iScrollBar : iBaseCtrl, IViewCmdHandler {
         return false
     }
 
-    fun PageDown(): Boolean {
+    suspend fun PageDown(): Boolean {
         if (SetCurPos(m_curPos + m_pagSiz)) {
             m_pCmdHandler?.iCMDH_ControlCommand(this, CTRL_CMD_ID.SBPAGEDOWN, m_curPos)
             Invalidate()
@@ -397,7 +397,7 @@ abstract class iScrollBar : iBaseCtrl, IViewCmdHandler {
 
     abstract fun ComposeSBElement(el: Element, rc: IRectangleInt, flags: Int)
 
-    override fun OnMouseDown(pos: IPointInt) {
+    override suspend fun OnMouseDown(pos: IPointInt) {
         val res = HitTest(pos - GetScrRect().asPoint())
 
         if (res == HitTestRes.Thumb) {
@@ -416,12 +416,12 @@ abstract class iScrollBar : iBaseCtrl, IViewCmdHandler {
         }
     }
 
-    override fun OnMouseUp(pos: IPointInt) {
+    override suspend fun OnMouseUp(pos: IPointInt) {
         m_bThumbTrack = false
         Invalidate()
     }
 
-    override fun OnMouseTrack(pos: IPointInt) {
+    override suspend fun OnMouseTrack(pos: IPointInt) {
         if (m_bThumbTrack) {
             val n = if (IsHorizontal()) pos.x - m_trackAnchor.x else pos.y - m_trackAnchor.y
             if (SetCurPos(m_trackPos + NItems(n))) {
@@ -498,7 +498,7 @@ abstract class iScrollBar : iBaseCtrl, IViewCmdHandler {
         }
     }
 
-    override fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
+    override suspend fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
         val uid = pView.GetUID()
         if (uid == m_pUp.GetUID()) {
             // Scroll up
@@ -544,7 +544,7 @@ abstract class iListBox : iBaseCtrl, IViewCmdHandler {
         }
     }
 
-    fun UpdateListBox() {
+    suspend fun UpdateListBox() {
         m_scrVal = 0
         m_pScrollBar!!.SetMetrics(LBItemsCount(), PageSize())
         m_pScrollBar!!.SetCurPos(m_scrVal)
@@ -557,7 +557,7 @@ abstract class iListBox : iBaseCtrl, IViewCmdHandler {
         m_scrVal = sval
     }
 
-    fun SetCurSel(idx: Int, notify: Boolean) {
+    suspend fun SetCurSel(idx: Int, notify: Boolean) {
         require(idx == -1 || IsValidIdx(idx)) { "Not valid idx: $idx" }
         if (idx != m_selItem) {
             m_selItem = idx
@@ -578,13 +578,13 @@ abstract class iListBox : iBaseCtrl, IViewCmdHandler {
         }
     }
 
-    fun SelPrev() {
+    suspend fun SelPrev() {
         if (m_selItem > 0) {
             SetCurSel(m_selItem - 1, true)
         }
     }
 
-    fun SelNext() {
+    suspend fun SelNext() {
         if (m_selItem + 1 < LBItemsCount()) {
             SetCurSel(m_selItem + 1, true)
         }
@@ -598,7 +598,7 @@ abstract class iListBox : iBaseCtrl, IViewCmdHandler {
     abstract fun LBItemHeight(): SizeT
     abstract fun LBItemsCount(): SizeT
 
-    override fun OnMouseDown(pos: IPointInt) {
+    override suspend fun OnMouseDown(pos: IPointInt) {
         var nIdx = IdxByPos(pos)
         if (!IsValidIdx(nIdx)) {
             nIdx = -1
@@ -633,7 +633,7 @@ abstract class iListBox : iBaseCtrl, IViewCmdHandler {
         }
     }
 
-    override fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
+    override suspend fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
         require(m_pScrollBar !== null && m_pScrollBar === pView)
         m_scrVal = param
     }

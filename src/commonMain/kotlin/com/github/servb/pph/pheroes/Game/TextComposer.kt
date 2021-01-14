@@ -270,7 +270,7 @@ class iTextComposer {
         TextOut(fc, dib, pos, text, rect, al, offset)
     }
 
-    fun TextBoxOut(fc: FontConfig, dib: iDib, text: String, orc: IRectangleInt): Int {
+    fun TextBoxOut(fc: IFontConfig, dib: iDib, text: String, orc: IRectangleInt): Int {
         if (text.isEmpty()) {
             return 0
         }

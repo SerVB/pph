@@ -88,7 +88,16 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
         AddChild(iMainMenuBtn(m_pMgr, this, rc, TextResId.TRID_MENU_LOADGAME, 101u, ViewState.Visible.v))
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TextResId.TRID_MENU_HIGHSCORE, 102u, ViewState.Visible.v))
+        AddChild(
+            iMainMenuBtn(
+                m_pMgr,
+                this,
+                rc,
+                TextResId.TRID_MENU_HIGHSCORE,
+                102u,
+                ViewState.Visible or ViewState.Enabled
+            )
+        )
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
         AddChild(
             iMainMenuBtn(
@@ -125,7 +134,7 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
         return SizeInt(150, 5 * (DEF_BTN_HEIGHT + 2) + 12)
     }
 
-    override fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
+    override suspend fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
         EndDialog(pView.GetUID().toInt())
     }
 
@@ -160,7 +169,8 @@ class iMenuView private constructor() : iChildGameView(false, CHILD_VIEW.UNDEFIN
                     continue  // todo
                 }
                 102 -> {
-                    // todo
+                    val dlg = iDlg_HallOfFame.construct(gApp.ViewMgr(), "PalmHeroes.hsc")
+                    dlg.DoModal()
                 }
                 103 -> {
                     StartCredits()
@@ -207,7 +217,7 @@ class iMenuView private constructor() : iChildGameView(false, CHILD_VIEW.UNDEFIN
         Start()
     }
 
-    override fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
+    override suspend fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
         pView.GetUID()  // strange no behavior in sources
     }
 }
