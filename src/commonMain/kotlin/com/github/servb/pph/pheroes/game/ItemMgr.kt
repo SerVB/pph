@@ -1,4 +1,4 @@
-package com.github.servb.pph.pheroes.Game
+package com.github.servb.pph.pheroes.game
 
 val creditsText = listOf(
     "#FFB0SerVB #FFFFand #FFB0contributors #FFFFproudly present",

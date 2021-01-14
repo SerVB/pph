@@ -1,4 +1,4 @@
-package com.github.servb.pph.pheroes.Game
+package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.pheroes.common.TextResId
 import com.soywiz.klock.DateTime

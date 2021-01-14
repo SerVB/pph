@@ -1,6 +1,6 @@
 @file:Suppress("PackageName")
 
-package com.github.servb.pph.pheroes.Game
+package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.gxlib.ReadS32
 import com.github.servb.pph.gxlib.ReadU32

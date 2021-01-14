@@ -1,4 +1,4 @@
-import com.github.servb.pph.pheroes.Game.WinMain
+import com.github.servb.pph.pheroes.game.WinMain
 import com.soywiz.klogger.Logger
 import com.soywiz.korge.Korge
 

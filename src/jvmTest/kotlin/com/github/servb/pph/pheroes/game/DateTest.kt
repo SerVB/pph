@@ -1,4 +1,4 @@
-package com.github.servb.pph.pheroes.Game
+package com.github.servb.pph.pheroes.game
 
 import com.soywiz.klock.DateTime
 import com.soywiz.klock.Month

@@ -1,4 +1,4 @@
-package com.github.servb.pph.pheroes.Game
+package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.gxlib.IGame
 import com.github.servb.pph.gxlib.IViewCmdHandler
