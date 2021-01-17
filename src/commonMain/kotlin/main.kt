@@ -9,5 +9,4 @@ suspend fun main() = Korge(
     Logger.defaultLevel = Logger.Level.INFO
 
     WinMain(this, "")
-//    mainDev()
 }
