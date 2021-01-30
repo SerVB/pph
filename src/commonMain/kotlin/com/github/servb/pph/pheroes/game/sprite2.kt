@@ -74,11 +74,68 @@ private fun BLTLOOP(src: IDibIPixelPointer, dst: IDibPixelPointer, cnt: SizeT, o
     }
 }
 
+// Non clipped span blit
+fun SegmentFast(op: BlitterOperation, src: IDibIPixelIPointer, dst: IDibPixelIPointer, count: SizeT) {
+    BLTLOOP(src.copy(), dst.copy(), count, op)
+}
+
+// Clipped span blit
+fun Segment(
+    op: BlitterOperation,
+    src: IDibIPixelIPointer,
+    dst: IDibPixelIPointer,
+    count: SizeT,
+    clipIn: IDibIPixelIPointer,
+    clipOut: IDibIPixelIPointer
+) {
+    val ptrSrc = src.copy()
+    val ptrDst = dst.copy()
+
+    // validate clip params
+    check(clipIn.offset < clipOut.offset)
+    val clipBoundDiff = clipIn.offset - ptrSrc.offset
+    val leftClipSkips: SizeT = minOf(maxOf(clipBoundDiff, 0), count)
+    check(leftClipSkips <= count)
+
+    ptrSrc.incrementOffset(leftClipSkips)
+    ptrDst.incrementOffset(leftClipSkips)
+
+    var count = count - leftClipSkips
+
+    if (0 != count && ptrDst.offset < clipOut.offset) {
+        check(ptrDst.offset <= clipOut.offset)
+        val copyCount: SizeT = minOf(clipOut.offset - ptrDst.offset, count)
+        check(copyCount <= count)
+        count -= copyCount
+        BLTLOOP(ptrSrc, ptrDst, copyCount, op)
+    }
+}
+
 // Skips one span
 fun SpanSkip(src: IDibIPixelIPointer): Int = TODO()
 
 // Blits non clipped span line
-fun SpanFast(op: BlitterOperation, src: IDibIPixelIPointer, dst: IDibPixelIPointer): Int = TODO()
+fun SpanFast(op: BlitterOperation, src: IDibIPixelIPointer, dst: IDibPixelIPointer): Int {
+    val ptrSrc = src.copy()
+    val ptrDst = dst.copy()
+    var code: UInt
+    do {
+        code = ptrSrc[0].toUInt()
+        ptrSrc.incrementOffset(1)
+        if (code == 0x8000u) {
+            break
+        }
+
+        val len: SizeT = (code and 0x00FFu).toInt()
+        val offset: SizeT = ((code shr 8) and 0x007Fu).toInt()
+        ptrDst.incrementOffset(offset)
+        SegmentFast(op, ptrSrc, ptrDst, len)
+        ptrSrc.incrementOffset(len)
+        ptrDst.incrementOffset(len)
+    } while ((code and 0x8000u) == 0u)
+
+    return ptrSrc.offset - src.offset
+}
 
 // Blits clipped span line
 fun Span(
@@ -87,4 +144,24 @@ fun Span(
     dst: IDibPixelIPointer,
     clipIn: IDibIPixelIPointer,
     clipOut: IDibIPixelIPointer
-): Int = TODO()
+): Int {
+    val ptrSrc = src.copy()
+    val ptrDst = dst.copy()
+    var code: UInt
+    do {
+        code = ptrSrc[0].toUInt()
+        ptrSrc.incrementOffset(1)
+        if (code == 0x8000u) {
+            break
+        }
+
+        val len: SizeT = (code and 0x00FFu).toInt()
+        val offset: SizeT = ((code shr 8) and 0x007Fu).toInt()
+        ptrDst.incrementOffset(offset)
+        Segment(op, ptrSrc, ptrDst, len, clipIn, clipOut)
+        ptrSrc.incrementOffset(len)
+        ptrDst.incrementOffset(len)
+    } while ((code and 0x8000u) == 0u)
+
+    return ptrSrc.offset - src.offset
+}

@@ -195,7 +195,19 @@ class iGfxManager {
 
     fun Shadow(sid: SpriteId): UByte = TODO()
 
-    fun Blit(sid: SpriteId, to: iDib, pos: IPointInt): Unit = TODO()
+    fun Blit(sid: SpriteId, to: iDib, pos: IPointInt) {
+        val catId = sid ushr 16
+        val sprId = sid and 0xFFFF
+
+        check(catId < MaxSpriteBanks)
+        check(sprId < bank_[catId].props.size)
+
+        val sprPtr = bank_[catId].GetSprite(sprId)
+        val pixels = bank_[catId].Data(sprPtr.offset_)
+
+        val src_rect = IRectangleInt(0, 0, sprPtr.sizeW_.toInt(), sprPtr.sizeH_.toInt())
+        BlitNormal(sprPtr, pixels, to, src_rect, pos)
+    }
 
     fun Blit(sid: SpriteId, to: iDib, src: IRectangleInt, pos: IPointInt) {
         val catId = sid ushr 16

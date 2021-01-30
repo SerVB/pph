@@ -7,6 +7,7 @@ import com.github.servb.pph.util.*
 import com.github.servb.pph.util.helpertype.and
 import com.soywiz.korma.geom.*
 import com.soywiz.korma.math.clamp
+import kotlin.math.absoluteValue
 
 const val DLG_FRAME_SIZE = 16
 const val DEF_BTN_HEIGHT = 19
@@ -55,6 +56,107 @@ val btnfc_disabled: iTextComposer.IFontConfig = iTextComposer.FontConfig(
 
 const val DLG_SHADOW_OFFSET = 5
 
+private fun dist_a(dx: Int, dy: Int): Int {
+    return if (dx > dy) {
+        (61685 * dx + 26870 * dy) shr 16
+    } else {
+        (61685 * dy + 26870 * dx) shr 16
+    }
+}
+
+private fun dist_b(dx: Int, dy: Int): Int {
+    return dx + dy - minOf(dx, dy) / 2
+}
+
+private class grad_shader(val rx: Int, val ry: Int, val rw: Int, val rh: Int) {
+
+    companion object {
+
+        const val Max_Height = 256
+        const val Max_Radii = 256 + 128
+    }
+
+    val vshade = UIntArray(Max_Height)
+    val rshade = UIntArray(Max_Radii)
+
+    fun precalc() {
+        // total presetup cost is:
+        // height: sqrt, div
+        // 256   : div
+        val half = rh / 2
+        // vshade upper
+        vshade[0] = 128u
+        var n = 0
+        while (n != half) {
+            val arg = n
+            // base is: 1 - sqrt(x)
+            var value = 65535 - 256 * int_sqrt(((arg * 65536) / half).toUInt()).toInt()
+            // safe 4'th power - faster falloff
+            value = value shr 8
+            value = value * value
+            value = value shr 8
+            value = value * value
+            vshade[n] = value.toUInt()
+
+            ++n
+        }
+        // vshare lower
+        while (n != rh) {
+            val arg = half - (n - half)
+            // base is: 1 - sqrt(x)
+            val value = 65536 - 256 * int_sqrt(((arg * 65536) / half).toUInt()).toInt()
+            vshade[n] = (value shr 2).toUInt()
+
+            ++n
+        }
+
+        // rshade [ 0..255..x ]
+        val radii = minOf(rw, rh)
+        check(radii <= Max_Radii)
+        repeat(Max_Radii) { r ->
+            val arg = (256 * r) / radii
+            val value = 65536 - (arg * arg)
+            rshade[r] = if (value > 0) {
+                value shr 1
+            } else {
+                0
+            }.toUInt()
+        }
+    }
+
+    fun draw(ptr: IDibPixelIPointer, stride: Int) {
+        // setup circle centre points
+        val px = rx + rw / 2
+        val py = ry + rh - rh / 4
+
+        repeat(rh) { yy ->
+            val pline = ptr.copy((yy + ry) * stride + rx)
+            val ady = (py - (ry + yy)).absoluteValue
+            // tight pixel loop
+            repeat(rw) { xx ->
+                val dx = px - (rx + xx)
+                // fast eq.dist approximation
+                val dst = dist_a(dx.absoluteValue, ady)
+                // combined and normalized
+                var value = (rshade[dst] + vshade[yy]) shr 8
+                // correct overflow (its possible to get rid of
+                // if we normalize beforehead, but wtf? )
+                value = minOf(255u, value)
+                // apply gamma and inverse
+                value = 255u - ((value * value) shr 8)
+                // factor is ready to multiply: [0..255] range
+                val src = pline[0]
+                val sr: UShort = (value * ((src.toUInt() and (0x1Fu shl 11)) shr 11)).toUShort()
+                val sg: UShort = (value * ((src.toUInt() and (0x3Fu shl 5)) shr 5)).toUShort()
+                val sb: UShort = (value * (src.toUInt() and 0x1Fu)).toUShort()
+                pline[0] =
+                    (((sr.toUInt() shr 8) shl 11) or ((sg.toUInt() shr 8) shl 5) or (sb.toUInt() shr 8)).toUShort()
+                pline.incrementOffset(1)
+            }
+        }
+    }
+}
+
 fun FrameRoundRect(surf: iDib, rect: IRectangleInt, clr: IDibPixel) {
     surf.HLine(IPointInt(rect.x + 1, rect.y), rect.x + rect.width - 2, clr)
     surf.HLine(IPointInt(rect.x + 1, rect.y + rect.height - 1), rect.x + rect.width - 2, clr)
@@ -89,17 +191,29 @@ fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDecs: Boole
         )
     )
 
-    // tile background  // todo
+    // tile background
     val bkRect = RectangleInt(rect)
     bkRect.rect.inflate(-10)
     gGfxMgr.BlitTile(if (bDecs) GfxId.PDGG_BKTILE2.v else GfxId.PDGG_BKTILE.v, surf, bkRect)
 
     // Shade
-    // todo
+    if (bDecs) {
+        val shader = grad_shader(bkRect.x, bkRect.y, bkRect.width, bkRect.height)
+        shader.precalc()
+        shader.draw(surf.GetPtr(), surf.GetWidth())
+    }
 
-    // top/bottom tiles  // todo
-//    gGfxMgr.BlitTile(PDGG_DLG_HTILES+nval, surf, iRect(rect.x+toffs,rect.y,rect.w-toffs*2,10));
-//    gGfxMgr.BlitTile(PDGG_DLG_HTILES+nval, surf, iRect(rect.x+toffs,rect.y2()-9,rect.w-toffs*2,10));
+    // top/bottom tiles
+    gGfxMgr.BlitTile(
+        GfxId.PDGG_DLG_HTILES(nval),
+        surf,
+        IRectangleInt(rect.x + toffs, rect.y, rect.width - toffs * 2, 10)
+    )
+    gGfxMgr.BlitTile(
+        GfxId.PDGG_DLG_HTILES(nval),
+        surf,
+        IRectangleInt(rect.x + toffs, rect.y2 - 9, rect.width - toffs * 2, 10)
+    )
 
     val hgr = iDib(ISizeInt(rect.width - (toffs * 2), 1), IiDib.Type.RGB)
     hgr.HGradientRect(IRectangleInt(0, 0, hgr.GetWidth() / 2, 1), RGB16(64, 0, 0), RGB16(255, 192, 64))
@@ -110,8 +224,16 @@ fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDecs: Boole
     hgr.CopyToDibXY(surf, IPointInt(rect.x + toffs, rect.y2 - 1))
 
     // left/right tiles
-//    gGfxMgr.BlitTile(PDGG_DLG_VTILES+nval, surf, iRect(rect.x,rect.y+toffs,10,rect.h-toffs*2));
-//    gGfxMgr.BlitTile(PDGG_DLG_VTILES+nval, surf, iRect(rect.x2()-9,rect.y+toffs,10,rect.h-toffs*2));
+    gGfxMgr.BlitTile(
+        GfxId.PDGG_DLG_VTILES(nval),
+        surf,
+        IRectangleInt(rect.x, rect.y + toffs, 10, rect.height - toffs * 2)
+    )
+    gGfxMgr.BlitTile(
+        GfxId.PDGG_DLG_VTILES(nval),
+        surf,
+        IRectangleInt(rect.x2 - 9, rect.y + toffs, 10, rect.height - toffs * 2)
+    )
 
     val vgr = iDib(ISizeInt(1, rect.height - (toffs * 2)), IiDib.Type.RGB)
     vgr.VGradientRect(IRectangleInt(0, 0, 1, vgr.GetHeight() / 2), RGB16(64, 0, 0), RGB16(255, 192, 64))
@@ -126,7 +248,17 @@ fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDecs: Boole
     vgr.CopyToDibXY(surf, IPointInt(rect.x2 - 1, rect.y + toffs))
 
     // corners
-    // todo
+    if (bDecs) {
+        gGfxMgr.Blit(GfxId.PDGG_DLG_CORNERS(0), surf, IPointInt(rect.x - 2, rect.y - 2))
+        gGfxMgr.Blit(GfxId.PDGG_DLG_CORNERS(1), surf, IPointInt(rect.x2 - 27, rect.y - 2))
+        gGfxMgr.Blit(GfxId.PDGG_DLG_CORNERS(2), surf, IPointInt(rect.x - 2, rect.y2 - 27))
+        gGfxMgr.Blit(GfxId.PDGG_DLG_CORNERS(3), surf, IPointInt(rect.x2 - 27, rect.y2 - 27))
+    } else {
+        gGfxMgr.Blit(GfxId.PDGG_DLG_CORNERS_SMALL(nval), surf, IPointInt(rect.x, rect.y))
+        gGfxMgr.Blit(GfxId.PDGG_DLG_CORNERS_SMALL(nval), surf, IPointInt(rect.x2 - 9, rect.y))
+        gGfxMgr.Blit(GfxId.PDGG_DLG_CORNERS_SMALL(nval), surf, IPointInt(rect.x, rect.y2 - 9))
+        gGfxMgr.Blit(GfxId.PDGG_DLG_CORNERS_SMALL(nval), surf, IPointInt(rect.x2 - 9, rect.y2 - 9))
+    }
 }
 
 fun GetButtonFont(state: Int): iTextComposer.IFontConfig {

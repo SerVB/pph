@@ -66,23 +66,29 @@ interface IDibIPixelPointer : IDibIPixelIPointer {
     fun incrementOffset(increment: SizeT)
 }
 
-class IDibIPixelPointerFromBytes(private val reader: SyncStream, offsetInShorts: SizeT) : IDibIPixelPointer {
+class IDibIPixelPointerFromBytes private constructor(
+    private val reader: SyncStream,
+    private val initialOffset: SizeT,
+    offsetInShorts: SizeT
+) : IDibIPixelPointer {
 
-    constructor(data: ByteArray, offsetInShorts: SizeT) : this(MemorySyncStream(data), offsetInShorts)
+    private var currentOffset: SizeT = offsetInShorts
 
-    override var offset = offsetInShorts
-        private set
+    constructor(data: ByteArray, offsetInShorts: SizeT) : this(MemorySyncStream(data), offsetInShorts, offsetInShorts)
+
+    override val offset get() = currentOffset - initialOffset
 
     override fun incrementOffset(increment: SizeT) {
-        offset += increment
+        currentOffset += increment
     }
 
     override fun get(pos: SizeT): IDibPixel {
-        reader.position = (offset + pos) * 2L
+        reader.position = (currentOffset + pos) * 2L
         return reader.ReadU16()
     }
 
-    override fun copy(extraOffset: SizeT): IDibIPixelPointer = IDibIPixelPointerFromBytes(reader, offset + extraOffset)
+    override fun copy(extraOffset: SizeT): IDibIPixelPointer =
+        IDibIPixelPointerFromBytes(reader, initialOffset, currentOffset + extraOffset)
 }
 
 // `iDib::pixel *const`

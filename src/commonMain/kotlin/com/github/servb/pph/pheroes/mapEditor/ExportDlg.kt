@@ -14,6 +14,7 @@ import com.soywiz.korim.color.convertTo
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.PointInt
 import com.soywiz.korma.geom.RectangleInt
+import kotlin.experimental.or
 
 private val logger = Logger("ExportDlg")  // todo: without name, the compilation crashes
 
@@ -69,8 +70,7 @@ private fun MakeSpanSprite(src: Bitmap32, buff: ByteArrayBuilder) {
         } else if (phIdx == null) {
             buff.Write((1 shl 15).toUShort())
         } else {
-            logger.warn { "TODO: this operation can require BGRA not RGBA" }
-            src.data[phIdx!!] = RGBA(src.data[phIdx!!].value or (1 shl 15))
+            buff.data[phIdx!! + 1] = buff.data[phIdx!! + 1] or (1u shl (15 - 8)).toByte()
         }
     }
 }

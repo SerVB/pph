@@ -1,8 +1,7 @@
-package com.github.servb.pph.gxlib.gxlmath
+package com.github.servb.pph.gxlib
 
 const val PI = 3.1415926535897932384626433832795f
 
-@ExperimentalUnsignedTypes
 fun int_sqrt(n: UInt): UInt {
     @Suppress("NAME_SHADOWING") var n = n
     var root = 0u
