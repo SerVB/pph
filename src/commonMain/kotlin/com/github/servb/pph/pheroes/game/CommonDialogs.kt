@@ -1,6 +1,7 @@
 package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.gxlib.*
+import com.github.servb.pph.pheroes.common.TextResId
 import com.github.servb.pph.pheroes.common.common.PlayerId
 import com.github.servb.pph.util.asRectangle
 import com.github.servb.pph.util.inflate
@@ -8,6 +9,7 @@ import com.github.servb.pph.util.invoke
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt
 import com.soywiz.korma.geom.SizeInt
+import com.soywiz.korma.geom.y2
 import com.soywiz.korma.math.clamp
 
 abstract class iBaseGameDlg : iDialog, IViewCmdHandler {
@@ -254,11 +256,23 @@ class iQuestDlg : iTextDlg {
         val clRect = ClientRect()
         val npos = clRect.x + (clRect.width / 2 - 54)
 
-        TODO(
-            """
-            AddChild(new iTextButton(m_pMgr,this,iRect(npos,clRect.y2()-DEF_BTN_HEIGHT,40,DEF_BTN_HEIGHT),TRID_YES, DRC_YES));
-	        AddChild(new iTextButton(m_pMgr,this,iRect(npos+50,clRect.y2()-DEF_BTN_HEIGHT,40,DEF_BTN_HEIGHT),TRID_NO, DRC_NO));
-        """
+        AddChild(
+            iTextButton(
+                m_pMgr,
+                this,
+                IRectangleInt(npos, clRect.y2 - DEF_BTN_HEIGHT, 40, DEF_BTN_HEIGHT),
+                TextResId.TRID_YES,
+                DLG_RETCODE.YES.v.toUInt()
+            )
+        )
+        AddChild(
+            iTextButton(
+                m_pMgr,
+                this,
+                IRectangleInt(npos + 50, clRect.y2 - DEF_BTN_HEIGHT, 40, DEF_BTN_HEIGHT),
+                TextResId.TRID_NO,
+                DLG_RETCODE.NO.v.toUInt()
+            )
         )
     }
 }

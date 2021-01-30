@@ -9,10 +9,7 @@ import com.github.servb.pph.util.invoke
 import com.soywiz.klock.DateTime
 import com.soywiz.kmem.buildByteArray
 import com.soywiz.korio.file.std.localCurrentDirVfs
-import com.soywiz.korma.geom.IRectangleInt
-import com.soywiz.korma.geom.RectangleInt
-import com.soywiz.korma.geom.SizeInt
-import com.soywiz.korma.geom.position
+import com.soywiz.korma.geom.*
 
 class iHighScore {
 
@@ -47,6 +44,7 @@ class iHighScore {
 
     suspend fun Save(fname: String) {
         val data = buildByteArray {
+            Write(m_entries.size)
             m_entries.forEach {
                 Write(it.land)
                 Write(it.date)
@@ -123,10 +121,24 @@ class iDlg_HallOfFame : iBaseGameDlg {
     override fun OnCreateDlg() {
         val clRect = ClientRect()
 
-//        TODO("""
-//            AddChild(new iTextButton(m_pMgr, this, iRect(clRect.x + clRect.w/2-55, clRect.y2()-DEF_BTN_HEIGHT, 50, DEF_BTN_HEIGHT), TRID_OK, DRC_OK));
-//	        AddChild(new iTextButton(m_pMgr, this, iRect(clRect.x + clRect.w/2+5, clRect.y2()-DEF_BTN_HEIGHT, 50, DEF_BTN_HEIGHT), TRID_RESET, 1000));
-//        """)
+        AddChild(
+            iTextButton(
+                m_pMgr,
+                this,
+                IRectangleInt(clRect.x + clRect.width / 2 - 55, clRect.y2 - DEF_BTN_HEIGHT, 50, DEF_BTN_HEIGHT),
+                TextResId.TRID_OK,
+                DLG_RETCODE.OK.v.toUInt()
+            )
+        )
+        AddChild(
+            iTextButton(
+                m_pMgr,
+                this,
+                IRectangleInt(clRect.x + clRect.width / 2 + 5, clRect.y2 - DEF_BTN_HEIGHT, 50, DEF_BTN_HEIGHT),
+                TextResId.TRID_RESET,
+                1000u
+            )
+        )
     }
 
     override fun DoCompose(clRect: IRectangleInt) {

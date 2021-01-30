@@ -2,6 +2,7 @@ package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.pheroes.common.GfxId
+import com.github.servb.pph.pheroes.common.TextResId
 import com.github.servb.pph.pheroes.common.common.PlayerId
 import com.github.servb.pph.util.*
 import com.github.servb.pph.util.helpertype.and
@@ -171,6 +172,59 @@ private class grad_shader {
     }
 }
 
+fun Tile3x3Sprite(dib: iDib, rc: IRectangleInt, sid: SpriteId) {
+    val ssiz = gGfxMgr.Dimension(sid)
+    check((ssiz.width % 3) == 0 && (ssiz.height % 3) == 0)
+    val elw = ssiz.width / 3
+    val elh = ssiz.height / 3
+
+    val xcnt = (rc.width - elw * 2 + elw - 1) / elw
+    val ycnt = (rc.height - elh * 2 + elh - 1) / elh
+    var xpos = rc.x + elw
+    var ypos = rc.y + elh
+    var xx = 0
+    var yy = 0
+
+    while (yy < ycnt) {
+        while (xx < xcnt) {
+            gGfxMgr.Blit(sid, dib, IRectangleInt(elw, elh, elw, elh), IPointInt(xpos, ypos))
+            xpos += elw
+            ++xx
+        }
+        ypos += elh
+        xpos = rc.x + elw
+        ++yy
+    }
+
+    xpos = rc.x + elw
+    xx = 0
+    while (xx < xcnt) {
+        gGfxMgr.Blit(sid, dib, IRectangleInt(elw, 0, elw, elh), IPointInt(xpos, rc.y))
+        gGfxMgr.Blit(sid, dib, IRectangleInt(elw, elh * 2, elw, elh), IPointInt(xpos, rc.y + rc.height - elh))
+        xpos += elw
+        ++xx
+    }
+
+    ypos = rc.y + elh
+    yy = 0
+    while (yy < ycnt) {
+        gGfxMgr.Blit(sid, dib, IRectangleInt(0, elh, elw, elh), IPointInt(rc.x, ypos))
+        gGfxMgr.Blit(sid, dib, IRectangleInt(elw * 2, elh, elw, elh), IPointInt(rc.x + rc.width - elw, ypos))
+        ypos += elh
+        ++yy
+    }
+
+    gGfxMgr.Blit(sid, dib, IRectangleInt(0, 0, elw, elh), IPointInt(rc.x, rc.y))
+    gGfxMgr.Blit(sid, dib, IRectangleInt(0, elh * 2, elw, elh), IPointInt(rc.x, rc.y + rc.height - elh))
+    gGfxMgr.Blit(sid, dib, IRectangleInt(elw * 2, 0, elw, elh), IPointInt(rc.x + rc.width - elw, rc.y))
+    gGfxMgr.Blit(
+        sid,
+        dib,
+        IRectangleInt(elw * 2, elh * 2, elw, elh),
+        IPointInt(rc.x + rc.width - elw, rc.y + rc.height - elh)
+    )
+}
+
 fun FrameRoundRect(surf: iDib, rect: IRectangleInt, clr: IDibPixel) {
     surf.HLine(IPointInt(rect.x + 1, rect.y), rect.x + rect.width - 2, clr)
     surf.HLine(IPointInt(rect.x + 1, rect.y + rect.height - 1), rect.x + rect.width - 2, clr)
@@ -283,6 +337,44 @@ fun GetButtonFont(state: Int): iTextComposer.IFontConfig {
         return btnfc_pressed
     } else {
         return btnfc_normal
+    }
+}
+
+fun ComposeDlgButton(dib: iDib, rc: IRectangleInt, state: Int) {
+    val btnSid = if ((state and iButton.State.Disabled.v) != 0) {
+        GfxId.PDGG_DLG_BTN(0)
+    } else if ((state and iButton.State.Pressed.v) != 0) {
+        GfxId.PDGG_DLG_BTN(1)
+    } else {
+        GfxId.PDGG_DLG_BTN(2)
+    }
+
+    // Compose outer frame
+    val rect = RectangleInt(rc)
+    rect.rect.inflate(1)
+    dib.HLine(IPointInt(rect.x + 2, rect.y), rect.x + rect.width - 3, 0u)
+    dib.HLine(IPointInt(rect.x + 2, rect.y + rect.height - 1), rect.x + rect.width - 3, 0u)
+    dib.VLine(IPointInt(rect.x, rect.y + 2), rect.y + rect.height - 2, 0u)
+    dib.VLine(IPointInt(rect.x + rect.width - 1, rect.y + 2), rect.y + rect.height - 2, 0u)
+
+    // Compose button background
+    Tile3x3Sprite(dib, rc, btnSid)
+}
+
+fun ComposeDlgTextButton(dib: iDib, rc: IRectangleInt, state: Int, textKey: TextResId) {
+    ComposeDlgButton(dib, rc, state)
+
+    if (textKey != TextResId.TRID_VOID) {
+        val fc = GetButtonFont(state)
+        gTextComposer.TextOut(
+            fc,
+            dib,
+            rc.asPoint(),
+            gTextMgr[textKey],
+            rc,
+            Alignment.AlignCenter,
+            if ((state and iButton.State.Pressed.v) != 0) PointInt(1, 1) else PointInt()
+        )
     }
 }
 
