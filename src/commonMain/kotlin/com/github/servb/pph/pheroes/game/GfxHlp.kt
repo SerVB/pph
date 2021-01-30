@@ -1,12 +1,11 @@
 package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.gxlib.*
+import com.github.servb.pph.pheroes.common.GfxId
 import com.github.servb.pph.pheroes.common.common.PlayerId
-import com.github.servb.pph.util.contains
+import com.github.servb.pph.util.*
 import com.github.servb.pph.util.helpertype.and
-import com.soywiz.korma.geom.IPointInt
-import com.soywiz.korma.geom.IRectangleInt
-import com.soywiz.korma.geom.RectangleInt
+import com.soywiz.korma.geom.*
 import com.soywiz.korma.math.clamp
 
 const val DLG_FRAME_SIZE = 16
@@ -54,6 +53,8 @@ val btnfc_disabled: iTextComposer.IFontConfig = iTextComposer.FontConfig(
     IiDibFont.ComposeProps(RGB16(160, 96, 32), cColor.Black.pixel, IiDibFont.Decor.Border)
 )
 
+const val DLG_SHADOW_OFFSET = 5
+
 fun FrameRoundRect(surf: iDib, rect: IRectangleInt, clr: IDibPixel) {
     surf.HLine(IPointInt(rect.x + 1, rect.y), rect.x + rect.width - 2, clr)
     surf.HLine(IPointInt(rect.x + 1, rect.y + rect.height - 1), rect.x + rect.width - 2, clr)
@@ -70,8 +71,62 @@ fun DrawRoundRect(surf: iDib, rect: IRectangleInt, fClr: IDibPixel, bClr: IDibPi
     FrameRoundRect(surf, rect, fClr)
 }
 
-fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDesc: Boolean) {
-//    TODO()
+fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDecs: Boolean) {
+    val nval = pid.v + 1
+    val toffs = if (bDecs) 12 else 10
+    if (rect.isEmpty) {
+        return
+    }
+
+    // shadow
+    surf.Darken50Rect(IRectangleInt(rect.x2 + 1, rect.y + DLG_SHADOW_OFFSET, DLG_SHADOW_OFFSET, rect.height))
+    surf.Darken50Rect(
+        IRectangleInt(
+            rect.x + DLG_SHADOW_OFFSET,
+            rect.y2 + 1,
+            rect.width - DLG_SHADOW_OFFSET,
+            DLG_SHADOW_OFFSET
+        )
+    )
+
+    // tile background  // todo
+    val bkRect = RectangleInt(rect)
+    bkRect.rect.inflate(-10)
+    gGfxMgr.BlitTile(if (bDecs) GfxId.PDGG_BKTILE2.v else GfxId.PDGG_BKTILE.v, surf, bkRect)
+
+    // Shade
+    // todo
+
+    // top/bottom tiles  // todo
+//    gGfxMgr.BlitTile(PDGG_DLG_HTILES+nval, surf, iRect(rect.x+toffs,rect.y,rect.w-toffs*2,10));
+//    gGfxMgr.BlitTile(PDGG_DLG_HTILES+nval, surf, iRect(rect.x+toffs,rect.y2()-9,rect.w-toffs*2,10));
+
+    val hgr = iDib(ISizeInt(rect.width - (toffs * 2), 1), IiDib.Type.RGB)
+    hgr.HGradientRect(IRectangleInt(0, 0, hgr.GetWidth() / 2, 1), RGB16(64, 0, 0), RGB16(255, 192, 64))
+    hgr.HGradientRect(IRectangleInt(hgr.GetWidth() / 2, 0, hgr.GetWidth() / 2, 1), RGB16(255, 192, 64), RGB16(64, 0, 0))
+    hgr.CopyToDibXY(surf, IPointInt(rect.x + toffs, rect.y + 1))
+    hgr.CopyToDibXY(surf, IPointInt(rect.x + toffs, rect.y + 8))
+    hgr.CopyToDibXY(surf, IPointInt(rect.x + toffs, rect.y2 - 8))
+    hgr.CopyToDibXY(surf, IPointInt(rect.x + toffs, rect.y2 - 1))
+
+    // left/right tiles
+//    gGfxMgr.BlitTile(PDGG_DLG_VTILES+nval, surf, iRect(rect.x,rect.y+toffs,10,rect.h-toffs*2));
+//    gGfxMgr.BlitTile(PDGG_DLG_VTILES+nval, surf, iRect(rect.x2()-9,rect.y+toffs,10,rect.h-toffs*2));
+
+    val vgr = iDib(ISizeInt(1, rect.height - (toffs * 2)), IiDib.Type.RGB)
+    vgr.VGradientRect(IRectangleInt(0, 0, 1, vgr.GetHeight() / 2), RGB16(64, 0, 0), RGB16(255, 192, 64))
+    vgr.VGradientRect(
+        IRectangleInt(0, vgr.GetHeight() / 2, 1, vgr.GetHeight() / 2),
+        RGB16(255, 192, 64),
+        RGB16(64, 0, 0)
+    )
+    vgr.CopyToDibXY(surf, IPointInt(rect.x + 1, rect.y + toffs))
+    vgr.CopyToDibXY(surf, IPointInt(rect.x + 8, rect.y + toffs))
+    vgr.CopyToDibXY(surf, IPointInt(rect.x2 - 8, rect.y + toffs))
+    vgr.CopyToDibXY(surf, IPointInt(rect.x2 - 1, rect.y + toffs))
+
+    // corners
+    // todo
 }
 
 fun GetButtonFont(state: Int): iTextComposer.IFontConfig {

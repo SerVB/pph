@@ -13,6 +13,8 @@ import com.soywiz.korim.color.BGR_565
 import com.soywiz.korim.color.ColorFormat16
 import com.soywiz.korim.color.RGBA_4444
 import com.soywiz.korim.color.RGBA_5551
+import com.soywiz.korio.stream.MemorySyncStream
+import com.soywiz.korio.stream.SyncStream
 import com.soywiz.korma.geom.*
 
 fun RGB16(r: Number, g: Number, b: Number): UShort {
@@ -52,8 +54,10 @@ typealias IDibPixel = UShort
 // const iDib::pixel *const
 interface IDibIPixelIPointer {
 
+    val offset: SizeT
+
     operator fun get(pos: SizeT): IDibPixel
-    fun copy(): IDibIPixelPointer
+    fun copy(extraOffset: SizeT = 0): IDibIPixelPointer
 }
 
 // const iDib::pixel*
@@ -62,23 +66,44 @@ interface IDibIPixelPointer : IDibIPixelIPointer {
     fun incrementOffset(increment: SizeT)
 }
 
+class IDibIPixelPointerFromBytes(private val reader: SyncStream, offsetInShorts: SizeT) : IDibIPixelPointer {
+
+    constructor(data: ByteArray, offsetInShorts: SizeT) : this(MemorySyncStream(data), offsetInShorts)
+
+    override var offset = offsetInShorts
+        private set
+
+    override fun incrementOffset(increment: SizeT) {
+        offset += increment
+    }
+
+    override fun get(pos: SizeT): IDibPixel {
+        reader.position = (offset + pos) * 2L
+        return reader.ReadU16()
+    }
+
+    override fun copy(extraOffset: SizeT): IDibIPixelPointer = IDibIPixelPointerFromBytes(reader, offset + extraOffset)
+}
+
 // `iDib::pixel *const`
 interface IDibPixelIPointer : IDibIPixelIPointer {
 
     operator fun set(pos: SizeT, value: IDibPixel)
-    override fun copy(): IDibPixelPointer
+    override fun copy(extraOffset: SizeT): IDibPixelPointer
 }
 
 // `iDib::pixel*`
-class IDibPixelPointer(private val data: UShortArray, private var offset: SizeT) : IDibIPixelPointer,
-    IDibPixelIPointer {
+class IDibPixelPointer(private val data: UShortArray, offset: SizeT) : IDibIPixelPointer, IDibPixelIPointer {
+
+    override var offset = offset
+        private set
 
     override fun incrementOffset(increment: SizeT) {
         offset += increment
     }
 
     override fun get(pos: SizeT): IDibPixel = data[offset + pos]
-    override fun copy(): IDibPixelPointer = IDibPixelPointer(data, offset)
+    override fun copy(extraOffset: SizeT): IDibPixelPointer = IDibPixelPointer(data, offset + extraOffset)
 
     override fun set(pos: SizeT, value: IDibPixel) {
         data[offset + pos] = value
@@ -387,9 +412,66 @@ class iDib : IiDib {
         }
     }
 
-    fun HGradientRect(rc: IRectangleInt, c1: IDibPixel, c2: IDibPixel): Unit = TODO()
+    fun HGradientRect(rc: IRectangleInt, c1: IDibPixel, c2: IDibPixel) {
+        val drect = RectangleInt(rc)
+        if (!ClipRect(drect, GetSize().asRectangle())) {
+            return
+        }
+        val dstPtr = GetPtr(drect.asPoint())
+        val tw = rc.width - 1
+        if (tw == 0) {
+            return
+        }
 
-    fun VGradientRect(rc: IRectangleInt, c1: IDibPixel, c2: IDibPixel): Unit = TODO()
+        // todo: can not work on different resolutions, seems like can just make UShortArray(cnt)
+        val gr = UShortArray(320)
+        val pgr = IDibPixelPointer(gr, 0)
+        var tp = drect.x - rc.x
+        val cnt = minOf(drect.width, 320)
+        repeat(cnt) {
+            val dr = (((c2 and 0xF800u).toUInt() shr 11) - ((c1 and 0xF800u).toUInt() shr 11)).toInt()
+            val nr = (((c1 and 0xF800u).toUInt() shr 11).toInt() + ((dr * tp) / tw)).clamp(0, 0x1F)
+            val dg = (((c2 and 0x7E0u).toUInt() shr 5) - ((c1 and 0x7E0u).toUInt() shr 5)).toInt()
+            val ng = (((c1 and 0x7E0u).toInt() shr 5) + ((dg * tp) / tw)).clamp(0, 0x3F)
+            val db = ((c2 and 0x1Fu) - (c1 and 0x1Fu)).toInt()
+            val nb = ((c1 and 0x1Fu).toInt() + ((db * tp) / tw)).clamp(0, 0x1F)
+            pgr[0] = ((nr shl 11) or (ng shl 5) or nb).toUShort()
+            pgr.incrementOffset(1)
+            ++tp
+        }
+
+        repeat(drect.height) {
+            repeat(cnt) { xx ->
+                dstPtr[xx] = gr[xx]
+            }
+            dstPtr.incrementOffset(GetWidth())
+        }
+    }
+
+    fun VGradientRect(rc: IRectangleInt, c1: IDibPixel, c2: IDibPixel) {
+        val drect = RectangleInt(rc)
+        if (!ClipRect(drect, GetSize().asRectangle())) {
+            return
+        }
+        val dstPtr = GetPtr(drect.asPoint())
+        val th = rc.height - 1
+        if (th == 0) {
+            FillDibBlock(dstPtr, c1, drect.width)
+            return
+        }
+        var tp = drect.y - rc.y
+        repeat(drect.height) {
+            val dr = (((c2 and 0xF800u).toUInt() shr 11) - ((c1 and 0xF800u).toUInt() shr 11)).toInt()
+            val nr = (((c1 and 0xF800u).toUInt() shr 11).toInt() + ((dr * tp) / th)).clamp(0, 0x1F)
+            val dg = (((c2 and 0x7E0u).toUInt() shr 5) - ((c1 and 0x7E0u).toUInt() shr 5)).toInt()
+            val ng = (((c1 and 0x7E0u).toInt() shr 5) + ((dg * tp) / th)).clamp(0, 0x3F)
+            val db = ((c2 and 0x1Fu) - (c1 and 0x1Fu)).toInt()
+            val nb = ((c1 and 0x1Fu).toInt() + ((db * tp) / th)).clamp(0, 0x1F)
+            FillDibBlock(dstPtr, ((nr shl 11) or (ng shl 5) or nb).toUShort(), drect.width)
+            dstPtr.incrementOffset(GetWidth())
+            ++tp
+        }
+    }
 
     fun FrameRect(rc: IRectangleInt, clr: IDibPixel) = FrameRect(rc, clr, 255u)  // todo: remove after KT-44180
 
@@ -456,7 +538,37 @@ class iDib : IiDib {
 
     override fun CopyToDibXY(dib: iDib, pos: IPointInt, a: UByte) = TODO()
 
-    override fun CopyToDibXY(dib: iDib, pos: IPointInt) = TODO()
+    override fun CopyToDibXY(dib: iDib, pos: IPointInt) {
+        if ((pos.x + GetWidth()) <= 0 || (pos.y + GetHeight()) <= 0) {  // bugfixed to GetHeight()
+            return
+        }
+
+        val src_rect = RectangleInt(GetSize().asRectangle())
+        val siz = SizeInt(dib.GetWidth() - pos.x, dib.GetHeight() - pos.y)
+        val dst_rect = RectangleInt(pos.x, pos.y, siz.width, siz.height)
+        if (!iClipRectRect(
+                dst_rect,
+                IRectangleInt(0, 0, dib.GetWidth(), dib.GetHeight()),
+                src_rect,
+                GetSize().asRectangle()
+            )
+        ) {
+            return
+        }
+
+        val src_clr: IDibIPixelPointer = GetPtr(src_rect.asPoint())
+        val dst_clr = dib.GetPtr(dst_rect.asPoint())
+
+        repeat(dst_rect.height) {
+            when (m_dibType) {
+                IiDib.Type.RGB -> BlitDibBlock_RGB(dst_clr, src_clr, dst_rect.width)
+                IiDib.Type.RGBA -> BlitDibBlock_RGBA(dst_clr, src_clr, dst_rect.width)
+                IiDib.Type.RGBCK -> BlitDibBlock_RGBCK(dst_clr, dst_clr, dst_rect.width)
+            }
+            src_clr.incrementOffset(GetWidth())
+            dst_clr.incrementOffset(dib.GetWidth())
+        }
+    }
 
     override fun CopyRectToDibXY(dib: iDib, srect: IRectangleInt, pos: IPointInt, a: UByte) {
         val src_rect = RectangleInt(srect)

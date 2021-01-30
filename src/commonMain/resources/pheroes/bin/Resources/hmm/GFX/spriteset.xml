@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<HMMSpriteSet Version="1.0" cfactor="5">
+
+    <!-- Sprite defination structure and params:
+
+
+    Sample sprite defination:
+        <Group id = "my_id">
+            <Item id="mysprite" chunk="mysprite.png" anchor="10,-5" shadow="1" sequence="5" />
+        </Group>
+
+    or
+
+        <Group id = "my_id">
+            <Item id="backtile" chunk="backtile.png" constId="BKTILE" />
+        </Group>
+
+    Options and flags:
+
+        anchor="x_offs,y_offs"
+            Specifies x and y sprite offset values
+            default: 0,0
+
+        shadow="s_type"
+            Specifies sprite's shadow type
+            0 - no shadow
+            1 - def 45d shadow
+            2 - GUI shadow
+            3 - alternate shadow
+            default: 0
+
+        altShadow="filename.png"
+            Specifies alternate shadow image
+            default: not specified
+
+        sequence="count"
+            Specifies ammount of sequence sprites contained by given chunk
+            default: 1
+
+        constId="const_name"
+            Defines specified sprite as constant and specifies its constant name
+            default: not specified
+
+    -->
+
+    <Group id="gui">
+        <!--	<Item id="logo" chunk="GUI\logo.png" constId="LOGO" crop="1" />
+            <Item id="logo2" chunk="GUI\logo2.png" constId="LOGO2" crop="1" />-->
+
+        <Item id="banner_pocketland" chunk="GUI\banner_pocketland.png" constId="BANNER_POCKETLAND" spanned="0"/>
+
+        <Item id="back_tile" chunk="GUI\BackTile.png" spanned="0" constId="BKTILE"/>
+        <Item id="back_tile2" chunk="GUI\BackTile2.png" spanned="0" constId="BKTILE2"/>
+        <Item id="ctrls_tile" chunk="GUI\CtrlsTile.png" spanned="0" constId="CTILE"/>
+        <Item id="player_tiles" chunk="GUI\PlayerTiles.png" spanned="0" sequence="6,1" constId="PLTILES"/>
+        <Item id="stones" chunk="GUI\Stones.png" spanned="0" sequence="6,1" constId="STONES"/>
+        <Item id="check_box" chunk="GUI\CheckBox.png" constId="CHECKBOX"/>
+
+        <Item id="dlg_htiles" chunk="GUI\dlgHTiles_New.png" spanned="0" sequence="1,7" constId="DLG_HTILES"/>
+        <Item id="dlg_vtiles" chunk="GUI\dlgVTiles_New.png" spanned="0" sequence="7,1" constId="DLG_VTILES"/>
+        <Item id="dlg_corners" chunk="GUI\dlgCorners_New.png" sequence="2,2" constId="DLG_CORNERS"/>
+        <Item id="dlg_corners_small" chunk="GUI\dlgCorners_Small.png" spanned="0" sequence="7,1"
+              constId="DLG_CORNERS_SMALL"/>
+        <!-- <Item id="dlg_head" chunk="GUI\dlgHead.png" constId="DLG_HEAD" /> -->
+        <!-- <Item id="dlg_foot" chunk="GUI\dlgFoot.png" constId="DLG_FOOT" /> -->
+        <Item id="dlg_btn" chunk="GUI\dlgBtn.png" spanned="0" sequence="3,1" constId="DLG_BTN"/>
+        <Item id="art_cells" chunk="GUI\ArtCells.png" spanned="0" sequence="3,1" constId="ART_CELLS"/>
+
+        <Item id="btn_main_menu" chunk="GUI\btnMainMenu.png" constId="BTN_MAINMENU"/>
+        <Item id="btn_disk" chunk="GUI\btnDisk.png" constId="BTN_DISK"/>
+        <Item id="btn_puzzle_map" chunk="GUI\btnPuzzleMap.png" constId="BTN_PUZZLEMAP"/>
+        <Item id="btn_cursor" chunk="GUI\btnCursor.png" constId="BTN_CURSOR"/>
+        <Item id="btn_hero" chunk="GUI\btnHero.png" constId="BTN_HERO"/>
+        <Item id="btn_castle" chunk="GUI\btnCastle.png" constId="BTN_CASTLE"/>
+        <Item id="btn_hero_props" chunk="GUI\btnHeroProps.png" constId="BTN_HEROPROPS"/>
+        <Item id="btn_castle_props" chunk="GUI\btnCastleProps.png" constId="BTN_CASTLEPROPS"/>
+        <Item id="btn_horse" chunk="GUI\btnHorse.png" constId="BTN_HORSE"/>
+        <Item id="btn_cast_spell" chunk="GUI\btnCastSpell.png" constId="BTN_CASTSPELL"/>
+        <Item id="btn_dig" chunk="GUI\btnDig.png" constId="BTN_DIG"/>
+        <Item id="btn_nexthero" chunk="GUI\btnNextHero.png" constId="BTN_NEXTHERO"/>
+        <Item id="btn_nextcastle" chunk="GUI\btnNextCastle.png" constId="BTN_NEXTCASTLE"/>
+        <Item id="btn_center" chunk="GUI\btnCenter.png" constId="BTN_CENTER"/>
+        <Item id="btn_minimap" chunk="GUI\btnMinimap.png" constId="BTN_MINIMAP"/>
+        <Item id="btn_dismiss" chunk="GUI\btnDismiss.png" constId="BTN_DISMISS"/>
+
+        <Item id="btn_map_size" chunk="GUI\btnMapSize.png" constId="BTN_MAPSIZE"/>
+        <Item id="btn_players_count" chunk="GUI\btnPlayersCount.png" constId="BTN_PLAYERS_COUNT"/>
+
+        <Item id="btn_attack" chunk="GUI\btnAttack.png" constId="BTN_ATTACK"/>
+        <Item id="btn_shoot" chunk="GUI\btnShoot.png" constId="BTN_SHOOT"/>
+        <Item id="btn_info" chunk="GUI\btnInfo.png" constId="BTN_INFO"/>
+        <Item id="btn_defend" chunk="GUI\btnDefend.png" constId="BTN_DEFEND"/>
+        <Item id="btn_auto_battle" chunk="GUI\btnAutoBattle.png" constId="BTN_AUTOBATTLE"/>
+
+        <Item id="btn_end_turn" chunk="GUI\btnEndTurn.png" constId="BTN_ENDTURN"/>
+        <Item id="btn_close" chunk="GUI\btnClose.png" constId="BTN_CLOSE"/>
+        <Item id="btn_max" chunk="GUI\btnMax.png" constId="BTN_MAX"/>
+        <Item id="btn_split" chunk="GUI\btnSplit.png" constId="BTN_SPLIT"/>
+
+        <Item id="btn_bksp" chunk="GUI\btnBksp.png" constId="BTN_BKSP"/>
+        <Item id="btn_minus" chunk="GUI\btnMinus.png" constId="BTN_MINUS"/>
+        <Item id="btn_plus" chunk="GUI\btnPlus.png" constId="BTN_PLUS"/>
+        <Item id="btn_next" chunk="GUI\btnNext.png" constId="BTN_NEXT"/>
+        <Item id="btn_prev" chunk="GUI\btnPrev.png" constId="BTN_PREV"/>
+        <Item id="scrbar_btns" chunk="GUI\ScrBarBtns.png" sequence="4,1" crop="1" constId="SCRBAR_BTNS"/>
+        <Item id="minisld_btns" chunk="GUI\MiniSldBtns.png" sequence="2,1" crop="1" constId="MINISLD_BTNS"/>
+
+        <Item id="tab_skills" chunk="GUI\tabSkills.png" constId="TAB_SKILLS"/>
+        <Item id="tab_artifacts" chunk="GUI\tabArtifacts.png" constId="TAB_ARTIFACTS"/>
+        <Item id="tab_army" chunk="GUI\tabArmy.png" constId="TAB_ARMY"/>
+        <Item id="tab_spell_book" chunk="GUI\tabSpellBook.png" constId="TAB_SPELLBOOK"/>
+        <Item id="tab_quest_log" chunk="GUI\tabQuestLog.png" constId="TAB_QUESTLOG"/>
+        <Item id="tab_build_ctr" chunk="GUI\tabBuild.png" constId="TAB_BUILD_CTR"/>
+        <Item id="tab_mguild" chunk="GUI\tabMageGuild.png" constId="TAB_MGUILD"/>
+        <Item id="tab_chest" chunk="GUI\tabChest.png" constId="TAB_CHEST"/>
+        <Item id="tab_market" chunk="GUI\tabMarket.png" constId="TAB_MARKET"/>
+        <Item id="tab_tavern" chunk="GUI\tabTavern.png" constId="TAB_TAVERN"/>
+
+        <Item id="icn_mana" chunk="GUI\icnMana.png" constId="ICN_MANA"/>
+        <Item id="icn_experience" chunk="GUI\icnExp.png" constId="ICN_EXPERIENCE"/>
+        <Item id="inc_pskills" chunk="GUI\icnPSkills.png" sequence="4,1" constId="ICN_PSKILLS"/>
+        <Item id="inc_morale" chunk="GUI\icnMorale.png" sequence="3,1" constId="ICN_MORALE"/>
+        <Item id="inc_luck" chunk="GUI\icnLuck.png" sequence="3,1" constId="ICN_LUCK"/>
+        <Item id="inc_damage" chunk="GUI\icnDamage.png" constId="ICN_DAMAGE"/>
+        <Item id="inc_lifes" chunk="GUI\icnLifes.png" constId="ICN_LIFES"/>
+        <Item id="inc_speed" chunk="GUI\icnSpeed.png" constId="ICN_SPEED"/>
+        <Item id="inc_growth" chunk="GUI\icnGrowth.png" constId="ICN_GROWTH"/>
+        <Item id="inc_battery" chunk="GUI\icnBattery.png" constId="ICN_BATTERY"/>
+
+        <Item id="icn_catapult" chunk="GUI\icnCatapult.png" constId="ICN_CATAPULT"/>
+        <Item id="icn_turret" chunk="GUI\icnTurret.png" constId="ICN_TURRET"/>
+
+        <Item id="dglyph_morale" chunk="GUI\dglyph_Morale.png" sequence="3,1" constId="DGLYPH_MORALE"/>
+        <Item id="dglyph_luck" chunk="GUI\dglyph_Luck.png" sequence="3,1" constId="DGLYPH_LUCK"/>
+        <Item id="dglyph_mana" chunk="GUI\dglyph_Mana.png" constId="DGLYPH_MANA"/>
+        <Item id="dglyph_moves" chunk="GUI\dglyph_Moves.png" constId="DGLYPH_MOVES"/>
+        <Item id="dglyph_gold" chunk="GUI\dglyph_Gold.png" constId="DGLYPH_GOLD"/>
+        <Item id="dglyph_exp" chunk="GUI\dglyph_Exp.png" constId="DGLYPH_EXP"/>
+        <Item id="dglyph_prskills" chunk="GUI\dglyph_PrSkills.png" sequence="4,1" constId="DGLYPH_PRSKILLS" crop="1"/>
+
+        <Item id="cnst_state_glyph" chunk="GUI\cnstStateGlyph.png" sequence="3,1" constId="CNST_STATE_GLYPH"/>
+
+        <Item id="hdoll_wire" chunk="GUI\hdollWire.png" constId="HDOLL_WIRE"/>
+        <Item id="hdoll_body" chunk="GUI\hdollBody.png" constId="HDOLL_BODY"/>
+        <Item id="hdoll_cape" chunk="GUI\hdollCape.png" constId="HDOLL_CAPE"/>
+
+        <Item id="icn_built" chunk="GUI\IcnBuilt.png" constId="ICN_BUILT"/>
+        <Item id="unk_hero48" chunk="GUI\UnkHero48.png" spanned="0" constId="UNK_HERO48"/>
+        <Item id="unk_hero" chunk="GUI\UnkHero.png" spanned="0" constId="UNK_HERO"/>
+        <Item id="unk_castle" chunk="GUI\UnkCastle.png" spanned="0" constId="UNK_CASTLE"/>
+        <Item id="magic_school_icons_s" chunk="GUI\MagicSchoolIcnSml.png" sequence="4,2" constId="MSCHICN_S" crop="1"/>
+        <Item id="all_schools_icon" chunk="GUI\AllSchoolsIcn.png" constId="ICN_ALL_SCHOOLS"/>
+        <Item id="favorites_icon" chunk="GUI\FavoritesIcn.png" constId="ICN_FAVORITES"/>
+
+        <Item id="icn_dif_level" chunk="GUI\DifLvl.png" sequence="5,1" spanned="0" constId="ICN_DIF_LEVEL"/>
+        <Item id="icn_plt_ai" chunk="GUI\plt_ai.png" constId="ICN_PLT_AI"/>
+        <Item id="icn_plt_human" chunk="GUI\plt_human.png" constId="ICN_PLT_HUMAN"/>
+    </Group>
+
+    <Group id="common">
+        <Item id="flags" chunk="Common\Flags.png" sequence="6,2" constId="FLAGS"/>
+        <Item id="thflags" chunk="Common\ThFlags.png" sequence="6,1" constId="THFLAGS"/>
+        <Item id="emblems" chunk="Common\emblems.png" spanned="0" sequence="6,1" constId="EMBLEMS"/>
+        <Item id="grid_cell" chunk="Common\GridCell.png" constId="GRID_CELL"/>
+        <Item id="grid_hex" chunk="Common\GridHex.png" constId="GRID_HEX"/>
+        <Item id="hex_cell" chunk="Common\HexCell.png" constId="HEX_CELL"/>
+        <Item id="hex_tgt_cell" chunk="Common\HexTgtCell.png" constId="HEX_TARGET_CELL"/>
+        <Item id="melee_cursor" chunk="Common\MeleeCursor.png" sequence="12,1" anchor="-20,-15" constId="MELEE_CURSOR"/>
+        <Item id="shoot_cursor" chunk="Common\ShootCursor.png" sequence="3,1" constId="SHOOT_CURSOR"/>
+        <Item id="spell_cursor" chunk="Common\SpellCursor.png" constId="SPELL_CURSOR"/>
+        <Item id="surf_tiles" chunk="Common\SurfTiles.png" spanned="0" sequence="4,12" constId="SURF_TILES"/>
+        <Item id="trans_tiles" chunk="Common\TransMaskTiles.png" sequence="14,1" constId="TRANS_TILES"/>
+        <Item id="ws_tiles" chunk="Common\WaterSandTransTiles.png" sequence="14,1" constId="WS_TILES"/>
+        <Item id="fog_tiles" chunk="Common\FogTiles.png" sequence="15,1" constId="FOG_TILES"/>
+        <Item id="heroes" chunk="Common\Heroes.png" sequence="72,6" anchor="-4,-40" constId="HEROES" crop="1"/>
+        <Item id="path" chunk="Common\Path.png" anchor="0,-9" sequence="6,2" constId="PATH"/>
+        <Item id="track" chunk="Common\Track.png" sequence="3,1" constId="TRACK"/>
+        <Item id="sec_skills" chunk="Common\SSkills.png" sequence="22,1" spanned="0" constId="SEC_SKILLS"/>
+        <Item id="ctl_sicons" chunk="Decorations\Castles\icons32x20.png" sequence="7,3" spanned="0"
+              constId="CTL_SICONS"/>
+        <Item id="btl_tomb" chunk="Common\Tomb.png" anchor="3,0" constId="BTL_TOMB"/>
+        <Item id="btl_recdmg" chunk="Common\RecDmg.png" anchor="3,-10" constId="BTL_RECDMG"/>
+        <Item id="btl_resist_spell" chunk="Common\ResistSpell.png" anchor="6,-8" constId="BTL_RESIST_SPELL"/>
+        <Item id="spell_icons" chunk="Common\SpellIcons.png" sequence="46,1" constId="SPELL_ICONS" crop="1"/>
+        <Item id="spell_scroll_unrolled" chunk="Common\SpellScroll_unrolled.png" constId="SPELLSCROLL_UNROLLED"/>
+        <Item id="spell_scroll_rolled" chunk="Common\SpellScroll_rolled.png" constId="SPELLSCROLL_ROLLED"/>
+        <Item id="event" chunk="Common\Event.png" constId="EVENT" anchor="11,-5" shadow="1" crop="1"/>
+        <Item id="ultimate_art" chunk="Common\UltimateArt.png" constId="ULTIMATE_ART" anchor="6,-7" shadow="1"/>
+        <Item id="holes" chunk="Common\Holes.png" anchor="8,1" sequence="5,1" constId="HOLES" crop="1"/>
+        <Item id="ultimate" chunk="Common\Ultimate.png" anchor="9,-7" shadow="1"/>
+        <Item id="creat_perks" chunk="Common\CreatPerks.png" sequence="21,1" spanned="0" constId="CREAT_PERKS"/>
+        <Item id="map_border" chunk="Common\MapBorder.png" sequence="14,1" anchor="0,0" constId="MAP_BORDER"/>
+    </Group>
+
+    <Group id="creatures">
+        <Item id="minimon" chunk="Creatures\minimon.png" sequence="45,4" anchor="-52,-45" shadow="1" constId="MINIMON"
+              crop="1"/>
+        <Item id="minimonf" chunk="Creatures\minimonf.png" sequence="45,1" anchor="-49,-40" shadow="1"
+              constId="MINIMONF" crop="1"/>
+        <Item id="rminimon" chunk="Creatures\rminimon.png" sequence="45,4" anchor="-22,-40" shadow="1"
+              constId="RMINIMON" crop="1"/>
+        <Item id="rminimonf" chunk="Creatures\rminimonf.png" sequence="45,1" anchor="-22,-40" shadow="1"
+              constId="RMINIMONF" crop="1"/>
+        <Item id="creat_icons" chunk="Creatures\creat_icons.png" sequence="45,1" constId="CREAT_ICONS" crop="1"/>
+        <Item id="rand_guards" chunk="Common\RandGuards.png" sequence="7,1" anchor="11,-5" shadow="1"/>
+    </Group>
+
+    <Group id="resources">
+        <Item id="icons" chunk="Common\Resources\Icons.png" anchor="12,0" sequence="7,1" constId="RES_ICONS"
+              shadow="1"/>
+        <Item id="mini_icons" chunk="Common\Resources\mIcons.png" sequence="7,1" constId="RES_MINI_ICONS"/>
+        <Item id="big_icons" chunk="Common\Resources\lIcons.png" sequence="7,1" constId="RES_BIG_ICONS"/>
+        <Item id="rand_res_icn" chunk="Common\Resources\randres.png" anchor="11,-3" shadow="1"/>
+        <Item id="campfire" chunk="Common\Resources\Campfire.png" anchor="6,-7" shadow="1" constId="RES_CMFIRE"/>
+        <Item id="chest" chunk="Common\Resources\Chest.png" anchor="10,-4" shadow="1" constId="RES_CHEST"/>
+        <Item id="lamp" chunk="Common\Resources\Lamp.png" anchor="6,-7" shadow="0" constId="RES_LAMP"/>
+        <Item id="mcryst" chunk="Common\Resources\ManaCrystal.png" anchor="10,-4" shadow="1" constId="RES_MCRYST"/>
+        <Item id="spell_scroll" chunk="Common\Resources\SpellScroll.png" anchor="10,-10" shadow="1"
+              constId="RES_SPELL_SCROLL"/>
+        <Item id="key_guards" chunk="Decorations\Constructions\KeyGuards.png" sequence="6,1" anchor="8,-22" shadow="1"
+              constId="KEY_GUARDS"/>
+        <Item id="key_guards_snow" chunk="Decorations\Constructions\KeyGuards_snow.png" sequence="6,1" anchor="8,-22"
+              shadow="1" constId="KEY_GUARDS_SNOW"/>
+    </Group>
+
+    <Group id="battle">
+        <Item id="moat" chunk="Decorations\Battle\moat.png" anchor="-46,-1" constId="COMBAT_MOAT"/>
+        <Item id="uwall" chunk="Decorations\Battle\uwall.png" anchor="-6,-26" sequence="3,1" constId="COMBAT_UWALL"/>
+        <Item id="bwall" chunk="Decorations\Battle\bwall.png" anchor="-6,-26" sequence="3,1" constId="COMBAT_BWALL"/>
+        <Item id="utower" chunk="Decorations\Battle\utower.png" anchor="-13,-31" sequence="3,1"
+              constId="COMBAT_UTOWER"/>
+        <Item id="btower" chunk="Decorations\Battle\btower.png" anchor="-12,-31" sequence="3,1"
+              constId="COMBAT_BTOWER"/>
+        <Item id="guturret" chunk="Decorations\Battle\gtower.png" anchor="4,-21" constId="COMBAT_GUTOWER"/>
+        <Item id="gbturret" chunk="Decorations\Battle\gtower.png" anchor="2,-21" constId="COMBAT_GBTOWER"/>
+        <Item id="uturret" chunk="Decorations\Battle\uturret.png" anchor="-13,-31" sequence="3,1"
+              constId="COMBAT_UTURRET"/>
+        <Item id="bturret" chunk="Decorations\Battle\bturret.png" anchor="-12,-31" sequence="3,1"
+              constId="COMBAT_BTURRET"/>
+        <Item id="bridge" chunk="Decorations\Battle\bridge.png" anchor="-17,-4" sequence="3,1" constId="COMBAT_BRIDGE"/>
+    </Group>
+
+    <Group id="heroes">
+        <Item id="Gerald_32x20" spanned="0" chunk="Decorations\Heroes\Gerald_32x20.png"/>
+        <Item id="Gerald_48x48" spanned="0" chunk="Decorations\Heroes\Gerald_48x48.png"/>
+        <Item id="Fineous_32x20" spanned="0" chunk="Decorations\Heroes\Fineous_32x20.png"/>
+        <Item id="Fineous_48x48" spanned="0" chunk="Decorations\Heroes\Fineous_48x48.png"/>
+        <Item id="Jacob_32x20" spanned="0" chunk="Decorations\Heroes\Jacob_32x20.png"/>
+        <Item id="Jacob_48x48" spanned="0" chunk="Decorations\Heroes\Jacob_48x48.png"/>
+        <Item id="Schultz_32x20" spanned="0" chunk="Decorations\Heroes\Schultz_32x20.png"/>
+        <Item id="Schultz_48x48" spanned="0" chunk="Decorations\Heroes\Schultz_48x48.png"/>
+        <Item id="Cantor_32x20" spanned="0" chunk="Decorations\Heroes\Cantor_32x20.png"/>
+        <Item id="Cantor_48x48" spanned="0" chunk="Decorations\Heroes\Cantor_48x48.png"/>
+        <Item id="Bez_32x20" spanned="0" chunk="Decorations\Heroes\Bez_32x20.png"/>
+        <Item id="Bez_48x48" spanned="0" chunk="Decorations\Heroes\Bez_48x48.png"/>
+        <Item id="Hedric_32x20" spanned="0" chunk="Decorations\Heroes\Hedric_32x20.png"/>
+        <Item id="Hedric_48x48" spanned="0" chunk="Decorations\Heroes\Hedric_48x48.png"/>
+        <Item id="Earoon_32x20" spanned="0" chunk="Decorations\Heroes\Earoon_32x20.png"/>
+        <Item id="Earoon_48x48" spanned="0" chunk="Decorations\Heroes\Earoon_48x48.png"/>
+
+        <Item id="Tyrex_32x20" spanned="0" chunk="Decorations\Heroes\Tyrex_32x20.png"/>
+        <Item id="Tyrex_48x48" spanned="0" chunk="Decorations\Heroes\Tyrex_48x48.png"/>
+        <Item id="Grottekvarnen_32x20" spanned="0" chunk="Decorations\Heroes\Grottekvarnen_32x20.png"/>
+        <Item id="Grottekvarnen_48x48" spanned="0" chunk="Decorations\Heroes\Grottekvarnen_48x48.png"/>
+        <Item id="Yog_32x20" spanned="0" chunk="Decorations\Heroes\Yog_32x20.png"/>
+        <Item id="Yog_48x48" spanned="0" chunk="Decorations\Heroes\Yog_48x48.png"/>
+        <Item id="Jaclyn_32x20" spanned="0" chunk="Decorations\Heroes\Jaclyn_32x20.png"/>
+        <Item id="Jaclyn_48x48" spanned="0" chunk="Decorations\Heroes\Jaclyn_48x48.png"/>
+        <Item id="Krag_32x20" spanned="0" chunk="Decorations\Heroes\Krag_32x20.png"/>
+        <Item id="Krag_48x48" spanned="0" chunk="Decorations\Heroes\Krag_48x48.png"/>
+        <Item id="Baraka_32x20" spanned="0" chunk="Decorations\Heroes\Baraka_32x20.png"/>
+        <Item id="Baraka_48x48" spanned="0" chunk="Decorations\Heroes\Baraka_48x48.png"/>
+        <Item id="Hapax_32x20" spanned="0" chunk="Decorations\Heroes\Hapax_32x20.png"/>
+        <Item id="Hapax_48x48" spanned="0" chunk="Decorations\Heroes\Hapax_48x48.png"/>
+        <Item id="Krull_32x20" spanned="0" chunk="Decorations\Heroes\Krull_32x20.png"/>
+        <Item id="Krull_48x48" spanned="0" chunk="Decorations\Heroes\Krull_48x48.png"/>
+
+        <Item id="Cronus_32x20" spanned="0" chunk="Decorations\Heroes\Cronus_32x20.png"/>
+        <Item id="Cronus_48x48" spanned="0" chunk="Decorations\Heroes\Cronus_48x48.png"/>
+        <Item id="Iona_32x20" spanned="0" chunk="Decorations\Heroes\Iona_32x20.png"/>
+        <Item id="Iona_48x48" spanned="0" chunk="Decorations\Heroes\Iona_48x48.png"/>
+        <Item id="Bernhard_32x20" spanned="0" chunk="Decorations\Heroes\Bernhard_32x20.png"/>
+        <Item id="Bernhard_48x48" spanned="0" chunk="Decorations\Heroes\Bernhard_48x48.png"/>
+        <Item id="Posid_32x20" spanned="0" chunk="Decorations\Heroes\Posid_32x20.png"/>
+        <Item id="Posid_48x48" spanned="0" chunk="Decorations\Heroes\Posid_48x48.png"/>
+        <Item id="Malcolm_32x20" spanned="0" chunk="Decorations\Heroes\Malcolm_32x20.png"/>
+        <Item id="Malcolm_48x48" spanned="0" chunk="Decorations\Heroes\Malcolm_48x48.png"/>
+        <Item id="Morgana_32x20" spanned="0" chunk="Decorations\Heroes\Morgana_32x20.png"/>
+        <Item id="Morgana_48x48" spanned="0" chunk="Decorations\Heroes\Morgana_48x48.png"/>
+        <Item id="Victor_32x20" spanned="0" chunk="Decorations\Heroes\Victor_32x20.png"/>
+        <Item id="Victor_48x48" spanned="0" chunk="Decorations\Heroes\Victor_48x48.png"/>
+        <Item id="Visarus_32x20" spanned="0" chunk="Decorations\Heroes\Visarus_32x20.png"/>
+        <Item id="Visarus_48x48" spanned="0" chunk="Decorations\Heroes\Visarus_48x48.png"/>
+
+        <Item id="Gallatin_32x20" spanned="0" chunk="Decorations\Heroes\Gallatin_32x20.png"/>
+        <Item id="Gallatin_48x48" spanned="0" chunk="Decorations\Heroes\Gallatin_48x48.png"/>
+        <Item id="Altus_32x20" spanned="0" chunk="Decorations\Heroes\Altus_32x20.png"/>
+        <Item id="Altus_48x48" spanned="0" chunk="Decorations\Heroes\Altus_48x48.png"/>
+        <Item id="Odin_32x20" spanned="0" chunk="Decorations\Heroes\Odin_32x20.png"/>
+        <Item id="Odin_48x48" spanned="0" chunk="Decorations\Heroes\Odin_48x48.png"/>
+        <Item id="Kastore_32x20" spanned="0" chunk="Decorations\Heroes\Kastore_32x20.png"/>
+        <Item id="Kastore_48x48" spanned="0" chunk="Decorations\Heroes\Kastore_48x48.png"/>
+        <Item id="Alamar_32x20" spanned="0" chunk="Decorations\Heroes\Alamar_32x20.png"/>
+        <Item id="Alamar_48x48" spanned="0" chunk="Decorations\Heroes\Alamar_48x48.png"/>
+        <Item id="Eldor_32x20" spanned="0" chunk="Decorations\Heroes\Eldor_32x20.png"/>
+        <Item id="Eldor_48x48" spanned="0" chunk="Decorations\Heroes\Eldor_48x48.png"/>
+        <Item id="Marcus_32x20" spanned="0" chunk="Decorations\Heroes\Marcus_32x20.png"/>
+        <Item id="Marcus_48x48" spanned="0" chunk="Decorations\Heroes\Marcus_48x48.png"/>
+        <Item id="Fondo_32x20" spanned="0" chunk="Decorations\Heroes\Fondo_32x20.png"/>
+        <Item id="Fondo_48x48" spanned="0" chunk="Decorations\Heroes\Fondo_48x48.png"/>
+
+        <Item id="Ferentona_32x20" spanned="0" chunk="Decorations\Heroes\Ferentona_32x20.png"/>
+        <Item id="Ferentona_48x48" spanned="0" chunk="Decorations\Heroes\Ferentona_48x48.png"/>
+        <Item id="Gem_32x20" spanned="0" chunk="Decorations\Heroes\Gem_32x20.png"/>
+        <Item id="Gem_48x48" spanned="0" chunk="Decorations\Heroes\Gem_48x48.png"/>
+        <Item id="Arven_32x20" spanned="0" chunk="Decorations\Heroes\Arven_32x20.png"/>
+        <Item id="Arven_48x48" spanned="0" chunk="Decorations\Heroes\Arven_48x48.png"/>
+        <Item id="Samira_32x20" spanned="0" chunk="Decorations\Heroes\Samira_32x20.png"/>
+        <Item id="Samira_48x48" spanned="0" chunk="Decorations\Heroes\Samira_48x48.png"/>
+        <Item id="Myrini_32x20" spanned="0" chunk="Decorations\Heroes\Myrini_32x20.png"/>
+        <Item id="Myrini_48x48" spanned="0" chunk="Decorations\Heroes\Myrini_48x48.png"/>
+        <Item id="Rebecca_32x20" spanned="0" chunk="Decorations\Heroes\Rebecca_32x20.png"/>
+        <Item id="Rebecca_48x48" spanned="0" chunk="Decorations\Heroes\Rebecca_48x48.png"/>
+        <Item id="Rait_32x20" spanned="0" chunk="Decorations\Heroes\Rait_32x20.png"/>
+        <Item id="Rait_48x48" spanned="0" chunk="Decorations\Heroes\Rait_48x48.png"/>
+        <Item id="Dvergar_32x20" spanned="0" chunk="Decorations\Heroes\Dvergar_32x20.png"/>
+        <Item id="Dvergar_48x48" spanned="0" chunk="Decorations\Heroes\Dvergar_48x48.png"/>
+
+        <Item id="Urof_32x20" spanned="0" chunk="Decorations\Heroes\Urof_32x20.png"/>
+        <Item id="Urof_48x48" spanned="0" chunk="Decorations\Heroes\Urof_48x48.png"/>
+        <Item id="Tamika_32x20" spanned="0" chunk="Decorations\Heroes\Tamika_32x20.png"/>
+        <Item id="Tamika_48x48" spanned="0" chunk="Decorations\Heroes\Tamika_48x48.png"/>
+        <Item id="Shra_32x20" spanned="0" chunk="Decorations\Heroes\Shra_32x20.png"/>
+        <Item id="Shra_48x48" spanned="0" chunk="Decorations\Heroes\Shra_48x48.png"/>
+        <Item id="Ruthven_32x20" spanned="0" chunk="Decorations\Heroes\Ruthven_32x20.png"/>
+        <Item id="Ruthven_48x48" spanned="0" chunk="Decorations\Heroes\Ruthven_48x48.png"/>
+        <Item id="Ranloo_32x20" spanned="0" chunk="Decorations\Heroes\Ranloo_32x20.png"/>
+        <Item id="Ranloo_48x48" spanned="0" chunk="Decorations\Heroes\Ranloo_48x48.png"/>
+        <Item id="Sandru_32x20" spanned="0" chunk="Decorations\Heroes\Sandru_32x20.png"/>
+        <Item id="Sandru_48x48" spanned="0" chunk="Decorations\Heroes\Sandru_48x48.png"/>
+        <Item id="Jack_32x20" spanned="0" chunk="Decorations\Heroes\Jack_32x20.png"/>
+        <Item id="Jack_48x48" spanned="0" chunk="Decorations\Heroes\Jack_48x48.png"/>
+        <Item id="KnechtRuprecht_32x20" spanned="0" chunk="Decorations\Heroes\KnechtRuprecht_32x20.png"/>
+        <Item id="KnechtRuprecht_48x48" spanned="0" chunk="Decorations\Heroes\KnechtRuprecht_48x48.png"/>
+    </Group>
+
+    <Group id="decals">
+        <Item id="dirt_crack_1" chunk="Decorations\Decals\DirtCrack1.png" anchor="7,5"/>
+        <Item id="dirt_crack_2" chunk="Decorations\Decals\DirtCrack2.png" anchor="8,3"/>
+        <Item id="dirt_crack_3" chunk="Decorations\Decals\DirtCrack3.png" anchor="-20,-4"/>
+        <Item id="dirt_crack_4" chunk="Decorations\Decals\DirtCrack4.png" anchor="-9,-1"/>
+
+        <Item id="grass_crack_1" chunk="Decorations\Decals\GrassCrack1.png" anchor="7,6"/>
+
+        <!-- !!! -->
+        <Item id="skeleton" chunk="Decorations\Decals\Flowers8.png" anchor="4,-7"/>
+
+        <Item id="flowers_1" chunk="Decorations\Decals\Flowers1.png" anchor="11,-1"/>
+        <Item id="flowers_2" chunk="Decorations\Decals\Flowers2.png" anchor="13,4"/>
+        <Item id="flowers_3" chunk="Decorations\Decals\Flowers3.png" anchor="6,-3" shadow="1"/>
+        <Item id="flowers_4" chunk="Decorations\Decals\Flowers4.png" anchor="5,-4" shadow="1"/>
+        <Item id="flowers_5" chunk="Decorations\Decals\Flowers5.png" anchor="9,-1" shadow="1"/>
+        <Item id="flowers_6" chunk="Decorations\Decals\Flowers6.png" anchor="7,-8" shadow="1"/>
+        <Item id="flowers_7" chunk="Decorations\Decals\Flowers7.png" anchor="4, 0"/>
+        <Item id="flowers_8" chunk="Decorations\Decals\Flowers8.png" anchor="9,-7" shadow="1"/>
+
+        <Item id="mushrooms_1" chunk="Decorations\Decals\Mushrooms1.png" anchor="15,6"/>
+
+
+        <Item id="lake_1" chunk="Decorations\Decals\Lake01.png" anchor="-9,-25"/>
+        <Item id="lake_2" chunk="Decorations\Decals\Lake01.png" anchor="-12,-21"/>
+
+        <Item id="lava_1" chunk="Decorations\Decals\Lava1.png" anchor="-5,-16"/>
+        <Item id="lava_2" chunk="Decorations\Decals\Lava2.png" anchor="-28,-39"/>
+        <Item id="lava_3" chunk="Decorations\Decals\Lava3.png" anchor="6,-4"/>
+
+        <Item id="lake_01" chunk="Decorations\Decals\Lake01.png" anchor="-23,-19"/>
+
+        <Item id="mire_01" chunk="Decorations\Decals\Mire01.png" anchor="-8,-15"/>
+        <Item id="mire_02" chunk="Decorations\Decals\Mire02.png" anchor="-8,-18"/>
+        <Item id="mire_03" chunk="Decorations\Decals\Mire03.png" anchor="-46,-39"/>
+
+        <Item id="rocks_1" chunk="Decorations\Decals\Rocks1.png" anchor="14,4"/>
+        <Item id="rocks_2" chunk="Decorations\Decals\Rocks2.png" anchor="5,1"/>
+        <Item id="rocks_3" chunk="Decorations\Decals\Rocks3.png" anchor="7,-11" shadow="1"/>
+        <Item id="rocks_4" chunk="Decorations\Decals\Rocks4.png" anchor="5,-11" shadow="1"/>
+        <Item id="rocks_5" chunk="Decorations\Decals\Rocks5.png" anchor="8,-10" shadow="1"/>
+        <Item id="rocks_6" chunk="Decorations\Decals\Rocks6.png" anchor="4,-7" shadow="1"/>
+        <Item id="rocks_7" chunk="Decorations\Decals\Rocks7.png" anchor="4,-13" shadow="1"/>
+        <Item id="rocks_8" chunk="Decorations\Decals\Rocks8.png" anchor="9,-10" shadow="1"/>
+        <Item id="rocks_9" chunk="Decorations\Decals\Rocks9.png" anchor="6,-8" shadow="1"/>
+        <Item id="rocks_10" chunk="Decorations\Decals\Rocks10.png" anchor="17,6" shadow="1"/>
+        <Item id="rocks_11" chunk="Decorations\Decals\Rocks11.png" anchor="12,0" shadow="1"/>
+        <Item id="rocks_12" chunk="Decorations\Decals\Rocks12.png" anchor="12,-22" shadow="1"/>
+        <Item id="rocks_13" chunk="Decorations\Decals\Rocks13.png" anchor="12,-6" shadow="1"/>
+        <Item id="rocks_14" chunk="Decorations\Decals\Rocks14.png" anchor="15,-8" shadow="1"/>
+        <Item id="rocks_15" chunk="Decorations\Decals\Rocks15.png" anchor="12,-19" shadow="1"/>
+        <Item id="rocks_16" chunk="Decorations\Decals\Rocks16.png" anchor="8,-23" shadow="1"/>
+        <Item id="rocks_17" chunk="Decorations\Decals\Rocks17.png" anchor="-8,-39" shadow="1"/>
+        <Item id="rocks_18" chunk="Decorations\Decals\Rocks18.png" anchor="5,3" shadow="1"/>
+        <Item id="rocks_19" chunk="Decorations\Decals\Rocks19.png" anchor="-13,-7"/>
+        <Item id="rocks_20" chunk="Decorations\Decals\Rocks20.png" anchor="-9,-14"/>
+        <Item id="rocks_21" chunk="Decorations\Decals\Rocks21.png" anchor="3,-11" shadow="1"/>
+        <Item id="rocks_22" chunk="Decorations\Decals\Rocks22.png" anchor="5,-4" shadow="1"/>
+        <Item id="rocks_23" chunk="Decorations\Decals\Rocks23.png" anchor="6,-11" shadow="1"/>
+        <Item id="rocks_24" chunk="Decorations\Decals\Rocks24.png" anchor="-4,-32" shadow="1"/>
+        <Item id="rocks_25" chunk="Decorations\Decals\Rocks25.png" anchor="3,-4" shadow="1"/>
+        <Item id="rocks_26" chunk="Decorations\Decals\Rocks26.png" anchor="5,-4" shadow="1"/>
+        <Item id="rocks_27" chunk="Decorations\Decals\Rocks27.png" anchor="9,-16" shadow="1"/>
+        <Item id="rocks_28" chunk="Decorations\Decals\Rocks28.png" anchor="3,-11" shadow="1"/>
+        <Item id="rocks_29" chunk="Decorations\Decals\Rocks29.png" anchor="6,2" shadow="1"/>
+        <Item id="rocks_30" chunk="Decorations\Decals\Rocks30.png" anchor="3,-3" shadow="1"/>
+        <Item id="rocks_31" chunk="Decorations\Decals\Rocks31.png" anchor="3,-6" shadow="1"/>
+
+
+        <Item id="stumbs_1" chunk="Decorations\Decals\Stumb1.png" anchor="17,5" shadow="1"/>
+        <Item id="stumbs_2" chunk="Decorations\Decals\Stumb2.png" anchor="15,4" shadow="1"/>
+        <Item id="stumbs_3" chunk="Decorations\Decals\Stumb3.png" anchor="15,4" shadow="1"/>
+        <Item id="stumbs_4" chunk="Decorations\Decals\Stumb4.png" anchor="16,7" shadow="1"/>
+        <Item id="stumbs_5" chunk="Decorations\Decals\Stumb5.png" anchor="8,-3" shadow="1"/>
+        <Item id="stumbs_6" chunk="Decorations\Decals\Stumb6.png" anchor="11,0" shadow="1"/>
+
+        <Item id="log_1" chunk="Decorations\Decals\Log01.png" anchor="7,-2" shadow="1"/>
+    </Group>
+
+    <Group id="trees">
+        <Item id="bush_1" chunk="Decorations\Trees\Bush01.png" anchor="9,-12" shadow="1"/>
+
+        <Item id="cactus_1" chunk="Decorations\Trees\Cactus1.png" anchor="9,-16" shadow="1"/>
+        <Item id="cactus_2" chunk="Decorations\Trees\Cactus2.png" anchor="10,-19" shadow="1"/>
+        <Item id="cactus_3" chunk="Decorations\Trees\Cactus3.png" anchor="7,-22" shadow="1"/>
+        <Item id="cactus_4" chunk="Decorations\Trees\Cactus4.png" anchor="5,-8" shadow="0"/>
+        <Item id="cactus_5" chunk="Decorations\Trees\Cactus5.png" anchor="13,-22" shadow="1"/>
+        <Item id="cactus_6" chunk="Decorations\Trees\Cactus6.png" anchor="16,-5" shadow="1"/>
+        <Item id="cactus_7" chunk="Decorations\Trees\Cactus7.png" anchor="8,-23" shadow="1"/>
+
+        <Item id="palms_1" chunk="Decorations\Trees\Palm1.png" anchor="15,-21" shadow="1"/>
+        <Item id="palms_2" chunk="Decorations\Trees\Palm2.png" anchor="6,-17" shadow="1"/>
+        <Item id="palms_3" chunk="Decorations\Trees\Palm3.png" anchor="12,-29" shadow="1"/>
+        <Item id="palms_4" chunk="Decorations\Trees\Palm4.png" anchor="0,-25" shadow="1"/>
+        <Item id="palms_5" chunk="Decorations\Trees\Palm5.png" anchor="3,-26" shadow="1"/>
+        <Item id="palms_6" chunk="Decorations\Trees\Palm6.png" anchor="3,-25" shadow="1"/>
+        <Item id="palms_7" chunk="Decorations\Trees\Palm7.png" anchor="4,-23" shadow="1"/>
+        <Item id="palms_8" chunk="Decorations\Trees\Palm8.png" anchor="6,-21" shadow="1"/>
+
+        <Item id="pines_1" chunk="Decorations\Trees\Pines1.png" anchor="5,-19" shadow="1"/>
+        <Item id="pines_2" chunk="Decorations\Trees\Pines2.png" anchor="5,-18" shadow="1"/>
+        <Item id="pines_3" chunk="Decorations\Trees\Pines3.png" anchor="4,-18" shadow="1"/>
+        <Item id="pines_4" chunk="Decorations\Trees\Pines4.png" anchor="4,-19" shadow="1"/>
+
+        <Item id="trees_1" chunk="Decorations\Trees\Trees1.png" anchor="0,-31" shadow="1"/>
+        <Item id="trees_2" chunk="Decorations\Trees\Trees2.png" anchor="1,-31" shadow="1"/>
+        <Item id="trees_3" chunk="Decorations\Trees\Trees3.png" anchor="8,-27" shadow="1"/>
+        <Item id="trees_4" chunk="Decorations\Trees\Trees4.png" anchor="10,-23" shadow="1"/>
+        <Item id="trees_5" chunk="Decorations\Trees\Trees5.png" anchor="8,-19" shadow="1"/>
+        <Item id="trees_6" chunk="Decorations\Trees\Trees6.png" anchor="7,-16" shadow="1"/>
+        <Item id="trees_7" chunk="Decorations\Trees\Trees7.png" anchor="6,-17" shadow="1"/>
+        <Item id="trees_8" chunk="Decorations\Trees\Trees8.png" anchor="4,-20" shadow="1"/>
+        <Item id="trees_9" chunk="Decorations\Trees\Trees9.png" anchor="3,-20" shadow="1"/>
+
+        <Item id="dplants_1" chunk="Decorations\Trees\DeadPlant1.png" anchor="4,-18" shadow="1"/>
+        <Item id="dplants_2" chunk="Decorations\Trees\DeadPlant2.png" anchor="3,-25" shadow="1"/>
+        <Item id="dplants_3" chunk="Decorations\Trees\DeadPlant3.png" anchor="13,-15" shadow="1"/>
+        <Item id="dplants_4" chunk="Decorations\Trees\DeadPlant4.png" anchor="9,-17" shadow="1"/>
+        <Item id="dplants_5" chunk="Decorations\Trees\DeadPlant5.png" anchor="5,-17" shadow="1"/>
+        <Item id="dplants_6" chunk="Decorations\Trees\DeadPlant6.png" anchor="-3,-33" shadow="1"/>
+        <Item id="dplants_7" chunk="Decorations\Trees\DeadPlant7.png" anchor="11,-40" shadow="1"/>
+        <Item id="dplants_8" chunk="Decorations\Trees\DeadPlant8.png" anchor="3,-32" shadow="1"/>
+        <Item id="dplants_9" chunk="Decorations\Trees\DeadPlant9.png" anchor="3,-37" shadow="1"/>
+        <Item id="dplants_10" chunk="Decorations\Trees\DeadPlant10.png" anchor="3,-19" shadow="1"/>
+        <Item id="dplants_11" chunk="Decorations\Trees\DeadPlant11.png" anchor="11,-38" shadow="1"/>
+        <Item id="dplants_12" chunk="Decorations\Trees\DeadPlant12.png" anchor="11,-30" shadow="1"/>
+        <Item id="dplants_13" chunk="Decorations\Trees\DeadPlant13.png" anchor="3,-31" shadow="1"/>
+        <Item id="dplants_14" chunk="Decorations\Trees\DeadPlant14.png" anchor="5,-19" shadow="1"/>
+    </Group>
+
+    <Group id="mountains">
+        <Item id="mountains_1" chunk="Decorations\Mountains\Mountains01.png" anchor="-19,-52" shadow="1"/>
+        <Item id="mountains_1_1" chunk="Decorations\Mountains\Mountains01_01.png" anchor="6,-44" shadow="1"/>
+        <Item id="mountains_1_2" chunk="Decorations\Mountains\Mountains01_02.png" anchor="0,-45" shadow="1"/>
+        <Item id="mountains_1_3" chunk="Decorations\Mountains\Mountains01_03.png" anchor="14,-7" shadow="1"/>
+        <Item id="mountains_2" chunk="Decorations\Mountains\Mountains02.png" anchor="-12,-27" shadow="1"/>
+        <Item id="mountains_3" chunk="Decorations\Mountains\Mountains03.png" anchor="3,-33" shadow="1"/>
+        <Item id="mountains_4" chunk="Decorations\Mountains\Mountains04.png" anchor="-19,-52" shadow="1"/>
+        <Item id="mountains_4_1" chunk="Decorations\Mountains\Mountains04_01.png" anchor="6,-44" shadow="1"/>
+        <Item id="mountains_4_2" chunk="Decorations\Mountains\Mountains04_02.png" anchor="0,-45" shadow="1"/>
+        <Item id="mountains_4_3" chunk="Decorations\Mountains\Mountains04_03.png" anchor="14,-7" shadow="1"/>
+        <Item id="mountains_5" chunk="Decorations\Mountains\Mountains05.png" anchor="-12,-27" shadow="1"/>
+        <Item id="mountains_6" chunk="Decorations\Mountains\Mountains06.png" anchor="5,-25" shadow="1"/>
+        <Item id="mountains_7" chunk="Decorations\Mountains\Mountains07.png" anchor="2,-27" shadow="1"/>
+        <Item id="mountains_8" chunk="Decorations\Mountains\Mountains08.png" anchor="3,-25" shadow="1"/>
+        <Item id="mountains_9" chunk="Decorations\Mountains\Mountains09.png" anchor="2,-28" shadow="1"/>
+        <Item id="mountains_10" chunk="Decorations\Mountains\Mountains10.png" anchor="-4,-23" shadow="1"/>
+        <Item id="volcano_1" chunk="Decorations\Mountains\Volcano1.png" anchor="-7,-32" shadow="1"/>
+        <Item id="volcano_2" chunk="Decorations\Mountains\Volcano2.png" anchor="3,-18" shadow="1"/>
+        <Item id="volcano_3" chunk="Decorations\Mountains\Volcano3.png" anchor="3,-20" shadow="1"/>
+        <Item id="volcano_4" chunk="Decorations\Mountains\Volcano4.png" anchor="0,-19" shadow="1"/>
+        <Item id="volcano_5" chunk="Decorations\Mountains\Volcano5.png" anchor="-10,-15" shadow="1"/>
+        <Item id="mountains_swamp1_1" chunk="Decorations\Mountains\Mountains01_01_swamp.png " anchor="6,-44"
+              shadow="1"/>
+        <Item id="mountains_swamp1_2" chunk="Decorations\Mountains\Mountains01_02_swamp.png " anchor="0,-45"
+              shadow="1"/>
+        <Item id="mountains_swamp1_3" chunk="Decorations\Mountains\Mountains01_03_swamp.png " anchor="14,-7"
+              shadow="1"/>
+        <Item id="mountains_11" chunk="Decorations\Mountains\Mountains11.png" anchor="-12,-27" shadow="1"/>
+        <Item id="mountains_12" chunk="Decorations\Mountains\Mountains12.png" anchor="-12,-30" shadow="1"/>
+        <Item id="mountains_13" chunk="Decorations\Mountains\Mountains13.png" anchor="-8,-32" shadow="1"/>
+        <Item id="mountains_14" chunk="Decorations\Mountains\Mountains14.png" anchor="-20,-33" shadow="1"/>
+        <Item id="mountains_15_1" chunk="Decorations\Mountains\Mountains01_01_sand.png" anchor="6,-44" shadow="1"/>
+        <Item id="mountains_15_2" chunk="Decorations\Mountains\Mountains01_02_sand.png" anchor="0,-45" shadow="1"/>
+        <Item id="mountains_15_3" chunk="Decorations\Mountains\Mountains01_03_sand.png" anchor="14,4" shadow="1"/>
+    </Group>
+
+    <Group id="path_elements">
+        <Item id="randctl_wall" chunk="Decorations\PathElements\RandomWall.png" anchor="9,-27" shadow="1"
+              sequence="16,1" crop="1" constId="PEL_RNDWALL"/>
+        <Item id="citadel_wall" chunk="Decorations\PathElements\CitadelWall.png" anchor="9,-27" shadow="1"
+              sequence="16,1" crop="1" constId="PEL_CTDWALL"/>
+        <Item id="stronghold_wall" chunk="Decorations\PathElements\StrongholdWall.png" anchor="9,-27" shadow="1"
+              sequence="16,1" crop="1" constId="PEL_STHWALL"/>
+        <Item id="tower_wall" chunk="Decorations\PathElements\TowerWall.png" anchor="9,-27" shadow="1" sequence="16,1"
+              crop="1" constId="PEL_TWRWALL"/>
+        <Item id="dungeon_wall" chunk="Decorations\PathElements\DungeonWall.png" anchor="9,-32" shadow="1"
+              sequence="16,1" crop="1" constId="PEL_DNGWALL"/>
+        <Item id="fortress_wall" chunk="Decorations\PathElements\FortressWall.png" anchor="9,-27" shadow="1"
+              sequence="16,1" crop="1" constId="PEL_FRTWALL"/>
+        <Item id="necropolis_wall" chunk="Decorations\PathElements\NecropolisWall.png" anchor="9,-27" shadow="1"
+              sequence="16,1" crop="1" constId="PEL_NCRWALL"/>
+        <Item id="stone_road" chunk="Decorations\PathElements\StoneRoad.png" anchor="5,2" sequence="16,1" crop="1"
+              constId="PEL_SROAD"/>
+        <Item id="dirt_road" chunk="Decorations\PathElements\DirtRoad.png" anchor="5,2" sequence="16,1" crop="1"
+              constId="PEL_DROAD"/>
+        <Item id="snow_road" chunk="Decorations\PathElements\SnowRoad.png" anchor="5,2" sequence="16,1" crop="1"
+              constId="PEL_SNROAD"/>
+        <Item id="river" chunk="Decorations\PathElements\River.png" anchor="5,2" sequence="16,1" crop="1"
+              constId="PEL_RIVER"/>
+        <Item id="lava_river" chunk="Decorations\PathElements\Lava_River.png" anchor="5,2" sequence="16,1" crop="1"
+              constId="PEL_LRIVER"/>
+    </Group>
+
+    <Group id="mines">
+        <Item id="rails" chunk="Decorations\Mines\MineRails.png" anchor="-5,0" crop="1"/>
+        <Item id="mountain" chunk="Decorations\Mines\MineMountain.png" anchor="-11,-30" crop="1" shadow="1"/>
+        <Item id="mountain_lava" chunk="Decorations\Mines\MineMountain_lava.png" anchor="-11,-30" crop="1" shadow="1"/>
+        <Item id="mountain_swamp" chunk="Decorations\Mines\MineMountain_swamp.png" anchor="-11,-30" crop="1"
+              shadow="1"/>
+        <Item id="mountain_snow" chunk="Decorations\Mines\MineMountain_snow.png" anchor="-11,-30" crop="1" shadow="1"/>
+        <Item id="entrance" chunk="Decorations\Mines\MineEntrance.png" anchor="7,-22" crop="1"/>
+        <Item id="sign" chunk="Decorations\Mines\MineSign.png" anchor="15,-10" crop="1" shadow="1"/>
+        <Item id="gold_truck" chunk="Decorations\Mines\GoldTruck.png" anchor="9,-8" crop="1" shadow="1"/>
+        <Item id="gems_truck" chunk="Decorations\Mines\GemsTruck.png" anchor="9,-9" crop="1" shadow="1"/>
+        <Item id="crystal_truck" chunk="Decorations\Mines\CrystalTruck.png" anchor="9,-16" crop="1" shadow="1"/>
+        <Item id="sulfur_truck" chunk="Decorations\Mines\SulfurTruck.png" anchor="9,-8" crop="1" shadow="1"/>
+        <Item id="ore_pit" chunk="Decorations\Mines\OrePit.png" anchor="-14,-18" crop="1"/>
+        <Item id="ore_lift" chunk="Decorations\Mines\OreLift.png" anchor="-2,-20" crop="1" shadow="1"/>
+        <Item id="ore_flag" chunk="Decorations\Mines\OreFlag.png" anchor="-14,-15" crop="1" shadow="1"/>
+        <Item id="alch_lab_road" chunk="Decorations\Mines\AlchLabRoad.png" anchor="-2,-7" crop="1"/>
+        <Item id="alch_lab_vat" chunk="Decorations\Mines\AlchLabVat.png" anchor="7,-8" crop="1" shadow="1"/>
+        <Item id="alch_lab_barrel" chunk="Decorations\Mines\AlchLabBarrel.png" anchor="0,-51" crop="1" shadow="1"/>
+        <Item id="sawmill_road" chunk="Decorations\Mines\SawmillRoad.png" anchor="16,-5" crop="1"/>
+        <Item id="sawmill_cart" chunk="Decorations\Mines\SawmillCart.png" anchor="6,-6" crop="1" shadow="1"/>
+        <Item id="sawmill" chunk="Decorations\Mines\Sawmill.png" anchor="-5,-33" crop="1" shadow="1"/>
+    </Group>
+
+    <Group id="constructions">
+        <Item id="dummy" chunk="Decorations\Constructions\dummy.png"/>
+
+        <Item id="tree_of_knowledge" chunk="Decorations\Constructions\TreeOfKnowledge.png" anchor="-5,-45" shadow="1"/>
+        <Item id="monolith_snow" chunk="Decorations\Constructions\monolith_snow.png" anchor="11,-48" shadow="1"/>
+        <Item id="monolith_waste" chunk="Decorations\Constructions\monolith_waste.png" anchor="11,-48" shadow="1"/>
+        <Item id="windmill" chunk="Decorations\Constructions\Windmill.png" anchor="0,-50" shadow="1"/>
+        <Item id="windmill_snow" chunk="Decorations\Constructions\Windmill_snow.png" anchor="0,-50" shadow="1"/>
+        <Item id="obs_tower3" chunk="Decorations\Constructions\ObservationTower.png" anchor="3,-88" shadow="1"/>
+        <Item id="obs_tower3_snow" chunk="Decorations\Constructions\ObservationTower_snow.png" anchor="3,-88"
+              shadow="1"/>
+        <!--	<Item id="wooden_sign1" chunk="Decorations\Constructions\WoodenSign.png" anchor="11,-14" shadow="1"/> -->
+        <Item id="wooden_sign1" chunk="Decorations\Constructions\sign2.png" anchor="9,-16" shadow="1"/>
+        <Item id="wooden_sign2" chunk="Decorations\Constructions\WoodenSign2.png" anchor="4,-12" shadow="1"/>
+        <Item id="wooden_sign3" chunk="Decorations\Constructions\WoodenSign3.png" anchor="11,-12" shadow="1"/>
+        <Item id="wooden_sign4" chunk="Decorations\Constructions\WoodenSign4.png" anchor="11,-12" shadow="1"/>
+        <Item id="wooden_sign5" chunk="Decorations\Constructions\sign.png" anchor="11,-18" shadow="1"/>
+        <Item id="stone_well" chunk="Decorations\Constructions\StoneWell.png" anchor="7,-21" shadow="1"/>
+        <Item id="stone_well_snow" chunk="Decorations\Constructions\StoneWell_snow.png" anchor="7,-21" shadow="1"/>
+        <Item id="teleport1" chunk="Decorations\Constructions\Teleport1.png" anchor="6,-22" shadow="1"/>
+        <Item id="teleport2" chunk="Decorations\Constructions\Teleport2.png" anchor="5,-20" shadow="1"/>
+        <Item id="teleport3" chunk="Decorations\Constructions\Teleport3.png" anchor="7,-23" shadow="1"/>
+        <Item id="teleport_red_ent" chunk="Decorations\Constructions\TeleportRedEntrance.png" anchor="7,-18"
+              shadow="1"/>
+        <Item id="teleport_red_ext" chunk="Decorations\Constructions\TeleportRedExit.png" anchor="7,-18" shadow="1"/>
+        <Item id="teleport_green_ent" chunk="Decorations\Constructions\TeleportGreenEntrance.png" anchor="7,-18"
+              shadow="1"/>
+        <Item id="teleport_green_ext" chunk="Decorations\Constructions\TeleportGreenExit.png" anchor="7,-18"
+              shadow="1"/>
+        <Item id="teleport_blue_ent" chunk="Decorations\Constructions\TeleportBlueEntrance.png" anchor="7,-18"
+              shadow="1"/>
+        <Item id="teleport_blue_ext" chunk="Decorations\Constructions\TeleportBlueExit.png" anchor="7,-18" shadow="1"/>
+        <Item id="teleport_cyan_ent" chunk="Decorations\Constructions\TeleportCyanEntrance.png" anchor="7,-18"
+              shadow="1"/>
+        <Item id="teleport_cyan_ext" chunk="Decorations\Constructions\TeleportCyanExit.png" anchor="7,-18" shadow="1"/>
+        <Item id="teleport_magenta_ent" chunk="Decorations\Constructions\TeleportMagentaEntrance.png" anchor="7,-18"
+              shadow="1"/>
+        <Item id="teleport_magenta_ext" chunk="Decorations\Constructions\TeleportMagentaExit.png" anchor="7,-18"
+              shadow="1"/>
+        <Item id="teleport_yellow_ent" chunk="Decorations\Constructions\TeleportYellowEntrance.png" anchor="7,-18"
+              shadow="1"/>
+        <Item id="teleport_yellow_ext" chunk="Decorations\Constructions\TeleportYellowExit.png" anchor="7,-18"
+              shadow="1"/>
+        <Item id="idol" chunk="Decorations\Constructions\Idol.png" anchor="13,-26" shadow="1"/>
+        <Item id="idol_snow" chunk="Decorations\Constructions\Idol_snow.png" anchor="12,-22" shadow="1"/>
+        <Item id="fountain" chunk="Decorations\Constructions\Fontain.png" anchor="6,-15" shadow="1"/>
+        <Item id="fountain_snow" chunk="Decorations\Constructions\Fontain_snow.png" anchor="6,-15" shadow="1"/>
+        <Item id="magic_spring" chunk="Decorations\Constructions\MagicSpring.png" anchor="-8,-29" shadow="1"/>
+        <Item id="temple" chunk="Decorations\Constructions\Temple.png" anchor="7,-26" shadow="1"/>
+        <Item id="gazebo" chunk="Decorations\Constructions\Gazebo.png" anchor="5,-22" shadow="1"/>
+        <Item id="gazebo_snow" chunk="Decorations\Constructions\Gazebo_snow.png" anchor="5,-27" shadow="1"/>
+        <Item id="fort" chunk="Decorations\Constructions\Fort.png" anchor="-9,-37" shadow="1"/>
+        <Item id="fort_snow" chunk="Decorations\Constructions\Fort_snow.png" anchor="-11,-42" shadow="1"/>
+        <Item id="blacksmith" chunk="Decorations\Constructions\Blacksmith.png" anchor="0,-23" shadow="1"/>
+        <Item id="blacksmith_snow" chunk="Decorations\Constructions\Blacksmith_snow.png" anchor="0,-23" shadow="1"/>
+        <Item id="sword_in_the_stone" chunk="Decorations\Constructions\SwordInTheStone.png" anchor="7,-20" shadow="1"/>
+        <Item id="sword_in_the_stone_snow" chunk="Decorations\Constructions\SwordInTheStone_snow.png" anchor="3,-20"
+              shadow="1"/>
+        <Item id="magic_stone" chunk="Decorations\Constructions\Magic_Stone.png" anchor="9,-17" shadow="1"/>
+        <Item id="magic_stone_snow" chunk="Decorations\Constructions\Magic_Stone_snow.png" anchor="9,-17" shadow="1"/>
+        <Item id="stone_henge" chunk="Decorations\Constructions\StoneHenge.png" anchor="4,-13" shadow="1"/>
+        <Item id="stone_henge_snow" chunk="Decorations\Constructions\StoneHenge_snow.png" anchor="3,-13" shadow="1"/>
+        <Item id="prophets_statue" chunk="Decorations\Constructions\ProphetsStatue.png" anchor="5,-32" shadow="1"/>
+        <Item id="prophets_statue_snow" chunk="Decorations\Constructions\ProphetsStatue_snow.png" anchor="6,-33"
+              shadow="1"/>
+        <Item id="arena_1" chunk="Decorations\Constructions\Arena_01.png" anchor="2,-51" shadow="1"/>
+        <Item id="arena_2" chunk="Decorations\Constructions\Arena_02.png" anchor="0,-36" shadow="1"/>
+        <Item id="library" chunk="Decorations\Constructions\Library.png" anchor="-8,-19" shadow="1"/>
+        <Item id="library_snow" chunk="Decorations\Constructions\Library_snow.png" anchor="-8,-19" shadow="1"/>
+        <Item id="obelisk1" chunk="Decorations\Constructions\Obelisk1.png" anchor="6,-26" shadow="1"/>
+        <Item id="obelisk2" chunk="Decorations\Constructions\Obelisk2.png" anchor="6,-26" shadow="1"/>
+        <Item id="obelisk1_snow" chunk="Decorations\Constructions\Obelisk1_snow.png" anchor="6,-26" shadow="1"/>
+        <Item id="obelisk2_snow" chunk="Decorations\Constructions\Obelisk2_snow.png" anchor="6,-26" shadow="1"/>
+        <Item id="obelisk3_snow" chunk="Decorations\Constructions\Obelisk3_snow.png" anchor="6,-26" shadow="1"/>
+        <Item id="stables_1" chunk="Decorations\Constructions\Stables_01.png" anchor="12,-20" shadow="1"/>
+        <Item id="stables_2" chunk="Decorations\Constructions\Stables_02.png" anchor="0,-17" shadow="1"/>
+        <Item id="stables_snow_1" chunk="Decorations\Constructions\Stables_snow_01.png" anchor="12,-20" shadow="1"/>
+        <Item id="stables_snow_2" chunk="Decorations\Constructions\Stables_snow_02.png" anchor="0,-18" shadow="1"/>
+        <Item id="garden_of_revelation" chunk="Decorations\Constructions\GardenOfRevelation.png" anchor="17,-23"
+              shadow="1"/>
+        <Item id="witch_hut" chunk="Decorations\Constructions\WitchHut.png" anchor="5,-38" shadow="1"/>
+        <Item id="witch_hut_snow" chunk="Decorations\Constructions\WitchHut_snow.png" anchor="5,-38" shadow="1"/>
+        <Item id="watch_tower" chunk="Decorations\Constructions\watchtower.png" anchor="3,-31" shadow="1"/>
+        <Item id="watch_tower_snow" chunk="Decorations\Constructions\watchtower_snow.png" anchor="1,-31" shadow="1"/>
+        <Item id="shrine1" chunk="Decorations\Constructions\Shrine1.png" anchor="5,-28" shadow="1"/>
+        <Item id="shrine1_snow" chunk="Decorations\Constructions\Shrine1_snow.png" anchor="5,-28" shadow="1"/>
+        <Item id="shrine2" chunk="Decorations\Constructions\Shrine2.png" anchor="8,-28" shadow="1"/>
+        <Item id="shrine2_snow" chunk="Decorations\Constructions\Shrine2_snow.png" anchor="8,-28" shadow="1"/>
+        <Item id="shrine3" chunk="Decorations\Constructions\Shrine3.png" anchor="4,-28" shadow="1"/>
+        <Item id="shrine3_snow" chunk="Decorations\Constructions\Shrine3_snow.png" anchor="4,-28" shadow="1"/>
+        <Item id="crypt" chunk="Decorations\Constructions\Crypt.png" anchor="7,-22" shadow="1"/>
+        <Item id="crypt_snow" chunk="Decorations\Constructions\Crypt_snow.png" anchor="7,-22" shadow="1"/>
+        <Item id="boars_pen" chunk="Decorations\Constructions\BoarsPen.png" anchor="5,-18" shadow="1"/>
+        <Item id="boars_pen_snow" chunk="Decorations\Constructions\BoarsPen_snow.png" anchor="5,-18" shadow="1"/>
+        <Item id="boars_pen_pinfold" chunk="Decorations\Constructions\BoarsPen_pinfold.png" anchor="17,2" shadow="1"/>
+        <Item id="dwarf_cottage" chunk="Decorations\Constructions\DwarfCottage.png" anchor="4,-22" shadow="1"/>
+        <Item id="dwarf_cottage_snow" chunk="Decorations\Constructions\DwarfCottage_snow.png" anchor="4,-22"
+              shadow="1"/>
+        <Item id="excavation_dirt" chunk="Decorations\Constructions\Excavation_dirt.png" anchor="3,-3"/>
+        <Item id="excavation_sand" chunk="Decorations\Constructions\Excavation_sand.png" anchor="3,-3"/>
+        <Item id="excavation_snow" chunk="Decorations\Constructions\Excavation_snow.png" anchor="3,-3"/>
+        <Item id="cemetery" chunk="Decorations\Constructions\Cemetery.png" anchor="3,-14" shadow="1"/>
+        <Item id="cemetery_snow" chunk="Decorations\Constructions\Cemetery_snow.png" anchor="3,-14" shadow="1"/>
+        <Item id="cemetery_sand" chunk="Decorations\Constructions\Cemetery_sand.png" anchor="3,-14" shadow="1"/>
+        <Item id="rogue_wagon" chunk="Decorations\Constructions\RogueWagon.png" anchor="4,-15" shadow="1"/>
+        <Item id="rogue_wagon_snow" chunk="Decorations\Constructions\RogueWagon_snow.png" anchor="4,-15" shadow="1"/>
+        <Item id="desert_tent" chunk="Decorations\Constructions\DesertTent.png" anchor="-5,-22" shadow="1"/>
+        <Item id="haunted_house" chunk="Decorations\Constructions\HauntedHouse.png" anchor="4,-18" shadow="1"/>
+        <Item id="haunted_house_snow" chunk="Decorations\Constructions\HauntedHouse_snow.png" anchor="4,-18"
+              shadow="1"/>
+        <Item id="pyramid" chunk="Decorations\Constructions\Pyramid.png" anchor="-11,-44" shadow="1"/>
+        <Item id="maya_pyramid" chunk="Decorations\Constructions\MayaPyramid.png" anchor="-5,-36" shadow="1"/>
+        <Item id="ogres_treasury" chunk="Decorations\Constructions\OgresTreasury.png" anchor="4,-29" shadow="1"/>
+        <Item id="ogres_treasury_snow" chunk="Decorations\Constructions\OgresTreasury_snow.png" anchor="1,-33"
+              shadow="1"/>
+        <Item id="mages_treasury" chunk="Decorations\Constructions\MagesTreasury.png" anchor="6,-53" shadow="1"/>
+        <Item id="mages_treasury_snow" chunk="Decorations\Constructions\MagesTreasury_snow.png" anchor="6,-53"
+              shadow="1"/>
+        <Item id="druids_treasury" chunk="Decorations\Constructions\DruidsTreasury.png" anchor="4,-47" shadow="1"/>
+        <Item id="druids_treasury_snow" chunk="Decorations\Constructions\DruidsTreasury_snow.png" anchor="4,-47"
+              shadow="1"/>
+        <Item id="medusas_treasury" chunk="Decorations\Constructions\MedusasTreasury.png" anchor="7,-21" shadow="1"/>
+        <Item id="medusas_treasury_snow" chunk="Decorations\Constructions\MedusasTreasury_snow.png" anchor="7,-21"
+              shadow="1"/>
+        <Item id="hydras_treasury" chunk="Decorations\Constructions\HydrasTreasury.png" anchor="-10,-20"/>
+        <Item id="gargoyles_treasury" chunk="Decorations\Constructions\GargoylesTreasury.png" anchor="-4,-51"
+              shadow="1"/>
+        <Item id="gargoyles_treasury_snow" chunk="Decorations\Constructions\GargoylesTreasury_snow.png" anchor="-4,-51"
+              shadow="1"/>
+        <Item id="ice_cave" chunk="Decorations\Constructions\IceCave.png" anchor="-4,-29" shadow="1"/>
+        <Item id="shipwreck" chunk="Decorations\Constructions\Shipwreck.png" anchor="-25,-49" shadow="1"/>
+        <Item id="monk_abbey" chunk="Decorations\Constructions\monk_abbey.png" anchor="3,-24" shadow="1"/>
+        <Item id="monk_abbey_snow" chunk="Decorations\Constructions\monk_abbey_snow.png" anchor="3,-24" shadow="1"/>
+        <Item id="mausoleum" chunk="Decorations\Constructions\mausoleum.png" anchor="5,-10" shadow="1"/>
+        <Item id="mausoleum_snow" chunk="Decorations\Constructions\mausoleum_snow.png" anchor="5,-10" shadow="1"/>
+        <Item id="magic_school" chunk="Decorations\Constructions\magic_school.png" anchor="5,-17" shadow="1"/>
+        <Item id="magic_school_snow" chunk="Decorations\Constructions\magic_school_snow.png" anchor="5,-17" shadow="1"/>
+        <Item id="pegasus_waterfall" chunk="Decorations\Constructions\pegasus_waterfall.png" anchor="5,-47" shadow="1"/>
+        <Item id="pegasus_waterfall_snow" chunk="Decorations\Constructions\pegasus_waterfall_snow.png" anchor="5,-47"
+              shadow="1"/>
+        <Item id="white_wolf_den" chunk="Decorations\Constructions\white_wolf_den.png" anchor="5,-10" shadow="1"/>
+        <Item id="white_wolf_den_snow" chunk="Decorations\Constructions\white_wolf_den_snow.png" anchor="5,-10"
+              shadow="1"/>
+        <!--	<Item id="mage_citadel" chunk="Decorations\Constructions\mage_citadel.png" anchor="-12,-53" shadow="1" /> -->
+
+        <Item id="trinity" chunk="Decorations\Constructions\Trinity.png" anchor="-1,-58" shadow="1"/>
+        <Item id="trinity_snow" chunk="Decorations\Constructions\Trinity_Snow.png" anchor="1,-61" shadow="1"/>
+
+        <Item id="tent_red" chunk="Decorations\Constructions\TentRed.png" anchor="6,-6" shadow="1"/>
+        <Item id="tent_green" chunk="Decorations\Constructions\TentGreen.png" anchor="6,-6" shadow="1"/>
+        <Item id="tent_blue" chunk="Decorations\Constructions\TentBlue.png" anchor="6,-6" shadow="1"/>
+        <Item id="tent_cyan" chunk="Decorations\Constructions\TentCyan.png" anchor="6,-6" shadow="1"/>
+        <Item id="tent_magenta" chunk="Decorations\Constructions\TentMagenta.png" anchor="6,-6" shadow="1"/>
+        <Item id="tent_yellow" chunk="Decorations\Constructions\TentYellow.png" anchor="6,-6" shadow="1"/>
+
+        <Item id="tent_red_snow" chunk="Decorations\Constructions\TentRed_snow.png" anchor="4,-7" shadow="1"/>
+        <Item id="tent_green_snow" chunk="Decorations\Constructions\TentGreen_snow.png" anchor="4,-7" shadow="1"/>
+        <Item id="tent_blue_snow" chunk="Decorations\Constructions\TentBlue_snow.png" anchor="4,-7" shadow="1"/>
+        <Item id="tent_cyan_snow" chunk="Decorations\Constructions\TentCyan_snow.png" anchor="4,-7" shadow="1"/>
+        <Item id="tent_magenta_snow" chunk="Decorations\Constructions\TentMagenta_snow.png" anchor="4,-7" shadow="1"/>
+        <Item id="tent_yellow_snow" chunk="Decorations\Constructions\TentYellow_snow.png" anchor="4,-7" shadow="1"/>
+
+        <Item id="peasants_hut" chunk="Decorations\Constructions\PeasantsHut.png" anchor="3,-18" shadow="1"/>
+        <Item id="peasants_hut_snow" chunk="Decorations\Constructions\PeasantsHut_snow.png" anchor="1,-19" shadow="1"/>
+        <Item id="archers_hut" chunk="Decorations\Constructions\ArchersHut.png" anchor="3,-20" shadow="1"/>
+        <Item id="archers_hut_snow" chunk="Decorations\Constructions\ArchersHut_snow.png" anchor="3,-20" shadow="1"/>
+        <Item id="goblins_hut" chunk="Decorations\Constructions\GoblinsHut.png" anchor="4,-16" shadow="1"/>
+        <Item id="goblins_hut_snow" chunk="Decorations\Constructions\GoblinsHut_snow.png" anchor="4,-21" shadow="1"/>
+        <Item id="treehouse" chunk="Decorations\Constructions\Treehouse.png" anchor="3,-47" shadow="1"/>
+        <Item id="halflings_hut" chunk="Decorations\Constructions\HalflingsHut.png" anchor="6,-15" shadow="1"/>
+        <Item id="halflings_hut_snow" chunk="Decorations\Constructions\HalflingsHut_snow.png" anchor="6,-15"
+              shadow="1"/>
+        <Item id="centaurs_cave" chunk="Decorations\Constructions\CentaursCave.png" anchor="-10,-23" shadow="1"/>
+        <Item id="centaurs_cave_snow" chunk="Decorations\Constructions\CentaursCave_snow.png" anchor="-10,-23"
+              shadow="1"/>
+        <Item id="hydra_pond" chunk="Decorations\Constructions\HydraPond.png" anchor="-28,-25"/>
+        <Item id="medusa_temple" chunk="Decorations\Constructions\MedusaTemple.png" anchor="2,-18"/>
+
+        <Item id="ogres_adobe" chunk="Decorations\Constructions\adobe.png" anchor="5,-16" shadow="1"/>
+        <Item id="golem_foundry" chunk="Decorations\Constructions\Golem_Foundry.png" anchor="3,-31" shadow="1"/>
+        <Item id="golem_foundry_snow" chunk="Decorations\Constructions\Golem_Foundry_Snow.png" anchor="3,-31"
+              shadow="1"/>
+        <Item id="coffin" chunk="Decorations\Constructions\coffin.png" anchor="3,-11" shadow="1"/>
+        <Item id="elven_homestead" chunk="Decorations\Constructions\Elven_Homestead.png" anchor="4,-20" shadow="1"/>
+        <Item id="elven_homestead_snow" chunk="Decorations\Constructions\Elven_Homestead_snow.png" anchor="4,-22"
+              shadow="1"/>
+        <Item id="warg_cave" chunk="Decorations\Constructions\WargCave.png" anchor="-3,-12" shadow="1"/>
+        <Item id="warg_cave_snow" chunk="Decorations\Constructions\WargCave_snow.png" anchor="-3,-12" shadow="1"/>
+        <Item id="guard_tower" chunk="Decorations\Constructions\GuardTower2Sand.png" anchor="3,-27" shadow="1"/>
+        <Item id="guard_tower_snow" chunk="Decorations\Constructions\GuardTower2Snow.png" anchor="3,-27" shadow="1"/>
+
+        <Item id="griffin_nest" chunk="Decorations\Constructions\Griffin_Nest.png" anchor="8,-27" shadow="1"/>
+        <Item id="mage_tower" chunk="Decorations\Constructions\Mage_Tower.png" anchor="3,-60" shadow="1"/>
+        <Item id="swordsman_armory" chunk="Decorations\Constructions\Swordsman_Armory.png" anchor="-1,-22" shadow="1"/>
+        <Item id="swordsman_armory_snow" chunk="Decorations\Constructions\Swordsman_Armory_snow.png" anchor="-2,-24"
+              shadow="1"/>
+
+        <Item id="citadel_stower" chunk="Decorations\Castles\CitadelSTower.png" anchor="3,-48" shadow="1"/>
+        <Item id="citadel_mtower" chunk="Decorations\Castles\CitadelMTower.png" anchor="3,-56" shadow="1"/>
+        <Item id="citadel_ltower" chunk="Decorations\Castles\CitadelLTower.png" anchor="3,-73" shadow="1"/>
+        <Item id="citadel_ll" chunk="Decorations\Castles\CitadelLL.png" anchor="5,-22" shadow="1"/>
+        <Item id="citadel_lr" chunk="Decorations\Castles\CitadelLR.png" anchor="4,-28" shadow="1"/>
+        <Item id="citadel_rl" chunk="Decorations\Castles\CitadelRL.png" anchor="5,-29" shadow="1"/>
+        <Item id="citadel_rr" chunk="Decorations\Castles\CitadelRR.png" anchor="3,-23" shadow="1"/>
+
+        <Item id="stronghold_stower" chunk="Decorations\Castles\StrongholdSTower.png" anchor="3,-48" shadow="1"/>
+        <Item id="stronghold_mtower" chunk="Decorations\Castles\StrongholdMTower.png" anchor="3,-54" shadow="1"/>
+        <Item id="stronghold_ltower" chunk="Decorations\Castles\StrongholdLTower.png" anchor="2,-78" shadow="1"/>
+        <Item id="stronghold_ll" chunk="Decorations\Castles\StrongholdLL.png" anchor="6,-29" shadow="1"/>
+        <Item id="stronghold_lr" chunk="Decorations\Castles\StrongholdLR.png" anchor="4,-25" shadow="1"/>
+        <Item id="stronghold_rl" chunk="Decorations\Castles\StrongholdRL.png" anchor="7,-26" shadow="1"/>
+        <Item id="stronghold_rr" chunk="Decorations\Castles\StrongholdRR.png" anchor="5,-30" shadow="1"/>
+
+        <Item id="tower_stower" chunk="Decorations\Castles\TowerSTower.png" anchor="3,-65" shadow="1"/>
+        <Item id="tower_mtower" chunk="Decorations\Castles\TowerMTower.png" anchor="3,-73" shadow="1"/>
+        <Item id="tower_ltower" chunk="Decorations\Castles\TowerLTower.png" anchor="3,-85" shadow="1"/>
+        <Item id="tower_ll" chunk="Decorations\Castles\TowerLL.png" anchor="6,-30" shadow="1"/>
+        <Item id="tower_lr" chunk="Decorations\Castles\TowerLR.png" anchor="5,-25" shadow="1"/>
+        <Item id="tower_rl" chunk="Decorations\Castles\TowerRL.png" anchor="9,-26" shadow="1"/>
+        <Item id="tower_rr" chunk="Decorations\Castles\TowerRR.png" anchor="5,-29" shadow="1"/>
+
+        <Item id="dungeon_stower" chunk="Decorations\Castles\DungeonSTower.png" anchor="3,-39" shadow="1"/>
+        <Item id="dungeon_mtower" chunk="Decorations\Castles\DungeonMTower.png" anchor="3,-59" shadow="1"/>
+        <Item id="dungeon_ltower" chunk="Decorations\Castles\DungeonLTower.png" anchor="3,-67" shadow="1"/>
+        <Item id="dungeon_ll" chunk="Decorations\Castles\DungeonLL.png" anchor="5,-24" shadow="1"/>
+        <Item id="dungeon_lr" chunk="Decorations\Castles\DungeonLR.png" anchor="5,-24" shadow="1"/>
+        <Item id="dungeon_rl" chunk="Decorations\Castles\DungeonRL.png" anchor="6,-23" shadow="1"/>
+        <Item id="dungeon_rr" chunk="Decorations\Castles\DungeonRR.png" anchor="5,-25" shadow="1"/>
+
+        <Item id="fortress_stower" chunk="Decorations\Castles\FortressSTower.png" anchor="3,-63" shadow="1"/>
+        <Item id="fortress_mtower" chunk="Decorations\Castles\FortressMTower.png" anchor="3,-71" shadow="1"/>
+        <Item id="fortress_ltower" chunk="Decorations\Castles\FortressLTower.png" anchor="3,-83" shadow="1"/>
+        <Item id="fortress_ll" chunk="Decorations\Castles\FortressLL.png" anchor="4,-29" shadow="1"/>
+        <Item id="fortress_lr" chunk="Decorations\Castles\FortressLR.png" anchor="5,-24" shadow="1"/>
+        <Item id="fortress_rl" chunk="Decorations\Castles\FortressRL.png" anchor="5,-24" shadow="1"/>
+        <Item id="fortress_rr" chunk="Decorations\Castles\FortressRR.png" anchor="5,-30" shadow="1"/>
+
+        <Item id="necropolis_stower" chunk="Decorations\Castles\NecropolisSTower.png" anchor="3,-63" shadow="1"/>
+        <Item id="necropolis_mtower" chunk="Decorations\Castles\NecropolisMTower.png" anchor="3,-71" shadow="1"/>
+        <Item id="necropolis_ltower" chunk="Decorations\Castles\NecropolisLTower.png" anchor="3,-83" shadow="1"/>
+        <Item id="necropolis_ll" chunk="Decorations\Castles\NecropolisLL.png" anchor="5,-29" shadow="1"/>
+        <Item id="necropolis_lr" chunk="Decorations\Castles\NecropolisLR.png" anchor="5,-25" shadow="1"/>
+        <Item id="necropolis_rl" chunk="Decorations\Castles\NecropolisRL.png" anchor="6,-25" shadow="1"/>
+        <Item id="necropolis_rr" chunk="Decorations\Castles\NecropolisRR.png" anchor="5,-29" shadow="1"/>
+
+        <Item id="randctl_stower" chunk="Decorations\Castles\RandctlSTower.png" anchor="3,-63" shadow="1"/>
+        <Item id="randctl_mtower" chunk="Decorations\Castles\RandctlMTower.png" anchor="3,-71" shadow="1"/>
+        <Item id="randctl_ltower" chunk="Decorations\Castles\RandctlLTower.png" anchor="3,-83" shadow="1"/>
+        <Item id="randctl_ll" chunk="Decorations\Castles\RandctlLL.png" anchor="4,-29" shadow="1"/>
+        <Item id="randctl_lr" chunk="Decorations\Castles\RandctlLR.png" anchor="5,-24" shadow="1"/>
+        <Item id="randctl_rl" chunk="Decorations\Castles\RandctlRL.png" anchor="5,-24" shadow="1"/>
+        <Item id="randctl_rr" chunk="Decorations\Castles\RandctlRR.png" anchor="5,-30" shadow="1"/>
+    </Group>
+
+    <Group id="artifacts">
+        <Item id="rand_artifacts" chunk="Common\RandArtifacts.png" sequence="5,1" anchor="11,-5" shadow="1"/>
+        <Item id="silver_sword" chunk="Decorations\Artifacts\SilverSword.png" anchor="12,-9" shadow="1"/>
+        <Item id="sword" chunk="Decorations\Artifacts\Sword.png" anchor="12,-10" shadow="1"/>
+        <Item id="eclipse" chunk="Decorations\Artifacts\Eclipse.png" anchor="11,-9" shadow="1"/>
+        <Item id="sword_breaker" chunk="Decorations\Artifacts\SwordBreaker.png" anchor="12,-11" shadow="1"/>
+        <Item id="shield" chunk="Decorations\Artifacts\Shield.png" anchor="10,-8" shadow="1"/>
+        <Item id="staff" chunk="Decorations\Artifacts\Staff.png" anchor="10,-12" shadow="1"/>
+        <Item id="plate" chunk="Decorations\Artifacts\Plate.png" anchor="8,-8" shadow="1"/>
+        <Item id="helm" chunk="Decorations\Artifacts\Helm.png" anchor="9,-9" shadow="1"/>
+        <Item id="precursors_helmet" chunk="Decorations\Artifacts\PrecursorsHelmet.png" anchor="10,-7" shadow="1"/>
+        <Item id="ring" chunk="Decorations\Artifacts\Ring.png" anchor="10,3" shadow="1"/>
+        <Item id="boots" chunk="Decorations\Artifacts\Boots.png" anchor="9,-7" shadow="1"/>
+        <Item id="nomad_boots" chunk="Decorations\Artifacts\NomadBoots.png" anchor="11,-6" shadow="1"/>
+        <Item id="pedant" chunk="Decorations\Artifacts\Pedant.png" anchor="11,-10" shadow="1"/>
+        <!--	<Item id="bag_of_gold" chunk="Decorations\Artifacts\BagOfGold.png" anchor="5,-8" shadow="1"/> -->
+        <Item id="long_bow" chunk="Decorations\Artifacts\LongBow.png" anchor="12,-10" shadow="1"/>
+        <Item id="vampires_cowl" chunk="Decorations\Artifacts\VampiresCowl.png" anchor="8,-8" shadow="1"/>
+        <Item id="monks_ring" chunk="Decorations\Artifacts\MonksRing.png" anchor="7,-9" shadow="1"/>
+        <Item id="lucky_dice" chunk="Decorations\Artifacts\LuckyDice.png" anchor="9,-8" shadow="1"/>
+        <Item id="ancient_broadsword" chunk="Decorations\Artifacts\AncientBroadsword.png" anchor="12,-9" shadow="1"/>
+        <Item id="power_axe" chunk="Decorations\Artifacts\PowerAxe.png" anchor="6,-10" shadow="1"/>
+        <Item id="ring_of_life" chunk="Decorations\Artifacts\RingOfLife.png" anchor="8,0" shadow="1"/>
+        <Item id="clover" chunk="Decorations\Artifacts\Clover.png" anchor="7,-10" shadow="1"/>
+        <Item id="cart_of_ore" chunk="Decorations\Artifacts\CartOfOre.png" anchor="6,-9" shadow="1"/>
+        <!-- replaced -->
+        <Item id="spiked_helm" chunk="Decorations\Artifacts\SoldiersHelm.png " anchor="8,-9" shadow="1"/>
+        <!--	<Item id="witchs_brooch" chunk="Decorations\Artifacts\WitchsBrooch.png" anchor="10,-11" shadow="1"/> -->
+        <Item id="telescope" chunk="Decorations\Artifacts\Telescope.png" anchor="9,-13" shadow="1"/>
+        <!--	<Item id="purse_of_gold" chunk="Decorations\Artifacts\PurseOfGold.png" anchor="7,-10" shadow="1"/> -->
+        <Item id="sup_scroll" chunk="Decorations\Artifacts\SupScroll.png" anchor="7,-3" shadow="1"/>
+        <Item id="medal_of_distinction" chunk="Decorations\Artifacts\MedalOfDistinction.png" anchor="12,-9" shadow="1"/>
+        <Item id="casters_bracelet" chunk="Decorations\Artifacts\CastersBracelet.png" anchor="8,-5" shadow="1"/>
+        <Item id="pouch_of_gems" chunk="Decorations\Artifacts\PouchOfGems.png" anchor="10,-5" shadow="1"/>
+        <Item id="vial_of_mercury" chunk="Decorations\Artifacts\VialOfMercury.png" anchor="11,-10" shadow="1"/>
+        <Item id="tome_of_knowledge" chunk="Decorations\Artifacts\TomeOfKnowledge.png" anchor="9,-5" shadow="1"/>
+        <Item id="parchment_scroll" chunk="Decorations\Artifacts\ParchmentScroll.png" anchor="10,-7" shadow="1"/>
+        <Item id="ring_of_power" chunk="Decorations\Artifacts\RingOfPower.png" anchor="11,-4" shadow="1"/>
+        <Item id="peasants_sickle" chunk="Decorations\Artifacts\PeasantsSickle.png" anchor="11,-8" shadow="1"/>
+        <Item id="diplomats_quill" chunk="Decorations\Artifacts\DiplomatsQuill.png" anchor="14,-9" shadow="1"/>
+        <Item id="golden_bird_of_luck" chunk="Decorations\Artifacts\GoldenBirdOfLuck.png" anchor="9,-11" shadow="1"/>
+        <Item id="silver_bird_of_luck" chunk="Decorations\Artifacts\SilverBirdOfLuck.png" anchor="9,-11" shadow="1"/>
+        <Item id="snake_bracelet" chunk="Decorations\Artifacts\SnakeBracelet.png" anchor="9,-9" shadow="1"/>
+        <Item id="scroll_of_enlightenment" chunk="Decorations\Artifacts\ScrollOfEnlightenment.png" anchor="9,-2"
+              shadow="1"/>
+        <Item id="pendant_of_omniscience" chunk="Decorations\Artifacts\PendantOfOmniscience.png" anchor="10,-8"
+              shadow="1"/>
+        <Item id="long_sword" chunk="Decorations\Artifacts\LongSword.png" anchor="10,-10" shadow="1"/>
+        <Item id="heros_shield" chunk="Decorations\Artifacts\HerosShield.png" anchor="9,-10" shadow="1"/>
+        <Item id="book_of_wisdom" chunk="Decorations\Artifacts\BookOfWisdom.png" anchor="12,-9" shadow="1"/>
+        <Item id="sphere_of_negation" chunk="Decorations\Artifacts\SphereOfNegation.png" anchor="9,-8" shadow="1"/>
+        <Item id="pedant_of_life" chunk="Decorations\Artifacts\PendantOfLife.png" anchor="9,-11" shadow="1"/>
+        <Item id="crossbow" chunk="Decorations\Artifacts\Crossbow.png" anchor="8,1" shadow="1"/>
+        <Item id="necromancers_ring" chunk="Decorations\Artifacts\NecromancersRing.png" anchor="8,-10" shadow="1"/>
+        <Item id="pendant_of_wisdom" chunk="Decorations\Artifacts\PendantOfWisdom.png" anchor="9,-9" shadow="1"/>
+        <Item id="ring_of_perpetuity" chunk="Decorations\Artifacts\RingOfPerpetuity.png" anchor="12,-7" shadow="1"/>
+        <Item id="wizards_hat" chunk="Decorations\Artifacts\WizardsHat.png" anchor="9,-7" shadow="1"/>
+        <Item id="crystal_rose" chunk="Decorations\Artifacts\CrystalRose.png" anchor="12,-8" shadow="1"/>
+        <Item id="warlocks_necklace" chunk="Decorations\Artifacts\WarlocksNecklace.png" anchor="10,-11" shadow="1"/>
+        <Item id="minor_scroll_of_knowledge" chunk="Decorations\Artifacts\MinorScrollOfKnowledge.png" anchor="8,-2"
+              shadow="1"/>
+        <Item id="amulet_of_wealth" chunk="Decorations\Artifacts\AmuletOfWealth.png" anchor="8,-8" shadow="1"/>
+        <Item id="white_pearl_necklace" chunk="Decorations\Artifacts\WhitePearlNecklace.png" anchor="9,-9" shadow="1"/>
+        <Item id="black_pearl_necklace" chunk="Decorations\Artifacts\BlackPearlNecklace.png" anchor="9,-9" shadow="1"/>
+        <Item id="shakles_of_war" chunk="Decorations\Artifacts\ShaklesOfWar.png" anchor="8,-5" shadow="0"/>
+        <Item id="jar_of_mana" chunk="Decorations\Artifacts\JarOfMana.png" anchor="13,-12" shadow="1"/>
+        <Item id="protective_cloak" chunk="Decorations\Artifacts\ProtectiveCloak.png" anchor="9,-11" shadow="1"/>
+        <Item id="dragon_shield" chunk="Decorations\Artifacts\DragonShield.png" anchor="8,-10" shadow="1"/>
+        <Item id="armor_of_might" chunk="Decorations\Artifacts\ArmorOfMight.png" anchor="8,-10" shadow="1"/>
+        <Item id="protective_cloak_air" chunk="Decorations\Artifacts\ProtectiveCloakAir.png" anchor="9,-11" shadow="1"/>
+        <Item id="protective_cloak_earth" chunk="Decorations\Artifacts\ProtectiveCloakEarth.png" anchor="9,-11"
+              shadow="1"/>
+        <Item id="protective_cloak_fire" chunk="Decorations\Artifacts\ProtectiveCloakFire.png" anchor="9,-11"
+              shadow="1"/>
+        <Item id="protective_cloak_water" chunk="Decorations\Artifacts\ProtectiveCloakWater.png" anchor="9,-11"
+              shadow="1"/>
+        <Item id="sorcerers_wand" chunk="Decorations\Artifacts\SorcerersWand.png" anchor="10,-8" shadow="1"/>
+        <Item id="cord_of_wood" chunk="Decorations\Artifacts\EndlessCordOfWood.png" anchor="9,0" shadow="1"/>
+        <Item id="elfs_long_bow" chunk="Decorations\Artifacts\ElfsLongBow.png" anchor="7,-11" shadow="1"/>
+        <Item id="sulfur_ring" chunk="Decorations\Artifacts\SulfurRing.png" anchor="8,-8" shadow="1"/>
+        <Item id="paladins_shield" chunk="Decorations\Artifacts\PaladinsShield.png" anchor="11,-10" shadow="1"/>
+        <Item id="necromancers_sword" chunk="Decorations\Artifacts\NecromancersSword.png" anchor="11,-9" shadow="1"/>
+        <Item id="clock_of_swiftness" chunk="Decorations\Artifacts\ClockOfSwiftness.png" anchor="8,-8" shadow="1"/>
+
+        <Item id="throwing_axe" chunk="Decorations\Artifacts\ThrowingAxe.png" anchor="8,-8" shadow="1"/>
+        <Item id="goblins_shield" chunk="Decorations\Artifacts\GoblinsShield.png" anchor="8,-11" shadow="1"/>
+        <Item id="casters_pendant" chunk="Decorations\Artifacts\CastersPendant.png" anchor="10,-11" shadow="1"/>
+        <Item id="sword_of_cursed" chunk="Decorations\Artifacts\SwordOfCursed.png" anchor="9,-10" shadow="1"/>
+
+        <!-- magic spheres
+        <Item id="sphere_of_air" chunk="Decorations\Artifacts\sphere_of_air.png" anchor="8,-8" shadow="1"/>
+        <Item id="sphere_of_earth" chunk="Decorations\Artifacts\sphere_of_earth.png" anchor="12,-5" shadow="1"/>
+        <Item id="sphere_of_fire" chunk="Decorations\Artifacts\sphere_of_fire.png" anchor="8,-9" shadow="1"/>
+        <Item id="sphere_of_water" chunk="Decorations\Artifacts\sphere_of_water.png" anchor="8,-8" shadow="1"/>
+        -->
+
+        <!-- new arts -->
+        <Item id="mace" chunk="Decorations\Artifacts\mace.png" anchor="11,-9" shadow="1"/>
+        <Item id="golden_mace" chunk="Decorations\Artifacts\golden_mace.png" anchor="11,-9" shadow="1"/>
+
+        <Item id="golden_sword" chunk="Decorations\Artifacts\golden_sword.png" anchor="10,-11" shadow="1"/>
+        <Item id="golden_shield" chunk="Decorations\Artifacts\golden_shield.png" anchor="8,-11" shadow="1"/>
+        <Item id="golden_armor" chunk="Decorations\Artifacts\golden_armor.png" anchor="8,-12" shadow="1"/>
+        <Item id="golden_ring" chunk="Decorations\Artifacts\golden_ring.png" anchor="7,-9" shadow="1"/>
+        <Item id="golden_chalice" chunk="Decorations\Artifacts\golden_chalice.png" anchor="8,-11" shadow="1"/>
+        <Item id="golden_skull" chunk="Decorations\Artifacts\golden_skull.png" anchor="7,-9" shadow="1"/>
+
+        <Item id="iron_greaves" chunk="Decorations\Artifacts\KneeArmor.png" anchor="9,-10" shadow="1"/>
+        <Item id="bone_greaves" chunk="Decorations\Artifacts\BoneGreaves.png" anchor="9,-10" shadow="1"/>
+
+        <Item id="sun_rod" chunk="Decorations\Artifacts\SunRod.png" anchor="4,-10" shadow="1"/>
+        <Item id="bastard_sword" chunk="Decorations\Artifacts\BastardSword.png" anchor="8,-9" shadow="1"/>
+        <Item id="circlet_of_air" chunk="Decorations\Artifacts\AirCirclet.png" anchor="8,1" shadow="1"/>
+        <Item id="ranger_cap" chunk="Decorations\Artifacts\RangersCap.png" anchor="7,-4" shadow="1"/>
+
+        <Item id="arrows" chunk="Decorations\Artifacts\Arrows.png" anchor="8,-8" shadow="1"/>
+        <Item id="bloodstone_necklace" chunk="Decorations\Artifacts\bloodstone_necklace.png" anchor="8,-8" shadow="1"/>
+        <Item id="bone_armor" chunk="Decorations\Artifacts\Bone_armor.png" anchor="8,-8" shadow="1"/>
+        <Item id="bone_mask" chunk="Decorations\Artifacts\Bone_mask.png" anchor="8,-8" shadow="1"/>
+        <Item id="bone_necklace" chunk="Decorations\Artifacts\bone_necklace2.png" anchor="8,-8" shadow="1"/>
+        <Item id="dwarven_hammer" chunk="Decorations\Artifacts\Dwarven_hammer.png" anchor="8,-8" shadow="1"/>
+        <Item id="dwarven_helm" chunk="Decorations\Artifacts\Dwarven_helm.png" anchor="8,-8" shadow="1"/>
+        <Item id="fast_crossbow" chunk="Decorations\Artifacts\fast_crossbow.png" anchor="8,-8" shadow="1"/>
+        <Item id="goblin_cap" chunk="Decorations\Artifacts\GoblinCap.png" anchor="8,-8" shadow="1"/>
+        <Item id="ice_amulet" chunk="Decorations\Artifacts\ice_amulet.png" anchor="8,-8" shadow="1"/>
+        <Item id="kings_shield" chunk="Decorations\Artifacts\kings_shield.png" anchor="8,-8" shadow="1"/>
+        <Item id="leather_armor" chunk="Decorations\Artifacts\Leather_armor.png" anchor="8,-8" shadow="1"/>
+        <Item id="ogre_shield" chunk="Decorations\Artifacts\OgreShield.png" anchor="8,-8" shadow="1"/>
+        <Item id="riders_helm" chunk="Decorations\Artifacts\Riders_helm.png" anchor="8,-8" shadow="1"/>
+        <Item id="swamp_boots" chunk="Decorations\Artifacts\swamp_boots.png" anchor="8,-8" shadow="1"/>
+        <Item id="winged_helmet" chunk="Decorations\Artifacts\Winged_helmet.png" anchor="8,-8" shadow="1"/>
+
+    </Group>
+
+
+</HMMSpriteSet>
+

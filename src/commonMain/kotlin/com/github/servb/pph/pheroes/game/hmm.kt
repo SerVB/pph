@@ -3,6 +3,7 @@ package com.github.servb.pph.pheroes.game
 import com.github.servb.pph.gxlib.GXLF_LANDSCAPE
 import com.github.servb.pph.gxlib.iDibReader
 import com.github.servb.pph.gxlib.iGXApp
+import com.github.servb.pph.pheroes.mapEditor.exportSprites
 import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.asRectangle
 import com.github.servb.pph.util.center
@@ -21,7 +22,8 @@ val gTextComposer: iTextComposer = iTextComposer()
 
 val gTextMgr: iTextManager = iTextManager()
 
-//val gGfxMgr: iGfxManager  // todo
+val gGfxMgr: iGfxManager = iGfxManager()
+
 //private val gSfxMgr: iSfxManager  // todo
 val gGame: Game = Game()
 val gSettings: iSettings = iSettings()
@@ -88,12 +90,10 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
         TODO("MessageBox(NULL, _T(\"Unable to init text manager!\"), NULL, MB_OK); return -1;")
     }
 
-    // todo:
-//    gGfxMgr.SetGamma( gSettings.GetEntryValue(CET_DISPGAMMA) );
-//    if (!gGfxMgr.Load(0,(gDataPath+_T("game.gfx")).CStr(), gSettings.MapSpriteFile()?(iGfxManager::LM_MappedFile):(iGfxManager::LM_Memory))) {
-//        MessageBox(NULL, _T("Unable to open sprite file!"), NULL, MB_OK);
-//        return -1;
-//    }
+    gGfxMgr.SetGamma(gSettings.GetEntryValue(ConfigEntryType.DISPGAMMA).toUInt())
+    if (!gGfxMgr.Load(0, exportSprites("pheroes/bin/Resources/hmm/GFX/spriteset.xml"))) {
+        TODO("MessageBox(NULL, _T(\"Unable to open sprite file!\"), NULL, MB_OK); return -1;")
+    }
 
     // todo:
 //    if (gSettings.GetEntryValue(CET_SFXVOLUME) != 0 && !gSfxMgr.Init(gDataPath+_T("game.sfx"))) {

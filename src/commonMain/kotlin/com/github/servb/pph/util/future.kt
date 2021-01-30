@@ -9,6 +9,10 @@ fun IRectangleInt.asSize(): ISizeInt = object : ISizeInt {
 
     override val width: Int get() = this@asSize.width
     override val height: Int get() = this@asSize.height
+
+    override fun equals(other: Any?): Boolean {
+        return ISizeInt(width, height) == other
+    }
 }
 
 fun IRectangleInt.asPoint(): IPointInt = object : IPointInt {
