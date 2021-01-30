@@ -68,12 +68,26 @@ private fun dist_b(dx: Int, dy: Int): Int {
     return dx + dy - minOf(dx, dy) / 2
 }
 
-private class grad_shader(val rx: Int, val ry: Int, val rw: Int, val rh: Int) {
+private class grad_shader {
+
+    var rx: Int = 0
+    var ry: Int = 0
+    var rw: Int = 0
+    var rh: Int = 0
 
     companion object {
 
         const val Max_Height = 256
         const val Max_Radii = 256 + 128
+
+        val INSTANCE = grad_shader()  // try to avoid allocations
+    }
+
+    fun init(x: Int, y: Int, w: Int, h: Int) {
+        rx = x
+        ry = y
+        rw = w
+        rh = h
     }
 
     val vshade = UIntArray(Max_Height)
@@ -198,7 +212,8 @@ fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDecs: Boole
 
     // Shade
     if (bDecs) {
-        val shader = grad_shader(bkRect.x, bkRect.y, bkRect.width, bkRect.height)
+        val shader = grad_shader.INSTANCE
+        shader.init(bkRect.x, bkRect.y, bkRect.width, bkRect.height)
         shader.precalc()
         shader.draw(surf.GetPtr(), surf.GetWidth())
     }
