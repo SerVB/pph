@@ -4,4 +4,4 @@ build
 bundles
 local.properties
 *.iml
-game.gfx
+/game.gfx

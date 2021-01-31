@@ -13,7 +13,7 @@ It's available at GitHub Pages: <https://servb.github.io/pph/>.
 To run the game, clone the repo and execute the following commands:
 
 ```shell
-# Compress graphics:
+# Compress graphics (not needed for now):
 ./gradlew :map-editor:exportGfx      # for Linux/Mac
 .\gradlew.bat :map-editor:exportGfx  # for Windows
 ```
