@@ -10,9 +10,16 @@ It's available at GitHub Pages: <https://servb.github.io/pph/>.
 
 ## Running from sources
 
-To run the game, clone the repo and execute the following command:
+To run the game, clone the repo and execute the following commands:
 
+```shell
+# Compress graphics:
+./gradlew :map-editor:exportGfx      # for Linux/Mac
+.\gradlew.bat :map-editor:exportGfx  # for Windows
 ```
+
+```shell
+# Run app:
 ./gradlew runJvm      # for Linux/Mac
 .\gradlew.bat runJvm  # for Windows
 ```

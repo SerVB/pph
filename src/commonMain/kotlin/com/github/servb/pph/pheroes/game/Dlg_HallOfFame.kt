@@ -36,9 +36,14 @@ class iHighScore {
                 m_entries.add(entry)
             }
         }
-        if (m_entries.size < 10) {  // todo: remove this debug entry
+        if (m_entries.size < 10) {  // todo: remove these debug entries
             val tsOfImplementation = DateTime(2021, 1, 14)
             m_entries.add(iEntry("your ad here :)", tsOfImplementation.toTimestamp(), 12u, 1024u))
+            val tsOfLowPerformance = DateTime(2021, 1, 31)
+            m_entries.add(iEntry("Low performance?", tsOfLowPerformance.toTimestamp(), 42u, 2048u))
+            m_entries.add(iEntry("Check this:", tsOfLowPerformance.toTimestamp(), 42u, 2048u))
+            m_entries.add(iEntry("https://youtrack.jetbra", tsOfLowPerformance.toTimestamp(), 42u, 2048u))
+            m_entries.add(iEntry("ins.com/issue/KT-40689", tsOfLowPerformance.toTimestamp(), 42u, 2048u))
         }
     }
 

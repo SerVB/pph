@@ -3,7 +3,6 @@ package com.github.servb.pph.pheroes.game
 import com.github.servb.pph.gxlib.GXLF_LANDSCAPE
 import com.github.servb.pph.gxlib.iDibReader
 import com.github.servb.pph.gxlib.iGXApp
-import com.github.servb.pph.pheroes.mapEditor.exportSprites
 import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.asRectangle
 import com.github.servb.pph.util.center
@@ -91,7 +90,7 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
     }
 
     gGfxMgr.SetGamma(gSettings.GetEntryValue(ConfigEntryType.DISPGAMMA).toUInt())
-    if (!gGfxMgr.Load(0, exportSprites("pheroes/bin/Resources/hmm/GFX/spriteset.xml"))) {
+    if (!gGfxMgr.Load(0, "Game/Data/game.gfx")) {
         TODO("MessageBox(NULL, _T(\"Unable to open sprite file!\"), NULL, MB_OK); return -1;")
     }
 

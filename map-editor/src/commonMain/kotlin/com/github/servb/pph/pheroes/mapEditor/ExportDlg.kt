@@ -11,6 +11,9 @@ import com.soywiz.korim.bitmap.slice
 import com.soywiz.korim.color.BGRA
 import com.soywiz.korim.color.RGBA
 import com.soywiz.korim.color.convertTo
+import com.soywiz.korio.compression.compress
+import com.soywiz.korio.compression.deflate.Deflate
+import com.soywiz.korio.file.std.localCurrentDirVfs
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.PointInt
 import com.soywiz.korma.geom.RectangleInt
@@ -248,4 +251,11 @@ suspend fun exportSprites(spriteSetFilePath: String): ByteArray {
         gBank.Put(spriteMgr[k], k)
     }
     return gBank.Export()
+}
+
+suspend fun main() {
+    val sprites = exportSprites("pheroes/bin/Resources/hmm/GFX/spriteset.xml")
+    val compressed = sprites.compress(Deflate)
+    val file = localCurrentDirVfs["game.gfx"]
+    file.write(compressed)
 }

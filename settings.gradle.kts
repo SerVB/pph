@@ -17,3 +17,5 @@ pluginManagement {
 }
 
 rootProject.name = "PPH"
+
+include(":map-editor")

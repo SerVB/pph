@@ -2,6 +2,9 @@ package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.util.*
+import com.soywiz.korio.compression.deflate.Deflate
+import com.soywiz.korio.compression.uncompress
+import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korio.stream.MemorySyncStream
 import com.soywiz.korio.stream.readBytesExact
 import com.soywiz.korma.geom.*
@@ -75,10 +78,12 @@ class iGfxManager {
             dataSize = 0
         }
 
-        lateinit var gfxData: ByteArray
+        lateinit var fileName: String
 
-        fun Load(gfxData: ByteArray, gammaLevel: UInt): Boolean {
-            this.gfxData = gfxData
+        suspend fun Load(fileName: String, gammaLevel: UInt): Boolean {
+            this.fileName = fileName
+
+            val gfxData = resourcesVfs[fileName].readAll().uncompress(Deflate)
 
             val stream = MemorySyncStream(gfxData)
 
@@ -115,12 +120,11 @@ class iGfxManager {
         fun Unload() {
             props.clear()
             data = ByteArray(0)
-            gfxData = ByteArray(0)
         }
 
-        fun Reload(gammaLevel: UInt): Boolean {
+        suspend fun Reload(gammaLevel: UInt): Boolean {
             Unload()
-            return Load(gfxData, gammaLevel)
+            return Load(fileName, gammaLevel)
         }
     }
 
@@ -140,14 +144,14 @@ class iGfxManager {
         gammaLevel = glevel
     }
 
-    fun Load(cat: BankId, gfxData: ByteArray): Boolean {
+    suspend fun Load(cat: BankId, fileName: String): Boolean {
         check(cat < MaxSpriteBanks)
         if (cat >= MaxSpriteBanks) {
             return false
         }
 
         bank_[cat].Unload()
-        return bank_[cat].Load(gfxData, gammaLevel)
+        return bank_[cat].Load(fileName, gammaLevel)
     }
 
     fun Reload(): Unit = TODO()
