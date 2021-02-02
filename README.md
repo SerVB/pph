@@ -32,9 +32,9 @@ Java needs to be installed on the computer.
 
 Unsurprisingly, this project is based on the following source codes:
 
-1. <https://github.com/sigman78/pocketheroes/> (available under Apache 2.0 license) &mdash; 1.04 beta. Can't be compiled
-   because
-   of `Before proceeding, ensure you have: * Visual-studio compiler with WinMobile support * WTL library installed`.
+1. <https://github.com/sigman78/pocketheroes/> (available under Apache 2.0 license) &mdash; 1.04 beta. Can be compiled
+   even in Visual Studio 2019 (Community) but with some effort (feel free to ask for help at Discord if you want to
+   compile them).
 1. <https://sourceforge.net/projects/palmheroes/> (available under Apache 2.0 license) &mdash; seems to be 1.03. Can't
    be compiled because of lack of some files. Also, there is many code that is related to licence registration (take a
    look at commits).
