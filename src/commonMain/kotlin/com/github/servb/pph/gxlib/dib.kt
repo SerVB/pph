@@ -13,8 +13,6 @@ import com.soywiz.korim.color.BGR_565
 import com.soywiz.korim.color.ColorFormat16
 import com.soywiz.korim.color.RGBA_4444
 import com.soywiz.korim.color.RGBA_5551
-import com.soywiz.korio.stream.MemorySyncStream
-import com.soywiz.korio.stream.SyncStream
 import com.soywiz.korma.geom.*
 
 fun RGB16(r: Number, g: Number, b: Number): UShort {
@@ -64,31 +62,6 @@ interface IDibIPixelIPointer {
 interface IDibIPixelPointer : IDibIPixelIPointer {
 
     fun incrementOffset(increment: SizeT)
-}
-
-class IDibIPixelPointerFromBytes private constructor(
-    private val reader: SyncStream,
-    private val initialOffset: SizeT,
-    offsetInShorts: SizeT
-) : IDibIPixelPointer {
-
-    private var currentOffset: SizeT = offsetInShorts
-
-    constructor(data: ByteArray, offsetInShorts: SizeT) : this(MemorySyncStream(data), offsetInShorts, offsetInShorts)
-
-    override val offset get() = currentOffset - initialOffset
-
-    override fun incrementOffset(increment: SizeT) {
-        currentOffset += increment
-    }
-
-    override fun get(pos: SizeT): IDibPixel {
-        reader.position = (currentOffset + pos) * 2L
-        return reader.ReadU16()
-    }
-
-    override fun copy(extraOffset: SizeT): IDibIPixelPointer =
-        IDibIPixelPointerFromBytes(reader, initialOffset, currentOffset + extraOffset)
 }
 
 // `iDib::pixel *const`

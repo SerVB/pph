@@ -7,6 +7,7 @@ import com.soywiz.korio.compression.uncompress
 import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korio.stream.MemorySyncStream
 import com.soywiz.korio.stream.readBytesExact
+import com.soywiz.korio.stream.readShortArrayLE
 import com.soywiz.korma.geom.*
 
 typealias SpriteId = SizeT
@@ -62,7 +63,7 @@ class iGfxManager {
 
         var dataSize: SizeT  // for statistics
         val props: MutableList<Sprite> = mutableListOf()
-        lateinit var data: ByteArray
+        lateinit var data: ShortArray
 
         fun GetSprite(num: SizeT): Sprite {
             check(num < 65536)  // just in case someone pass full sprite id
@@ -71,7 +72,7 @@ class iGfxManager {
         }
 
         fun Data(offset: SizeT): IDibIPixelPointer {
-            return IDibIPixelPointerFromBytes(data, offset)
+            return IDibPixelPointer(data.asUShortArray(), offset)
         }
 
         constructor() {
@@ -92,7 +93,7 @@ class iGfxManager {
             val bankHeaderDataLength: SizeT = stream.ReadS32()  // in bytes!!!
             val bankHeaderReserved: UInt = stream.ReadU32()
 
-            data = stream.readBytesExact(bankHeaderDataLength)
+            data = stream.readShortArrayLE(bankHeaderDataLength / 2)
             dataSize = bankHeaderDataLength
 
             stream.readBytesExact(16)  // seek 16 bytes: skip header
@@ -119,7 +120,7 @@ class iGfxManager {
 
         fun Unload() {
             props.clear()
-            data = ByteArray(0)
+            data = ShortArray(0)
         }
 
         suspend fun Reload(gammaLevel: UInt): Boolean {
