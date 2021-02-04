@@ -1,6 +1,7 @@
 package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.gxlib.GXLF_LANDSCAPE
+import com.github.servb.pph.gxlib.cColor
 import com.github.servb.pph.gxlib.iDibReader
 import com.github.servb.pph.gxlib.iGXApp
 import com.github.servb.pph.util.SizeT
@@ -35,11 +36,12 @@ private suspend fun ShowProgressReport(curProg: SizeT, initial: Boolean = true) 
     val pbarWidth = (rcScreen.width * 5) / 6
     val rcPbar = RectangleInt(ldrOrg.x - pbarWidth / 2, ldrOrg.y, pbarWidth, 10)
     val pbarColor: UShort = if (initial) {
-        127u
-    } else {
         48u
+    } else {
+        127u
     }
     ComposeProgressBar(false, display.GetSurface(), rcPbar, pbarColor, curProg, 100)
+    //gGfxMgr.Blit(12,gApp.Display().GetSurface(), iPoint(0,0) );  // commented in sources
 
     if (!initial) {
         rcPbar.y -= 16
@@ -70,6 +72,9 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
         TODO("return -1, maybe MessageBox is better?")
     }
 
+    gApp.Display().GetSurface().Fill(cColor.Gray64.pixel)
+    ShowProgressReport(0)
+
     // ShowLogo and intro image (disabled for this version)
     //iIntroDlg idlg(&gApp.ViewMgr());
     //idlg.DoModal();
@@ -81,18 +86,26 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
 
     gApp.Display().SetGamma(1.0 + 0.05 * gSettings.GetEntryValue(ConfigEntryType.DISPGAMMA))
 
+    ShowProgressReport(15)
+
     if (!gTextComposer.Init()) {
         TODO("MessageBox(NULL, _T(\"Unable to init text composer!\"), NULL, MB_OK); return -1;")
     }
+
+    ShowProgressReport(45)
 
     if (!gTextMgr.Init()) {
         TODO("MessageBox(NULL, _T(\"Unable to init text manager!\"), NULL, MB_OK); return -1;")
     }
 
+    ShowProgressReport(50)
+
     gGfxMgr.SetGamma(gSettings.GetEntryValue(ConfigEntryType.DISPGAMMA).toUInt())
     if (!gGfxMgr.Load(0, "Game/Data/game.gfx")) {
         TODO("MessageBox(NULL, _T(\"Unable to open sprite file!\"), NULL, MB_OK); return -1;")
     }
+
+    ShowProgressReport(95)
 
     // todo:
 //    if (gSettings.GetEntryValue(CET_SFXVOLUME) != 0 && !gSfxMgr.Init(gDataPath+_T("game.sfx"))) {
@@ -100,6 +113,7 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
 //        return -1;
 //    }
 
+    gApp.Display().GetSurface().Fill(cColor.Gray64.pixel)
     val mdlg = iLangMenuDlg(gApp.ViewMgr())
     val res = mdlg.DoModal()
     val languageId = res - 100
