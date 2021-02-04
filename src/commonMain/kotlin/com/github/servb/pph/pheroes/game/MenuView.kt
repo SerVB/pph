@@ -5,7 +5,6 @@ import com.github.servb.pph.pheroes.common.TextResId
 import com.github.servb.pph.util.asRectangle
 import com.github.servb.pph.util.helpertype.and
 import com.github.servb.pph.util.helpertype.or
-import com.github.servb.pph.util.inflate
 import com.github.servb.pph.util.invoke
 import com.soywiz.korma.geom.IPointInt
 import com.soywiz.korma.geom.IRectangleInt

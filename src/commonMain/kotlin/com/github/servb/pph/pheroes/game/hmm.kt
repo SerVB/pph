@@ -5,11 +5,11 @@ import com.github.servb.pph.gxlib.iDibReader
 import com.github.servb.pph.gxlib.iGXApp
 import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.asRectangle
-import com.github.servb.pph.util.center
 import com.soywiz.klock.milliseconds
 import com.soywiz.korge.view.Stage
 import com.soywiz.korio.async.delay
 import com.soywiz.korma.geom.RectangleInt
+import com.soywiz.korma.geom.center
 import com.soywiz.korma.geom.topLeft2
 
 private lateinit var gDataPath: String

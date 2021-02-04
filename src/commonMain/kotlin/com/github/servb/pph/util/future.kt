@@ -30,23 +30,6 @@ fun ISizeInt.asRectangle(): IRectangleInt = object : IRectangleInt {
     override val height: Int get() = this@asRectangle.height
 }
 
-// https://github.com/korlibs/korma/pull/46
-fun Rectangle.inflate(offsets: Double) = inflate(offsets, offsets)
-fun Rectangle.inflate(offsets: Float) = inflate(offsets.toDouble())
-fun Rectangle.inflate(offsets: Int) = inflate(offsets.toDouble())
-
-// remove from Rectangle, create the following (after https://github.com/korlibs/korma/pull/47):
-val IRectangle.topLeft get() = Point(left, top)
-val IRectangle.topRight get() = Point(right, top)
-val IRectangle.bottomLeft get() = Point(left, bottom)
-val IRectangle.bottomRight get() = Point(right, bottom)
-
-// https://github.com/korlibs/korma/pull/47
-val IRectangleInt.topLeft get() = PointInt(left, top)
-val IRectangleInt.topRight get() = PointInt(right, top)
-val IRectangleInt.bottomLeft get() = PointInt(left, bottom)
-val IRectangleInt.bottomRight get() = PointInt(right, bottom)
-
 operator fun RectangleInt.Companion.invoke(other: IRectangleInt) =
     RectangleInt(other.x, other.y, other.width, other.height)
 
@@ -92,34 +75,3 @@ fun PointInt(other: IPointInt): PointInt = PointInt(other.x, other.y)
 
 // as SizeInt.Companion.invoke()
 fun SizeInt(that: ISizeInt): SizeInt = SizeInt(that.width, that.height)
-
-// https://github.com/korlibs/korma/pull/49
-fun IRectangleInt.anchor(ax: Double, ay: Double): PointInt =
-    PointInt((x + width * ax).toInt(), (y + height * ay).toInt())
-
-inline fun IRectangleInt.anchor(ax: Number, ay: Number): PointInt = anchor(ax.toDouble(), ay.toDouble())
-val IRectangleInt.center get() = anchor(0.5, 0.5)
-
-// https://github.com/korlibs/korma/pull/48
-fun Iterable<IRectangle>.bounds(target: Rectangle = Rectangle()): Rectangle {
-    var first = true
-    var left = 0.0
-    var right = 0.0
-    var top = 0.0
-    var bottom = 0.0
-    for (r in this) {
-        if (first) {
-            left = r.left
-            right = r.right
-            top = r.top
-            bottom = r.bottom
-            first = false
-        } else {
-            left = kotlin.math.min(left, r.left)
-            right = kotlin.math.max(right, r.right)
-            top = kotlin.math.min(top, r.top)
-            bottom = kotlin.math.max(bottom, r.bottom)
-        }
-    }
-    return target.setBounds(left, top, right, bottom)
-}
