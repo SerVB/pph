@@ -40,10 +40,15 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
         }
 
         override fun OnCompose() {
-            //			gApp.Surface().Darken50Rect(GetScrRect())  // commented in sources
+            gApp.Surface().Darken50Rect(GetScrRect())
             // Compose outer frame
             val rect = GetScrRect()
             rect.rect.inflate(1)
+            val cColor_Grey = RGB16(32, 32, 32)
+            gApp.Surface().HLine(IPointInt(rect.x + 2, rect.y), rect.x + rect.width - 3, cColor_Grey)
+            gApp.Surface().HLine(IPointInt(rect.x + 2, rect.y + rect.height - 1), rect.x + rect.width - 3, cColor_Grey)
+            gApp.Surface().VLine(IPointInt(rect.x, rect.y + 2), rect.y + rect.height - 2, cColor_Grey)
+            gApp.Surface().VLine(IPointInt(rect.x + rect.width - 1, rect.y + 2), rect.y + rect.height - 2, cColor_Grey)
 
             var props = IiDibFont.ComposeProps(
                 iGradient(IDibPixelPointer(menuBtnText, 0), 15),
@@ -51,18 +56,10 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
                 IiDibFont.Decor.Border
             )
             val state = GetButtonState()
-
-            if (state and State.Disabled != 0) {
-                props = IiDibFont.ComposeProps(RGB16(255, 160, 80), cColor.Black.pixel, IiDibFont.Decor.Border)
-            } else if (state and State.Pressed != 0) {
+            if ((state and State.Disabled) != 0) {
+                props = IiDibFont.ComposeProps(RGB16(128, 100, 80), cColor.Black.pixel, IiDibFont.Decor.Border)
+            } else if ((state and State.Pressed) != 0) {
                 props = IiDibFont.ComposeProps(RGB16(255, 255, 255), cColor.Black.pixel, IiDibFont.Decor.Border)
-                val cColor_Grey = RGB16(32, 32, 32)
-                gApp.Surface().HLine(IPointInt(rect.x + 2, rect.y), rect.x + rect.width - 3, cColor_Grey)
-                gApp.Surface()
-                    .HLine(IPointInt(rect.x + 2, rect.y + rect.height - 1), rect.x + rect.width - 3, cColor_Grey)
-                gApp.Surface().VLine(IPointInt(rect.x, rect.y + 2), rect.y + rect.height - 2, cColor_Grey)
-                gApp.Surface()
-                    .VLine(IPointInt(rect.x + rect.width - 1, rect.y + 2), rect.y + rect.height - 2, cColor_Grey)
                 gApp.Surface().Darken50Rect(GetScrRect())
             }
 
@@ -73,7 +70,12 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
                 IPointInt(0, 0),
                 gTextMgr[m_TextKey],
                 GetScrRect(),
-                Alignment.AlignCenter
+                Alignment.AlignCenter,
+                if ((state and State.Pressed) != 0) {
+                    IPointInt(1, 1)
+                } else {
+                    IPointInt(0, 0)
+                }
             )
         }
     }
