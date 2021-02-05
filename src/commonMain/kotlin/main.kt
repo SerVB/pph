@@ -5,6 +5,7 @@ import com.soywiz.korge.Korge
 suspend fun main() = Korge(
     width = 3 * 320, height = 3 * 240,
     virtualWidth = 320, virtualHeight = 240,
+    title = "Pocket Palm Heroes",
 ) {
     Logger.defaultLevel = Logger.Level.INFO
 
