@@ -4,6 +4,12 @@ This project tries to bring good old Palm Heroes/Pocket Heroes back to life. The
 
 ![Screenshots image](pictures/good-old-gif.gif)
 
+Pocket Palm Heroes is an original turn-based strategy for different devices, that is made in the style and feel of the
+old-school "Heroes of Might and Magic" game. Pocket Palm Heroes plunges you into the atmosphere of exciting fantasy
+adventures and epic battles! Lead your heroes as a barbarian orc chief, a noble knight, a mighty wizard, a fast
+beautiful sorceress, a warlock, or a creepy undead necromancer! As your kingdom grows in size, and your heroes get more
+powerful, you will discover new places, learn new skills and magic, and fight different monsters!
+
 ## Play online!
 
 It's available at GitHub Pages: <https://servb.github.io/pph/>.
