@@ -1,7 +1,5 @@
 package com.github.servb.pph.pheroes.common.common
 
-import java.util.*
-
 interface MineralSetC {
     val quant: IntArray
 }
@@ -13,7 +11,7 @@ fun MineralSetC.Has(ms: MineralSetC): Int {
             return 0
         }
         if (ms.quant[xx] != 0) {
-            cnt = if (cnt != 0) Math.min(cnt, quant[xx] / ms.quant[xx]) else quant[xx] / ms.quant[xx]
+            cnt = if (cnt != 0) minOf(cnt, quant[xx] / ms.quant[xx]) else quant[xx] / ms.quant[xx]
         }
     }
     return cnt
@@ -49,7 +47,7 @@ fun MineralSetC.DeficientAmount(other: MineralSetC): MineralSetC {
 fun MineralSetC.Intersect(other: MineralSetC): MineralSetC {
     val result = MineralSet()
     for (xx in 0 until MineralType.COUNT.v) {
-        result.quant[xx] = Math.min(quant[xx], other.quant[xx])
+        result.quant[xx] = minOf(quant[xx], other.quant[xx])
     }
     return result
 }
@@ -75,11 +73,11 @@ class MineralSet : MineralSetC {
     }
 
     constructor(quant: IntArray) {
-        this.quant = quant.clone()
+        this.quant = quant.copyOf()
     }
 
     fun Reset() {
-        Arrays.fill(quant, 0)
+        quant.fill(0)
     }
 
     fun Normalize() {

@@ -330,6 +330,16 @@ fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDecs: Boole
     }
 }
 
+fun ButtonFrame(dib: iDib, rc: IRectangleInt, state: Int) {
+    val ltClr = if ((state and iButton.State.Pressed) != 0) cColor.Black else cColor.White
+    val rbClr = if ((state and iButton.State.Pressed) != 0) cColor.White else cColor.Black
+    dib.HLine(IPointInt(rc.x + 1, rc.y), rc.x2 - 1, ltClr.pixel, 64.toUByte())
+    dib.HLine(IPointInt(rc.x + 1, rc.y2), rc.x2 - 1, rbClr.pixel, 64.toUByte())
+    dib.VLine(IPointInt(rc.x, rc.y + 1), rc.y2, ltClr.pixel, 64.toUByte())
+    dib.VLine(IPointInt(rc.x2, rc.y + 1), rc.y2, rbClr.pixel, 64.toUByte())
+    //if (state&iButton::Disabled) dib.Darken25Rect(rc);  // commented in sources
+}
+
 fun GetButtonFont(state: Int): iTextComposer.IFontConfig {
     if ((state and iButton.State.Disabled) != 0) {
         return btnfc_disabled

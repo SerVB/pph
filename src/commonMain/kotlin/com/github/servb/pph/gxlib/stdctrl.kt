@@ -528,7 +528,7 @@ abstract class iListBox : iBaseCtrl, IViewCmdHandler {
     ) {
         m_pScrollBar = null
         m_selItem = -1
-        m_scrVal = -1
+        m_scrVal = 0
         m_lcTime = 0u
         m_lcIdx = -1
     }
@@ -594,7 +594,7 @@ abstract class iListBox : iBaseCtrl, IViewCmdHandler {
     fun PageSize(): SizeT = m_Rect.height / LBItemHeight()
 
     abstract fun ComposeLBBackground(rect: IRectangleInt)
-    abstract fun ComposeLBItem(iIdx: Int, bSel: Boolean, irc: IRectangleInt)
+    abstract fun ComposeLBItem(iIdx: SizeT, bSel: Boolean, irc: IRectangleInt)
     abstract fun LBItemHeight(): SizeT
     abstract fun LBItemsCount(): SizeT
 

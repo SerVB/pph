@@ -75,3 +75,10 @@ fun PointInt(other: IPointInt): PointInt = PointInt(other.x, other.y)
 
 // as SizeInt.Companion.invoke()
 fun SizeInt(that: ISizeInt): SizeInt = SizeInt(that.width, that.height)
+
+fun Rectangle.deflate(left: SizeT, top: SizeT, right: SizeT, bottom: SizeT) {
+    x += left
+    y += top
+    width -= left + right
+    height -= top + bottom
+}

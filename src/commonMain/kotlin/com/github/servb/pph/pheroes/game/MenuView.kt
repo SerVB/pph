@@ -87,7 +87,16 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
         rc.height = DEF_BTN_HEIGHT + 2
         AddChild(iMainMenuBtn(m_pMgr, this, rc, TextResId.TRID_MENU_NEWGAME, 100u, ViewState.Visible.v))
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TextResId.TRID_MENU_LOADGAME, 101u, ViewState.Visible.v))
+        AddChild(
+            iMainMenuBtn(
+                m_pMgr,
+                this,
+                rc,
+                TextResId.TRID_MENU_LOADGAME,
+                101u,
+                ViewState.Visible or ViewState.Enabled
+            )
+        )
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
         AddChild(
             iMainMenuBtn(
@@ -167,7 +176,13 @@ class iMenuView private constructor() : iChildGameView(false, CHILD_VIEW.UNDEFIN
                 }
                 101 -> {
                     // Load saved game
-                    continue  // todo
+                    val saveDlg = iSaveDlg(gApp.ViewMgr(), false)
+                    val res = saveDlg.DoModal()
+                    if (res == DLG_RETCODE.OK.v) {
+                        // todo
+                    } else {
+                        continue
+                    }
                 }
                 102 -> {
                     val dlg = iDlg_HallOfFame.construct(gApp.ViewMgr(), "PalmHeroes.hsc")
