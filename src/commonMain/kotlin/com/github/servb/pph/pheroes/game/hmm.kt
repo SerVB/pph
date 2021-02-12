@@ -9,6 +9,7 @@ import com.github.servb.pph.util.asRectangle
 import com.soywiz.klock.milliseconds
 import com.soywiz.korge.view.Stage
 import com.soywiz.korio.async.delay
+import com.soywiz.korma.geom.PointInt
 import com.soywiz.korma.geom.RectangleInt
 import com.soywiz.korma.geom.center
 import com.soywiz.korma.geom.topLeft2
@@ -72,7 +73,7 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
         TODO("return -1, maybe MessageBox is better?")
     }
 
-    gApp.Display().GetSurface().Fill(cColor.Gray64.pixel)
+    FillStaredRect(gApp.Display().GetSurface(), gApp.Display().GetSurface().GetSize().asRectangle(), PointInt())
     ShowProgressReport(0)
 
     // ShowLogo and intro image (disabled for this version)
