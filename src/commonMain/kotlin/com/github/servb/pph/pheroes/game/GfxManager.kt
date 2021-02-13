@@ -196,7 +196,17 @@ class iGfxManager {
         return SizeInt(sprPtr.sizeW_.toInt(), sprPtr.sizeH_.toInt())
     }
 
-    fun Anchor(sid: SpriteId): PointInt = TODO()
+    fun Anchor(sid: SpriteId): PointInt {
+        val catId = sid ushr 16
+        val sprId = sid and 0xFFFF
+
+        check(catId < MaxSpriteBanks)
+        check(sprId < bank_[catId].props.size)
+
+        val sprPtr = bank_[catId].GetSprite(sprId)
+
+        return PointInt(sprPtr.originX_.toInt(), sprPtr.originY_.toInt())
+    }
 
     fun Shadow(sid: SpriteId): UByte = TODO()
 

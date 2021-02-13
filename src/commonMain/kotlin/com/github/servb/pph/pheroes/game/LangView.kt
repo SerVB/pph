@@ -80,7 +80,7 @@ class iLangMenuDlg : iDialog, IViewCmdHandler {
 
     constructor(pViewMgr: iViewMgr) : super(pViewMgr)
 
-    override fun OnCreateDlg() {
+    override suspend fun OnCreateDlg() {
         val rc = RectangleInt(GetDialogMetrics().asRectangle())
         rc.height = DEF_BTN_HEIGHT + 2
 

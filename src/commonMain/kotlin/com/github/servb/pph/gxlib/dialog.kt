@@ -43,7 +43,7 @@ abstract class iDialog : iView {
     }
 
     abstract fun GetDialogMetrics(): SizeInt
-    abstract fun OnCreateDlg()
+    abstract suspend fun OnCreateDlg()
     open fun OnPlace(rect: RectangleInt) {}
 
     open fun KeyDown(key: iKbdKey): Boolean = false

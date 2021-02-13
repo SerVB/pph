@@ -82,10 +82,19 @@ private class iMainMenuDlg : iDialog, IViewCmdHandler {
 
     constructor(pViewMgr: iViewMgr) : super(pViewMgr)
 
-    override fun OnCreateDlg() {
+    override suspend fun OnCreateDlg() {
         val rc = RectangleInt(GetDialogMetrics().asRectangle())
         rc.height = DEF_BTN_HEIGHT + 2
-        AddChild(iMainMenuBtn(m_pMgr, this, rc, TextResId.TRID_MENU_NEWGAME, 100u, ViewState.Visible.v))
+        AddChild(
+            iMainMenuBtn(
+                m_pMgr,
+                this,
+                rc,
+                TextResId.TRID_MENU_NEWGAME,
+                100u,
+                ViewState.Visible or ViewState.Enabled
+            )
+        )
         rc.y += DEF_BTN_HEIGHT + BTN_DIST
         AddChild(
             iMainMenuBtn(
@@ -172,7 +181,13 @@ class iMenuView private constructor() : iChildGameView(false, CHILD_VIEW.UNDEFIN
             when (res) {
                 100 -> {
                     // Start new game
-                    continue  // todo
+                    val sldlg = iScenListDlg(gApp.ViewMgr())
+                    val res = sldlg.DoModal()
+                    if (res == DLG_RETCODE.OK.v) {
+                        // todo
+                    } else {
+                        continue
+                    }
                 }
                 101 -> {
                     // Load saved game

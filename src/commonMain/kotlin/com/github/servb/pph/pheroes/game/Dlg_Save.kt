@@ -121,7 +121,7 @@ class iSaveDlg : iBaseGameDlg {
         return m_saveSlots[m_selSlot]!!
     }
 
-    override fun OnCreateDlg() {
+    override suspend fun OnCreateDlg() {
         val clRect = ClientRect()
 
         EnumSaveGames(m_saveSlots)

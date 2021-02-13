@@ -112,7 +112,16 @@ fun Segment(
 }
 
 // Skips one span
-fun SpanSkip(src: IDibIPixelIPointer): Int = TODO()
+fun SpanSkip(src: IDibIPixelIPointer): Int {
+    val newSrc = src.copy()
+    var code: UInt
+    do {
+        code = newSrc[0].toUInt()
+        val len = code and 0x00FFu
+        newSrc.incrementOffset(len.toInt() + 1)
+    } while ((code and 0x8000u) == 0u)
+    return newSrc.offset - src.offset
+}
 
 // Blits non clipped span line
 fun SpanFast(op: BlitterOperation, src: IDibIPixelIPointer, dst: IDibPixelIPointer): Int {

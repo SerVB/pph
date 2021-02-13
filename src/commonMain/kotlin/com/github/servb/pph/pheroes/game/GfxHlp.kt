@@ -330,6 +330,20 @@ fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDecs: Boole
     }
 }
 
+fun BlitIcon(dib: iDib, sid: SpriteId, orc: IRectangleInt, a: UByte, offset: IPointInt) {
+    val ssiz = gGfxMgr.Dimension(sid)
+    val offs = gGfxMgr.Anchor(sid)
+    val op = IPointInt(
+        orc.x + (orc.width / 2 - ssiz.width / 2) - offs.x + offset.x,
+        orc.y + (orc.height / 2 - ssiz.height / 2) - offs.y + offset.y
+    )
+    if (a == 63u.toUByte()) {
+        gGfxMgr.Blit(sid, dib, op)
+    } else {
+        gGfxMgr.BlitAlpha(sid, dib, op, a)
+    }
+}
+
 fun ButtonFrame(dib: iDib, rc: IRectangleInt, state: Int) {
     val ltClr = if ((state and iButton.State.Pressed) != 0) cColor.Black else cColor.White
     val rbClr = if ((state and iButton.State.Pressed) != 0) cColor.White else cColor.Black
@@ -386,6 +400,21 @@ fun ComposeDlgTextButton(dib: iDib, rc: IRectangleInt, state: Int, textKey: Text
             if ((state and iButton.State.Pressed.v) != 0) PointInt(1, 1) else PointInt()
         )
     }
+}
+
+fun ComposeDlgIconButton(dib: iDib, rc: IRectangleInt, state: Int, sid: SpriteId) {
+    ComposeDlgButton(dib, rc, state)
+
+    // Compose Icon
+    val ssiz = gGfxMgr.Dimension(sid)
+    //val op = IPointInt(rc.x+(rc.width/2-ssiz.width/2), rc.y+(rc.height/2-ssiz.height/2))  // unused in sources
+    BlitIcon(
+        dib,
+        sid,
+        rc,
+        if ((state and iButton.State.Disabled) != 0) 32u else 63u,
+        if ((state and iButton.State.Pressed) != 0) IPointInt(1, 1) else IPointInt(0, 0)
+    )
 }
 
 fun ComposeProgressBar(bVertical: Boolean, dib: iDib, rc: IRectangleInt, clr: IDibPixel, cval: Int, mval: Int) {

@@ -77,7 +77,7 @@ abstract class iTextDlg : iBaseGameDlg {
 
     override fun `$destruct`() {}
 
-    override fun OnCreateDlg() {
+    override suspend fun OnCreateDlg() {
         val clRect = ClientRect()
         TODO("AddChild(new iTextButton(m_pMgr,this,iRect(clRect.x+(clRect.w/2-20),clRect.y2()-DEF_BTN_HEIGHT,40,DEF_BTN_HEIGHT),TRID_OK, DRC_OK));")
     }
@@ -149,7 +149,7 @@ abstract class iExtTextDlg : iBaseGameDlg {
 
     override fun `$destruct`() {}
 
-    override fun OnCreateDlg() {
+    override suspend fun OnCreateDlg() {
         val clrRect = ClientRect()
         TODO("AddChild(new iTextButton(m_pMgr,this,iRect(clRect.x+(clRect.w/2-20),clRect.y2()-DEF_BTN_HEIGHT,40,DEF_BTN_HEIGHT),TRID_OK, DRC_OK))")
     }
@@ -251,7 +251,7 @@ class iQuestDlg : iTextDlg {
 
     override fun `$destruct`() {}
 
-    override fun OnCreateDlg() {
+    override suspend fun OnCreateDlg() {
         val clRect = ClientRect()
         val npos = clRect.x + (clRect.width / 2 - 54)
 

@@ -118,7 +118,7 @@ class iDlg_HallOfFame : iBaseGameDlg {
         m_hScore = highScore
     }
 
-    override fun OnCreateDlg() {
+    override suspend fun OnCreateDlg() {
         val clRect = ClientRect()
 
         AddChild(
