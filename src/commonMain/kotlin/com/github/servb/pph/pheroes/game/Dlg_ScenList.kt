@@ -3,12 +3,16 @@ package com.github.servb.pph.pheroes.game
 import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.pheroes.common.GfxId
 import com.github.servb.pph.pheroes.common.TextResId
+import com.github.servb.pph.pheroes.common.common.EMAP_FILE_HDR_KEY
+import com.github.servb.pph.pheroes.common.common.GMAP_FILE_HDR_KEY
 import com.github.servb.pph.pheroes.common.common.PlayerId
 import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.asPoint
 import com.github.servb.pph.util.deflate
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.github.servb.pph.util.invoke
+import com.soywiz.klogger.Logger
+import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt
 import com.soywiz.korma.geom.SizeInt
@@ -16,8 +20,69 @@ import com.soywiz.korma.geom.y2
 
 typealias iScenList = MutableList<iMapInfo>
 
-private fun EnumScenarios(scList: iScenList) {
-    // todo
+private val logger = Logger("Dlg_ScenListKt")
+
+// todo: compress preinstalled maps to zip archive and mount it like described here:
+//       https://discord.com/channels/728582275884908604/801658049244430377/807359417083232317
+internal val preinstalledMaps = listOf(
+    "Ancient_Lands.hmm",
+    "Arena.hmm",
+    "Armageddons_Blade.hmm",
+    "Around_The_Bay.hmm",
+    "Barbarians_Revenge.hmm",
+    "Bloody_Sands.hmm",
+    "Confrontation.hmm",
+    "Consolidation.hmm",
+    "Crossroads.hmm",
+    "Delta.hmm",
+    "Disagreements.hmm",
+    "Fire-eater.hmm",
+    "Gods_War.hmm",
+    "H2O.hmm",
+    "Harlem_War.hmm",
+    "Henry.hmm",
+    "heroes.hmm",
+    "Hostile_Neighbors.hmm",
+    "Ice_Age.hmm",
+    "Island.hmm",
+    "King_Of_The_Hill.hmm",
+    "KneeDeepInTheDead.hmm",
+    "Land_Bridge.hmm",
+    "Loose_Borders.hmm",
+    "Magic_Forests.hmm",
+    "Might_And_Magic.hmm",
+    "Quest_for_Glory.hmm",
+    "Swampy.hmm",
+    "TerritorialDivide.hmm",
+    "The_Great_Nile.hmm",
+    "The_Labyrynth.hmm",
+    "The_Mystic_Valley.hmm",
+    "ThePyramid.hmm",
+    "Tutorial.hmm",
+    "Two_by_the_river.hmm",
+    "WarLords.hmm",
+    "Winter_Assault.hmm",
+    "Winter_Wars.hmm",
+)
+
+private suspend fun EnumScenarios(scList: iScenList) {
+    preinstalledMaps.forEach { name ->
+        val file = resourcesVfs["$gMapsPath/$name"]
+        if (file.isFile()) {
+            val mapInfo = iMapInfo()
+            mapInfo.m_bNewGame = true
+            mapInfo.m_FileName = file.path
+            val pFile = file.openInputStream()
+            val fourcc = pFile.ReadU32()
+            if (fourcc == GMAP_FILE_HDR_KEY && mapInfo.ReadMapInfoPhm(pFile)) {
+                scList.add(mapInfo)
+            } else if (fourcc == EMAP_FILE_HDR_KEY && mapInfo.ReadMapInfoHmm(pFile)) {
+                scList.add(mapInfo)
+            } else {
+                logger.warn { "Map '${mapInfo.m_FileName}' is not supported" }
+            }
+        }
+    }
 }
 
 class iScenListBox : iListBox {

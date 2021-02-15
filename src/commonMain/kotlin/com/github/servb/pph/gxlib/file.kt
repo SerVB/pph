@@ -24,8 +24,10 @@ fun SyncInputStream.ReadS8(): Byte = readS8().toByte()
 fun SyncInputStream.ReadS16(): Short = readS16LE().toShort()
 fun SyncInputStream.ReadS32(): Int = readS32LE()
 
+suspend fun AsyncInputStream.ReadU8(): UByte = readU8().toUByte()
 suspend fun AsyncInputStream.ReadU16(): UShort = readU16LE().toUShort()
 suspend fun AsyncInputStream.ReadU32(): UInt = readU32LE().toUInt()
+suspend fun AsyncInputStream.ReadS8(): Byte = readS8().toByte()
 suspend fun AsyncInputStream.ReadS16(): Short = readS16LE().toShort()
 suspend fun AsyncInputStream.ReadS32(): Int = readS32LE()
 
@@ -41,5 +43,5 @@ suspend fun AsyncOutputStream.Write(str: String) {
 
 suspend fun AsyncInputStream.ReadString(): String {
     val length = ReadS32()
-    return readString(length, Charsets.UTF16_LE)
+    return readString(length * 2, Charsets.UTF16_LE)  // 2 bytes in 1 char
 }

@@ -16,7 +16,7 @@ import com.soywiz.korma.geom.topLeft2
 
 private lateinit var gDataPath: String
 lateinit var gSavePath: String
-private lateinit var gMapsPath: String
+lateinit var gMapsPath: String
 val gApp: iGXApp = iGXApp()
 private val gDibReader: iDibReader = iDibReader()
 val gTextComposer: iTextComposer = iTextComposer()
@@ -58,9 +58,9 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
     // skipped remaining memory check
     // skipped single instance mutex
 
-    gDataPath = "Data/"
-    gSavePath = "Save/"
-    gMapsPath = "Maps/"
+    gDataPath = "Game/Data"
+    gSavePath = "Game/Save"
+    gMapsPath = "Game/Maps"
 
     if (!gSettings.Init(cmdLine)) {
         TODO("MessageBox(NULL, _T(\"Unable to init game settings!\"), NULL, MB_OK)")
@@ -102,7 +102,7 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
     ShowProgressReport(50)
 
     gGfxMgr.SetGamma(gSettings.GetEntryValue(ConfigEntryType.DISPGAMMA).toUInt())
-    if (!gGfxMgr.Load(0, "Game/Data/game.gfx")) {
+    if (!gGfxMgr.Load(0, "$gDataPath/game.gfx")) {
         TODO("MessageBox(NULL, _T(\"Unable to open sprite file!\"), NULL, MB_OK); return -1;")
     }
 
