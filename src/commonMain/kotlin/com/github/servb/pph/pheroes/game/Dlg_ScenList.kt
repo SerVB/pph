@@ -146,7 +146,11 @@ class iScenListBox : iListBox {
         rc.rect.deflate(25, 0, 0, 0)
 
         // Map name
-        gTextComposer.TextOut(fc, gApp.Surface(), rc.asPoint(), m_scList[iIdx].m_Name, rc, Alignment.AlignLeft)
+        var title = m_scList[iIdx].m_Name
+        if (m_scList[iIdx].m_Version.isNotBlank()) {
+            title += " v.${m_scList[iIdx].m_Version}"
+        }
+        gTextComposer.TextOut(fc, gApp.Surface(), rc.asPoint(), title, rc, Alignment.AlignLeft)
     }
 }
 
