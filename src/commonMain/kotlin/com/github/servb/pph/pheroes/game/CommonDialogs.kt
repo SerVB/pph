@@ -54,7 +54,7 @@ abstract class iBaseGameDlg : iDialog, IViewCmdHandler {
 }
 
 /** Base text dialog MB_OK. */
-abstract class iTextDlg : iBaseGameDlg {
+open class iTextDlg : iBaseGameDlg {
 
     protected val m_fcTitle: iTextComposer.IFontConfig
     protected val m_fcText: iTextComposer.IFontConfig
@@ -79,7 +79,15 @@ abstract class iTextDlg : iBaseGameDlg {
 
     override suspend fun OnCreateDlg() {
         val clRect = ClientRect()
-        TODO("AddChild(new iTextButton(m_pMgr,this,iRect(clRect.x+(clRect.w/2-20),clRect.y2()-DEF_BTN_HEIGHT,40,DEF_BTN_HEIGHT),TRID_OK, DRC_OK));")
+        AddChild(
+            iTextButton(
+                m_pMgr,
+                this,
+                IRectangleInt(clRect.x + (clRect.width / 2 - 20), clRect.y2 - DEF_BTN_HEIGHT, 40, DEF_BTN_HEIGHT),
+                TextResId.TRID_OK,
+                DLG_RETCODE.OK.v.toUInt()
+            )
+        )
     }
 
     fun SetText(text: String) {

@@ -24,3 +24,7 @@ infix fun Int.and(other: EnumWithValue): Int = this and other.v
 
 infix fun EnumWithValue.xor(other: EnumWithValue): Int = this.v xor other.v
 infix fun Int.xor(other: EnumWithValue): Int = this xor other.v
+
+inline fun <reified T> getByValue(v: Int): T where T : EnumWithValue, T : Enum<T> {
+    return enumValues<T>().single { it.v == v }
+}

@@ -4,16 +4,16 @@ import com.github.servb.pph.gxlib.ReadS8
 import com.github.servb.pph.gxlib.ReadU16
 import com.github.servb.pph.gxlib.ReadU32
 import com.github.servb.pph.gxlib.ReadU8
+import com.github.servb.pph.pheroes.common.DeserializePoint
 import com.github.servb.pph.pheroes.common.DeserializeString
-import com.github.servb.pph.pheroes.common.common.DifficultyLevel
-import com.github.servb.pph.pheroes.common.common.GMAP_FILE_VERSION
-import com.github.servb.pph.pheroes.common.common.MapSize
-import com.github.servb.pph.pheroes.common.common.PlayerId
+import com.github.servb.pph.pheroes.common.common.*
 import com.github.servb.pph.util.ISizeInt
 import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
+import com.github.servb.pph.util.helpertype.getByValue
 import com.soywiz.klogger.Logger
 import com.soywiz.korio.stream.AsyncInputStream
+import com.soywiz.korma.geom.IPointInt
 import com.soywiz.korma.geom.ISizeInt
 import kotlin.properties.Delegates
 
@@ -27,7 +27,22 @@ class iMapInfo {
 
     class iPlayerInfo {
 
-        val todo: Any = TODO()
+        lateinit var m_Minerals: MineralSetC
+        var m_Id: PlayerId
+        var m_TypeMask: PlayerTypeMask
+
+        //        var m_Type: PlayerType
+//        var m_Nation: CastleType
+        var m_curHeroId: UShort by Delegates.notNull()
+        var m_curCastleIdx: UShort by Delegates.notNull()
+        var m_keys: UByte by Delegates.notNull()
+
+        constructor(pid: PlayerId, ptypemask: PlayerTypeMask/*, ptype: PlayerType, ntype: CastleType*/) {
+            m_Id = pid
+            m_TypeMask = ptypemask
+//            m_Type = ptype
+//            m_Nation = ntype
+        }
     }
 
     var m_bNewGame: Boolean by Delegates.notNull()
@@ -90,10 +105,11 @@ class iMapInfo {
         m_Difficulty = DifficultyLevel.UNDEFINED
         m_gameMode = GameMode.UNDEFINED
         m_curDay = 1u
+        m_curPlayerId = PlayerId.NEUTRAL
 
         val fileVersion = fileBuff.ReadU32()
         val mapSize = fileBuff.ReadU8()
-        m_Size = MapSize.values().single { it.v == mapSize.toInt() }
+        m_Size = getByValue(mapSize.toInt())
 
         if (fileVersion > 0x18u) {
             logger.warn { "no support for multilanguage HMM files yet..." }  // todo
@@ -110,8 +126,49 @@ class iMapInfo {
             m_Author = DeserializeString(fileBuff)
         }
 
-        m_Players = emptyList()  // todo
-        m_curPlayerId = PlayerId.NEUTRAL  // todo
+        if (fileVersion > 0x12u) {
+            val timeEventCount = fileBuff.ReadU16().toInt()
+
+            if (timeEventCount != 0) {
+                logger.warn { "no support for time events in HMM files yet..." }  // todo
+                return false
+            }
+        }
+
+        if (fileVersion >= 0x18u) {
+            DeserializePoint(fileBuff)  // todo: m_posUltimateArt
+            fileBuff.ReadU32()  // todo: m_radUltimateArt
+        }
+
+        class iMainCtlDesc(val pid: PlayerId, val pos: IPointInt, val bCreateHero: UByte)
+
+        val players = mutableListOf<iPlayerInfo>()
+        val mainCtls = mutableListOf<iMainCtlDesc>()
+        val playerCount = fileBuff.ReadU16().toInt()
+        repeat(playerCount) {
+            val playerId = fileBuff.ReadS8()
+            val playerTypeMask = fileBuff.ReadS8()
+            if (fileVersion >= 0x12u) {
+                val hasMainCtl = fileBuff.ReadU8() != 0u.toUByte()
+                if (hasMainCtl) {
+                    val mainCtl = iMainCtlDesc(
+                        pid = getByValue(playerId.toInt()),
+                        pos = DeserializePoint(fileBuff),
+                        bCreateHero = fileBuff.ReadU8(),
+                    )
+                    mainCtls.add(mainCtl)
+                }
+            }
+            val player = iPlayerInfo(
+                pid = getByValue(playerId.toInt()),
+                ptypemask = getByValue(playerTypeMask.toInt()),
+//                ptype = PlayerType.UNDEFINED,  // todo: UNDEFINED because new game
+//                ntype = CastleType.CITADEL,  // todo: depends on the main hero
+            )
+            players.add(player)
+        }
+
+        m_Players = players
         m_metrics = ISizeInt(42, 42)  // todo
         // todo: read other info
 
@@ -123,7 +180,8 @@ class iMapInfo {
     }
 
     fun TotalPlayers(): SizeT = m_Players.size
-    fun HumanPlayers(): SizeT = 0  // todo
+    fun HumanPlayers(): SizeT =
+        m_Players.count { it.m_TypeMask in setOf(PlayerTypeMask.HUMAN_ONLY, PlayerTypeMask.HUMAN_OR_COMPUTER) }
 
     fun Supported(): Boolean {
         return false  // todo

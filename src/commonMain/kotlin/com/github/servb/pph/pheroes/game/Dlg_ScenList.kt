@@ -295,7 +295,16 @@ class iScenListDlg : iBaseGameDlg {
         when (uid) {
             DLG_RETCODE.OK.v, DLG_RETCODE.CANCEL.v -> EndDialog(uid)
             301 -> {
-                TODO()
+                var title = m_scList[m_selScen].m_Name
+                if (m_scList[m_selScen].m_Version.isNotBlank()) {
+                    title += " v.${m_scList[m_selScen].m_Version}"
+                }
+                var desc = m_scList[m_selScen].m_Description
+                if (m_scList[m_selScen].m_Author.isNotBlank()) {
+                    desc += "\n\n${gTextMgr[TextResId.TRID_MAP_AUTHOR]}: ${m_scList[m_selScen].m_Author}"
+                }
+                val tdlg = iTextDlg(m_pMgr, title, desc, PlayerId.NEUTRAL, dlgfc_topic, dlgfc_splain)
+                tdlg.DoModal()
             }
             in 501..503 -> {
                 val nval = uid - 501
@@ -307,7 +316,8 @@ class iScenListDlg : iBaseGameDlg {
                 if (cmd == CTRL_CMD_ID.LBSELCHANGED) {
                     m_selScen = param
                     gSettings.SetEntryValue(ConfigEntryType.NGDPOS, param)
-                    // todo: set OK and INFO buttons as Enabled
+                    GetChildById(DLG_RETCODE.OK.v.toUInt())!!.SetEnabled(m_selScen != -1 && m_scList[m_selScen].Supported() && m_scList[m_selScen].HumanPlayers() > 0)
+                    GetChildById(301u)!!.SetEnabled(m_selScen != -1 && m_scList[m_selScen].HumanPlayers() > 0)
                 } else if (cmd == CTRL_CMD_ID.LBSELDBLCLICK) {
                     if (m_selScen != -1 && m_scList[m_selScen].Supported()) {
                         EndDialog(DLG_RETCODE.OK.v)
