@@ -9,6 +9,7 @@ import com.github.servb.pph.gxlib.iKbdKey
 import com.github.servb.pph.util.helpertype.CountValueEnum
 import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
+import com.github.servb.pph.util.helpertype.getByValue
 import com.soywiz.klogger.Logger
 import com.soywiz.kmem.buildByteArray
 import com.soywiz.korio.file.std.localCurrentDirVfs
@@ -176,7 +177,7 @@ class iSettings : IiSettings {
         }
     }
 
-    override fun ActionKey(bat: ButtonActionType): iKbdKey = iKbdKey.values().first { it.v == m_actionKeys[bat.v] }
+    override fun ActionKey(bat: ButtonActionType): iKbdKey = getByValue(m_actionKeys[bat.v])
 
     fun AssignActionKey(bat: ButtonActionType, key: iKbdKey) {
         m_actionKeys[bat.v] = key.v
@@ -188,7 +189,7 @@ class iSettings : IiSettings {
         return if (idx == -1) {
             ButtonActionType.INVALID
         } else {
-            ButtonActionType.values().first { it.v == idx }
+            getByValue(idx)
         }
     }
 

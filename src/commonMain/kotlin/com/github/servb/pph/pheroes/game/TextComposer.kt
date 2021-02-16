@@ -4,6 +4,7 @@ import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.util.*
 import com.github.servb.pph.util.helpertype.CountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
+import com.github.servb.pph.util.helpertype.getByValue
 import com.soywiz.korim.format.readBitmap
 import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korio.lang.substr
@@ -50,7 +51,7 @@ private fun ProcessChar(
                 ++textIdx.element
                 val r = HexChar2Int(text[textIdx.element++]).toInt()
                 check(r >= 0 && r < iTextComposer.FontSize.COUNT.v)
-                cfg.fontSize = iTextComposer.FontSize.values().first { it.v == r }
+                cfg.fontSize = getByValue(r)
             }
             'F' -> {
                 ++textIdx.element
@@ -102,7 +103,7 @@ class iTextComposer {
         m_Fonts = mutableListOf()
 
         repeat(FontSize.COUNT.v) { nn ->
-            val resourcePath = FontSize.values().first { it.v == nn }.resourcePath
+            val resourcePath = getByValue<FontSize>(nn).resourcePath
             val bmp = resourcesVfs[resourcePath].readBitmap().toBMP32()
             val next = iDibFont()
             if (!next.Init(bmp, if (nn == 2) 2 else 0)) {

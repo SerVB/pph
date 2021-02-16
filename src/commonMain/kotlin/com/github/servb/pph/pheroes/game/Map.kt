@@ -78,7 +78,7 @@ class iMapInfo {
         m_rseed = pFile.ReadU32()
 
         val mapSiz = pFile.ReadU8()
-        m_Size = MapSize.values().single { it.v == mapSiz.toInt() }
+        m_Size = getByValue(mapSiz.toInt())
 
         m_Name = DeserializeString(pFile)
         m_Description = DeserializeString(pFile)
@@ -89,10 +89,10 @@ class iMapInfo {
         m_curDay = pFile.ReadU32()  // Current date (1 is default value for new game)
 
         val gameMode = pFile.ReadU16()  // Game mode (GM_UNDEFINED for new map)
-        m_gameMode = GameMode.values().single { it.v == gameMode.toInt() }
+        m_gameMode = getByValue(gameMode.toInt())
 
         val gameDifLvl = pFile.ReadS8()  // Difficulty level (DFC_UNDEFINED for new game)
-        m_Difficulty = DifficultyLevel.values().single { it.v == gameDifLvl.toInt() }
+        m_Difficulty = getByValue(gameDifLvl.toInt())
 
         m_Players = emptyList()  // todo
         m_curPlayerId = PlayerId.NEUTRAL  // todo

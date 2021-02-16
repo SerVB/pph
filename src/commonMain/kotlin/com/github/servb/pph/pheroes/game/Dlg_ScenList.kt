@@ -10,6 +10,7 @@ import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.asPoint
 import com.github.servb.pph.util.deflate
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
+import com.github.servb.pph.util.helpertype.getByValue
 import com.github.servb.pph.util.invoke
 import com.soywiz.klogger.Logger
 import com.soywiz.korio.file.std.resourcesVfs
@@ -267,8 +268,7 @@ class iScenListDlg : iBaseGameDlg {
         )
 
         // Init list
-        SortScenarios(
-            gSettings.GetEntryValue(ConfigEntryType.NGDSORT).let { id -> SortBy.values().single { it.v == id } })
+        SortScenarios(getByValue(gSettings.GetEntryValue(ConfigEntryType.NGDSORT)))
         if (m_scList.isNotEmpty()) {
             val selScen = gSettings.GetEntryValue(ConfigEntryType.NGDPOS).coerceIn(m_scList.indices)
             pLB.SetCurSel(selScen, true)
@@ -309,7 +309,7 @@ class iScenListDlg : iBaseGameDlg {
             in 501..503 -> {
                 val nval = uid - 501
                 gSettings.SetEntryValue(ConfigEntryType.NGDSORT, nval)
-                SortScenarios(SortBy.values().single { it.v == nval })
+                SortScenarios(getByValue(nval))
                 Invalidate()
             }
             100 -> {
