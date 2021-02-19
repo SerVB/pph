@@ -14,7 +14,6 @@ enum class SpellLevel(override val v: Int) : UniqueValueEnum, CountValueEnum {
 }
 
 /** Size = SPL_COUNT. */
-@ExperimentalUnsignedTypes
 val spellLevelMasks: List<UInt> = listOf(
         SpellLevelMask.FIRST.v.toUInt(),
         SpellLevelMask.SECOND.v.toUInt(),

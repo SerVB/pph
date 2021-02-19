@@ -3,6 +3,7 @@ package com.github.servb.pph.pheroes.game
 import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.pheroes.common.GfxId
 import com.github.servb.pph.pheroes.common.TextResId
+import com.github.servb.pph.pheroes.common.castle.CastleType
 import com.github.servb.pph.pheroes.common.common.DifficultyLevel
 import com.github.servb.pph.pheroes.common.common.PlayerId
 import com.github.servb.pph.pheroes.common.common.PlayerType
@@ -70,7 +71,59 @@ private class iPlayerBtn : iButton {
     }
 }
 
-private class iNationBtn  // todo
+private class iNationBtn : iButton, IViewCmdHandler {
+
+    private val m_bFixed: Boolean
+    private val m_pid: PlayerId
+    private var m_nt: CastleType
+
+    constructor(
+        pViewMgr: iViewMgr,
+        rect: IRectangleInt,
+        pid: PlayerId,
+        nt: CastleType,
+        uid: UInt,
+        bFixed: Boolean
+    ) : super(
+        pViewMgr,
+        null,
+        rect,
+        uid,
+        if (bFixed) ViewState.Visible.v else (ViewState.Visible or ViewState.Enabled)
+    ) {
+        m_pCmdHandler = this
+        m_pid = pid
+        m_nt = nt
+        m_bFixed = bFixed
+    }
+
+    fun PlayerNation(): CastleType = m_nt
+
+    override fun OnCompose() {
+        val rc = GetScrRect()
+        gApp.Surface().FrameRect(rc, cColor.Black.pixel)
+        rc.rect.inflate(-1)
+
+        val icn = GfxId.PDGG_CTL_SICONS(CastleType.COUNT.v * 2 + m_nt.v)
+        //PDGG_CTL_SICONS + (NATION_COUNT-NATION_HIGHMEN)*2 + (m_nt-NATION_HIGHMEN)  // commented in sources
+        BlitIcon(gApp.Surface(), icn, rc)
+        ButtonFrame(gApp.Surface(), rc, m_state)
+
+        if (!IsEnabled()) {
+            gApp.Surface().FillRect(rc, cColor.Gray64.pixel, 128u)
+        }
+    }
+
+    override suspend fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {
+        check(!m_bFixed)
+        if (cmd in setOf(CTRL_CMD_ID.BUTTON_CLICK, CTRL_CMD_ID.BUTTON_DOUBLE_CLICK)) {
+            m_nt = when (m_nt) {
+                CastleType.RANDOM -> CastleType.CITADEL
+                else -> getByValue(m_nt.v + 1)
+            }
+        }
+    }
+}
 
 private class iDifLvlTab : iTabbedSwitch {
 
@@ -159,7 +212,16 @@ class iScenPropsDlg : iBaseGameDlg {
         val sy = yp
         var sx = clRect.x + (clRect.width / 2 - btnsw / 2)
         repeat(cnt) { xx ->
-            // todo: nations
+            val pNatBtn = iNationBtn(
+                m_pMgr,
+                IRectangleInt(sx, sy, 34, 22),
+                m_scProps.m_Players[xx].m_Id,
+                m_scProps.m_Players[xx].m_Nation,
+                (150 + xx).toUInt(),
+                m_scProps.m_Players[xx].m_Nation != CastleType.RANDOM
+            )
+            AddChild(pNatBtn)
+            m_btnNations.add(pNatBtn)
             val tp = when (m_scProps.m_Players[xx].m_TypeMask) {
                 PlayerTypeMask.HUMAN_ONLY -> PlayerType.HUMAN
                 PlayerTypeMask.COMPUTER_ONLY -> PlayerType.COMPUTER
@@ -235,7 +297,7 @@ class iScenPropsDlg : iBaseGameDlg {
                 // Setup players
                 m_scProps.m_Players.indices.forEach { xx ->
                     m_scProps.m_Players[xx].m_Type = m_btnPlayers[xx].PlayerType()
-                    //m_scProps.m_Players[xx].m_Nation = m_btnNations[xx]->PlayerNation()  // todo
+                    m_scProps.m_Players[xx].m_Nation = m_btnNations[xx].PlayerNation()
                 }
                 EndDialog(uid)
             }

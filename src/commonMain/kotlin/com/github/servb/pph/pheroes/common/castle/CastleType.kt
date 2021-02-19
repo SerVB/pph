@@ -8,20 +8,19 @@ import com.github.servb.pph.pheroes.common.magic.SpellTypeMask
 import com.github.servb.pph.util.helpertype.CountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 
-@ExperimentalUnsignedTypes
 enum class CastleType(
-        override val v: Int,
-        val heroType: HeroType? = null,
-        val CTL_MAGE_GUILD_FILTER_0: SpellFilter? = null,
-        val CTL_MAGE_GUILD_FILTER_1: SpellFilter? = null,
-        val CTL_MAGE_GUILD_FILTER_2: SpellFilter? = null,
-        val CTL_MAGE_GUILD_FILTER_3: SpellFilter? = null,
-        val CTL_MAGE_GUILD_FILTER_4: SpellFilter? = null,
-        val CTL_MAGE_GUILD_SPELLS_0: UByte? = null,
-        val CTL_MAGE_GUILD_SPELLS_1: UByte? = null,
-        val CTL_MAGE_GUILD_SPELLS_2: UByte? = null,
-        val CTL_MAGE_GUILD_SPELLS_3: UByte? = null,
-        val CTL_MAGE_GUILD_SPELLS_4: UByte? = null
+    override val v: Int,
+    val heroType: HeroType? = null,
+    val CTL_MAGE_GUILD_FILTER_0: SpellFilter? = null,
+    val CTL_MAGE_GUILD_FILTER_1: SpellFilter? = null,
+    val CTL_MAGE_GUILD_FILTER_2: SpellFilter? = null,
+    val CTL_MAGE_GUILD_FILTER_3: SpellFilter? = null,
+    val CTL_MAGE_GUILD_FILTER_4: SpellFilter? = null,
+    val CTL_MAGE_GUILD_SPELLS_0: UByte?,/* = null*/
+    val CTL_MAGE_GUILD_SPELLS_1: UByte?,/* = null*/
+    val CTL_MAGE_GUILD_SPELLS_2: UByte?,/* = null*/
+    val CTL_MAGE_GUILD_SPELLS_3: UByte?,/* = null*/
+    val CTL_MAGE_GUILD_SPELLS_4: UByte?,/* = null*/
 ) : UniqueValueEnum, CountValueEnum {
     CITADEL(
             0,
@@ -100,14 +99,23 @@ enum class CastleType(
             SpellFilter(SpellTypeMask.ALL, SpellLevelMask.SECOND, MagicSchoolMask.EVIL),
             SpellFilter(SpellTypeMask.ALL, SpellLevelMask.THIRD, MagicSchoolMask.EVIL),
             SpellFilter(SpellTypeMask.ALL, SpellLevelMask.FOURTH, MagicSchoolMask.EVIL),
-            SpellFilter(SpellTypeMask.ALL, SpellLevelMask.FIFTH, MagicSchoolMask.EVIL),
-            5u,
-            4u,
-            3u,
-            2u,
-            1u
+        SpellFilter(SpellTypeMask.ALL, SpellLevelMask.FIFTH, MagicSchoolMask.EVIL),
+        5u,
+        4u,
+        3u,
+        2u,
+        1u
     ),
     RANDOM(6),
     COUNT(7),
     INVALID(0xFF);
+
+    constructor(v: Int) : this(
+        v,
+        CTL_MAGE_GUILD_SPELLS_0 = null,
+        CTL_MAGE_GUILD_SPELLS_1 = null,
+        CTL_MAGE_GUILD_SPELLS_2 = null,
+        CTL_MAGE_GUILD_SPELLS_3 = null,
+        CTL_MAGE_GUILD_SPELLS_4 = null
+    )  // todo: remove after KT-44180
 }
