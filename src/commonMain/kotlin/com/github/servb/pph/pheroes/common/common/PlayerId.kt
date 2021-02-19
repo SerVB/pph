@@ -1,5 +1,7 @@
 package com.github.servb.pph.pheroes.common.common
 
+import com.github.servb.pph.gxlib.IDibPixel
+import com.github.servb.pph.gxlib.cColor
 import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.soywiz.korim.color.Colors
@@ -7,46 +9,48 @@ import com.soywiz.korim.color.RGBA
 
 enum class PlayerId(
     override val v: Int,
-    val color: RGBA = Colors.VIOLET,
-    val textColor: RGBA = Colors.VIOLET,
+    val color: IDibPixel,/* = cColor.Gray64.pixel*/
+    val textColor: RGBA,/* = Colors.VIOLET*/  // todo: change it to match sources
 ) : UniqueValueEnum, UndefinedCountValueEnum {
     NEUTRAL(-1),
 
     RED(
         0,
-        Colors["#FF0000"],
+        (0x1Fu shl 11).toUShort(),
         Colors["#FFF3CE"],
     ),
 
     GREEN(
         1,
-        Colors["#00C200"],
+        (0x30u shl 5).toUShort(),
         Colors["#FF1C42"],
     ),
 
     BLUE(
         2,
-        Colors["#0000FF"],
+        0x1Fu,
         Colors["#FF31FF"],
     ),
 
     CYAN(
         3,
-        Colors["#00C2FF"],
+        ((0x30u shl 5) or 0x1Fu).toUShort(),
         Colors["#F7FF73"],
     ),
 
     MAGENTA(
         4,
-        Colors["#EF00FF"],
+        ((0x1Du shl 11) or 0x1Fu).toUShort(),
         Colors["#FFCEF7"],
     ),
 
     YELLOW(
         5,
-        Colors["#EFE300"],
+        ((0x1Du shl 11) or (0x38u shl 5)).toUShort(),
         Colors["#FFDF3A"],
     ),
 
     COUNT(6);
+
+    constructor(v: Int) : this(v, cColor.Gray64.pixel, Colors.VIOLET)  // todo: remove after KT-44180
 }

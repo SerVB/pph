@@ -190,12 +190,12 @@ abstract class iTabbedSwitch : iBaseCtrl {
         if (tab == m_FocTab) {
             if (m_CurTab == m_FocTab) {
                 if (m_pCmdHandler != null && IsEnabled()) {
-                    m_pCmdHandler?.iCMDH_ControlCommand(this, CTRL_CMD_ID.BUTTON_CLICK, m_CurTab)
+                    m_pCmdHandler!!.iCMDH_ControlCommand(this, CTRL_CMD_ID.BUTTON_CLICK, m_CurTab)
                 }
             } else {
                 m_CurTab = m_FocTab
                 if (m_pCmdHandler != null && IsEnabled()) {
-                    m_pCmdHandler?.iCMDH_ControlCommand(this, CTRL_CMD_ID.TABCHANGED, m_CurTab)
+                    m_pCmdHandler!!.iCMDH_ControlCommand(this, CTRL_CMD_ID.TABCHANGED, m_CurTab)
                 }
             }
             Invalidate()
@@ -232,7 +232,7 @@ abstract class iTabbedSwitch : iBaseCtrl {
     }
 
     protected fun GetTabByPos(pos: IPointInt): Int {
-        if (pos !in m_Rect) {
+        if (pos !in RectangleInt(0, 0, m_Rect.width, m_Rect.height)) {
             return -1
         }
         return pos.x / m_ItemWidth

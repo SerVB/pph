@@ -330,7 +330,16 @@ fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDecs: Boole
     }
 }
 
-fun BlitIcon(dib: iDib, sid: SpriteId, orc: IRectangleInt, a: UByte, offset: IPointInt) {
+fun BlitIcon(dib: iDib, sid: SpriteId, orc: IRectangleInt) =
+    BlitIcon(dib, sid, orc, 63u)  // todo: remove after KT-44180
+
+fun BlitIcon(
+    dib: iDib,
+    sid: SpriteId,
+    orc: IRectangleInt,
+    a: UByte/* = 63u*/,
+    offset: IPointInt = IPointInt(0, 0)
+) {  // alpha - 0-63
     val ssiz = gGfxMgr.Dimension(sid)
     val offs = gGfxMgr.Anchor(sid)
     val op = IPointInt(

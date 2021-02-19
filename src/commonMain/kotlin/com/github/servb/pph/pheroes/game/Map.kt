@@ -31,16 +31,17 @@ class iMapInfo {
         var m_Id: PlayerId
         var m_TypeMask: PlayerTypeMask
 
-        //        var m_Type: PlayerType
-//        var m_Nation: CastleType
+        var m_Type: PlayerType
+
+        //        var m_Nation: CastleType
         var m_curHeroId: UShort by Delegates.notNull()
         var m_curCastleIdx: UShort by Delegates.notNull()
         var m_keys: UByte by Delegates.notNull()
 
-        constructor(pid: PlayerId, ptypemask: PlayerTypeMask/*, ptype: PlayerType, ntype: CastleType*/) {
+        constructor(pid: PlayerId, ptypemask: PlayerTypeMask, ptype: PlayerType/*, ntype: CastleType*/) {
             m_Id = pid
             m_TypeMask = ptypemask
-//            m_Type = ptype
+            m_Type = ptype
 //            m_Nation = ntype
         }
     }
@@ -162,7 +163,7 @@ class iMapInfo {
             val player = iPlayerInfo(
                 pid = getByValue(playerId.toInt()),
                 ptypemask = getByValue(playerTypeMask.toInt()),
-//                ptype = PlayerType.UNDEFINED,  // todo: UNDEFINED because new game
+                ptype = PlayerType.UNDEFINED,  // UNDEFINED because new game
 //                ntype = CastleType.CITADEL,  // todo: depends on the main hero
             )
             players.add(player)
@@ -184,7 +185,7 @@ class iMapInfo {
         m_Players.count { it.m_TypeMask in setOf(PlayerTypeMask.HUMAN_ONLY, PlayerTypeMask.HUMAN_OR_COMPUTER) }
 
     fun Supported(): Boolean {
-        return false  // todo
+        return true  // todo
     }
 
     private companion object {

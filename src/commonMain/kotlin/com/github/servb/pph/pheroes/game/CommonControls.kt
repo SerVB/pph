@@ -3,11 +3,41 @@ package com.github.servb.pph.pheroes.game
 import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.pheroes.common.GfxId
 import com.github.servb.pph.pheroes.common.TextResId
+import com.github.servb.pph.util.asPoint
 import com.github.servb.pph.util.helpertype.and
 import com.github.servb.pph.util.helpertype.or
 import com.github.servb.pph.util.invoke
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt
+
+class iPHLabel : iBaseCtrl {
+
+    var m_text: String
+    val m_align: Alignment
+    val m_fc: iTextComposer.IFontConfig
+
+    constructor(
+        pViewMgr: iViewMgr,
+        rect: IRectangleInt,
+        text: String,
+        align: Alignment,
+        fc: iTextComposer.IFontConfig
+    ) : super(pViewMgr, null, rect, VIEWCLSID.GENERIC_VIEWPORT, 0u, ViewState.Visible.v) {
+        m_text = text
+        m_align = align
+        m_fc = fc
+    }
+
+    fun SetText(text: String) {
+        m_text = text
+        Invalidate()
+    }
+
+    override fun OnCompose() {
+        val rc = GetScrRect()
+        gTextComposer.TextOut(m_fc, gApp.Surface(), rc.asPoint(), m_text, rc, m_align)
+    }
+}
 
 class iTextButton : iButton {
 
