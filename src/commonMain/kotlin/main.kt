@@ -15,7 +15,8 @@ suspend fun main() = Korge(
 ) {
     Logger.defaultLevel = Logger.Level.INFO
 
-    rootVfs = resourcesVfs["resources.zip"].openAsZip(caseSensitive = false)
+    rootVfs =
+        resourcesVfs["resources.zip"].openAsZip(caseSensitive = false)  // case insensitive to avoid strict matching
 
     WinMain(this, "")
 }
