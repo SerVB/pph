@@ -1,4 +1,4 @@
-# Pocket Palm Heroes [![Discord](https://img.shields.io/discord/563755662866251786.svg?label=Join%20PPH%20on%20Discord!)](https://discord.gg/Rw95NQx) ![Build](https://github.com/SerVB/pph/workflows/Build/badge.svg)
+# Pocket Palm Heroes [![Discord](https://img.shields.io/discord/563755662866251786.svg?label=Join%20PPH%20on%20Discord!)](https://discord.gg/Rw95NQx) ![Build](https://github.com/SerVB/pph/workflows/Build/badge.svg) [![Deploy to GitHub Pages](https://github.com/SerVB/pph/actions/workflows/gh-pages.yml/badge.svg)](https://servb.github.io/pph/)
 
 This project tries to bring good old Palm Heroes/Pocket Heroes back to life. The work was started in 2017.
 
