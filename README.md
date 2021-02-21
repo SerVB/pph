@@ -19,12 +19,6 @@ It's available at GitHub Pages: <https://servb.github.io/pph/>.
 To run the game, clone the repo and execute the following commands:
 
 ```shell
-# Compress graphics (not needed for now):
-./gradlew :map-editor:runJvm      # for Linux/Mac
-.\gradlew.bat :map-editor:runJvm  # for Windows
-```
-
-```shell
 # Pack resources (needed only once or after changes in resources):
 ./gradlew :packResources      # for Linux/Mac
 .\gradlew.bat :packResources  # for Windows

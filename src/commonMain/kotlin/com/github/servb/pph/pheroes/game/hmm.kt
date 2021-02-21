@@ -102,7 +102,7 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
     ShowProgressReport(50)
 
     gGfxMgr.SetGamma(gSettings.GetEntryValue(ConfigEntryType.DISPGAMMA).toUInt())
-    if (!gGfxMgr.Load(0, "$gDataPath/game.gfx")) {
+    if (!gGfxMgr.Load(0, "pheroes/bin/Resources/hmm/GFX/spriteset.xml")) {
         TODO("MessageBox(NULL, _T(\"Unable to open sprite file!\"), NULL, MB_OK); return -1;")
     }
 
