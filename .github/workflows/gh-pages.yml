@@ -30,7 +30,12 @@ jobs:
           path: gh-pages
       - name: Copy distribution to gh-pages
         run: |
-          cp -r master/build/distributions/* gh-pages  # todo: remove old content: omit merging and perform replacing
+          # Remove old files:
+          cd gh-pages
+          git rm -r .
+          cd -
+          # Add new ones:
+          cp -r master/build/distributions/* gh-pages
       - name: Commit and push
         run: |
           cd gh-pages
