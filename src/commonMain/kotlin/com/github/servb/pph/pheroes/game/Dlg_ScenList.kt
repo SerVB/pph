@@ -17,71 +17,26 @@ import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt
 import com.soywiz.korma.geom.SizeInt
 import com.soywiz.korma.geom.y2
+import kotlinx.coroutines.flow.collect
 import rootVfs
 
 typealias iScenList = MutableList<iMapInfo>
 
 private val logger = Logger("Dlg_ScenListKt")
 
-// todo: compress preinstalled maps to zip archive and mount it like described here:
-//       https://discord.com/channels/728582275884908604/801658049244430377/807359417083232317
-internal val preinstalledMaps = listOf(
-    "Ancient_Lands.hmm",
-    "Arena.hmm",
-    "Armageddons_Blade.hmm",
-    "Around_The_Bay.hmm",
-    "Barbarians_Revenge.hmm",
-    "Bloody_Sands.hmm",
-    "Confrontation.hmm",
-    "Consolidation.hmm",
-    "Crossroads.hmm",
-    "Delta.hmm",
-    "Disagreements.hmm",
-    "Fire-eater.hmm",
-    "Gods_War.hmm",
-    "H2O.hmm",
-    "Harlem_War.hmm",
-    "Henry.hmm",
-    "heroes.hmm",
-    "Hostile_Neighbors.hmm",
-    "Ice_Age.hmm",
-    "Island.hmm",
-    "King_Of_The_Hill.hmm",
-    "KneeDeepInTheDead.hmm",
-    "Land_Bridge.hmm",
-    "Loose_Borders.hmm",
-    "Magic_Forests.hmm",
-    "Might_And_Magic.hmm",
-    "Quest_for_Glory.hmm",
-    "Swampy.hmm",
-    "TerritorialDivide.hmm",
-    "The_Great_Nile.hmm",
-    "The_Labyrynth.hmm",
-    "The_Mystic_Valley.hmm",
-    "ThePyramid.hmm",
-    "Tutorial.hmm",
-    "Two_by_the_river.hmm",
-    "WarLords.hmm",
-    "Winter_Assault.hmm",
-    "Winter_Wars.hmm",
-)
-
 private suspend fun EnumScenarios(scList: iScenList) {
-    preinstalledMaps.forEach { name ->
-        val file = rootVfs["$gMapsPath/$name"]
-        if (file.isFile()) {
-            val mapInfo = iMapInfo()
-            mapInfo.m_bNewGame = true
-            mapInfo.m_FileName = file.path
-            val pFile = file.openInputStream()
-            val fourcc = pFile.ReadU32()
-            if (fourcc == GMAP_FILE_HDR_KEY && mapInfo.ReadMapInfoPhm(pFile)) {
-                scList.add(mapInfo)
-            } else if (fourcc == EMAP_FILE_HDR_KEY && mapInfo.ReadMapInfoHmm(pFile)) {
-                scList.add(mapInfo)
-            } else {
-                logger.warn { "Map '${mapInfo.m_FileName}' is not supported" }
-            }
+    rootVfs[gMapsPath].list().collect { file ->
+        val mapInfo = iMapInfo()
+        mapInfo.m_bNewGame = true
+        mapInfo.m_FileName = file.path
+        val pFile = file.openInputStream()
+        val fourcc = pFile.ReadU32()
+        if (fourcc == GMAP_FILE_HDR_KEY && mapInfo.ReadMapInfoPhm(pFile)) {
+            scList.add(mapInfo)
+        } else if (fourcc == EMAP_FILE_HDR_KEY && mapInfo.ReadMapInfoHmm(pFile)) {
+            scList.add(mapInfo)
+        } else {
+            logger.warn { "Map '${mapInfo.m_FileName}' is not supported" }
         }
     }
 }
