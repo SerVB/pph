@@ -26,8 +26,8 @@ To run the game, clone the repo and execute the following commands:
 
 ```shell
 # Run app:
-./gradlew runJvm      # for Linux/Mac
-.\gradlew.bat runJvm  # for Windows
+./gradlew :runJvm      # for Linux/Mac
+.\gradlew.bat :runJvm  # for Windows
 ```
 
 Java needs to be installed on the computer.
