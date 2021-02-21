@@ -32,3 +32,25 @@ kotlin {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+val compressedResourcesFile = rootProject.file("src/commonMain/resources/resources.zip")
+
+tasks.create<Zip>("packResources") {
+    doFirst {
+        compressedResourcesFile.delete()
+        compressedResourcesFile.parentFile.mkdirs()
+    }
+
+    from(rootProject.file("resourcesRoot")) {
+        include("**")
+    }
+
+    archiveFileName.set(compressedResourcesFile.name)
+    destinationDirectory.set(compressedResourcesFile.parentFile)
+}
+
+tasks.clean {
+    doLast {
+        compressedResourcesFile.delete()
+    }
+}

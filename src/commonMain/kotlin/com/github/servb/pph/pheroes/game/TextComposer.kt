@@ -6,12 +6,12 @@ import com.github.servb.pph.util.helpertype.CountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.github.servb.pph.util.helpertype.getByValue
 import com.soywiz.korim.format.readBitmap
-import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korio.lang.substr
 import com.soywiz.korma.geom.IPointInt
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt
 import com.soywiz.korma.geom.SizeInt
+import rootVfs
 
 private const val CCODE = '#'
 private val dots = "..."
@@ -104,7 +104,7 @@ class iTextComposer {
 
         repeat(FontSize.COUNT.v) { nn ->
             val resourcePath = getByValue<FontSize>(nn).resourcePath
-            val bmp = resourcesVfs[resourcePath].readBitmap().toBMP32()
+            val bmp = rootVfs[resourcePath].readBitmap().toBMP32()
             val next = iDibFont()
             if (!next.Init(bmp, if (nn == 2) 2 else 0)) {
                 return false

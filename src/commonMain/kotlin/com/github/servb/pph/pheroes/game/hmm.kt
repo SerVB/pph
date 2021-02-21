@@ -60,7 +60,7 @@ suspend fun WinMain(stage: Stage, cmdLine: String) {
 
     gDataPath = "Game/Data"
     gSavePath = "Game/Save"
-    gMapsPath = "Game/Maps"
+    gMapsPath = "pheroes/bin/GameMaps"
 
     if (!gSettings.Init(cmdLine)) {
         TODO("MessageBox(NULL, _T(\"Unable to init game settings!\"), NULL, MB_OK)")

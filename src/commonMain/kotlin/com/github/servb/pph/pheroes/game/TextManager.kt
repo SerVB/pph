@@ -2,7 +2,7 @@ package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.pheroes.common.LANG_DATA
 import com.github.servb.pph.pheroes.common.TextResId
-import com.soywiz.korio.file.std.resourcesVfs
+import rootVfs
 import kotlin.properties.Delegates
 
 enum class Language(val displayName: String) {
@@ -42,7 +42,7 @@ class iTextManager {
         val regex = LANGUAGE_FILE_REGEX.toRegex()
 
         val resourceFilePath = "pheroes/bin/Resources/hmm/LNG/${language.name.toLowerCase()}.txt"
-        resourcesVfs[resourceFilePath].readLines().forEach { line ->
+        rootVfs[resourceFilePath].readLines().forEach { line ->
             regex.matchEntire(line.trim())?.let { match ->
                 val (constant, text) = match.destructured
                 val fqn = CONSTANT_PREFIX + constant

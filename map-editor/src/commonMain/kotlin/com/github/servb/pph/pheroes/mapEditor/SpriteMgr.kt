@@ -9,10 +9,8 @@ import com.soywiz.korim.bitmap.slice
 import com.soywiz.korim.color.Colors
 import com.soywiz.korim.format.readBitmap
 import com.soywiz.korio.file.VfsFile
-import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korio.lang.format
 import com.soywiz.korio.serialization.xml.Xml
-import com.soywiz.korio.util.substringBeforeLastOrNull
 import com.soywiz.korma.geom.IPointInt
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.PointInt
@@ -111,13 +109,13 @@ typealias iConstDefList = MutableList<iConstDef>
 
 class iSpriteMgr {
 
-    private lateinit var m_ResPath: String
+    private lateinit var m_ResPath: VfsFile
     private val m_InvalidSprite: iSprite = iSprite()
 
     val m_SpriteHash: MutableMap<String, iSprite> = mutableMapOf()
     val m_ConstDefList: iConstDefList = mutableListOf()
 
-    fun GetResPath(): String = m_ResPath
+    fun GetResPath(): VfsFile = m_ResPath
 
     suspend fun AddSprite(
         name: String,
@@ -133,11 +131,11 @@ class iSpriteMgr {
         if (seqX == 0 || seqY == 0) {
             TODO("MessageBox(NULL,iFormat(_T(\"Unable to open sprite %s !\"),(m_ResPath + chunk).CStr()).CStr(),_T(\"Error\"),MB_OK); return false")
         }
-        val file = resourcesVfs["$m_ResPath$chunk"]
+        val file = m_ResPath[chunk]
         val tdib = if (file.exists() && file.isFile()) {
             file.readBitmap().toBMP32IfRequired()
         } else {
-            logger.warn { "Can't find '$m_ResPath$chunk' sprite, setting to dummy" }
+            logger.warn { "Can't find '${file.path}' sprite, setting to dummy" }
             Bitmap32(128, 128, Colors.VIOLET)
         }
 
@@ -173,11 +171,10 @@ class iSpriteMgr {
         return m_SpriteHash[name] ?: m_InvalidSprite
     }
 
-    suspend fun Init(fname: String): Boolean {
-        val fn = resourcesVfs[fname]
-        m_ResPath = fname.substringBeforeLastOrNull('/')?.plus('/') ?: ""
+    suspend fun Init(spriteSetFile: VfsFile): Boolean {
+        m_ResPath = spriteSetFile.parent
         val reader = iSpriteXmlReader(this)
-        if (!reader.parse(fn)) {
+        if (!reader.parse(spriteSetFile)) {
             return false
         }
 

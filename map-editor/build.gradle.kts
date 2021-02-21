@@ -24,15 +24,3 @@ kotlin {
         }
     }
 }
-
-tasks.create("exportGfx") {
-    dependsOn(":map-editor:runJvm")
-
-    doLast {
-        val target = rootProject.file("src/commonMain/resources/Game/Data/game.gfx")
-        target.delete()
-        rootProject.file("src/commonMain/resources/Game/Data/").mkdirs()
-        val moved = rootProject.file("game.gfx").renameTo(target)
-        check(moved) { "Can't move file..." }
-    }
-}

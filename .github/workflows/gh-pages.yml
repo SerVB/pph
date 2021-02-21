@@ -21,7 +21,7 @@ jobs:
       - name: Build project
         run: |
           cd master
-          ./gradlew :jsBrowserProductionWebpack
+          ./gradlew :packResources :jsBrowserProductionWebpack
           rm build/distributions/*.map
       - name: Checkout gh-pages code
         uses: actions/checkout@v2

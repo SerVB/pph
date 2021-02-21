@@ -9,10 +9,10 @@ import com.soywiz.korim.bitmap.Bitmap32
 import com.soywiz.korim.color.RGBA
 import com.soywiz.korim.color.convertTo
 import com.soywiz.korim.format.readBitmap
-import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korma.geom.IPointInt
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.PointInt
+import rootVfs
 import kotlin.properties.Delegates
 
 private const val R16MASK: UInt = 0xF800u
@@ -76,9 +76,9 @@ class iCreditsComposer {
 
     suspend fun Init() {
         m_back.Init(ISizeInt(320, 720), IiDib.Type.RGB)
-        resourcesVfs["pheroes/bin/Resources/hmm/GFX/Pix/MenuBack.png"].readBitmap().toBMP32().copyTo(m_back)
+        rootVfs["pheroes/bin/Resources/hmm/GFX/Pix/MenuBack.png"].readBitmap().toBMP32().copyTo(m_back)
 
-        m_logo = resourcesVfs[selectLogoPath()].readBitmap().toBMP32()
+        m_logo = rootVfs[selectLogoPath()].readBitmap().toBMP32()
 
         m_pos = 0
     }

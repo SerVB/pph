@@ -13,6 +13,7 @@ import com.soywiz.korim.color.RGBA
 import com.soywiz.korim.color.convertTo
 import com.soywiz.korio.compression.compress
 import com.soywiz.korio.compression.deflate.Deflate
+import com.soywiz.korio.file.VfsFile
 import com.soywiz.korio.file.std.localCurrentDirVfs
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.PointInt
@@ -237,9 +238,9 @@ private class GfxBankExporter {
     }
 }
 
-suspend fun exportSprites(spriteSetFilePath: String): ByteArray {
+suspend fun exportSprites(spriteSetFile: VfsFile): ByteArray {
     val spriteMgr = iSpriteMgr()
-    spriteMgr.Init(spriteSetFilePath)
+    spriteMgr.Init(spriteSetFile)
     val spriteList = mutableListOf<Pair<String, Int>>()
     spriteMgr.m_SpriteHash.forEach { (k, v) ->
         spriteList.add(k to v.id)
@@ -254,8 +255,14 @@ suspend fun exportSprites(spriteSetFilePath: String): ByteArray {
 }
 
 suspend fun main() {
-    val sprites = exportSprites("pheroes/bin/Resources/hmm/GFX/spriteset.xml")
+    val sprites = exportSprites(localCurrentDirVfs["resourcesRoot/pheroes/bin/Resources/hmm/GFX/spriteset.xml"])
     val compressed = sprites.compress(Deflate)
-    val file = localCurrentDirVfs["game.gfx"]
+
+    val dir = localCurrentDirVfs["resourcesRoot/Game/Data"]
+    if (!dir.exists()) {
+        dir.mkdir()
+    }
+
+    val file = dir["game.gfx"]
     file.write(compressed)
 }

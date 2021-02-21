@@ -20,8 +20,14 @@ To run the game, clone the repo and execute the following commands:
 
 ```shell
 # Compress graphics (not needed for now):
-./gradlew :map-editor:exportGfx      # for Linux/Mac
-.\gradlew.bat :map-editor:exportGfx  # for Windows
+./gradlew :map-editor:runJvm      # for Linux/Mac
+.\gradlew.bat :map-editor:runJvm  # for Windows
+```
+
+```shell
+# Pack resources (needed only once or after changes in resources):
+./gradlew :packResources      # for Linux/Mac
+.\gradlew.bat :packResources  # for Windows
 ```
 
 ```shell

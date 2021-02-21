@@ -13,11 +13,11 @@ import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.github.servb.pph.util.helpertype.getByValue
 import com.github.servb.pph.util.invoke
 import com.soywiz.klogger.Logger
-import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt
 import com.soywiz.korma.geom.SizeInt
 import com.soywiz.korma.geom.y2
+import rootVfs
 
 typealias iScenList = MutableList<iMapInfo>
 
@@ -68,7 +68,7 @@ internal val preinstalledMaps = listOf(
 
 private suspend fun EnumScenarios(scList: iScenList) {
     preinstalledMaps.forEach { name ->
-        val file = resourcesVfs["$gMapsPath/$name"]
+        val file = rootVfs["$gMapsPath/$name"]
         if (file.isFile()) {
             val mapInfo = iMapInfo()
             mapInfo.m_bNewGame = true

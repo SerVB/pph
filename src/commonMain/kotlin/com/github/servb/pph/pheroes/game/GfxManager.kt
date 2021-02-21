@@ -4,11 +4,11 @@ import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.util.*
 import com.soywiz.korio.compression.deflate.Deflate
 import com.soywiz.korio.compression.uncompress
-import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korio.stream.MemorySyncStream
 import com.soywiz.korio.stream.readBytesExact
 import com.soywiz.korio.stream.readShortArrayLE
 import com.soywiz.korma.geom.*
+import rootVfs
 
 typealias SpriteId = SizeT
 typealias BankId = SizeT
@@ -84,7 +84,7 @@ class iGfxManager {
         suspend fun Load(fileName: String, gammaLevel: UInt): Boolean {
             this.fileName = fileName
 
-            val gfxData = resourcesVfs[fileName].readAll().uncompress(Deflate)
+            val gfxData = rootVfs[fileName].readAll().uncompress(Deflate)
 
             val stream = MemorySyncStream(gfxData)
 
