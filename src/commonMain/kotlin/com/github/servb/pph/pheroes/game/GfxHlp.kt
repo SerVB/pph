@@ -4,8 +4,9 @@ import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.pheroes.common.GfxId
 import com.github.servb.pph.pheroes.common.TextResId
 import com.github.servb.pph.pheroes.common.common.PlayerId
-import com.github.servb.pph.util.*
+import com.github.servb.pph.util.asPoint
 import com.github.servb.pph.util.helpertype.and
+import com.github.servb.pph.util.isEmpty
 import com.soywiz.korma.geom.*
 import com.soywiz.korma.math.clamp
 import kotlin.math.absoluteValue
@@ -330,14 +331,11 @@ fun ComposeDlgBkgnd(surf: iDib, rect: IRectangleInt, pid: PlayerId, bDecs: Boole
     }
 }
 
-fun BlitIcon(dib: iDib, sid: SpriteId, orc: IRectangleInt) =
-    BlitIcon(dib, sid, orc, 63u)  // todo: remove after KT-44180
-
 fun BlitIcon(
     dib: iDib,
     sid: SpriteId,
     orc: IRectangleInt,
-    a: UByte/* = 63u*/,
+    a: UByte = 63u,
     offset: IPointInt = IPointInt(0, 0)
 ) {  // alpha - 0-63
     val ssiz = gGfxMgr.Dimension(sid)

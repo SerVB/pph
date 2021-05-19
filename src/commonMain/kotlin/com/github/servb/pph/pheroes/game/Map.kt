@@ -8,7 +8,6 @@ import com.github.servb.pph.pheroes.common.DeserializePoint
 import com.github.servb.pph.pheroes.common.DeserializeString
 import com.github.servb.pph.pheroes.common.castle.CastleType
 import com.github.servb.pph.pheroes.common.common.*
-import com.github.servb.pph.util.ISizeInt
 import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.github.servb.pph.util.helpertype.getByValue

@@ -41,7 +41,7 @@ class iTextManager {
 
         val regex = LANGUAGE_FILE_REGEX.toRegex()
 
-        val resourceFilePath = "pheroes/bin/Resources/hmm/LNG/${language.name.toLowerCase()}.txt"
+        val resourceFilePath = "pheroes/bin/Resources/hmm/LNG/${language.name.lowercase()}.txt"
         rootVfs[resourceFilePath].readLines().forEach { line ->
             regex.matchEntire(line.trim())?.let { match ->
                 val (constant, text) = match.destructured

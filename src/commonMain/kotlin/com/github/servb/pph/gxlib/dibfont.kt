@@ -58,24 +58,9 @@ interface IiDibFont {
 
         constructor(
             _faceColor: IDibPixel,
-        ) : this(_faceColor, cColor.Black.pixel)  // todo: remove after KT-44180
-
-        constructor(
-            _faceColor: IDibPixel,
-            _borderColor: IDibPixel,
-        ) : this(_faceColor, _borderColor, Decor.Shadow)  // todo: remove after KT-44180
-
-        constructor(
-            _faceColor: IDibPixel,
-            _borderColor: IDibPixel,
-            _decor: Decor,
-        ) : this(_faceColor, _borderColor, _decor, 255u)  // todo: remove after KT-44180
-
-        constructor(
-            _faceColor: IDibPixel,
-            _borderColor: IDibPixel,/* = cColor.Black.pixel*/
-            _decor: Decor,/* = Decor.Shadow*/
-            _alpha: UByte,/* = 255u*/
+            _borderColor: IDibPixel = cColor.Black.pixel,
+            _decor: Decor = Decor.Shadow,
+            _alpha: UByte = 255u,
         ) {
             faceColor = _faceColor
             borderColor = _borderColor
@@ -87,24 +72,9 @@ interface IiDibFont {
 
         constructor(
             _gradient: iGradient,
-        ) : this(_gradient, cColor.Black.pixel)  // todo: remove after KT-44180
-
-        constructor(
-            _gradient: iGradient,
-            _borderColor: IDibPixel,
-        ) : this(_gradient, _borderColor, Decor.Shadow)  // todo: remove after KT-44180
-
-        constructor(
-            _gradient: iGradient,
-            _borderColor: IDibPixel,
-            _decor: Decor,
-        ) : this(_gradient, _borderColor, _decor, 255u)  // todo: remove after KT-44180
-
-        constructor(
-            _gradient: iGradient,
-            _borderColor: IDibPixel,/* = cColor.Black.pixel*/
-            _decor: Decor,/* = Decor.Shadow*/
-            _alpha: UByte,/* = 255u*/
+            _borderColor: IDibPixel = cColor.Black.pixel,
+            _decor: Decor = Decor.Shadow,
+            _alpha: UByte = 255u,
         ) {
             gradient = _gradient
             borderColor = _borderColor
@@ -217,7 +187,7 @@ class iDibFont : IiDibFont {
         return true
     }
 
-    override fun IsValidChar(c: Char): Boolean = c.toInt() < MaxCharCode && m_idxList[c] != InvCharIdx
+    override fun IsValidChar(c: Char): Boolean = c.code < MaxCharCode && m_idxList[c] != InvCharIdx
     override fun IsValidString(str: String): Boolean = str.all(this::IsValidChar)
 
     override fun GetDefLeading(): Int = m_fntHeight + 1
@@ -294,6 +264,6 @@ class iDibFont : IiDibFont {
 
     private companion object {
 
-        private operator fun SizeTArray.get(idx: Char) = this[idx.toInt()]
+        private operator fun SizeTArray.get(idx: Char) = this[idx.code]
     }
 }

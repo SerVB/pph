@@ -1,9 +1,9 @@
 package com.github.servb.pph.gxlib
 
-import com.github.servb.pph.util.contains
 import com.soywiz.korma.geom.IPointInt
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt
+import com.soywiz.korma.geom.contains
 
 private typealias iDialogStack = MutableList<iDialog>
 private typealias iTimerList = MutableList<iTimerHandler>

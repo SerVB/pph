@@ -7,15 +7,15 @@ const val EMAP_FILE_HDR_KEY: UInt = 0x76235278u
 const val EMAP_FILE_VERSION: UInt = 0x19u
 
 val GMAP_FILE_HDR_KEY: UInt =
-    ('G'.toInt() or ('M'.toInt() shl 8) or ('A'.toInt() shl 16) or ('P'.toInt() shl 24)).toUInt()
+    ('G'.code or ('M'.code shl 8) or ('A'.code shl 16) or ('P'.code shl 24)).toUInt()
 const val GMAP_FILE_VERSION: UShort = 0x39u
 
 val GOBJ_FILE_HDR_KEY: UInt =
-    ('G'.toInt() or ('O'.toInt() shl 8) or ('B'.toInt() shl 16) or ('J'.toInt() shl 24)).toUInt()
+    ('G'.code or ('O'.code shl 8) or ('B'.code shl 16) or ('J'.code shl 24)).toUInt()
 const val GOBJ_FILE_VERSION: UShort = 0x07u
 
 val GFNT_FILE_HDR_KEY: UInt =
-    ('G'.toInt() or ('F'.toInt() shl 8) or ('N'.toInt() shl 16) or ('T'.toInt() shl 24)).toUInt()
+    ('G'.code or ('F'.code shl 8) or ('N'.code shl 16) or ('T'.code shl 24)).toUInt()
 const val GFNT_FILE_VERSION: UShort = 0x01u
 
 const val RANDOM_QUANTITY = 0

@@ -1,7 +1,6 @@
 package com.github.servb.pph.gxlib
 
 import com.github.servb.pph.util.Mutable
-import com.github.servb.pph.util.SizeInt
 import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum

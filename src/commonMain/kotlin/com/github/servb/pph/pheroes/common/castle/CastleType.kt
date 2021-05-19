@@ -16,11 +16,11 @@ enum class CastleType(
     val CTL_MAGE_GUILD_FILTER_2: SpellFilter? = null,
     val CTL_MAGE_GUILD_FILTER_3: SpellFilter? = null,
     val CTL_MAGE_GUILD_FILTER_4: SpellFilter? = null,
-    val CTL_MAGE_GUILD_SPELLS_0: UByte?,/* = null*/
-    val CTL_MAGE_GUILD_SPELLS_1: UByte?,/* = null*/
-    val CTL_MAGE_GUILD_SPELLS_2: UByte?,/* = null*/
-    val CTL_MAGE_GUILD_SPELLS_3: UByte?,/* = null*/
-    val CTL_MAGE_GUILD_SPELLS_4: UByte?,/* = null*/
+    val CTL_MAGE_GUILD_SPELLS_0: UByte? = null,
+    val CTL_MAGE_GUILD_SPELLS_1: UByte? = null,
+    val CTL_MAGE_GUILD_SPELLS_2: UByte? = null,
+    val CTL_MAGE_GUILD_SPELLS_3: UByte? = null,
+    val CTL_MAGE_GUILD_SPELLS_4: UByte? = null,
 ) : UniqueValueEnum, CountValueEnum {
     CITADEL(
             0,
@@ -109,13 +109,4 @@ enum class CastleType(
     RANDOM(6),
     COUNT(7),
     INVALID(0xFF);
-
-    constructor(v: Int) : this(
-        v,
-        CTL_MAGE_GUILD_SPELLS_0 = null,
-        CTL_MAGE_GUILD_SPELLS_1 = null,
-        CTL_MAGE_GUILD_SPELLS_2 = null,
-        CTL_MAGE_GUILD_SPELLS_3 = null,
-        CTL_MAGE_GUILD_SPELLS_4 = null
-    )  // todo: remove after KT-44180
 }

@@ -11,7 +11,6 @@ import com.github.servb.pph.util.asPoint
 import com.github.servb.pph.util.deflate
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.github.servb.pph.util.helpertype.getByValue
-import com.github.servb.pph.util.invoke
 import com.soywiz.klogger.Logger
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt

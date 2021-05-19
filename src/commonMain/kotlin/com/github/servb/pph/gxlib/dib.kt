@@ -212,13 +212,10 @@ interface IiDib {
 
     fun CopyToDibXY(dib: iDib, pos: IPointInt, a: UByte)
     fun CopyToDibXY(dib: iDib, pos: IPointInt)
-    fun CopyRectToDibXY(dib: iDib, srect: IRectangleInt, pos: IPointInt, a: UByte/* = 255u*/)
+    fun CopyRectToDibXY(dib: iDib, srect: IRectangleInt, pos: IPointInt, a: UByte = 255u)
 
     val backingBitmap: Bitmap16
 }
-
-fun IiDib.CopyRectToDibXY(dib: iDib, srect: IRectangleInt, pos: IPointInt) =
-    CopyRectToDibXY(dib, srect, pos, 255u)  // todo: remove after KT-44180
 
 // unused methods in the whole game:
 // Triangle, Line
@@ -321,9 +318,7 @@ class iDib : IiDib {
         }
     }
 
-    fun Fill(clr: IDibPixel) = Fill(clr, 255u)  // todo: remove after KT-44180
-
-    fun Fill(clr: IDibPixel, a: UByte/* = 255u*/) {
+    fun Fill(clr: IDibPixel, a: UByte = 255u) {
         if (a == 255u.toUByte()) {
             FillDibBlock(GetPtr(), clr, m_RGB.area)
         } else {
@@ -331,9 +326,7 @@ class iDib : IiDib {
         }
     }
 
-    fun FillRect(rc: IRectangleInt, clr: IDibPixel) = FillRect(rc, clr, 255u)  // todo: remove after KT-44180
-
-    fun FillRect(rc: IRectangleInt, clr: IDibPixel, a: UByte/* = 255u*/) {
+    fun FillRect(rc: IRectangleInt, clr: IDibPixel, a: UByte = 255u) {
         val drect = RectangleInt(rc)
         if (!ClipRect(drect, GetSize().asRectangle())) {
             return
@@ -452,9 +445,7 @@ class iDib : IiDib {
         }
     }
 
-    fun FrameRect(rc: IRectangleInt, clr: IDibPixel) = FrameRect(rc, clr, 255u)  // todo: remove after KT-44180
-
-    fun FrameRect(rc: IRectangleInt, clr: IDibPixel, a: UByte/* = 255u*/) {
+    fun FrameRect(rc: IRectangleInt, clr: IDibPixel, a: UByte = 255u) {
         val drect = RectangleInt(rc)
         if (!ClipRect(drect, GetSize().asRectangle())) {
             return
@@ -465,9 +456,7 @@ class iDib : IiDib {
         VLine(rc.topRight2, rc.y2, clr, a)
     }
 
-    fun HLine(pos: IPointInt, x2: Int, clr: IDibPixel) = HLine(pos, x2, clr, 255u)  // todo: remove after KT-44180
-
-    fun HLine(pos: IPointInt, x2: Int, clr: IDibPixel, a: UByte/* = 255u*/) {
+    fun HLine(pos: IPointInt, x2: Int, clr: IDibPixel, a: UByte = 255u) {
         val dpos1 = PointInt(minOf(pos.x, x2), pos.y)
         val dx2 = Mutable(maxOf(pos.x, x2))
         if (!ClipHLine(dpos1, dx2, GetSize().asRectangle())) {
@@ -482,9 +471,7 @@ class iDib : IiDib {
         }
     }
 
-    fun VLine(pos: IPointInt, y2: Int, clr: IDibPixel) = VLine(pos, y2, clr, 255u)  // todo: remove after KT-44180
-
-    fun VLine(pos: IPointInt, y2: Int, clr: IDibPixel, a: UByte/* = 255u*/) {
+    fun VLine(pos: IPointInt, y2: Int, clr: IDibPixel, a: UByte = 255u) {
         val dpos1 = PointInt(pos.x, minOf(pos.y, y2))
         val dy2 = Mutable(maxOf(pos.y, y2))
         if (!ClipVLine(dpos1, dy2, GetSize().asRectangle())) {

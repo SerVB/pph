@@ -11,7 +11,6 @@ import com.github.servb.pph.pheroes.common.common.PlayerTypeMask
 import com.github.servb.pph.util.helpertype.and
 import com.github.servb.pph.util.helpertype.getByValue
 import com.github.servb.pph.util.helpertype.or
-import com.github.servb.pph.util.invoke
 import com.soywiz.korma.geom.*
 
 private class iPlayerBtn : iButton {

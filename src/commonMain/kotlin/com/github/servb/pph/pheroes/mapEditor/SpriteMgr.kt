@@ -2,7 +2,6 @@ package com.github.servb.pph.pheroes.mapEditor
 
 import com.github.servb.pph.gxlib.cInvalidRect
 import com.github.servb.pph.util.SizeT
-import com.github.servb.pph.util.invoke
 import com.soywiz.klogger.Logger
 import com.soywiz.korim.bitmap.Bitmap32
 import com.soywiz.korim.bitmap.slice

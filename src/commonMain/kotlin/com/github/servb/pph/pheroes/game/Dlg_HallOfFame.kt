@@ -5,7 +5,6 @@ import com.github.servb.pph.pheroes.common.TextResId
 import com.github.servb.pph.pheroes.common.common.PlayerId
 import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.asPoint
-import com.github.servb.pph.util.invoke
 import com.soywiz.klock.DateTime
 import com.soywiz.kmem.buildByteArray
 import com.soywiz.korio.file.std.localCurrentDirVfs

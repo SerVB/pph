@@ -7,9 +7,7 @@ interface IiRandomizer {
     fun GetSeed(): UInt
 }
 
-class iRandomizer(seed: UInt/* = 1u*/) : IiRandomizer {
-
-    constructor() : this(1u)  // todo: remove after KT-44180
+class iRandomizer(seed: UInt = 1u) : IiRandomizer {
 
     private var m_holdrand by Delegates.notNull<UInt>()
 

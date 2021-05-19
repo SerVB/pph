@@ -1,16 +1,15 @@
 package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.gxlib.*
-import com.github.servb.pph.util.*
+import com.github.servb.pph.util.Mutable
+import com.github.servb.pph.util.SizeT
+import com.github.servb.pph.util.asPoint
 import com.github.servb.pph.util.helpertype.CountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.github.servb.pph.util.helpertype.getByValue
 import com.soywiz.korim.format.readBitmap
 import com.soywiz.korio.lang.substr
-import com.soywiz.korma.geom.IPointInt
-import com.soywiz.korma.geom.IRectangleInt
-import com.soywiz.korma.geom.RectangleInt
-import com.soywiz.korma.geom.SizeInt
+import com.soywiz.korma.geom.*
 import rootVfs
 
 private const val CCODE = '#'
@@ -20,7 +19,7 @@ private fun HexChar2Int(c: Char): UByte {
     return when (c) {
         in '0'..'9' -> (c - '0').toUByte()
         in 'A'..'F' -> (c - 'A' + 10).toUByte()
-        else -> throw IllegalArgumentException("bad char: $c (${c.toInt()})")
+        else -> throw IllegalArgumentException("bad char: $c (${c.code})")
     }
 }
 

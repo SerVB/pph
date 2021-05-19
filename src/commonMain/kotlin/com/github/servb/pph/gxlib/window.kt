@@ -1,7 +1,5 @@
 package com.github.servb.pph.gxlib
 
-import com.github.servb.pph.util.SizeInt
-import com.github.servb.pph.util.setTo
 import com.soywiz.korev.Key
 import com.soywiz.korev.MouseButton
 import com.soywiz.korge.input.MouseEvents
@@ -11,6 +9,7 @@ import com.soywiz.korge.view.Stage
 import com.soywiz.korgw.GameWindow
 import com.soywiz.korma.geom.ISizeInt
 import com.soywiz.korma.geom.SizeInt
+import com.soywiz.korma.geom.setTo
 
 // todo: not needed until screen suspension is implemented
 //interface iDispMsgHnd {

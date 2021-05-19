@@ -2,9 +2,7 @@ package com.github.servb.pph.gxlib
 
 import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.asPoint
-import com.github.servb.pph.util.contains
 import com.github.servb.pph.util.helpertype.*
-import com.github.servb.pph.util.invoke
 import com.soywiz.korma.geom.*
 import com.soywiz.korma.math.clamp
 

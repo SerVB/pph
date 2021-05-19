@@ -4,12 +4,11 @@ import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.pheroes.common.GfxId
 import com.github.servb.pph.pheroes.common.TextResId
 import com.github.servb.pph.pheroes.common.common.PlayerId
-import com.github.servb.pph.util.*
+import com.github.servb.pph.util.SizeT
+import com.github.servb.pph.util.asPoint
+import com.github.servb.pph.util.deflate
 import com.soywiz.korio.lang.format
-import com.soywiz.korma.geom.IRectangleInt
-import com.soywiz.korma.geom.RectangleInt
-import com.soywiz.korma.geom.SizeInt
-import com.soywiz.korma.geom.y2
+import com.soywiz.korma.geom.*
 
 const val SAVE_GAME_SLOTS: SizeT = 8
 

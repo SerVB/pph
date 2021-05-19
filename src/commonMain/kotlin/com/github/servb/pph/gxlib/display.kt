@@ -1,12 +1,12 @@
 package com.github.servb.pph.gxlib
 
-import com.github.servb.pph.util.setTo
 import com.soywiz.korge.view.Stage
 import com.soywiz.korge.view.image
 import com.soywiz.korge.view.xy
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.ISizeInt
 import com.soywiz.korma.geom.SizeInt
+import com.soywiz.korma.geom.setTo
 import kotlin.properties.Delegates
 
 // ported implementation from gxl.display.w32.cpp

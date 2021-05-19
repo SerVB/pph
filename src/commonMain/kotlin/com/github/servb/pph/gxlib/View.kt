@@ -1,10 +1,7 @@
 package com.github.servb.pph.gxlib
 
-import com.github.servb.pph.util.contains
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.github.servb.pph.util.helpertype.and
-import com.github.servb.pph.util.invoke
-import com.github.servb.pph.util.setTo
 import com.github.servb.pph.util.setToUnion
 import com.soywiz.korma.geom.*
 

@@ -1,7 +1,6 @@
 package com.github.servb.pph.pheroes.game
 
 import com.github.servb.pph.gxlib.*
-import com.github.servb.pph.util.ISizeInt
 import com.github.servb.pph.util.SizeT
 import com.soywiz.klock.DateTime
 import com.soywiz.klock.Month
@@ -11,6 +10,7 @@ import com.soywiz.korim.color.convertTo
 import com.soywiz.korim.format.readBitmap
 import com.soywiz.korma.geom.IPointInt
 import com.soywiz.korma.geom.IRectangleInt
+import com.soywiz.korma.geom.ISizeInt
 import com.soywiz.korma.geom.PointInt
 import rootVfs
 import kotlin.properties.Delegates

@@ -9,8 +9,8 @@ import com.soywiz.korim.color.RGBA
 
 enum class PlayerId(
     override val v: Int,
-    val color: IDibPixel,/* = cColor.Gray64.pixel*/
-    val textColor: RGBA,/* = Colors.VIOLET*/  // todo: change it to match sources
+    val color: IDibPixel = cColor.Gray64.pixel,
+    val textColor: RGBA = Colors.VIOLET,  // todo: change it to match sources
 ) : UniqueValueEnum, UndefinedCountValueEnum {
     NEUTRAL(-1),
 
@@ -51,6 +51,4 @@ enum class PlayerId(
     ),
 
     COUNT(6);
-
-    constructor(v: Int) : this(v, cColor.Gray64.pixel, Colors.VIOLET)  // todo: remove after KT-44180
 }

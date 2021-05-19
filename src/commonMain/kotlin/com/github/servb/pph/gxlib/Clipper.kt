@@ -2,7 +2,6 @@
 
 package com.github.servb.pph.gxlib
 
-import com.github.servb.pph.util.ISizeInt
 import com.github.servb.pph.util.Mutable
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.github.servb.pph.util.helpertype.or

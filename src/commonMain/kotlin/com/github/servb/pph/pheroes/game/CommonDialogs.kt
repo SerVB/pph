@@ -4,7 +4,6 @@ import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.pheroes.common.TextResId
 import com.github.servb.pph.pheroes.common.common.PlayerId
 import com.github.servb.pph.util.asRectangle
-import com.github.servb.pph.util.invoke
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt
 import com.soywiz.korma.geom.SizeInt
