@@ -4,6 +4,7 @@ import com.soywiz.korge.Korge
 import com.soywiz.korio.file.VfsFile
 import com.soywiz.korio.file.std.openAsZip
 import com.soywiz.korio.file.std.resourcesVfs
+import com.soywiz.korio.stream.openAsync
 
 lateinit var rootVfs: VfsFile
     private set
@@ -16,7 +17,8 @@ suspend fun main() = Korge(
     Logger.defaultLevel = Logger.Level.INFO
 
     rootVfs =
-        resourcesVfs["resources.zip"].openAsZip(caseSensitive = false)  // case insensitive to avoid strict matching
+        resourcesVfs["resources.zip"].readAll().openAsync()
+            .openAsZip(caseSensitive = false)  // case insensitive to avoid strict matching
 
     WinMain(this, "")
 //        mainDev()
