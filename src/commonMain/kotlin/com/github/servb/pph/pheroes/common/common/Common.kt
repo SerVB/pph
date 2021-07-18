@@ -21,17 +21,17 @@ const val GFNT_FILE_VERSION: UShort = 0x01u
 const val RANDOM_QUANTITY = 0
 const val RAND_VAL = -1
 
-fun CalcCellSeqGame(pnt: IPointInt, maxv: Int): Int {
-    var result = pnt.x
-    result += (pnt.y shl 16).inv()
-    result = result xor (pnt.x shr 5)
-    result += pnt.y shl 3
-    result = result xor (pnt.x shr 13)
-    result += (pnt.y shl 9).inv()
+fun CalcCellSeqGame(pnt: IPointInt, maxv: UInt): UInt {
+    var result = pnt.x.toUInt()
+    result += (pnt.y.toUInt() shl 16).inv()
+    result = result xor (pnt.x.toUInt() shr 5)
+    result += pnt.y.toUInt() shl 3
+    result = result xor (pnt.x.toUInt() shr 13)
+    result += (pnt.y.toUInt() shl 9).inv()
     result = result xor (result shr 17)
 
-    val idx = result xor (result shr 8) xor (result shr 16) and 255
-    result = iRandTable[idx].toInt()
+    val idx = (result xor (result shr 8) xor (result shr 16) and 255u).toInt()
+    result = iRandTable[idx]
 
     return result % maxv
 }

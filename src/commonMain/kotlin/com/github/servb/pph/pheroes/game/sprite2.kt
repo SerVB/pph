@@ -22,9 +22,36 @@ object CopyOp : BlitterOperation {
     }
 }
 
-class ConstAlphaBlendOp(val a: UByte) : BlitterOperation {
+class ConstAlphaBlendOp(val alpha: UByte) : BlitterOperation {
 
-    override fun invoke(dst: IDibPixelIPointer, src: IDibIPixelIPointer) = TODO()
+    override fun invoke(dst: IDibPixelIPointer, src: IDibIPixelIPointer) {
+        /* commented in sources
+
+                if (!alpha) return;
+                uint8 inv_a = 63-alpha;
+                uint16 sr = alpha * ((*src & 0xF800) >> 11);
+                uint16 sg = alpha * ((*src & 0x7E0) >> 5);
+                uint16 sb = alpha * ((*src & 0x1F));
+                uint16 dr = inv_a * ((*dst & 0xF800) >> 11);
+                uint16 dg = inv_a * ((*dst & 0x7E0) >> 5);
+                uint16 db = inv_a * ((*dst & 0x1F));
+                *dst = (((sr+dr)>>6)<<11 | ((sg+dg)>>6)<<5 | ((sb+db)>>6));
+        */
+        val a = src[0].toUInt()
+        val b = dst[0].toUInt()
+        val sb = a and 0x1Fu
+        val sg = (a shr 5) and 0x3Fu
+        val sr = (a shr 11) and 0x1Fu
+        val db = b and 0x1Fu
+        val dg = (b shr 5) and 0x3Fu
+        val dr = (b shr 11) and 0x1Fu
+
+        dst[0] = (
+                (((alpha * (sb - db)) shr 6) + db) or
+                        ((((alpha * (sg - dg)) shr 6) + dg) shl 5) or
+                        ((((alpha * (sr - dr)) shr 6) + dr) shl 11)
+                ).toUShort()
+    }
 }
 
 object Shadow50Op : BlitterOperation {
@@ -111,6 +138,42 @@ fun Segment(
     }
 }
 
+// Clipped masked span blit
+fun Segment(
+    op: BlitterOperation,
+    src: IDibIPixelIPointer,
+    dst: IDibPixelIPointer,
+    mask: IDibIPixelIPointer,
+    count: SizeT,
+    clipIn: IDibIPixelIPointer,
+    clipOut: IDibIPixelIPointer
+) {
+    val ptrSrc = src.copy()
+    val ptrDst = dst.copy()
+    val ptrMask = mask.copy()
+
+    // validate clip params
+    check(clipIn.offset < clipOut.offset)
+    val clipBoundDiff = clipIn.offset - ptrSrc.offset
+    val leftClipSkips: SizeT = minOf(maxOf(clipBoundDiff, 0), count)
+    check(leftClipSkips <= count)
+
+    ptrSrc.incrementOffset(leftClipSkips)
+    ptrDst.incrementOffset(leftClipSkips)
+    ptrMask.incrementOffset(leftClipSkips)
+
+    var count = count - leftClipSkips
+
+    if (0 != count && ptrDst.offset < clipOut.offset) {
+        check(ptrDst.offset <= clipOut.offset)
+        val copyCount: SizeT = minOf(clipOut.offset - ptrDst.offset, count)
+        check(copyCount <= count)
+        count -= copyCount
+        ptrMask.incrementOffset(copyCount)
+        BLTLOOP(ptrSrc, ptrDst, copyCount, op)
+    }
+}
+
 // Skips one span
 fun SpanSkip(src: IDibIPixelIPointer): Int {
     val newSrc = src.copy()
@@ -173,4 +236,71 @@ fun Span(
     } while ((code and 0x8000u) == 0u)
 
     return ptrSrc.offset - src.offset
+}
+
+// Blits non clipped masked span line
+// ( NOTE: mask is a span sprite! ) returns ptr to the mask
+fun MaskedSpanFast(
+    op: BlitterOperation,
+    mask: IDibIPixelIPointer,
+    src: IDibIPixelIPointer,
+    dst: IDibPixelIPointer,
+): Int {
+    val ptrDst = dst.copy()
+    val ptrSrc = src.copy()
+    val ptrMask = mask.copy()
+    var code: UInt
+    do {
+        code = ptrMask[0].toUInt()
+        ptrMask.incrementOffset(1)
+        if (code == 0x8000u) {
+            break
+        }
+
+        val len: SizeT = (code and 0x00FFu).toInt()
+        val offset: SizeT = ((code shr 8) and 0x007Fu).toInt()
+        ptrDst.incrementOffset(offset)
+        ptrSrc.incrementOffset(offset)
+        SegmentFast(op, ptrSrc, ptrDst, len)
+        ptrMask.incrementOffset(len)
+        ptrDst.incrementOffset(len)
+        ptrSrc.incrementOffset(len)
+    } while ((code and 0x8000u) == 0u)
+
+    return ptrMask.offset - mask.offset
+}
+
+// Blits clipped masked span line
+// ( NOTE: mask is a span sprite! ) returns ptr to the mask
+fun MaskedSpan(
+    op: BlitterOperation,
+    mask: IDibIPixelIPointer,
+    src: IDibIPixelIPointer,
+    dst: IDibPixelIPointer,
+    clipIn: IDibIPixelIPointer,
+    clipOut: IDibIPixelIPointer,
+): Int {
+
+    val ptrDst = dst.copy()
+    val ptrSrc = src.copy()
+    val ptrMask = mask.copy()
+    var code: UInt
+    do {
+        code = ptrMask[0].toUInt()
+        ptrMask.incrementOffset(1)
+        if (code == 0x8000u) {
+            break
+        }
+
+        val len: SizeT = (code and 0x00FFu).toInt()
+        val offset: SizeT = ((code shr 8) and 0x007Fu).toInt()
+        ptrDst.incrementOffset(offset)
+        ptrSrc.incrementOffset(offset)
+        Segment(op, ptrSrc, ptrDst, ptrMask, len, clipIn, clipOut)
+        ptrMask.incrementOffset(len)
+        ptrDst.incrementOffset(len)
+        ptrSrc.incrementOffset(len)
+    } while ((code and 0x8000u) == 0u)
+
+    return ptrMask.offset - mask.offset
 }

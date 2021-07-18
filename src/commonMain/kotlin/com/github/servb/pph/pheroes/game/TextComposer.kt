@@ -163,7 +163,7 @@ class iTextComposer {
         val tbIdx = 0  // always 0, can simplify
         val curIdx = Mutable(0)
         var lbIdx = 0
-        var lsIdx = 0
+        var lsIdx = -1
         val spriteId = Mutable(0)
         val ffc = FontConfig(fc)
 
@@ -175,14 +175,14 @@ class iTextComposer {
                 height += 11
                 ++curIdx.element
                 lbIdx = curIdx.element
-                lsIdx = 0
+                lsIdx = -1
             } else {
                 if (text[curIdx.element] == ' ') {
                     lsIdx = curIdx.element
                 }
                 val ts = GetTextSize(text.substr(lbIdx - tbIdx, curIdx.element - lbIdx + 1), ffc)
                 if (ts.width > width) {
-                    if (lsIdx != 0) {
+                    if (lsIdx != -1) {
                         curIdx.element = lsIdx
                     } else {
                         --curIdx.element
@@ -190,7 +190,7 @@ class iTextComposer {
                     height += 11
                     ++curIdx.element
                     lbIdx = curIdx.element
-                    lsIdx = 0
+                    lsIdx = -1
                 } else {
                     ++curIdx.element
                 }
@@ -281,7 +281,7 @@ class iTextComposer {
         val tbIdx = 0  // always 0, can simplify
         val curIdx = Mutable(0)
         var lbIdx = 0
-        var lsIdx = 0
+        var lsIdx = -1
         val spriteId = Mutable(0)
         val ffc = FontConfig(fc)
 
@@ -304,14 +304,14 @@ class iTextComposer {
                 rect.y += 11
                 ++curIdx.element
                 lbIdx = curIdx.element
-                lsIdx = 0
+                lsIdx = -1
             } else {
                 if (text[curIdx.element] == ' ') {
                     lsIdx = curIdx.element
                 }
                 val ts = GetTextSize(text.substr(lbIdx - tbIdx, curIdx.element - lbIdx + 1), ffc)
                 if (ts.width > rect.width) {
-                    if (lsIdx != 0) {
+                    if (lsIdx != -1) {
                         curIdx.element = lsIdx
                     } else {
                         --curIdx.element
@@ -330,7 +330,7 @@ class iTextComposer {
                     rect.y += 11
                     ++curIdx.element
                     lbIdx = curIdx.element
-                    lsIdx = 0
+                    lsIdx = -1
                 } else {
                     ++curIdx.element
                 }

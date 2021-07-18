@@ -71,7 +71,7 @@ class iCreditsComposer {
     private var m_bShowCredits: Boolean
 
     constructor() {
-        m_bShowCredits = false
+        m_bShowCredits = true  // todo
     }
 
     suspend fun Init() {

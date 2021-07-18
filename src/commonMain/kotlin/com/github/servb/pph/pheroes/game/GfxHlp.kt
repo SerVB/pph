@@ -4,6 +4,7 @@ import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.pheroes.common.GfxId
 import com.github.servb.pph.pheroes.common.TextResId
 import com.github.servb.pph.pheroes.common.common.PlayerId
+import com.github.servb.pph.pheroes.common.creature.CreatureType
 import com.github.servb.pph.util.asPoint
 import com.github.servb.pph.util.helpertype.and
 import com.github.servb.pph.util.isEmpty
@@ -169,6 +170,36 @@ private class grad_shader {
                     (((sr.toUInt() shr 8) shl 11) or ((sg.toUInt() shr 8) shl 5) or (sb.toUInt() shr 8)).toUShort()
                 pline.incrementOffset(1)
             }
+        }
+    }
+}
+
+fun FormatShortNumber(value: Int): String {
+    return when {
+        value >= 1_000_000 -> "${value / 1_000_000}M"
+        value >= 1_000 -> "${value / 1_000}K"
+        else -> value.toString()
+    }
+}
+
+fun FormatNumber(value: Int, bForceSign: Boolean = false): String {
+    var value = value
+    var postfix: Char? = null
+    if (value >= 100_000_000) {
+        value /= 1000000
+        postfix = 'M'
+    } else if (value >= 100_000) {
+        value /= 1000
+        postfix = 'K'
+    }
+
+    return buildString {
+        if (bForceSign && value > 0) {
+            append('+')
+        }
+        append(value)
+        if (postfix != null) {
+            append(postfix)
         }
     }
 }
@@ -424,6 +455,22 @@ fun ComposeDlgIconButton(dib: iDib, rc: IRectangleInt, state: Int, sid: SpriteId
     )
 }
 
+fun ComposeIconButton(dib: iDib, rc: IRectangleInt, state: Int, sid: SpriteId) {
+    gGfxMgr.BlitTile(GfxId.PDGG_BKTILE.v, dib, rc)
+    ButtonFrame(dib, rc, state)
+
+    if ((state and iButton.State.Selected) != 0) {
+        dib.FillRect(rc, RGB16(255, 192, 0), 96u)
+    }
+
+    val ssiz = gGfxMgr.Dimension(sid)
+    val op = IPointInt(rc.x + (rc.width / 2 - ssiz.width / 2), rc.y + (rc.height / 2 - ssiz.height / 2))
+    if ((state and iButton.State.Disabled) != 0) {
+        dib.Darken25Rect(rc)
+    }
+    BlitIcon(dib, sid, rc, if ((state and iButton.State.Disabled) != 0) 32u else 63u)
+}
+
 fun ComposeProgressBar(bVertical: Boolean, dib: iDib, rc: IRectangleInt, clr: IDibPixel, cval: Int, mval: Int) {
     val bclr = Darken50(clr.toUInt()).toUShort()
     dib.FillRect(rc, bclr)
@@ -440,6 +487,42 @@ fun ComposeProgressBar(bVertical: Boolean, dib: iDib, rc: IRectangleInt, clr: ID
     dib.VLine(IPointInt(rc.x, rc.y + 1), rc.y + rc.height - 1, cColor.White.pixel, 48u)
     dib.HLine(IPointInt(rc.x + 1, rc.y + rc.height - 1), rc.x + rc.width - 1, cColor.Black.pixel, 48u)
     dib.VLine(IPointInt(rc.x + rc.width - 1, rc.y + 1), rc.y + rc.height - 1, cColor.Black.pixel, 48u)
+}
+
+fun ComposeCreatureIcon(surf: iDib, rc: IRectangleInt, ct: CreatureType, bFlipped: Boolean) {
+    val sid = when (bFlipped) {
+        true -> GfxId.PDGG_RMINIMON
+        false -> GfxId.PDGG_MINIMON
+    }(ct.v)
+
+    var sw = gGfxMgr.Dimension(sid).width
+    var sh = gGfxMgr.Dimension(sid).height
+    val sa = gGfxMgr.Anchor(sid)
+
+    val dw = rc.width / 2 - sw / 2
+    val dh = sh - rc.height / 2 - sh / 2
+
+    val ox: Int
+    val sx: Int
+
+    if (dw > 0) {
+        sx = 0
+        ox = rc.x + dw - sa.x
+    } else {
+        if (!bFlipped) {
+            sx = sw - rc.width
+        } else {
+            sx = 0
+        }
+        sw = rc.width
+        ox = rc.x - sa.x
+    }
+
+    val oy = rc.y - sa.y
+    val sy = 0
+    sh = minOf(sh, rc.height)
+
+    gGfxMgr.Blit(sid, surf, IRectangleInt(sx, sy, sw, sh), IPointInt(ox, oy))
 }
 
 internal val stars = listOf(

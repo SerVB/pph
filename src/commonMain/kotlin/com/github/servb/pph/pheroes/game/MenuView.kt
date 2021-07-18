@@ -187,6 +187,10 @@ class iMenuView private constructor() : iChildGameView(false, CHILD_VIEW.UNDEFIN
                         val spdlg = iScenPropsDlg(gApp.ViewMgr(), scenProps, false)
                         if (spdlg.DoModal() == DLG_RETCODE.OK.v) {
                             scenProps.ReorderPlayers()
+                            val a = iHero()
+                            val d = iHero()
+                            val bi = iBattleInfo(a, d)
+                            gGame.BeginBattle(bi)
 //                            gGame.StartNewGame(scenProps, true)  // todo
                             break
                         }

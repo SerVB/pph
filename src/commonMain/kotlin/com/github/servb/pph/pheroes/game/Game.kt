@@ -4,6 +4,8 @@ import com.github.servb.pph.gxlib.IGame
 import com.github.servb.pph.gxlib.IViewCmdHandler
 import com.github.servb.pph.gxlib.iKbdKey
 import com.github.servb.pph.gxlib.iTopmostView
+import com.github.servb.pph.pheroes.common.common.PlayerId
+import com.github.servb.pph.pheroes.common.common.PlayerType
 import com.github.servb.pph.util.helpertype.UndefinedCountValueEnum
 import com.github.servb.pph.util.helpertype.UniqueValueEnum
 import com.soywiz.korma.geom.IPointInt
@@ -63,7 +65,7 @@ class Game : IGame {
     //    private val m_itemMgr: iItemMgr = iItemMgr()  // todo
 //    private val m_Map: iGameWorld = iGameWorld()  // todo
 //    private val m_soundMap: iSoundMap = iSoundMap()  // todo
-//    private val m_pBattle: iBattleWrapper  // todo
+    private var m_pBattle: iBattleWrapper?
     private var m_bInited: Boolean
     private var m_bStarted: Boolean
 
@@ -79,7 +81,7 @@ class Game : IGame {
         m_bStarted = false
         m_tActView = iChildGameView.CHILD_VIEW.UNDEFINED
 //        m_pMainView = null  // todo
-//        m_pBattle = null  // todo
+        m_pBattle = null
         m_bGoToMainMenu = false
         m_hmChannel = -1
         m_hmSound = 0xFFFFu
@@ -117,7 +119,7 @@ class Game : IGame {
 //        }
 
         ShowView(iChildGameView.CHILD_VIEW.MENU)
-        (m_pChildView[iChildGameView.CHILD_VIEW.MENU.v] as iMenuView).Start()
+//        (m_pChildView[iChildGameView.CHILD_VIEW.MENU.v] as iMenuView).Start()  // todo
 
         m_bInited = true
         return true
@@ -149,7 +151,7 @@ class Game : IGame {
 //        m_itemMgr.OnGameEnd()  // todo
         if (bChangeView) {
             ShowView(iChildGameView.CHILD_VIEW.MENU)
-            (m_pChildView[iChildGameView.CHILD_VIEW.MENU.v] as iMenuView).Start()
+//            (m_pChildView[iChildGameView.CHILD_VIEW.MENU.v] as iMenuView).Start()  // todo
         }
     }
 
@@ -159,6 +161,7 @@ class Game : IGame {
 //    fun ItemMgr(): iItemMgr = m_itemMgr  // todo
 //    fun SoundMap(): iSoundMap = m_soundMap  // todo
 
+    // todo: get rid of suspend because it makes much of code suspend
     suspend fun ShowView(cv: iChildGameView.CHILD_VIEW) {
         check(cv != iChildGameView.CHILD_VIEW.UNDEFINED)
         if (cv == m_tActView) {
@@ -193,7 +196,10 @@ class Game : IGame {
                 m_pChildView[cv.v] = iMenuView.construct()
             }
             iChildGameView.CHILD_VIEW.OVERLAND -> TODO()
-            iChildGameView.CHILD_VIEW.BATTLE -> TODO()
+            iChildGameView.CHILD_VIEW.BATTLE -> {
+                check(m_pChildView[cv.v] == null)
+                m_pChildView[cv.v] = iBattleView()
+            }
             iChildGameView.CHILD_VIEW.CASTLE -> TODO()
             iChildGameView.CHILD_VIEW.HERO -> TODO()
             iChildGameView.CHILD_VIEW.MEET -> TODO()
@@ -220,9 +226,55 @@ class Game : IGame {
 
 //    fun MainView(): iMainView = m_pMainView  // todo
 
-//    fun BeginBattle(bi: iBattleInfo)  // todo
+    suspend fun BeginBattle(bi: iBattleInfo) {
+        check(m_pBattle == null)
 
-//    fun EndBattle()  // todo
+        check(bi.m_pAssaulter.Owner() != PlayerId.NEUTRAL) { "Assaulter cannot be neutral" }
+        val pAssaulter = iPlayer()  //m_Map.FindPlayer(bi.m_pAssaulter.Owner())  // todo
+        val pDefender = when (bi.m_pDefender.Owner() == PlayerId.NEUTRAL) {
+            true -> null
+            false -> iPlayer()  //m_Map.FindPlayer(bi.m_pDefender.Owner())  // todo
+        }
+        checkNotNull(pAssaulter)
+        check(pAssaulter != pDefender)
+
+        // Reset env sounds
+        if (pAssaulter.PlayerType() == PlayerType.HUMAN) {
+//            m_soundMap.ResetEnvSounds()  // todo
+        }
+
+        // If one of side is controlled by human, the battle must be interactive
+        val bInt = pAssaulter.PlayerType() == PlayerType.HUMAN ||
+                (pDefender != null && pDefender.PlayerType() == PlayerType.HUMAN)
+        if (bInt) {
+            // Computer player attack the not active human player, so, change the active player first  // todo
+//            if (pDefender != null && pDefender.PlayerType() == PlayerType.HUMAN && pAssaulter.PlayerType() != PlayerType.HUMAN && pDefender != m_Map.ActPlayer()) {
+//                m_Map.SetNewActor(pDefender, true)
+//            }
+
+//            OnHeroStopMoving(gGame.Map().CurHero())  // todo
+            if (gSettings.GetEntryValue(ConfigEntryType.QUICKCOMBAT) != 0) {
+                // Autobattle with result
+                TODO()
+//                check(gGame.Map().CurHero() == bi.m_pAssaulter.SpellCaster())
+//                m_pBattle = iAutoBattle(true)
+            } else {
+                // Interactive battle
+                m_pBattle = iInteractBattle()
+            }
+        } else {
+            // Auto battle
+            TODO()
+//            m_pBattle = iAutoBattle()
+        }
+
+        m_pBattle!!.BeginBattle(bi)
+    }
+
+    fun EndBattle() {
+        check(m_pBattle != null)
+        m_pBattle = null
+    }
 
 //    fun MeetHeroes(pHero1: iHero, pHero2: iHero, bAct: Boolean)  // todo
 

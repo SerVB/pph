@@ -137,7 +137,32 @@ private fun BlitDibBlock_RGBCK(dst: IDibPixelIPointer, src: IDibIPixelIPointer, 
     }
 }
 
-private fun BlitDibBlockAlpha(dst: IDibPixelIPointer, src: IDibIPixelIPointer, a: UByte, size: SizeT): Unit = TODO()
+private fun BlitDibBlockAlpha(dst: IDibPixelIPointer, src: IDibIPixelIPointer, a: UByte, size: SizeT) {
+    val alpha = a.toUInt()
+    val dst = dst.copy()
+    val src = src.copy()
+
+    repeat(size) {
+        val a = src[0].toUInt()
+        val b = dst[0].toUInt()
+
+        val sb = a and 0x1Fu
+        val sg = (a shr 5) and 0x3Fu
+        val sr = (a shr 11) and 0x1Fu
+        val db = b and 0x1Fu
+        val dg = (b shr 5) and 0x3Fu
+        val dr = (b shr 11) and 0x1Fu
+
+        dst[0] = (((alpha * (sb - db) shr 8) + db) or
+                (((alpha * (sg - dg) shr 8) + dg) shl 5) or
+                (((alpha * (sr - dr) shr 8) + dr) shl 11)).toUShort()
+
+        dst.incrementOffset(1)
+        src.incrementOffset(1)
+    }
+
+    // there is second but commented variant in sources
+}
 
 private fun FillDibBlock(dst: IDibPixelIPointer, src: IDibPixel, size: SizeT) {
     (0 until size).forEach {
@@ -225,6 +250,7 @@ class iDib : IiDib {
     private lateinit var m_dibType: IiDib.Type
 
     constructor() {
+        m_RGB = Bitmap16(0, 0)
         m_dibType = IiDib.Type.RGB
     }
 
@@ -502,7 +528,34 @@ class iDib : IiDib {
         m_RGB = dib.backingBitmap.clone()
     }
 
-    override fun CopyToDibXY(dib: iDib, pos: IPointInt, a: UByte) = TODO()
+    override fun CopyToDibXY(dib: iDib, pos: IPointInt, a: UByte) {
+        if ((pos.x + GetWidth()) <= 0 || (pos.y + GetHeight()) <= 0) {  // bugfixed to GetHeight()
+            return
+        }
+
+        check(m_dibType == IiDib.Type.RGB)
+        val src_rect = RectangleInt(GetSize().asRectangle())
+        val siz = ISizeInt(dib.GetWidth() - pos.x, dib.GetHeight() - pos.y)
+        val dst_rect = RectangleInt(pos.x, pos.y, siz.width, siz.height)
+        if (!iClipRectRect(
+                dst_rect,
+                IRectangleInt(0, 0, dib.GetWidth(), dib.GetHeight()),
+                src_rect,
+                GetSize().asRectangle()
+            )
+        ) {
+            return
+        }
+
+        val src_clr: IDibIPixelPointer = GetPtr(src_rect.asPoint())
+        val dst_clr = dib.GetPtr(dst_rect.asPoint())
+
+        repeat(dst_rect.height) {
+            BlitDibBlockAlpha(dst_clr, src_clr, a, dst_rect.width)
+            src_clr.incrementOffset(GetWidth())
+            dst_clr.incrementOffset(dib.GetWidth())
+        }
+    }
 
     override fun CopyToDibXY(dib: iDib, pos: IPointInt) {
         if ((pos.x + GetWidth()) <= 0 || (pos.y + GetHeight()) <= 0) {  // bugfixed to GetHeight()
@@ -510,7 +563,7 @@ class iDib : IiDib {
         }
 
         val src_rect = RectangleInt(GetSize().asRectangle())
-        val siz = SizeInt(dib.GetWidth() - pos.x, dib.GetHeight() - pos.y)
+        val siz = ISizeInt(dib.GetWidth() - pos.x, dib.GetHeight() - pos.y)
         val dst_rect = RectangleInt(pos.x, pos.y, siz.width, siz.height)
         if (!iClipRectRect(
                 dst_rect,

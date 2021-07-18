@@ -3,11 +3,43 @@ package com.github.servb.pph.pheroes.game
 import com.github.servb.pph.gxlib.*
 import com.github.servb.pph.pheroes.common.GfxId
 import com.github.servb.pph.pheroes.common.TextResId
+import com.github.servb.pph.pheroes.common.common.PlayerId
+import com.github.servb.pph.util.SizeT
 import com.github.servb.pph.util.asPoint
 import com.github.servb.pph.util.helpertype.and
 import com.github.servb.pph.util.helpertype.or
 import com.soywiz.korma.geom.IRectangleInt
 import com.soywiz.korma.geom.RectangleInt
+import com.soywiz.korma.geom.SizeInt
+
+abstract class iFramePopupView : iPopupView {
+
+    private val m_pid: PlayerId
+
+    constructor(pViewMgr: iViewMgr, pid: PlayerId) : super(pViewMgr) {
+        m_pid = pid
+    }
+
+    abstract fun DoCompose(clRect: IRectangleInt)
+
+    abstract fun ClientSize(): SizeInt
+
+    override fun OnCompose() {
+        ComposeDlgBkgnd(gApp.Surface(), m_Rect, m_pid, false)
+        val rc = RectangleInt(m_Rect)
+        rc.rect.inflate(-12)
+        DoCompose(rc)
+    }
+
+    override fun PopupViewSize(): SizeInt {
+        val result = ClientSize()
+        result.width += 24
+        result.height += 24
+        return result
+    }
+
+    override fun PopupViewMinSize(): SizeInt = SizeInt(80, 40)
+}
 
 class iPHLabel : iBaseCtrl {
 
@@ -38,6 +70,25 @@ class iPHLabel : iBaseCtrl {
     }
 }
 
+class iTBSplitter : iBaseCtrl {
+
+    constructor(pViewMgr: iViewMgr, rect: IRectangleInt) : super(
+        pViewMgr,
+        null,
+        rect,
+        VIEWCLSID.GENERIC_VIEWPORT,
+        0u,
+        ViewState.Visible.v
+    )
+
+    override fun OnCompose() {
+        val rc = GetScrRect()
+        gGfxMgr.BlitTile(GfxId.PDGG_BKTILE.v, gApp.Surface(), rc)
+        ButtonFrame(gApp.Surface(), rc, 0)
+        gApp.Surface().Darken25Rect(rc)
+    }
+}
+
 class iTextButton : iButton {
 
     private var m_TextKey: TextResId
@@ -64,6 +115,30 @@ class iTextButton : iButton {
     fun SetCaption(textKey: TextResId) {
         m_TextKey = textKey
         Invalidate()
+    }
+}
+
+class iIconButton : iButton {
+
+    private val m_spriteId: SpriteId
+
+    constructor(
+        pViewMgr: iViewMgr,
+        pCmdHandler: IViewCmdHandler,
+        rect: IRectangleInt,
+        sid: SpriteId,
+        uid: UInt,
+        state: Int = iView.ViewState.Visible or ViewState.Enabled
+    ) : super(pViewMgr, pCmdHandler, rect, uid, state) {
+        m_spriteId = sid
+    }
+
+    override fun OnBtnDown() {
+        // gSfxMgr.PlaySound(CSND_BUTTON);  // commented in sources
+    }
+
+    override fun OnCompose() {
+        ComposeIconButton(gApp.Surface(), GetScrRect(), GetButtonState(), m_spriteId)
     }
 }
 
@@ -142,5 +217,28 @@ class iPHScrollBar : iScrollBar {
                 }
             }
         }
+    }
+}
+
+// Tool bar tabbed switch
+class iBarTabSwitch : iTabbedSwitch {
+
+    private val m_Tabs: MutableList<SpriteId> = mutableListOf()
+
+    constructor(
+        pViewMgr: iViewMgr,
+        pCmdHandler: IViewCmdHandler,
+        rect: IRectangleInt,
+        tabcnt: SizeT,
+        uid: UInt
+    ) : super(pViewMgr, pCmdHandler, rect, tabcnt, uid)
+
+    fun SetTabIcon(sid: SpriteId) {
+        m_Tabs.add(sid)
+    }
+
+    override fun ComposeTabItem(idx: Int, itemState: Int, rect: IRectangleInt) {
+        ComposeIconButton(gApp.Surface(), rect, itemState, m_Tabs[idx])
+        if (!IsEnabled()) gApp.Surface().Darken25Rect(rect)
     }
 }

@@ -82,4 +82,9 @@ class FurtherSkills : FurtherSkillsC {
             values[xx + FurtherSkill.ATTACK.v] -= other.values[xx]
         }
     }
+
+    fun setTo(other: FurtherSkillsC) {
+        values.clear()
+        other.values.mapTo(values) { it }
+    }
 }

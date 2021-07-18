@@ -6,7 +6,6 @@ import com.github.servb.pph.pheroes.common.creature.CreatureType
 
 val creatGrowthDivider = listOf(9, 9, 10, 10, 11, 12)
 
-@ExperimentalUnsignedTypes
 abstract class CreatGroupC {
     abstract val type: CreatureType
     abstract val count: Int
@@ -15,7 +14,6 @@ abstract class CreatGroupC {
     val groupPower: UInt get() = (count * type.descriptor!!.pidx).toUInt()
 }
 
-@ExperimentalUnsignedTypes
 data class CreatGroup(
         override var type: CreatureType = CreatureType.UNKNOWN,
         override var count: Int = RANDOM_QUANTITY

@@ -19,4 +19,5 @@ suspend fun main() = Korge(
         resourcesVfs["resources.zip"].openAsZip(caseSensitive = false)  // case insensitive to avoid strict matching
 
     WinMain(this, "")
+//        mainDev()
 }

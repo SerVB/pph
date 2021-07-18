@@ -3,7 +3,6 @@ package com.github.servb.pph.pheroes.common.army
 import com.github.servb.pph.pheroes.common.common.NationType
 import com.github.servb.pph.pheroes.common.creature.CreatureType
 
-@ExperimentalUnsignedTypes
 abstract class ArmyC {
     /** size = 7. */
     abstract val creatGroups: List<CreatGroupC>
@@ -16,17 +15,17 @@ abstract class ArmyC {
 
     val slowestSpeed: Int
         get() = creatGroups
-                .filter { it.isValid }
-                .minBy { it.type.descriptor!!.speed }
-                ?.type
-                ?.descriptor
-                ?.speed ?: throw IllegalStateException("No valid groups")
+            .filter { it.isValid }
+            .minByOrNull { it.type.descriptor!!.speed }
+            ?.type
+            ?.descriptor
+            ?.speed ?: throw IllegalStateException("No valid groups")
 
     val strongestCreature: CreatureType
         get() = creatGroups
-                .filter { it.isValid }
-                .maxBy { it.type.descriptor!!.pidx }
-                ?.type ?: throw IllegalStateException("No valid groups")
+            .filter { it.isValid }
+            .maxByOrNull { it.type.descriptor!!.pidx }
+            ?.type ?: throw IllegalStateException("No valid groups")
 
     val moraleModifier: Int
         get() {
@@ -87,8 +86,10 @@ abstract class ArmyC {
     open operator fun get(idx: Int): CreatGroupC = creatGroups[idx]
 }
 
-@ExperimentalUnsignedTypes
-data class Army(override val creatGroups: MutableList<CreatGroup>) : ArmyC() {
+data class Army private constructor(override val creatGroups: MutableList<CreatGroup>) : ArmyC() {
+
+    constructor() : this((1..7).map { CreatGroup() }.toMutableList())
+
     fun addGroup(type: CreatureType, count: Int): Boolean {
         check(type != CreatureType.UNKNOWN)
 
@@ -122,17 +123,17 @@ data class Army(override val creatGroups: MutableList<CreatGroup>) : ArmyC() {
         return false
     }
 
-    fun creatureCount(type: CreatureType): Int = creatGroups.filter { it.type == type }.sumBy { it.count }
+    fun creatureCount(type: CreatureType): Int = creatGroups.filter { it.type == type }.sumOf { it.count }
 
     val weakestCreatures: CreatGroup
         get() = creatGroups
-                .filter { it.isValid }
-                .minBy { it.type.descriptor!!.pidx } ?: throw IllegalStateException("No valid groups")
+            .filter { it.isValid }
+            .minByOrNull { it.type.descriptor!!.pidx } ?: throw IllegalStateException("No valid groups")
 
     val weakestGroup: CreatGroup
         get() = creatGroups
-                .filter { it.isValid }
-                .minBy { it.groupPower } ?: throw IllegalStateException("No valid groups")
+            .filter { it.isValid }
+            .minByOrNull { it.groupPower } ?: throw IllegalStateException("No valid groups")
 
     fun joinGroups(): Boolean {
         var joined = false
@@ -165,7 +166,7 @@ data class Army(override val creatGroups: MutableList<CreatGroup>) : ArmyC() {
 
     override operator fun get(idx: Int): CreatGroup = creatGroups[idx]
 
-    fun assign(other: ArmyC) {
+    fun setTo(other: ArmyC) {
         for ((idx, group) in other.creatGroups.withIndex()) {
             this.creatGroups[idx] = CreatGroup(type = group.type, count = group.count)
         }

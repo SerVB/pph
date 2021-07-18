@@ -284,7 +284,7 @@ class iScenPropsDlg : iBaseGameDlg {
 
     private fun UpdateControls() {
         val bHasHuman = m_scProps.m_Players.indices.any { m_btnPlayers[it].PlayerType() == PlayerType.HUMAN }
-//        m_pOkBtn.SetEnabled(bHasHuman)  // todo: uncomment when new game start is supported
+        m_pOkBtn.SetEnabled(bHasHuman)
     }
 
     override suspend fun iCMDH_ControlCommand(pView: iView, cmd: CTRL_CMD_ID, param: Int) {

@@ -14,7 +14,7 @@ import com.soywiz.korma.geom.RectangleInt
 import com.soywiz.korma.geom.center
 import com.soywiz.korma.geom.topLeft2
 
-private lateinit var gDataPath: String
+lateinit var gDataPath: String
 lateinit var gSavePath: String
 lateinit var gMapsPath: String
 val gApp: iGXApp = iGXApp()

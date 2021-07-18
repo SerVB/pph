@@ -187,6 +187,7 @@ abstract class iView : IiView {
     final override fun GetPos(): PointInt = m_Rect.getPosition()
     final override fun GetRect(): RectangleInt = RectangleInt(m_Rect)
 
+    // todo: fix name to GetScrPos
     final override fun GetSrcPos(): PointInt {
         val res = m_Rect.getPosition()
         m_pParent?.let {

@@ -56,3 +56,5 @@ fun Rectangle.deflate(left: SizeT, top: SizeT, right: SizeT, bottom: SizeT) {
     width -= left + right
     height -= top + bottom
 }
+
+operator fun PointInt.plusAssign(other: IPointInt): Unit = run { setTo(x + other.x, y + other.y) }
