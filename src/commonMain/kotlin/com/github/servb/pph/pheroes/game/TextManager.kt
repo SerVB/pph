@@ -17,7 +17,9 @@ enum class Language(val displayName: String) {
 }
 
 private const val CONSTANT_PREFIX = "TRID_"
-private const val LANGUAGE_FILE_REGEX = """\{(.+)}.*,.*\{.*}.*,.*\{(.*)}"""
+
+@Suppress("RegExpRedundantEscape")  // https://youtrack.jetbrains.com/issue/KT-47776
+private const val LANGUAGE_FILE_REGEX = """\{(.+)\}.*,.*\{.*\}.*,.*\{(.*)\}"""
 
 class iTextManager {
 
